@@ -1,0 +1,114 @@
+@use 'variables';
+@use 'mixins';
+@use 'reset';
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+main > section {
+  scroll-margin-top: var(--header-height);
+}
+
+// Séparateurs visuels entre sections
+#skills,
+#projects,
+#playground,
+#education,
+#contact {
+  border-top: 1px solid var(--clr-border);
+}
+
+// ── A11y classes ──────────────────────────────
+
+// Police OpenDyslexic
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/fonts/OpenDyslexic-Regular.otf');
+  font-weight: normal;
+  font-display: swap;
+}
+
+.a11y-dyslexic {
+  --font-sans: 'OpenDyslexic', sans-serif !important;
+  --font-serif: 'OpenDyslexic', sans-serif !important;
+
+  * { font-family: 'OpenDyslexic', sans-serif !important; }
+}
+
+// Taille de police
+.a11y-font-md { font-size: 112% !important; }
+.a11y-font-lg { font-size: 125% !important; }
+
+// Espacement
+.a11y-spacing * {
+  letter-spacing: 0.08em !important;
+  word-spacing: 0.16em !important;
+  line-height: 1.9 !important;
+}
+
+// Contraste élevé
+
+// Mode clair avec contraste élevé
+[data-theme="light"].a11y-contrast,
+:root.a11y-contrast {
+  --clr-text:       #000000 !important;
+  --clr-text-muted: #1a1a1a !important;
+  --clr-border:     rgba(0, 0, 0, 0.5) !important;
+
+  p, li, span, time, label, h1, h2, h3 { 
+    color: #000000 !important; 
+
+    // Exception — préserve les couleurs du nuage de skills
+    &[data-category="language"] { color: #9e7033 !important; }
+    &[data-category="front"]    { color: #e45627 !important; }
+    &[data-category="back"]     { color: #3d8e59 !important; }
+    &[data-category="divers"]   { color: #793a96 !important; }
+  
+  }
+    
+}
+
+// Mode sombre avec contraste élevé
+[data-theme="dark"].a11y-contrast {
+  --clr-text:       #ffffff !important;
+  --clr-text-muted: #f0f0f0 !important;
+  --clr-border:     rgba(255, 255, 255, 0.5) !important;
+
+  p, li, span, time, label, h1, h2, h3 { 
+    color: #ffffff !important; 
+
+    // Exception — préserve les couleurs du nuage de skills
+    &[data-category="language"] { color: #f1bf7d !important; }
+    &[data-category="front"]    { color: #f48059 !important; }
+    &[data-category="back"]     { color: #69c188 !important; }
+    &[data-category="divers"]   { color: #bc77dc !important; }
+
+  }
+  
+}
+
+.a11y-contrast {
+  a {
+    font-weight: 600 !important;
+  }
+
+  // Boutons avec bordure forte
+  button {
+    border-width: 2px !important;
+    font-weight: 600 !important;
+  }
+
+  // Accentuation corail plus vive
+  em, strong { font-weight: 700 !important; }
+}
+
+// Pause animations
+.a11y-no-motion * {
+  animation: none !important;
+  transition: none !important;
+  // Force la visibilité des éléments animés
+  opacity: 1 !important;
+  transform: none !important;
+}

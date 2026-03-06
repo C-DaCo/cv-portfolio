@@ -1,0 +1,42 @@
+
+.tag {
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  border: 1px solid;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  @include m.reduced-motion {
+    &:hover { transform: none; }
+  }
+}
+
+.coral {
+  color: #E8715A;
+  border-color: #F2BFAD;
+  background: rgba(232, 113, 90, 0.1);
+}
+
+.sage {
+  color: #7B9E87;
+  border-color: #A8C5B0;
+  background: rgba(123, 158, 135, 0.1);
+}
+
+.mauve {
+  color: #9B7EA8;
+  border-color: #C9B3D4;
+  background: rgba(155, 126, 168, 0.1);
+}
+
+.sand {
+  color: #C4A882;
+  border-color: #D9C4A8;
+  background: rgba(196, 168, 130, 0.1);
+}

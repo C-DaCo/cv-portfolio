@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "experiences": "Expériences",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "education": "Formation",
+    "contact": "Contact",
+    "playground": "Playground",
+    "toggleDark": "Activer le thème sombre",
+    "toggleLight": "Activer le thème clair"
+  },
+  "hero": {
+    "available": "Disponible · Full Remote",
+    "rolePart1": "Développeuse Front-End",
+    "rolePart2": "EdTech",
+    "summary": "Spécialisée en React et Node.js, avec plus de 5 ans d'expérience dans l'EdTech. Habituée à travailler en full remote au sein d'équipes agiles, je conçois des applications performantes, accessibles et scalables. Autonome, curieuse et passionnée par les bonnes pratiques, j'aime transformer des besoins complexes en solutions simples et efficaces.",
+    "ctaContact": "Me contacter",
+    "ctaProjects": "Voir mes projets",
+    "statsYears": "Ans d'expérience",
+    "statsYearsValue": "9+",
+    "statsCompanies": "Entreprises EdTech",
+    "statsCompaniesValue": "3",
+    "statsModules": "Modules créés",
+    "statsModulesValue": "15+",
+    "scroll": "Scroll"
+  },
+  "experiences": {
+    "eyebrow": "✦ Parcours",
+    "title": "Expériences",
+    "subtitle": "Plus de 5 ans dans l'EdTech, en full remote.",
+    "remote": "◎ Remote",
+    "today": "Aujourd'hui",
+    "ariaLabel": "Expériences professionnelles",
+    "techAriaLabel": "Technologies utilisées chez {{company}}"
+  },
+  "skills": {
+    "eyebrow": "✦ Savoir-faire",
+    "title": "Compétences",
+    "subtitle": "Un spectre large, une expertise front-end.",
+    "cloudAriaLabel": "Nuage de compétences",
+    "categories": {
+      "language": "Langages",
+      "front": "Front-End",
+      "back": "Back-End",
+      "divers": "Outils & Méthodes"
+    }
+  },
+  "education": {
+    "eyebrow": "✦ Diplômes",
+    "title": "Formations",
+    "ariaLabel": "Formations et certifications"
+  },
+  "projects": {
+    "eyebrow": "✦ Projets",
+    "title": "Réalisations",
+    "subtitle": "Des projets concrets, des problèmes réels, des solutions durables."
+  },
+  "playground": {
+  "eyebrow": "✦ Composants",
+  "title": "Playground",
+  "subtitle": "Des composants React accessibles, testés et documentés. Navigation clavier, ARIA, focus management — les bonnes pratiques en action.",
+  "modal": {
+    "title": "Modale accessible",
+    "desc": "Focus trap, scroll lock, retour du focus, fermeture Échap.",
+    "cta": "Ouvrir la modale"
+  },
+  "toast": {
+    "title": "Notifications Toast",
+    "desc": "File d'attente, aria-live, fermeture automatique et manuelle."
+  },
+  "accordion": {
+    "title": "Accordion accessible",
+    "desc": "Navigation clavier complète, aria-expanded, multi ou mono ouverture."
+  }
+  },
+  "contact": {
+    "eyebrow": "✦ Contact",
+    "title": "Travaillons",
+    "titleAccent": "ensemble",
+    "desc": "Une opportunité, un projet, une question ? Je lis tous mes messages et réponds sous 48h.",
+    "location": "France · Full Remote",
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "vous@exemple.com",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Objet de votre message",
+      "message": "Message",
+      "messagePlaceholder": "Dites-moi tout...",
+      "charCount": "{{count}} / 20 caractères minimum",
+      "charMin": "caractères minimum",
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours...",
+      "successTitle": "Message envoyé !",
+      "successDesc": "Merci, je vous réponds dans les meilleurs délais.",
+      "errorMsg": "Une erreur est survenue. Réessayez ou contactez-moi directement par email."
+    },
+    "validation": {
+      "nameMin": "Le nom doit contenir au moins 2 caractères.",
+      "emailInvalid": "Adresse email invalide.",
+      "subjectMin": "Le sujet doit contenir au moins 5 caractères.",
+      "messageMin": "Le message doit contenir au moins 20 caractères."
+    }
+  },
+  "footer": {
+    "madeWith": "Fait avec",
+    "stack": "en React · TypeScript"
+  }
+}

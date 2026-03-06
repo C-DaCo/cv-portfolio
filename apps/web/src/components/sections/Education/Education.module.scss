@@ -1,0 +1,182 @@
+.education {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem clamp(1.5rem, 6vw, 5rem);
+
+  @include m.respond-below("md") {
+    padding: 4rem clamp(1rem, 4vw, 1.5rem);
+  }
+}
+
+// ── Header ────────────────────────────────────
+
+.header {
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  &.visible { opacity: 1; transform: translateY(0); }
+
+  @include m.respond-below("md") { margin-bottom: 2.5rem; }
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #E8715A;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--clr-text);
+}
+
+// ── Grid ──────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  list-style: none;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-below("sm") {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+// ── Carte ─────────────────────────────────────
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &.visible { opacity: 1; transform: translateY(0); }
+
+  &:hover {
+    border-color: rgba(232, 113, 90, 0.3);
+    box-shadow: 0 8px 32px rgba(44, 36, 32, 0.08);
+  }
+
+  @include m.respond-below("sm") {
+    padding: 1.25rem;
+    gap: 1rem;
+    border-radius: 16px;
+  }
+
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+}
+
+// ── Logo ─────────────────────────────────────
+.logoWrap{
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+     a{
+        border-radius: 6px;
+        padding: 0.25rem;
+        background-color: #fff;
+    }
+  
+    .logo {
+        width: auto;
+        height: 3rem;
+        object-fit: contain;
+        border-radius: 6px;
+        transition: filter 0.3s ease;
+    }
+}
+
+// ── Contenu ───────────────────────────────────
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.year {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #E8715A;
+  letter-spacing: 0.08em;
+}
+
+.duration {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--clr-text-muted);
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  background: var(--clr-bg-200);
+  border: 1px solid var(--clr-border);
+}
+
+.school {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 400;
+  color: var(--clr-text);
+  line-height: 1.2;
+}
+
+.degree {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  font-weight: 300;
+  
+  @include m.respond-below("sm") { font-size: 0.85rem; }
+}
+
+// ── Certifications ────────────────────────────
+
+.certList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.certItem {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.03em;
+  display: flex;
+  gap: 0.5rem;
+}

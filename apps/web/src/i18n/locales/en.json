@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "experiences": "Experiences",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact",
+    "toggleDark": "Enable dark mode",
+    "toggleLight": "Enable light mode"
+  },
+  "hero": {
+    "available": "Available · Full Remote",
+    "rolePart1": "Front-End Developer",
+    "rolePart2": "EdTech",
+    "summary": "Specialized in React and Node.js, with over 5 years of experience in EdTech. Used to working fully remote within agile teams, I build performant, accessible and scalable applications. Autonomous, curious and passionate about best practices, I love turning complex needs into simple and effective solutions.",
+    "ctaContact": "Get in touch",
+    "ctaProjects": "See my projects",
+    "statsYears": "Years of experience",
+    "statsYearsValue": "9+",
+    "statsCompanies": "EdTech companies",
+    "statsCompaniesValue": "3",
+    "statsModules": "Modules created",
+    "statsModulesValue": "15+",
+    "scroll": "Scroll"
+  },
+  "experiences": {
+    "eyebrow": "✦ Journey",
+    "title": "Experiences",
+    "subtitle": "5+ years in EdTech, fully remote.",
+    "remote": "◎ Remote",
+    "today": "Present",
+    "ariaLabel": "Work experience",
+    "techAriaLabel": "Technologies used at {{company}}"
+  },
+  "skills": {
+    "eyebrow": "✦ Expertise",
+    "title": "Skills",
+    "subtitle": "Broad spectrum, front-end expertise.",
+    "cloudAriaLabel": "Skills cloud",
+    "categories": {
+        "language": "Languages",
+      "front": "Front-End",
+      "back": "Back-End",
+      "divers": "Tools & Methods"
+    }
+  },
+  "education": {
+    "eyebrow": "✦ Diplomas",
+    "title": "Education",
+    "ariaLabel": "Education and certifications"
+    },
+    "projects": {
+  "eyebrow": "✦ Projects",
+  "title": "Realizations",
+  "subtitle": "Concrete projects, real problems, lasting solutions."
+},
+    "playground": {
+  "eyebrow": "✦ Components",
+  "title": "Playground",
+  "subtitle": "Accessible React components, tested and documented. Keyboard navigation, ARIA, focus management — best practices in action.",
+  "modal": {
+    "title": "Accessible Modal",
+    "desc": "Focus trap, scroll lock, focus return, Escape to close.",
+    "cta": "Open modal"
+  },
+  "toast": {
+    "title": "Toast Notifications",
+    "desc": "Queue system, aria-live, auto and manual close."
+  },
+  "accordion": {
+    "title": "Accessible Accordion",
+    "desc": "Full keyboard navigation, aria-expanded, single or multi open."
+  }
+},
+  "contact": {
+    "eyebrow": "✦ Contact",
+    "title": "Let's work",
+    "titleAccent": "together",
+    "desc": "An opportunity, a project, a question? I read all my messages and reply within 48h.",
+    "location": "France · Full Remote",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Subject of your message",
+      "message": "Message",
+      "messagePlaceholder": "Tell me everything...",
+      "charCount": "{{count}} / 20 characters minimum",
+      "charMin": "characters minimum",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "successTitle": "Message sent!",
+      "successDesc": "Thank you, I'll get back to you shortly.",
+      "errorMsg": "An error occurred. Please try again or contact me directly by email."
+    },
+    "validation": {
+      "nameMin": "Name must be at least 2 characters.",
+      "emailInvalid": "Invalid email address.",
+      "subjectMin": "Subject must be at least 5 characters.",
+      "messageMin": "Message must be at least 20 characters."
+    }
+  },
+    "footer": {
+      "madeWith": "Made with",
+      "stack": "in React · TypeScript"
+    }
+}
