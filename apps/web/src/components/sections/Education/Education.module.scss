@@ -1,5 +1,5 @@
 .education {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 8rem clamp(1.5rem, 6vw, 5rem);
 
@@ -24,7 +24,7 @@
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #E8715A;
+  color: var(--clr-coral);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -131,7 +131,7 @@
 .year {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #E8715A;
+  color: var(--clr-coral);
   letter-spacing: 0.08em;
 }
 

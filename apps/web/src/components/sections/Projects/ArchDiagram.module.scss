@@ -16,8 +16,8 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  &:hover { color: #E8715A; border-color: #E8715A; }
-  &:focus-visible { outline: 2px solid #E8715A; outline-offset: 3px; }
+  &:hover { color: var(--clr-coral); border-color: var(--clr-coral); }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 3px; }
 }
 
 // ── Overlay ───────────────────────────────────
@@ -96,7 +96,7 @@
 .panelEyebrow {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: #E8715A;
+  color: var(--clr-coral);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.25rem;
@@ -122,8 +122,8 @@
   flex-shrink: 0;
   transition: all 0.2s ease;
 
-  &:hover { color: #E8715A; border-color: #E8715A; }
-  &:focus-visible { outline: 2px solid #E8715A; outline-offset: 3px; }
+  &:hover { color: var(--clr-coral); border-color: var(--clr-coral); }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 3px; }
 }
 
 // ── Tabs ──────────────────────────────────────
@@ -154,12 +154,12 @@
   transition: all 0.2s ease;
 
   &:hover { color: var(--clr-text); }
-  &:focus-visible { outline: 2px solid #E8715A; outline-offset: -2px; }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: -2px; }
 }
 
 .tabActive {
-  color: #E8715A;
-  border-bottom-color: #E8715A;
+  color: var(--clr-coral);
+  border-bottom-color: var(--clr-coral);
 }
 
 // ── Tab content ───────────────────────────────
@@ -233,10 +233,10 @@
 }
 
 // Couleurs des couches
-.coral { color: #E8715A; border-color: rgba(232,113,90,0.2); background: rgba(232,113,90,0.04); .layerLabel { color: #E8715A; } }
-.sage  { color: #7B9E87; border-color: rgba(123,158,135,0.2); background: rgba(123,158,135,0.04); .layerLabel { color: #7B9E87; } }
-.mauve { color: #9B7EA8; border-color: rgba(155,126,168,0.2); background: rgba(155,126,168,0.04); .layerLabel { color: #9B7EA8; } }
-.sand  { color: #C4A882; border-color: rgba(196,168,130,0.2); background: rgba(196,168,130,0.04); .layerLabel { color: #C4A882; } }
+.coral { color: var(--clr-coral); border-color: rgba(232,113,90,0.2); background: rgba(232,113,90,0.04); .layerLabel { color: var(--clr-coral); } }
+.sage  { color: var(--clr-sage); border-color: rgba(123,158,135,0.2); background: rgba(123,158,135,0.04); .layerLabel { color: var(--clr-sage); } }
+.mauve { color: var(--clr-mauve); border-color: rgba(155,126,168,0.2); background: rgba(155,126,168,0.04); .layerLabel { color: var(--clr-mauve); } }
+.sand  { color: var(--clr-sand); border-color: rgba(196,168,130,0.2); background: rgba(196,168,130,0.04); .layerLabel { color: var(--clr-sand); } }
 
 // ── Structure ─────────────────────────────────
 
@@ -263,13 +263,13 @@
   transition: background 0.15s ease;
 
   &:hover { background: var(--clr-bg-100); }
-  &:focus-visible { outline: 2px solid #E8715A; outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
 }
 
 .treeRoot { font-weight: 600; }
 
 .treeIcon {
-  color: #E8715A;
+  color: var(--clr-coral);
   font-size: 0.7rem;
   flex-shrink: 0;
   width: 12px;
@@ -278,7 +278,7 @@
 .treeName {
   color: var(--clr-text);
 
-  &.folder { color: #C4A882; }
+  &.folder { color: var(--clr-sand); }
   &.file   { color: var(--clr-text-muted); }
   &.root   { color: var(--clr-text); }
 }

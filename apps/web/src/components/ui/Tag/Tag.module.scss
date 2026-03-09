@@ -18,25 +18,25 @@
 }
 
 .coral {
-  color: #E8715A;
-  border-color: #F2BFAD;
+  color: var(--clr-coral);
+  border-color: var(--clr-blush);
   background: rgba(232, 113, 90, 0.1);
 }
 
 .sage {
-  color: #7B9E87;
-  border-color: #A8C5B0;
+  color: var(--clr-sage);
+  border-color: var(--clr-sage-light);
   background: rgba(123, 158, 135, 0.1);
 }
 
 .mauve {
-  color: #9B7EA8;
+  color: var(--clr-mauve);
   border-color: #C9B3D4;
   background: rgba(155, 126, 168, 0.1);
 }
 
 .sand {
-  color: #C4A882;
+  color: var(--clr-sand);
   border-color: #D9C4A8;
   background: rgba(196, 168, 130, 0.1);
 }

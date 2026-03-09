@@ -5,19 +5,20 @@ import { cvData } from "@data/cv.data";
 import type { Experience } from "@/types/cv.types";
 import styles from "./Experiences.module.scss";
 import { useTranslation } from "react-i18next";
+import { assets } from "@assets/index";
 
 const techVariant = (category: string) => {
-  const map: Record<string, "coral"|"sage"|"mauve"|"sand"> = {
+  const map: Record<string, "coral" | "sage" | "mauve" | "sand"> = {
     frontend: "coral", language: "coral",
-    backend: "sage",   database: "mauve",
-    mobile: "sand",    tools: "sand",
+    backend: "sage", database: "mauve",
+    mobile: "sand", tools: "sand",
   };
   return map[category] ?? "coral";
 };
 
 function formatDate(isoDate: string) {
   const [year, month] = isoDate.split("-");
-  const months = ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"];
+  const months = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sep", "Oct", "Nov", "Déc"];
   return `${months[parseInt(month) - 1]} ${year}`;
 }
 
@@ -28,20 +29,22 @@ interface ExperienceCardProps {
 }
 
 function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
-    
- const { t } = useTranslation();
+
+  const { t } = useTranslation();
   const prefersReduced = useReducedMotion();
-  const { ref, isVisible } = useIntersectionObserver<HTMLLIElement>({ 
-    threshold: 0.15, 
-    triggerOnce: true 
-});
+  const logo = assets.experiences[experience.companyLogo as keyof typeof assets.experiences];
+
+  const { ref, isVisible } = useIntersectionObserver<HTMLLIElement>({
+    threshold: 0.15,
+    triggerOnce: true
+  });
 
   return (
-    <li 
-        ref={ref}
+    <li
+      ref={ref}
       className={`${styles.item} ${isVisible || prefersReduced ? styles.visible : ""}`}
       style={{ transitionDelay: prefersReduced ? "0ms" : `${index * 120}ms` }}
-     aria-label={`${experience.role} chez ${experience.company}`}
+      aria-label={`${experience.role} chez ${experience.company}`}
     >
       <div className={styles.timelineCol} aria-hidden="true">
         <div className={styles.dot} />
@@ -56,7 +59,7 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
           <h3 className={styles.role}>{experience.role}</h3>
           <div className={styles.companyRow}>
             <a href={experience.companyUrl} target="_blank" rel="noopener noreferrer">
-              <img src={experience.companyLogo} alt={experience.company} className={styles.companyLogo} />
+              <img src={logo} alt={experience.company} className={styles.companyLogo} />
             </a>
             <span className={styles.location}>{experience.location}</span>
           </div>
@@ -73,13 +76,13 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
             </li>
           ))}
         </ul>
-        <div 
-          className={styles.techList} 
-          role="list" 
+        <div
+          className={styles.techList}
+          role="list"
           aria-label={t("experiences.techAriaLabel", { company: experience.company })}>
-            {experience.technologies.map((tech) => (
-              <Tag key={tech.name} label={tech.name} variant={techVariant(tech.category)} />
-            ))}
+          {experience.technologies.map((tech) => (
+            <Tag key={tech.name} label={tech.name} variant={techVariant(tech.category)} />
+          ))}
         </div>
       </article>
     </li>
@@ -87,7 +90,7 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
 }
 
 export function Experiences() {
- const { t } = useTranslation();
+  const { t } = useTranslation();
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
   const prefersReduced = useReducedMotion();
 

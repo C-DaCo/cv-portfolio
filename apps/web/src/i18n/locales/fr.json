@@ -56,22 +56,80 @@
     "subtitle": "Des projets concrets, des problèmes réels, des solutions durables."
   },
   "playground": {
-  "eyebrow": "✦ Composants",
-  "title": "Playground",
-  "subtitle": "Des composants React accessibles, testés et documentés. Navigation clavier, ARIA, focus management — les bonnes pratiques en action.",
-  "modal": {
-    "title": "Modale accessible",
-    "desc": "Focus trap, scroll lock, retour du focus, fermeture Échap.",
-    "cta": "Ouvrir la modale"
-  },
-  "toast": {
-    "title": "Notifications Toast",
-    "desc": "File d'attente, aria-live, fermeture automatique et manuelle."
-  },
-  "accordion": {
-    "title": "Accordion accessible",
-    "desc": "Navigation clavier complète, aria-expanded, multi ou mono ouverture."
-  }
+    "eyebrow": "✦ Composants",
+    "title": "Playground",
+    "subtitle": "Des composants React accessibles, testés et documentés. Navigation clavier, ARIA, focus management — les bonnes pratiques en action.",
+    "modal": {
+      "title": "Modale accessible",
+      "desc": "Focus trap, scroll lock, retour du focus, fermeture Échap.",
+      "cta": "Ouvrir la modale",
+      "demoTitle": "Exemple de modale accessible",
+      "demoDesc": "Cette modale implémente toutes les bonnes pratiques d'accessibilité :",
+      "demoClose": "Fermer",
+      "features": {
+        "focusTrap": "Le focus est piégé à l'intérieur",
+        "escape": "Fermeture via la touche Échap",
+        "overlay": "Clic sur l'overlay pour fermer",
+        "scrollLock": "Le scroll du body est bloqué",
+        "focusReturn": "Le focus revient au déclencheur à la fermeture"
+      },
+      "featureList": {
+        "focusTrap": "Focus trap — le focus reste dans la modale",
+        "escape": "Fermeture via Échap ou overlay",
+        "scrollLock": "Scroll lock sur le body",
+        "focusReturn": "Retour du focus à l'élément déclencheur",
+        "aria": "aria-modal, aria-labelledby"
+      }
+    },
+    "toast": {
+      "title": "Notifications Toast",
+      "desc": "File d'attente, aria-live, fermeture automatique et manuelle.",
+      "success": "Succès",
+      "error": "Erreur",
+      "info": "Info",
+      "warning": "Warning",
+      "msgSuccess": "Enregistrement réussi !",
+      "msgError": "Une erreur est survenue.",
+      "msgInfo": "Mise à jour disponible.",
+      "msgWarning": "Session bientôt expirée.",
+      "ariaLabel": "Déclencher une notification",
+      "featureList": {
+        "queue": "File d'attente de notifications",
+        "timer": "Fermeture automatique avec timer",
+        "progress": "Barre de progression animée",
+        "aria": "aria-live=\"polite\", aria-atomic",
+        "variants": "4 variantes : succès, erreur, info, warning"
+      }
+    },
+    "accordion": {
+      "title": "Accordion accessible",
+      "desc": "Navigation clavier complète, aria-expanded, multi ou mono ouverture.",
+      "featureList": {
+        "keyboard": "Navigation clavier ↑ ↓ Home End",
+        "aria": "aria-expanded, aria-controls",
+        "mode": "Mode simple ou multi-ouverture",
+        "animation": "Animation hauteur sans JS de mesure"
+      },
+      "items": {
+        "a11y": {
+          "title": "♿ Pourquoi l'accessibilité web ?",
+          "content": "15% de la population mondiale vit avec un handicap. Une interface accessible bénéficie à tous — utilisateurs de lecteurs d'écran, navigation au clavier, personnes âgées, contextes de faible connectivité. C'est un droit, pas une option."
+        },
+        "aria": {
+          "title": "🏷 ARIA — quand et comment l'utiliser ?",
+          "content": "ARIA (Accessible Rich Internet Applications) enrichit le HTML sémantique. Règle d'or : ne pas utiliser ARIA si le HTML natif suffit. Un <button> est toujours préférable à un <div role=\"button\">.",
+          "rule": "ne pas utiliser ARIA si le HTML natif suffit"
+        },
+        "focus": {
+          "title": "⌨️ Gestion du focus clavier",
+          "content": "Tout élément interactif doit être atteignable au clavier (Tab) et avoir un indicateur de focus visible. Les modales nécessitent un focus trap — le focus ne doit pas s'échapper vers le contenu en arrière-plan."
+        },
+        "contrast": {
+          "title": "🎨 Contraste et couleurs",
+          "content": "Le WCAG 2.1 niveau AA exige un ratio de contraste de 4.5:1 pour le texte normal et 3:1 pour le texte large. Ne jamais transmettre une information uniquement par la couleur."
+        }
+      }
+    }
   },
   "contact": {
     "eyebrow": "✦ Contact",

@@ -39,7 +39,7 @@
   &:hover { background: var(--clr-bg-100); }
 
   &:focus-visible {
-    outline: 2px solid #E8715A;
+    outline: 2px solid var(--clr-coral);
     outline-offset: -2px;
   }
 }
@@ -54,7 +54,7 @@
 // ── Icône ─────────────────────────────────────
 
 .icon {
-  color: #E8715A;
+  color: var(--clr-coral);
   font-size: 0.85rem;
   flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);

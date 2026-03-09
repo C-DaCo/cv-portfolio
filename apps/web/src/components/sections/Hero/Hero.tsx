@@ -3,15 +3,9 @@ import { useReducedMotion } from "@hooks/useReducedMotion";
 import { Tag } from "@components/ui/Tag/Tag";
 import { Button } from "@components/ui/Button/Button";
 import { cvData } from "@data/cv.data";
-import photo from "@assets/photo.jpg";
 import styles from "./Hero.module.scss";
+import { assets } from "@assets/index";
 
-/**
- * Section Hero — première impression du portfolio
- * - Animations d'entrée échelonnées (respecte prefers-reduced-motion)
- * - Blob organique animé + étiquettes flottantes
- * - Accessible : skip link, landmarks ARIA, alt text
- */
 export function Hero() {
   const { t } = useTranslation();
   const prefersReduced = useReducedMotion();
@@ -140,7 +134,7 @@ export function Hero() {
 
           <div className={styles.photoCard}>
             <img
-              src={photo}
+              src={assets.photo}
               alt={`Portrait de ${personalInfo.firstName} ${personalInfo.lastName}, ${personalInfo.title}`}
               className={styles.photo}
               width={400}
@@ -179,10 +173,10 @@ export function Hero() {
           <span className={styles.scrollText}>{t("hero.scroll")}</span>
           <div className={styles.scrollArrow}>
             {/* Chevron animé SVG */}
-            <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
-              <path d="M1 1L7 7L13 1" stroke="#E8715A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M1 7L7 13L13 7" stroke="#E8715A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
-              <path d="M1 13L7 19L13 13" stroke="#E8715A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.2" />
+            <svg width="14" height="20" viewBox="0 0 14 20" fill="none" className={styles.scrollSvg}>
+              <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M1 7L7 13L13 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
+              <path d="M1 13L7 19L13 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.2" />
             </svg>
           </div>
         </div>

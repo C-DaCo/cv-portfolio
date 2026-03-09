@@ -38,13 +38,13 @@
   }
 
   &:hover {
-    color: #E8715A;
-    border-color: #E8715A;
+    color: var(--clr-coral);
+    border-color: var(--clr-coral);
     transform: scale(1.08);
   }
 
   &:focus-visible {
-    outline: 2px solid #E8715A;
+    outline: 2px solid var(--clr-coral);
     outline-offset: 3px;
   }
 
@@ -55,7 +55,7 @@
 }
 
 .triggerActive {
-  color: #E8715A;
+  color: var(--clr-coral);
   border-color: rgba(232, 113, 90, 0.4);
   background: rgba(232, 113, 90, 0.08);
 }
@@ -65,7 +65,7 @@
   top: 6px; right: 6px;
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: #E8715A;
+  background: var(--clr-coral);
   border: 2px solid var(--clr-bg);
 }
 
@@ -123,7 +123,7 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.06em;
-  color: #E8715A;
+  color: var(--clr-coral);
   background: none;
   border: 1px solid rgba(232, 113, 90, 0.3);
   border-radius: 9999px;
@@ -132,7 +132,7 @@
   transition: all 0.2s ease;
 
   &:hover { background: rgba(232, 113, 90, 0.08); }
-  &:focus-visible { outline: 2px solid #E8715A; outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
 }
 
 .closeBtn {
@@ -148,7 +148,7 @@
   transition: all 0.2s ease;
 
   &:hover { background: var(--clr-bg-200); color: var(--clr-text); }
-  &:focus-visible { outline: 2px solid #E8715A; outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
 }
 
 // ── Options ───────────────────────────────────
@@ -178,7 +178,7 @@
   &:hover { background: var(--clr-bg-100); }
 
   &:focus-visible {
-    outline: 2px solid #E8715A;
+    outline: 2px solid var(--clr-coral);
     outline-offset: 2px;
   }
 }
@@ -189,7 +189,7 @@
 }
 
 .optionIcon {
-  color: #E8715A;
+  color: var(--clr-coral);
   flex-shrink: 0;
   display: flex;
 }
@@ -237,11 +237,11 @@
 
 .toggleOn {
   background: rgba(232, 113, 90, 0.15);
-  border-color: #E8715A;
+  border-color: var(--clr-coral);
 
   &::after {
     transform: translateX(14px);
-    background: #E8715A;
+    background: var(--clr-coral);
   }
 }
 
@@ -265,14 +265,14 @@
   font-family: var(--font-serif);
   transition: all 0.2s ease;
 
-  &:hover { border-color: #E8715A; color: #E8715A; }
-  &:focus-visible { outline: 2px solid #E8715A; outline-offset: 2px; }
+  &:hover { border-color: var(--clr-coral); color: var(--clr-coral); }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
 }
 
 .fontSizeBtnActive {
   background: rgba(232, 113, 90, 0.1);
-  border-color: #E8715A;
-  color: #E8715A;
+  border-color: var(--clr-coral);
+  color: var(--clr-coral);
 }
 
 // ── Animation ─────────────────────────────────
@@ -322,14 +322,14 @@
   justify-content: center;
   transition: all 0.2s ease;
 
-  &:hover { color: #E8715A; border-color: #E8715A; }
-  &:focus-visible { outline: 2px solid #E8715A; outline-offset: 2px; }
+  &:hover { color: var(--clr-coral); border-color: var(--clr-coral); }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
 }
 
 .voiceBtnMain {
   width: 40px; height: 40px;
-  background: #E8715A;
-  border-color: #E8715A;
+  background: var(--clr-coral);
+  border-color: var(--clr-coral);
   color: #fff;
 
   &:hover { background: #d4604a; }

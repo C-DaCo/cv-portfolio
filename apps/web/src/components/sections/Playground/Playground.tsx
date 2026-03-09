@@ -9,69 +9,49 @@ import { Accordion } from "@components/ui/Accordion/Accordion";
 import type { AccordionItem } from "@components/ui/Accordion/Accordion";
 import styles from "./Playground.module.scss";
 
-// ── Données accordion ─────────────────────────
-
-const accordionItems: AccordionItem[] = [
-  {
-    id: "a11y",
-    title: "♿ Pourquoi l'accessibilité web ?",
-    content: (
-      <p>
-        15% de la population mondiale vit avec un handicap. Une interface accessible
-        bénéficie à tous — utilisateurs de lecteurs d'écran, navigation au clavier,
-        personnes âgées, contextes de faible connectivité. C'est un droit, pas une option.
-      </p>
-    ),
-  },
-  {
-    id: "aria",
-    title: "🏷 ARIA — quand et comment l'utiliser ?",
-    content: (
-      <p>
-        ARIA (Accessible Rich Internet Applications) enrichit le HTML sémantique.
-        Règle d'or : <strong>ne pas utiliser ARIA si le HTML natif suffit</strong>.
-        Un <code>&lt;button&gt;</code> est toujours préférable à un{" "}
-        <code>&lt;div role="button"&gt;</code>.
-      </p>
-    ),
-  },
-  {
-    id: "focus",
-    title: "⌨️ Gestion du focus clavier",
-    content: (
-      <p>
-        Tout élément interactif doit être atteignable au clavier (Tab) et avoir un
-        indicateur de focus visible. Les modales nécessitent un <em>focus trap</em> —
-        le focus ne doit pas s'échapper vers le contenu en arrière-plan.
-      </p>
-    ),
-  },
-  {
-    id: "contrast",
-    title: "🎨 Contraste et couleurs",
-    content: (
-      <p>
-        Le WCAG 2.1 niveau AA exige un ratio de contraste de <strong>4.5:1</strong> pour
-        le texte normal et <strong>3:1</strong> pour le texte large. Ne jamais transmettre
-        une information uniquement par la couleur.
-      </p>
-    ),
-  },
-];
-
-// ── Composant principal ───────────────────────
-
 export function Playground() {
   const { t } = useTranslation();
   const prefersReduced = useReducedMotion();
   const { toasts, removeToast, success, error, info, warning } = useToast();
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  const accordionItems: AccordionItem[] = [
+    {
+      id: "a11y",
+      title: t("playground.accordion.items.a11y.title"),
+      content: <p>{t("playground.accordion.items.a11y.content")}</p>,
+    },
+    {
+      id: "aria",
+      title: t("playground.accordion.items.aria.title"),
+      content: (
+        <p>
+          {t("playground.accordion.items.aria.content").split(t("playground.accordion.items.aria.rule")).map((part, i, arr) =>
+            i < arr.length - 1 ? (
+              <span key={i}>{part}<strong>{t("playground.accordion.items.aria.rule")}</strong></span>
+            ) : <span key={i}>{part}</span>
+          )}
+        </p>
+      ),
+    },
+    {
+      id: "focus",
+      title: t("playground.accordion.items.focus.title"),
+      content: <p>{t("playground.accordion.items.focus.content")}</p>,
+    },
+    {
+      id: "contrast",
+      title: t("playground.accordion.items.contrast.title"),
+      content: <p>{t("playground.accordion.items.contrast.content")}</p>,
+    },
+  ];
+
+  const visible = isVisible || prefersReduced;
 
   return (
     <section
@@ -80,28 +60,17 @@ export function Playground() {
       aria-labelledby="playground-title"
     >
       {/* ── En-tête ── */}
-      <div
-        ref={ref}
-        className={`${styles.header} ${isVisible || prefersReduced ? styles.visible : ""}`}
-      >
-        <p className={styles.eyebrow} aria-hidden="true">
-          {t("playground.eyebrow")}
-        </p>
-        <h2 id="playground-title" className={styles.title}>
-          {t("playground.title")}
-        </h2>
-        <p className={styles.subtitle}>
-          {t("playground.subtitle")}
-        </p>
+      <div ref={ref} className={`${styles.header} ${visible ? styles.visible : ""}`}>
+        <p className={styles.eyebrow} aria-hidden="true">{t("playground.eyebrow")}</p>
+        <h2 id="playground-title" className={styles.title}>{t("playground.title")}</h2>
+        <p className={styles.subtitle}>{t("playground.subtitle")}</p>
       </div>
 
-      {/* ── Grid des démos ── */}
+      {/* ── Grid ── */}
       <div className={styles.grid}>
 
-        {/* ── Card Modal ── */}
-        <div className={`${styles.card} ${isVisible || prefersReduced ? styles.visible : ""}`}
-          style={{ transitionDelay: "0.1s" }}
-        >
+        {/* Card Modal */}
+        <div className={`${styles.card} ${visible ? styles.visible : ""}`} style={{ transitionDelay: "0.1s" }}>
           <div className={styles.cardHeader}>
             <span className={styles.cardIcon} aria-hidden="true">◈</span>
             <div>
@@ -109,30 +78,20 @@ export function Playground() {
               <p className={styles.cardDesc}>{t("playground.modal.desc")}</p>
             </div>
           </div>
-
-          <ul className={styles.featureList} aria-label="Fonctionnalités">
-            <li>Focus trap — le focus reste dans la modale</li>
-            <li>Fermeture via Échap ou overlay</li>
-            <li>Scroll lock sur le body</li>
-            <li>Retour du focus à l'élément déclencheur</li>
-            <li><code>aria-modal</code>, <code>aria-labelledby</code></li>
+          <ul className={styles.featureList} aria-label={t("playground.modal.title")}>
+            <li>{t("playground.modal.featureList.focusTrap")}</li>
+            <li>{t("playground.modal.featureList.escape")}</li>
+            <li>{t("playground.modal.featureList.scrollLock")}</li>
+            <li>{t("playground.modal.featureList.focusReturn")}</li>
+            <li><code>{t("playground.modal.featureList.aria")}</code></li>
           </ul>
-
-          <button
-            className={styles.demoBtn}
-            onClick={() => setIsModalOpen(true)}
-            aria-haspopup="dialog"
-          >
-            {t("playground.modal.cta")}
-            <span aria-hidden="true">→</span>
+          <button className={styles.demoBtn} onClick={() => setIsModalOpen(true)} aria-haspopup="dialog">
+            {t("playground.modal.cta")} <span aria-hidden="true">→</span>
           </button>
         </div>
 
-        {/* ── Card Toast ── */}
-        <div
-          className={`${styles.card} ${isVisible || prefersReduced ? styles.visible : ""}`}
-          style={{ transitionDelay: "0.2s" }}
-        >
+        {/* Card Toast */}
+        <div className={`${styles.card} ${visible ? styles.visible : ""}`} style={{ transitionDelay: "0.2s" }}>
           <div className={styles.cardHeader}>
             <span className={styles.cardIcon} aria-hidden="true">◉</span>
             <div>
@@ -140,48 +99,31 @@ export function Playground() {
               <p className={styles.cardDesc}>{t("playground.toast.desc")}</p>
             </div>
           </div>
-
-          <ul className={styles.featureList} aria-label="Fonctionnalités">
-            <li>File d'attente de notifications</li>
-            <li>Fermeture automatique avec timer</li>
-            <li>Barre de progression animée</li>
-            <li><code>aria-live="polite"</code>, <code>aria-atomic</code></li>
-            <li>4 variantes : succès, erreur, info, warning</li>
+          <ul className={styles.featureList} aria-label={t("playground.toast.title")}>
+            <li>{t("playground.toast.featureList.queue")}</li>
+            <li>{t("playground.toast.featureList.timer")}</li>
+            <li>{t("playground.toast.featureList.progress")}</li>
+            <li><code>{t("playground.toast.featureList.aria")}</code></li>
+            <li>{t("playground.toast.featureList.variants")}</li>
           </ul>
-
-          <div className={styles.toastBtns} role="group" aria-label="Déclencher une notification">
-            <button
-              className={`${styles.toastBtn} ${styles.success}`}
-              onClick={() => success("Enregistrement réussi !")}
-            >
-              ✓ Succès
+          <div className={styles.toastBtns} role="group" aria-label={t("playground.toast.ariaLabel")}>
+            <button className={`${styles.toastBtn} ${styles.success}`} onClick={() => success(t("playground.toast.msgSuccess"))}>
+              ✓ {t("playground.toast.success")}
             </button>
-            <button
-              className={`${styles.toastBtn} ${styles.error}`}
-              onClick={() => error("Une erreur est survenue.")}
-            >
-              ✕ Erreur
+            <button className={`${styles.toastBtn} ${styles.error}`} onClick={() => error(t("playground.toast.msgError"))}>
+              ✕ {t("playground.toast.error")}
             </button>
-            <button
-              className={`${styles.toastBtn} ${styles.info}`}
-              onClick={() => info("Mise à jour disponible.")}
-            >
-              ℹ Info
+            <button className={`${styles.toastBtn} ${styles.info}`} onClick={() => info(t("playground.toast.msgInfo"))}>
+              ℹ {t("playground.toast.info")}
             </button>
-            <button
-              className={`${styles.toastBtn} ${styles.warning}`}
-              onClick={() => warning("Session bientôt expirée.")}
-            >
-              ⚠ Warning
+            <button className={`${styles.toastBtn} ${styles.warning}`} onClick={() => warning(t("playground.toast.msgWarning"))}>
+              ⚠ {t("playground.toast.warning")}
             </button>
           </div>
         </div>
 
-        {/* ── Card Accordion ── */}
-        <div
-          className={`${styles.card} ${styles.cardFull} ${isVisible || prefersReduced ? styles.visible : ""}`}
-          style={{ transitionDelay: "0.3s" }}
-        >
+        {/* Card Accordion */}
+        <div className={`${styles.card} ${styles.cardFull} ${visible ? styles.visible : ""}`} style={{ transitionDelay: "0.3s" }}>
           <div className={styles.cardHeader}>
             <span className={styles.cardIcon} aria-hidden="true">◎</span>
             <div>
@@ -189,55 +131,33 @@ export function Playground() {
               <p className={styles.cardDesc}>{t("playground.accordion.desc")}</p>
             </div>
           </div>
-
-          <ul className={styles.featureList} aria-label="Fonctionnalités">
-            <li>Navigation clavier ↑ ↓ Home End</li>
-            <li><code>aria-expanded</code>, <code>aria-controls</code></li>
-            <li>Mode simple ou multi-ouverture</li>
-            <li>Animation hauteur sans JS de mesure</li>
+          <ul className={styles.featureList} aria-label={t("playground.accordion.title")}>
+            <li>{t("playground.accordion.featureList.keyboard")}</li>
+            <li><code>{t("playground.accordion.featureList.aria")}</code></li>
+            <li>{t("playground.accordion.featureList.mode")}</li>
+            <li>{t("playground.accordion.featureList.animation")}</li>
           </ul>
-
           <Accordion items={accordionItems} />
         </div>
 
       </div>
 
       {/* ── Modal ── */}
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="Exemple de modale accessible"
-      >
-        <p style={{ color: "var(--clr-text-muted)", lineHeight: 1.7, marginBottom: "1rem" }}>
-          Cette modale implémente toutes les bonnes pratiques d'accessibilité :
-        </p>
-        <ul style={{ color: "var(--clr-text-muted)", lineHeight: 2, paddingLeft: "1.25rem" }}>
-          <li>Le focus est piégé à l'intérieur</li>
-          <li>Fermeture via la touche Échap</li>
-          <li>Clic sur l'overlay pour fermer</li>
-          <li>Le scroll du body est bloqué</li>
-          <li>Le focus revient au déclencheur à la fermeture</li>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t("playground.modal.demoTitle")}>
+        <p className={styles.modalDesc}>{t("playground.modal.demoDesc")}</p>
+        <ul className={styles.modalList}>
+          <li>{t("playground.modal.features.focusTrap")}</li>
+          <li>{t("playground.modal.features.escape")}</li>
+          <li>{t("playground.modal.features.overlay")}</li>
+          <li>{t("playground.modal.features.scrollLock")}</li>
+          <li>{t("playground.modal.features.focusReturn")}</li>
         </ul>
-        <button
-          onClick={() => setIsModalOpen(false)}
-          style={{
-            marginTop: "1.5rem",
-            padding: "0.75rem 1.5rem",
-            borderRadius: "9999px",
-            background: "#E8715A",
-            color: "#fff",
-            border: "none",
-            cursor: "pointer",
-            fontFamily: "var(--font-sans)",
-          }}
-        >
-          Fermer
+        <button onClick={() => setIsModalOpen(false)} className={styles.modalCloseBtn}>
+          {t("playground.modal.demoClose")}
         </button>
       </Modal>
 
-      {/* ── Toasts ── */}
       <ToastContainer toasts={toasts} onRemove={removeToast} />
-
     </section>
   );
 }

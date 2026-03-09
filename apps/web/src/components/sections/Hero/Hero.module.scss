@@ -354,21 +354,21 @@
 
 .decoTag1 {
   top: 12%; right: -8%;
-  color: #7B9E87;
+  color: var(--clr-sage);
   background: rgba(123, 158, 135, 0.15);
   border: 1.5px solid rgba(123, 158, 135, 0.4);
 
   [data-theme="dark"] & {
     background: rgba(123, 158, 135, 0.2);
     border-color: rgba(123, 158, 135, 0.5);
-    color: #A8C5B0;
+    color: var(--clr-sage-light);
   }
   animation: floatTag 4s ease-in-out infinite alternate;
 }
 
 .decoTag2 {
   bottom: 22%; left: -10%;
-  color: #E8715A;
+  color: var(--clr-coral);
   background: rgba(232, 113, 90, 0.12);
   border: 1.5px solid rgba(232, 113, 90, 0.35);
 
@@ -382,7 +382,7 @@
 
 .decoTag3 {
   bottom: 5%; right: 5%;
-  color: #9B7EA8;
+  color: var(--clr-mauve);
   background: rgba(155, 126, 168, 0.12);
   border: 1.5px solid rgba(155, 126, 168, 0.35);
 
@@ -478,6 +478,7 @@
 }
 
 // Scroll hint
+
 .scrollHint {
   display: flex;
   flex-direction: column;
@@ -511,12 +512,16 @@
     display: block;
     width: 1px;
     height: 6px;
-    background: #E8715A;
+    background: var(--clr-coral);
     clip-path: polygon(50% 100%, 0 0, 100% 0);
     // Chevrons en cascade
   }
 
   @media (prefers-reduced-motion: reduce) { animation: none; }
+}
+
+.scrollSvg {
+  color: var(--clr-coral);
 }
 
 @keyframes scrollBounce {

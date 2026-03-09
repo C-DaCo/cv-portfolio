@@ -4,6 +4,7 @@ import { useReducedMotion } from "@hooks/useReducedMotion";
 import { cvData } from "@data/cv.data";
 import type { Formation } from "@/types/cv.types";
 import styles from "./Education.module.scss";
+import { assets } from "@assets/index";
 
 // ── Icône par école ───────────────────────────
 const schoolIcon: Record<string, string> = {
@@ -20,6 +21,7 @@ interface EducationCardProps {
 
 function EducationCard({ formation, index }: EducationCardProps) {
   const prefersReduced = useReducedMotion();
+  const logo = assets.education[formation.logo as keyof typeof assets.education];
   const { ref, isVisible } = useIntersectionObserver<HTMLLIElement>({
     threshold: 0.15,
     triggerOnce: true,
@@ -38,7 +40,7 @@ function EducationCard({ formation, index }: EducationCardProps) {
       <div className={styles.logoWrap} aria-hidden="true">
         {formation.logo ? (
             <a href={formation.url} target="_blank" rel="noopener noreferrer">
-              <img src={formation.logo} alt={formation.school} className={styles.logo} />
+              <img src={logo} alt={formation.school} className={styles.logo} />
             </a>
         ) : (
             <span className={styles.icon}>{icon}</span>

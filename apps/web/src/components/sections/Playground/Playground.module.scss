@@ -1,5 +1,5 @@
 .playground {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 8rem clamp(1.5rem, 6vw, 5rem);
 
@@ -28,7 +28,7 @@
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #E8715A;
+  color: var(--clr-coral);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -107,7 +107,7 @@
 
 .cardIcon {
   font-size: 1.4rem;
-  color: #E8715A;
+  color: var(--clr-coral);
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
@@ -147,7 +147,7 @@
 
     &::before {
       content: "→";
-      color: #E8715A;
+      color: var(--clr-coral);
       font-size: 0.65rem;
       flex-shrink: 0;
     }
@@ -169,7 +169,7 @@
   gap: 0.5rem;
   padding: 0.8rem 1.5rem;
   border-radius: 9999px;
-  background: #E8715A;
+  background: var(--clr-coral);
   color: #fff;
   font-family: var(--font-sans);
   font-size: 0.9rem;
@@ -192,7 +192,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid #E8715A;
+    outline: 2px solid var(--clr-coral);
     outline-offset: 4px;
   }
 
@@ -232,7 +232,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid #E8715A;
+    outline: 2px solid var(--clr-coral);
     outline-offset: 3px;
   }
 
@@ -240,7 +240,7 @@
 }
 
 .success {
-  color: #7B9E87;
+  color: var(--clr-sage);
   border-color: rgba(123, 158, 135, 0.4);
   &:hover { background: rgba(123, 158, 135, 0.1); }
 }
@@ -252,13 +252,44 @@
 }
 
 .info {
-  color: #9B7EA8;
+  color: var(--clr-mauve);
   border-color: rgba(155, 126, 168, 0.4);
   &:hover { background: rgba(155, 126, 168, 0.08); }
 }
 
 .warning {
-  color: #C4A882;
+  color: var(--clr-sand);
   border-color: rgba(196, 168, 130, 0.4);
   &:hover { background: rgba(196, 168, 130, 0.08); }
+}
+
+
+// ── Modal ─────────────────────────────
+
+
+.modalDesc {
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.modalList {
+  color: var(--clr-text-muted);
+  line-height: 2;
+  padding-left: 1.25rem;
+}
+
+.modalCloseBtn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: var(--clr-coral);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: opacity 0.2s ease;
+
+  &:hover { opacity: 0.85; }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 3px; }
 }

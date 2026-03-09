@@ -1,5 +1,5 @@
 .experiences {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 8rem clamp(1.5rem, 6vw, 5rem);
 
@@ -27,7 +27,7 @@
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #E8715A;
+  color: var(--clr-coral);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -50,7 +50,7 @@
   font-weight: 300;
   max-width: 520px;
 
-  em { font-style: normal; color: #E8715A; font-weight: 400; }
+  em { font-style: normal; color: var(--clr-coral); font-weight: 400; }
 }
 
 // ── Timeline ──────────────────────────────────
@@ -94,7 +94,7 @@
 .dot {
   width: 12px; height: 12px;
   border-radius: 50%;
-  background: #E8715A;
+  background: var(--clr-coral);
   border: 2px solid var(--clr-bg);
   box-shadow: 0 0 0 3px rgba(232, 113, 90, 0.25);
   flex-shrink: 0;
@@ -148,7 +148,7 @@
   font-size: 0.65rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #E8715A;
+  color: var(--clr-coral);
   background: rgba(232, 113, 90, 0.08);
   border: 1px solid rgba(232, 113, 90, 0.2);
   padding: 0.2rem 0.65rem;
@@ -159,7 +159,7 @@
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.08em;
-  color: #7B9E87;
+  color: var(--clr-sage);
   background: rgba(123, 158, 135, 0.1);
   border: 1px solid rgba(123, 158, 135, 0.25);
   padding: 0.2rem 0.65rem;
@@ -221,7 +221,7 @@
 }
 
 .duration {
-  color: #E8715A;
+  color: var(--clr-coral);
   font-size: 0.68rem;
 }
 
@@ -248,7 +248,7 @@
 }
 
 .descBullet {
-  color: #E8715A;
+  color: var(--clr-coral);
   flex-shrink: 0;
   margin-top: 0.05rem;
   font-size: 0.8rem;

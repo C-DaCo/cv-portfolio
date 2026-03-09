@@ -7,7 +7,7 @@
   grid-template-columns: 1fr 1.2fr;
   gap: 6rem;
   align-items: start;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 8rem clamp(1.5rem, 6vw, 5rem);
 
@@ -31,7 +31,7 @@
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #E8715A;
+  color: var(--clr-coral);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -46,7 +46,7 @@
 
   em {
     font-style: italic;
-    color: #E8715A;
+    color: var(--clr-coral);
   }
 }
 
@@ -92,7 +92,7 @@
   border-radius: 50%;
   background: rgba(232, 113, 90, 0.1);
   border: 1px solid rgba(232, 113, 90, 0.2);
-  color: #E8715A;
+  color: var(--clr-coral);
   font-size: 0.8rem;
   flex-shrink: 0;
 }
@@ -102,9 +102,9 @@
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &:hover { color: #E8715A; }
+  &:hover { color: var(--clr-coral); }
   &:focus-visible {
-    outline: 2px solid #E8715A;
+    outline: 2px solid var(--clr-coral);
     outline-offset: 3px;
     border-radius: 3px;
   }
@@ -141,13 +141,13 @@
   }
 
   &:hover {
-    color: #E8715A;
-    border-color: #E8715A;
+    color: var(--clr-coral);
+    border-color: var(--clr-coral);
     transform: translateY(-2px);
   }
 
   &:focus-visible {
-    outline: 2px solid #E8715A;
+    outline: 2px solid var(--clr-coral);
     outline-offset: 3px;
   }
 
@@ -226,7 +226,7 @@
   }
 
   &:focus {
-    border-color: #E8715A;
+    border-color: var(--clr-coral);
     box-shadow: 0 0 0 3px rgba(232, 113, 90, 0.15);
   }
 }
@@ -265,7 +265,7 @@
   width: 100%;
   padding: 0.95rem 2rem;
   border-radius: 9999px;
-  background: #E8715A;
+  background: var(--clr-coral);
   color: #fff;
   font-family: var(--font-sans);
   font-size: 0.95rem;
@@ -282,7 +282,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid #E8715A;
+    outline: 2px solid var(--clr-coral);
     outline-offset: 4px;
   }
 
@@ -324,7 +324,7 @@
   border-radius: 12px;
   background: rgba(123, 158, 135, 0.12);
   border: 1px solid rgba(123, 158, 135, 0.3);
-  color: #7B9E87;
+  color: var(--clr-sage);
   font-size: 0.9rem;
 
   p {

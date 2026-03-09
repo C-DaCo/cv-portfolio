@@ -38,7 +38,7 @@
     "subtitle": "Broad spectrum, front-end expertise.",
     "cloudAriaLabel": "Skills cloud",
     "categories": {
-        "language": "Languages",
+      "language": "Languages",
       "front": "Front-End",
       "back": "Back-End",
       "divers": "Tools & Methods"
@@ -48,30 +48,88 @@
     "eyebrow": "✦ Diplomas",
     "title": "Education",
     "ariaLabel": "Education and certifications"
+  },
+  "projects": {
+    "eyebrow": "✦ Projects",
+    "title": "Realizations",
+    "subtitle": "Concrete projects, real problems, lasting solutions."
+  },
+  "playground": {
+    "eyebrow": "✦ Components",
+    "title": "Playground",
+    "subtitle": "Accessible React components, tested and documented. Keyboard navigation, ARIA, focus management — best practices in action.",
+    "modal": {
+      "title": "Accessible Modal",
+      "desc": "Focus trap, scroll lock, focus return, Escape to close.",
+      "cta": "Open modal",
+      "demoTitle": "Accessible modal example",
+      "demoDesc": "This modal implements all accessibility best practices:",
+      "demoClose": "Close",
+      "features": {
+        "focusTrap": "Focus is trapped inside",
+        "escape": "Close with Escape key",
+        "overlay": "Click overlay to close",
+        "scrollLock": "Body scroll is locked",
+        "focusReturn": "Focus returns to trigger on close"
+      },
+      "featureList": {
+        "focusTrap": "Focus trap — focus stays in the modal",
+        "escape": "Close via Escape or overlay",
+        "scrollLock": "Body scroll lock",
+        "focusReturn": "Focus returns to trigger element",
+        "aria": "aria-modal, aria-labelledby"
+      }
     },
-    "projects": {
-  "eyebrow": "✦ Projects",
-  "title": "Realizations",
-  "subtitle": "Concrete projects, real problems, lasting solutions."
-},
-    "playground": {
-  "eyebrow": "✦ Components",
-  "title": "Playground",
-  "subtitle": "Accessible React components, tested and documented. Keyboard navigation, ARIA, focus management — best practices in action.",
-  "modal": {
-    "title": "Accessible Modal",
-    "desc": "Focus trap, scroll lock, focus return, Escape to close.",
-    "cta": "Open modal"
+    "toast": {
+      "title": "Toast Notifications",
+      "desc": "Queue system, aria-live, auto and manual close.",
+      "success": "Success",
+      "error": "Error",
+      "info": "Info",
+      "warning": "Warning",
+      "msgSuccess": "Successfully saved!",
+      "msgError": "An error occurred.",
+      "msgInfo": "Update available.",
+      "msgWarning": "Session expiring soon.",
+      "ariaLabel": "Trigger a notification",
+      "featureList": {
+        "queue": "Notification queue",
+        "timer": "Auto-close with timer",
+        "progress": "Animated progress bar",
+        "aria": "aria-live=\"polite\", aria-atomic",
+        "variants": "4 variants: success, error, info, warning"
+      }
+    },
+    "accordion": {
+      "title": "Accessible Accordion",
+      "desc": "Full keyboard navigation, aria-expanded, single or multi open.",
+      "featureList": {
+        "keyboard": "Keyboard navigation ↑ ↓ Home End",
+        "aria": "aria-expanded, aria-controls",
+        "mode": "Single or multi-open mode",
+        "animation": "Height animation without JS measurement"
+      },
+      "items": {
+        "a11y": {
+          "title": "♿ Why web accessibility?",
+          "content": "15% of the world's population lives with a disability. An accessible interface benefits everyone — screen reader users, keyboard navigation, elderly people, low connectivity contexts. It's a right, not an option."
+        },
+        "aria": {
+          "title": "🏷 ARIA — when and how to use it?",
+          "content": "ARIA (Accessible Rich Internet Applications) enhances semantic HTML. Golden rule: don't use ARIA if native HTML suffices. A <button> is always preferable to a <div role=\"button\">.",
+          "rule": "don't use ARIA if native HTML suffices"
+        },
+        "focus": {
+          "title": "⌨️ Keyboard focus management",
+          "content": "Every interactive element must be reachable by keyboard (Tab) and have a visible focus indicator. Modals require a focus trap — focus must not escape to background content."
+        },
+        "contrast": {
+          "title": "🎨 Contrast and colors",
+          "content": "WCAG 2.1 level AA requires a contrast ratio of 4.5:1 for normal text and 3:1 for large text. Never convey information through color alone."
+        }
+      }
+    }
   },
-  "toast": {
-    "title": "Toast Notifications",
-    "desc": "Queue system, aria-live, auto and manual close."
-  },
-  "accordion": {
-    "title": "Accessible Accordion",
-    "desc": "Full keyboard navigation, aria-expanded, single or multi open."
-  }
-},
   "contact": {
     "eyebrow": "✦ Contact",
     "title": "Let's work",
@@ -102,8 +160,8 @@
       "messageMin": "Message must be at least 20 characters."
     }
   },
-    "footer": {
-      "madeWith": "Made with",
-      "stack": "in React · TypeScript"
-    }
+  "footer": {
+    "madeWith": "Made with",
+    "stack": "in React · TypeScript"
+  }
 }
