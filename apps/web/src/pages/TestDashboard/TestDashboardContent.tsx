@@ -1,0 +1,277 @@
+import { useState, useEffect } from "react";
+import { CheckCircle, XCircle, Clock, Shield } from "lucide-react";
+import styles from "./TestDashboard.module.scss";
+
+// ── Types ─────────────────────────────────────
+
+export interface AssertionResult {
+  title: string;
+  fullName: string;
+  status: "passed" | "failed";
+  duration: number;
+  failureMessages: string[];
+  ancestorTitles: string[];
+}
+
+export interface TestSuite {
+  name: string;
+  status: "passed" | "failed";
+  assertionResults: AssertionResult[];
+  startTime: number;
+  endTime: number;
+}
+
+export interface TestResults {
+  numTotalTests: number;
+  numPassedTests: number;
+  numFailedTests: number;
+  numTotalTestSuites: number;
+  numPassedTestSuites: number;
+  numFailedTestSuites: number;
+  startTime: number;
+  success: boolean;
+  testResults: TestSuite[];
+}
+
+export interface CoverageEntry {
+  lines: { pct: number; total: number; covered: number };
+  functions: { pct: number; total: number; covered: number };
+  statements: { pct: number; total: number; covered: number };
+  branches: { pct: number; total: number; covered: number };
+}
+
+export interface CoverageSummary {
+  total: CoverageEntry;
+  [key: string]: CoverageEntry;
+}
+
+// ── Helpers ───────────────────────────────────
+
+export function getFileName(fullPath: string): string {
+  return fullPath
+    .replace(/\\/g, "/")
+    .replace(/.*\/src\//, "src/")
+    .replace(".tsx", "")
+    .replace(".ts", "");
+}
+
+export function getSuiteName(fullPath: string): string {
+  return fullPath
+    .replace(/\\/g, "/")
+    .split("/")
+    .pop()
+    ?.replace(".test.tsx", "")
+    .replace(".test.ts", "") ?? fullPath;
+}
+
+export function getCoverageColor(pct: number): string {
+  if (pct >= 80) return "high";
+  if (pct >= 50) return "mid";
+  return "low";
+}
+
+export function formatDuration(ms: number): string {
+  if (ms < 1000) return `${ms}ms`;
+  return `${(ms / 1000).toFixed(1)}s`;
+}
+
+// ── Composant pur ─────────────────────────────
+
+export function TestDashboardContent() {
+  const [tests, setTests] = useState<TestResults | null>(null);
+  const [coverage, setCoverage] = useState<CoverageSummary | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [expandedSuite, setExpandedSuite] = useState<string | null>(null);
+
+  useEffect(() => {
+    Promise.all([
+      fetch("/test-results.json").then(r => r.json()),
+      fetch("/coverage/coverage-summary.json").then(r => r.json()),
+    ])
+      .then(([t, c]) => {
+        setTests(t);
+        setCoverage(c);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError("Impossible de charger les résultats de tests.");
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return (
+    <div className={styles.loading}>
+      <div className={styles.spinner} aria-label="Chargement..." />
+    </div>
+  );
+
+  if (error || !tests || !coverage) return (
+    <div className={styles.error}>
+      <p>{error ?? "Données indisponibles."}</p>
+    </div>
+  );
+
+  const totalDuration = tests.testResults.reduce(
+    (acc, s) => acc + (s.endTime - s.startTime), 0
+  );
+
+  const coverageFiles = Object.entries(coverage)
+    .filter(([key]) => key !== "total")
+    .map(([key, val]) => ({ name: getFileName(key), ...val }))
+    .sort((a, b) => a.lines.pct - b.lines.pct);
+
+  return (
+    <div className={styles.content}>
+
+      {/* ── Stats globales ── */}
+      <section className={styles.statsGrid} aria-label="Résumé des tests">
+        <div className={styles.statCard}>
+          <CheckCircle size={20} strokeWidth={1.5} className={styles.iconPass} />
+          <span className={styles.statNum}>{tests.numPassedTests}</span>
+          <span className={styles.statLabel}>Tests passés</span>
+        </div>
+        <div className={styles.statCard}>
+          <XCircle size={20} strokeWidth={1.5} className={styles.iconFail} />
+          <span className={styles.statNum}>{tests.numFailedTests}</span>
+          <span className={styles.statLabel}>Tests échoués</span>
+        </div>
+        <div className={styles.statCard}>
+          <Shield size={20} strokeWidth={1.5} className={styles.iconCoverage} />
+          <span className={styles.statNum}>{coverage.total.lines.pct.toFixed(0)}%</span>
+          <span className={styles.statLabel}>Couverture lignes</span>
+        </div>
+        <div className={styles.statCard}>
+          <Clock size={20} strokeWidth={1.5} className={styles.iconTime} />
+          <span className={styles.statNum}>{formatDuration(totalDuration)}</span>
+          <span className={styles.statLabel}>Durée totale</span>
+        </div>
+      </section>
+
+      {/* ── Couverture globale ── */}
+      <section className={styles.section} aria-labelledby="coverage-title-inline">
+        <h2 id="coverage-title-inline" className={styles.sectionTitle}>Couverture de code</h2>
+        <div className={styles.coverageGrid}>
+          {(["lines", "statements", "functions", "branches"] as const).map((metric) => (
+            <div key={metric} className={styles.coverageCard}>
+              <div className={styles.coverageHeader}>
+                <span className={styles.coverageMetric}>{metric}</span>
+                <span className={`${styles.coveragePct} ${styles[getCoverageColor(coverage.total[metric].pct)]}`}>
+                  {coverage.total[metric].pct.toFixed(1)}%
+                </span>
+              </div>
+              <div className={styles.progressBar} role="progressbar"
+                aria-valuenow={coverage.total[metric].pct}
+                aria-valuemin={0} aria-valuemax={100}
+              >
+                <div
+                  className={`${styles.progressFill} ${styles[getCoverageColor(coverage.total[metric].pct)]}`}
+                  style={{ width: `${coverage.total[metric].pct}%` }}
+                />
+              </div>
+              <span className={styles.coverageDetail}>
+                {coverage.total[metric].covered} / {coverage.total[metric].total}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Suites de tests ── */}
+      <section className={styles.section} aria-labelledby="suites-title-inline">
+        <h2 id="suites-title-inline" className={styles.sectionTitle}>
+          Suites de tests
+          <span className={styles.sectionCount}>{tests.numTotalTestSuites} fichiers</span>
+        </h2>
+        <div className={styles.suitesList}>
+          {tests.testResults.map((suite) => {
+            const name = getSuiteName(suite.name);
+            const isExpanded = expandedSuite === suite.name;
+            const duration = suite.endTime - suite.startTime;
+
+            return (
+              <div
+                key={suite.name}
+                className={`${styles.suiteCard} ${suite.status === "failed" ? styles.suiteFailed : ""}`}
+              >
+                <button
+                  className={styles.suiteHeader}
+                  onClick={() => setExpandedSuite(isExpanded ? null : suite.name)}
+                  aria-expanded={isExpanded}
+                >
+                  <span className={styles.suiteStatus}>
+                    {suite.status === "passed"
+                      ? <CheckCircle size={14} strokeWidth={2} className={styles.iconPass} />
+                      : <XCircle size={14} strokeWidth={2} className={styles.iconFail} />
+                    }
+                  </span>
+                  <span className={styles.suiteName}>{name}</span>
+                  <span className={styles.suiteCount}>
+                    {suite.assertionResults.filter(a => a.status === "passed").length}
+                    /{suite.assertionResults.length}
+                  </span>
+                  <span className={styles.suiteDuration}>{formatDuration(duration)}</span>
+                  <span className={styles.suiteChevron} aria-hidden="true">
+                    {isExpanded ? "▴" : "▾"}
+                  </span>
+                </button>
+
+                {isExpanded && (
+                  <ul className={styles.testList} role="list">
+                    {suite.assertionResults.map((test, i) => (
+                      <li
+                        key={i}
+                        className={`${styles.testItem} ${test.status === "failed" ? styles.testFailed : ""}`}
+                      >
+                        <span className={styles.testIcon} aria-hidden="true">
+                          {test.status === "passed" ? "✓" : "✗"}
+                        </span>
+                        <span className={styles.testTitle}>{test.title}</span>
+                        <span className={styles.testDuration}>{formatDuration(test.duration)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ── Couverture par fichier ── */}
+      <section className={styles.section} aria-labelledby="files-title-inline">
+        <h2 id="files-title-inline" className={styles.sectionTitle}>
+          Couverture par fichier
+          <span className={styles.sectionCount}>{coverageFiles.length} fichiers</span>
+        </h2>
+        <div className={styles.filesTable}>
+          <div className={styles.filesHeader}>
+            <span>Fichier</span>
+            <span>Lignes</span>
+            <span>Fonctions</span>
+            <span>Branches</span>
+          </div>
+          {coverageFiles.map((file) => (
+            <div key={file.name} className={styles.fileRow}>
+              <span className={styles.fileName}>{file.name}</span>
+              <span className={`${styles.filePct} ${styles[getCoverageColor(file.lines.pct)]}`}>
+                {file.lines.pct.toFixed(0)}%
+              </span>
+              <span className={`${styles.filePct} ${styles[getCoverageColor(file.functions.pct)]}`}>
+                {file.functions.pct.toFixed(0)}%
+              </span>
+              <span className={`${styles.filePct} ${styles[getCoverageColor(file.branches.pct)]}`}>
+                {file.branches.pct.toFixed(0)}%
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <p className={styles.footer}>
+        Généré au build · Vitest {tests.numTotalTests} tests · {new Date(tests.startTime).toLocaleDateString("fr-FR")}
+      </p>
+
+    </div>
+  );
+}

@@ -1,4 +1,4 @@
-import photo from "./photo.jpg";
+import photo from "./photo.webp";
 import maskott from "./experiences/maskott.png";
 import ktmAdvance from "./experiences/ktm-advance.png";
 import hippocad from "./experiences/hippocad.jpg";

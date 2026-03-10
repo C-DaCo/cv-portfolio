@@ -172,6 +172,15 @@
   min-height: 380px;
 }
 
+.inlineContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-bg);
+  border-radius: 12px;
+}
+
 // ── Couches ───────────────────────────────────
 
 .layersGrid {

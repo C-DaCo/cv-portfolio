@@ -52,7 +52,38 @@
   "projects": {
     "eyebrow": "✦ Projects",
     "title": "Realizations",
-    "subtitle": "Concrete projects, real problems, lasting solutions."
+    "subtitle": "Concrete projects, real problems, lasting solutions.",
+    "seeDetail": "See details",
+    "close": "Close",
+    "drawer": {
+      "video": "Video",
+      "screenshots": "Screenshots",
+      "live": "Live site",
+      "tests": "Tests",
+      "archi": "Architecture",
+      "liveBlocked": "This site cannot be displayed here for security reasons.",
+      "liveOpen": "Open in a new tab"
+    },
+    "maskott": {
+      "linkName": "Maskott",
+      "desc": "Interactive module player (MCQ, drag & drop, fill-in-the-blank, video, educational content...), resource recommendation engine, Design System, WCAG 2.1 Accessibility.",
+      "longDesc": "Interactive module player (MCQ, drag & drop, fill-in-the-blank, video, educational content...), resource recommendation engine, full Design System, WCAG 2.1 Accessibility. Agile team, code reviews, CI/CD GitLab."
+    },
+    "portfolio": {
+      "desc": "Yarn Workspaces monorepo, React 18, TypeScript, Node.js, Resend API, Vitest tests, i18n fr/en, WCAG accessibility, a11y menu, automatic dark/light mode.",
+      "longDesc": "Yarn Workspaces monorepo, React 18, TypeScript, Node.js, Resend API, Vitest tests, i18n fr/en, WCAG accessibility, a11y menu, automatic dark/light mode. Real-time test dashboard, WebP image optimization."
+    }
+  },
+  "arch": {
+    "title": "Portfolio architecture",
+    "eyebrow": "Personal project · 2026",
+    "layers": "Layers",
+    "structure": "Structure",
+    "flux": "Data flow",
+    "close": "Close",
+    "trigger": "See architecture",
+    "triggerAriaLabel": "View project architecture",
+    "dialogAriaLabel": "Portfolio architecture"
   },
   "playground": {
     "eyebrow": "✦ Components",

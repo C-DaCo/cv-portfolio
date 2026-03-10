@@ -1,23 +1,26 @@
 {
   "name": "cv-portfolio",
   "private": true,
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "dev": "concurrently \"npm run dev -w apps/web\" \"npm run dev -w apps/api\"",
     "build": "npm run build -w apps/web && npm run build -w apps/api",
-    "test": "npm run test -w apps/web && npm run test -w apps/api",
+    "test": "npm run test -w apps/web && npm run test:json -w apps/api && node scripts/merge-test-results.mjs",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"**/*.{ts,tsx,scss,json}\""
   },
   "devDependencies": {
-    "concurrently": "^8.2.0",
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
+    "@types/minimatch": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "prettier": "^3.2.5",
     "stylelint": "^16.2.0",
     "stylelint-config-standard-scss": "^13.0.0"
   }

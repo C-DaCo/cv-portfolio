@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { A11yMenu } from "@components/ui/A11yMenu/A11yMenu";
 import { Projects } from "@components/index";
 import { useEffect, useState } from "react";
+import { useDocumentTitle } from "@hooks/useDocumentTitle";
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
@@ -14,6 +15,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   // Ferme le menu au clic sur un lien
   const handleNavClick = () => setMenuOpen(false);
+  useDocumentTitle();
 
   // Ferme sur Escape
   useEffect(() => {

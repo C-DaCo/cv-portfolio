@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "bundler",
@@ -17,16 +21,42 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
+    "types": [
+      "vite/client"
+    ],
     "paths": {
-        "@components/*": ["src/components/*"],
-        "@hooks/*":      ["src/hooks/*"],
-        "@assets/*":     ["src/assets/*"],
-        "@styles/*":     ["src/styles/*"],
-        "@i18n/*":       ["src/i18n/*"],
-        "@data/*":       ["src/data/*"],
-        "@/types/*":     ["src/types/*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@i18n/*": [
+        "src/i18n/*"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@/types/*": [
+        "src/types/*"
+      ],
+      "@/pages/*": [
+        "src/pages/*"
+      ]
     }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

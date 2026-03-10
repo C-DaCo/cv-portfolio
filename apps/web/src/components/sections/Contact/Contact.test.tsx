@@ -20,9 +20,9 @@ describe("Contact", () => {
 
   it("affiche les erreurs si soumis vide", async () => {
     render(<Contact />);
-    fireEvent.click(screen.getByRole("button", { name: /contact.form.submit/i }));
+    fireEvent.click(screen.getByRole("button", { name: "contact.form.submit" }));
     await waitFor(() => {
-      expect(screen.getByText(/contact.validation.nameMin/i)).toBeInTheDocument();
+      expect(screen.getByText("contact.validation.nameMin")).toBeInTheDocument();
     });
   });
 
@@ -32,13 +32,13 @@ describe("Contact", () => {
     await userEvent.type(emailInput, "pasunemail");
     fireEvent.blur(emailInput);
     await waitFor(() => {
-      expect(screen.getByText(/contact.validation.emailInvalid/i)).toBeInTheDocument();
+      expect(screen.getByText("contact.validation.emailInvalid")).toBeInTheDocument();
     });
   });
 
   it("le bouton submit est accessible", () => {
     render(<Contact />);
-    const btn = screen.getByRole("button", { name: /contact.form.submit/i });
+    const btn = screen.getByRole("button", { name: "contact.form.submit" });
     expect(btn).toHaveAttribute("type", "submit");
   });
 });

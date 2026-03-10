@@ -26,7 +26,7 @@ export function Hero() {
   const tagVariants = ["coral", "sage", "mauve", "sand"] as const;
 
   return (
-    <section className={styles.hero} aria-label="Introduction">
+    <section id="hero" className={styles.hero} aria-label="Introduction">
 
       {/* ── Blobs décoratifs ── */}
       <div className={styles.bgLayer} aria-hidden="true">

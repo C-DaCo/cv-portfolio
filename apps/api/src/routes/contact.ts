@@ -1,35 +1,31 @@
 import { Router, Request, Response } from "express";
 import { Resend } from "resend";
+import { z } from "zod";
 
 const router = Router();
 
-interface ContactBody {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
+export const contactSchema = z.object({
+  name:    z.string().trim().min(2, "Nom invalide."),
+  email:   z.string().email("Email invalide."),
+  subject: z.string().trim().min(5, "Sujet invalide."),
+  message: z.string().trim().min(20, "Message invalide."),
+});
 
-function validate(body: ContactBody): string | null {
-  if (!body.name || body.name.trim().length < 2) return "Nom invalide.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) return "Email invalide.";
-  if (!body.subject || body.subject.trim().length < 5) return "Sujet invalide.";
-  if (!body.message || body.message.trim().length < 20) return "Message invalide.";
-  return null;
-}
+export type ContactBody = z.infer<typeof contactSchema>;
 
 router.post("/", async (req: Request, res: Response) => {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const body = req.body as ContactBody;
-
-  const error = validate(body);
-  if (error) {
-    return res.status(400).json({ success: false, message: error });
+  const parsed = contactSchema.safeParse(req.body);
+  if (!parsed.success) {
+    const message = parsed.error.errors[0]?.message ?? "Données invalides.";
+    return res.status(400).json({ success: false, message });
   }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const body = parsed.data;
 
   try {
     await resend.emails.send({
-      from: "Portfolio <onboarding@resend.dev>", // à remplacer par ton domaine vérifié
+      from: "Portfolio <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL!,
       replyTo: body.email,
       subject: `[Portfolio] ${body.subject}`,
@@ -43,9 +39,7 @@ router.post("/", async (req: Request, res: Response) => {
             </tr>
             <tr style="background: #f9f9f9;">
               <td style="padding: 8px; color: #666;"><strong>Email</strong></td>
-              <td style="padding: 8px;">
-                <a href="mailto:${body.email}">${body.email}</a>
-              </td>
+              <td style="padding: 8px;"><a href="mailto:${body.email}">${body.email}</a></td>
             </tr>
             <tr>
               <td style="padding: 8px; color: #666;"><strong>Sujet</strong></td>
@@ -57,13 +51,10 @@ router.post("/", async (req: Request, res: Response) => {
             </tr>
           </table>
           <hr style="margin: 24px 0; border: none; border-top: 1px solid #eee;" />
-          <p style="color: #999; font-size: 12px;">
-            Envoyé depuis carole-rotton.dev
-          </p>
+          <p style="color: #999; font-size: 12px;">Envoyé depuis carole-rotton.dev</p>
         </div>
       `,
     });
-
     return res.status(200).json({ success: true, message: "Email envoyé avec succès." });
   } catch (err) {
     console.error("Erreur Resend:", err);

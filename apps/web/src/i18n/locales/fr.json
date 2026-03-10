@@ -53,7 +53,38 @@
   "projects": {
     "eyebrow": "✦ Projets",
     "title": "Réalisations",
-    "subtitle": "Des projets concrets, des problèmes réels, des solutions durables."
+    "subtitle": "Des projets concrets, des problèmes réels, des solutions durables.",
+    "seeDetail": "Voir le détail",
+    "close": "Fermer",
+    "drawer": {
+      "video": "Vidéo",
+      "screenshots": "Screenshots",
+      "live": "Site live",
+      "tests": "Tests",
+      "archi": "Architecture",
+      "liveBlocked": "Ce site ne peut pas être affiché directement ici pour des raisons de sécurité.",
+      "liveOpen": "Ouvrir dans un nouvel onglet"
+    },
+    "maskott": {
+      "linkName": "Maskott",
+      "desc": "Lecteur de modules interactifs (QCM, drag & drop, textes à trou, vidéo, contenu pédagogique...), moteur de recommandation de ressources, Design System, Accessibilité WCAG 2.1.",
+      "longDesc": "Lecteur de modules interactifs (QCM, drag & drop, textes à trou, vidéo, contenu pédagogique...), moteur de recommandation de ressources, Design System complet, Accessibilité WCAG 2.1. Travail en équipe agile, revues de code, CI/CD GitLab."
+    },
+    "portfolio": {
+      "desc": "Monorepo Yarn Workspaces, React 18, TypeScript, Node.js, API Resend, tests Vitest, i18n fr/en, accessibilité WCAG, menu a11y, dark/light mode automatique.",
+      "longDesc": "Monorepo Yarn Workspaces, React 18, TypeScript, Node.js, API Resend, tests Vitest, i18n fr/en, accessibilité WCAG, menu a11y, dark/light mode automatique. Dashboard de tests en temps réel, optimisation images WebP."
+    }
+  },
+  "arch": {
+    "title": "Architecture du portfolio",
+    "eyebrow": "Projet personnel · 2026",
+    "layers": "Couches",
+    "structure": "Structure",
+    "flux": "Flux",
+    "close": "Fermer",
+    "trigger": "Voir l'archi",
+    "triggerAriaLabel": "Voir l'architecture du projet",
+    "dialogAriaLabel": "Architecture du portfolio"
   },
   "playground": {
     "eyebrow": "✦ Composants",

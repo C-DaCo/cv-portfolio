@@ -36,8 +36,20 @@ export default defineConfig({
     },
   },
   test: {
-  environment: "jsdom",
-  globals: true,
-  setupFiles: ["./src/test/setup.ts"],
-}
+    environment: "jsdom",
+    globals: true,
+    setupFiles: ["./src/test/setup.ts"],
+    reporters: ["verbose", "json"],
+    outputFile: {
+      json: "./public/test-results.json",
+    },
+    coverage: {
+      provider: "v8",
+      reporter: ["json-summary", "text"],
+      reportsDirectory: path.resolve(__dirname, "./public/coverage"),
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: ["src/test/**", "src/**/*.test.{ts,tsx}", "src/vite-env.d.ts"],
+      reportOnFailure: true,
+    },
+  },
 });

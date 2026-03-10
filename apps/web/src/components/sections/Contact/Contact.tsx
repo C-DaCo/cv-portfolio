@@ -63,6 +63,8 @@ export function Contact() {
     const validationErrors = validate(fields, t);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      // ← marque tous les champs comme touchés
+      setTouched({ name: true, email: true, subject: true, message: true });
       return;
     }
     setStatus("loading");

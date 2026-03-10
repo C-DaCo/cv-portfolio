@@ -2,6 +2,8 @@
 // Mixins
 // ─────────────────────────────────────────────
 
+@use "sass:map"; 
+
 // Breakpoints
 $breakpoints: (
   'sm':  576px,
@@ -12,8 +14,8 @@ $breakpoints: (
 );
 
 @mixin respond-to($bp) {
-  @if map-has-key($breakpoints, $bp) {
-    @media (min-width: map-get($breakpoints, $bp)) {
+  @if map.has-key($breakpoints, $bp) {
+    @media (min-width: map.get($breakpoints, $bp)) {
       @content;
     }
   } @else {
@@ -22,16 +24,16 @@ $breakpoints: (
 }
 
 @mixin respond-below($bp) {
-  @if map-has-key($breakpoints, $bp) {
-    @media (max-width: #{map-get($breakpoints, $bp) - 1px}) {
+  @if map.has-key($breakpoints, $bp) {
+    @media (max-width: #{map.get($breakpoints, $bp) - 1px}) {
       @content;
     }
   }
 }
 
 @mixin respond-above($bp) {
-  @if map-has-key($breakpoints, $bp) {
-    @media (min-width: map-get($breakpoints, $bp)) {
+  @if map.has-key($breakpoints, $bp) {
+    @media (min-width: map.get($breakpoints, $bp)) {
       @content;
     }
   }
