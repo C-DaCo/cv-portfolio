@@ -73,12 +73,11 @@ export interface Formation {
 
 export interface Language {
   name: string;
-  level: "natif" | "courant" | "professionnel" | "intermédiaire" | "notions";
+  level: string;
 }
 
 export interface CVData {
   personalInfo: PersonalInfo;
-  summary: string;
   experiences: Experience[];
   skills: Skill[];
   formations: Formation[];

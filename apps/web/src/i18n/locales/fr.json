@@ -11,17 +11,14 @@
   },
   "hero": {
     "available": "Disponible · Full Remote",
-    "rolePart1": "Développeuse Front-End",
-    "rolePart2": "EdTech",
-    "summary": "Spécialisée en React et Node.js, avec plus de 5 ans d'expérience dans l'EdTech. Habituée à travailler en full remote au sein d'équipes agiles, je conçois des applications performantes, accessibles et scalables. Autonome, curieuse et passionnée par les bonnes pratiques, j'aime transformer des besoins complexes en solutions simples et efficaces.",
+    "rolePart1": "Développeuse",
+    "rolePart2": "Front-End",
+    "summary": "Développeuse Front-End React avec 9 ans d'expérience, dont 5 en full remote dans des équipes agiles. J'ai conçu des applications utilisées par des milliers d'utilisateurs, en portant l'accessibilité WCAG comme exigence, pas comme option. Autonome, proactive et à l'aise en équipe comme en solo — j'aime transformer des besoins complexes en interfaces simples, solides et inclusives.",
     "ctaContact": "Me contacter",
     "ctaProjects": "Voir mes projets",
     "statsYears": "Ans d'expérience",
-    "statsYearsValue": "9+",
     "statsCompanies": "Entreprises EdTech",
-    "statsCompaniesValue": "3",
-    "statsModules": "Modules créés",
-    "statsModulesValue": "15+",
+    "statsProjects": "Projets créés",
     "scroll": "Scroll"
   },
   "experiences": {
@@ -31,7 +28,36 @@
     "remote": "◎ Remote",
     "today": "Aujourd'hui",
     "ariaLabel": "Expériences professionnelles",
-    "techAriaLabel": "Technologies utilisées chez {{company}}"
+    "techAriaLabel": "Technologies utilisées chez {{company}}",
+    "maskott": {
+      "role": "Développeuse Web Front-End",
+      "sector": "EdTech",
+      "duration": "2 ans et demi",
+      "desc1": "Développement from scratch d'une application web/mobile (React + Capacitor) permettant aux apprenants de suivre, réviser et être évalués sur leurs modules Tactileo",
+      "desc2": "Évolutions et corrections du Player de contenu pédagogique — prise en charge progressive en autonomie après une phase en équipe de 3 développeurs front",
+      "desc3": "Migration vers TypeScript du Design System existant en React JS",
+      "desc4": "Développement full stack d'un outil de gestion d'abonnements via l'API du GAR (Gestionnaire d'Accès aux Ressources, Éducation Nationale) et de suivi des usages — encadrement d'un stagiaire",
+      "desc5": "Contributions au moteur de recommandation de ressources (projet Orchard) : nouvelles fonctionnalités et ajustements",
+      "desc6": "Mise en conformité accessibilité WCAG de l'application apprenants"
+    },
+    "ktm": {
+      "role": "Développeuse Web Full Stack",
+      "sector": "EdTech",
+      "duration": "2 ans",
+      "desc1": "Développement et évolution d'une bibliothèque de composants Angular pour la création de modules e-learning (structure JSON + composants réutilisables)",
+      "desc2": "Conception et livraison de plus de 15 modules de formation pour de grands comptes (Bouygues TP, TotalEnergies, PSA, Agreenium...)",
+      "desc3": "Refonte complète du Back-Office dédié au recyclage des agents GRDF",
+      "desc4": "Travail en autonomie sur plusieurs projets Angular (JS et TS) simultanément"
+    },
+    "hippocad": {
+      "role": "Développeuse App Mobile Front-End",
+      "sector": "Santé",
+      "duration": "3 ans",
+      "desc1": "Création from scratch d'une application web mobile-first (ExtJS) de liaison soignants/famille — remplaçant le carnet papier de suivi patient",
+      "desc2": "Développement de l'ensemble des fonctionnalités front-end : authentification, fiches patient, messagerie de liaison, interface responsive multi-profils (soignants, aides à domicile, famille)",
+      "desc3": "Maintenance et évolution d'une application Android/Java existante",
+      "desc4": "Seule développeuse front-end, en binôme avec le développeur back-end"
+    }
   },
   "skills": {
     "eyebrow": "✦ Savoir-faire",
@@ -43,12 +69,26 @@
       "front": "Front-End",
       "back": "Back-End",
       "divers": "Outils & Méthodes"
-    }
+    },
+    "responsive": "Responsive Design",
+    "a11y": "Accessibilité"
   },
   "education": {
     "eyebrow": "✦ Diplômes",
     "title": "Formations",
-    "ariaLabel": "Formations et certifications"
+    "ariaLabel": "Formations et certifications",
+    "dawan": {
+      "degree": "Formation NodeJS & React",
+      "duration": "2 semaines"
+    },
+    "ifocop": {
+      "degree": "Titre RNCP niveau II — Développeuse Web",
+      "duration": "1 an"
+    },
+    "openclassrooms": {
+      "degree": "Certifications HTML5/CSS3 & PHP/MySQL",
+      "duration": "6 mois"
+    }
   },
   "projects": {
     "eyebrow": "✦ Projets",
@@ -195,5 +235,11 @@
   "footer": {
     "madeWith": "Fait avec",
     "stack": "en React · TypeScript"
+  },
+  "languages": {
+    "french": "Français",
+    "english": "Anglais",
+    "native": "Natif",
+    "intermediate": "Intermédiaire"
   }
 }

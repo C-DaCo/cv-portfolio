@@ -10,17 +10,14 @@
   },
   "hero": {
     "available": "Available · Full Remote",
-    "rolePart1": "Front-End Developer",
-    "rolePart2": "EdTech",
-    "summary": "Specialized in React and Node.js, with over 5 years of experience in EdTech. Used to working fully remote within agile teams, I build performant, accessible and scalable applications. Autonomous, curious and passionate about best practices, I love turning complex needs into simple and effective solutions.",
+    "rolePart1": "Developer",
+    "rolePart2": "Front-End",
+    "summary": "Front-End React Developer with 9 years of experience, including 5 years fully remote in agile teams. I've built applications used by thousands of users, treating WCAG accessibility as a requirement, not an afterthought. Autonomous, proactive and comfortable working solo or in a team — I love turning complex needs into simple, solid and inclusive interfaces.",
     "ctaContact": "Get in touch",
     "ctaProjects": "See my projects",
     "statsYears": "Years of experience",
-    "statsYearsValue": "9+",
     "statsCompanies": "EdTech companies",
-    "statsCompaniesValue": "3",
-    "statsModules": "Modules created",
-    "statsModulesValue": "15+",
+    "statsProjects": "Projects created",
     "scroll": "Scroll"
   },
   "experiences": {
@@ -30,7 +27,36 @@
     "remote": "◎ Remote",
     "today": "Present",
     "ariaLabel": "Work experience",
-    "techAriaLabel": "Technologies used at {{company}}"
+    "techAriaLabel": "Technologies used at {{company}}",
+    "maskott": {
+      "role": "Front-End Web Developer",
+      "sector": "EdTech",
+      "duration": "2.5 years",
+      "desc1": "Built from scratch a web/mobile application (React + Capacitor) allowing learners to follow, review and be assessed on their Tactileo modules",
+      "desc2": "Evolution and bug fixes on the pedagogical content Player — progressively took full ownership after an initial phase in a 3-developer front-end team",
+      "desc3": "Migrated the existing React JS Design System to TypeScript",
+      "desc4": "Full stack development of a subscription management tool via the GAR API (National Education Resource Access Manager) and usage tracking dashboard — mentored an intern",
+      "desc5": "Contributions to the resource recommendation engine (Orchard project): new features and adjustments",
+      "desc6": "WCAG accessibility compliance implementation on the learner application"
+    },
+    "ktm": {
+      "role": "Full Stack Web Developer",
+      "sector": "EdTech",
+      "duration": "2 years",
+      "desc1": "Development and evolution of an Angular component library for e-learning module creation (JSON structure + reusable components)",
+      "desc2": "Design and delivery of 15+ training modules for major clients (Bouygues TP, TotalEnergies, PSA, Agreenium...)",
+      "desc3": "Full redesign of the Back-Office dedicated to GRDF agent retraining",
+      "desc4": "Autonomous work across multiple simultaneous Angular projects (JS and TS)"
+    },
+    "hippocad": {
+      "role": "Front-End Mobile App Developer",
+      "sector": "Healthcare",
+      "duration": "3 years",
+      "desc1": "Built from scratch a mobile-first web application (ExtJS) for carer/family liaison — replacing the paper patient follow-up booklet",
+      "desc2": "Developed all front-end features: authentication, patient records, liaison messaging, responsive multi-profile UI (carers, home helpers, family)",
+      "desc3": "Maintenance and evolution of an existing Android/Java application",
+      "desc4": "Sole front-end developer, working in tandem with the back-end developer"
+    }
   },
   "skills": {
     "eyebrow": "✦ Expertise",
@@ -42,12 +68,26 @@
       "front": "Front-End",
       "back": "Back-End",
       "divers": "Tools & Methods"
-    }
+    },
+    "responsive": "Responsive Design",
+    "a11y": "Accessibility"
   },
   "education": {
     "eyebrow": "✦ Diplomas",
     "title": "Education",
-    "ariaLabel": "Education and certifications"
+    "ariaLabel": "Education and certifications",
+    "dawan": {
+      "degree": "NodeJS & React Training",
+      "duration": "2 weeks"
+    },
+    "ifocop": {
+      "degree": "RNCP Level II — Web Developer",
+      "duration": "1 year"
+    },
+    "openclassrooms": {
+      "degree": "HTML5/CSS3 & PHP/MySQL Certifications",
+      "duration": "6 months"
+    }
   },
   "projects": {
     "eyebrow": "✦ Projects",
@@ -194,5 +234,11 @@
   "footer": {
     "madeWith": "Made with",
     "stack": "in React · TypeScript"
+  },
+  "languages": {
+    "french": "French",
+    "english": "English",
+    "native": "Native",
+    "intermediate": "Intermediate"
   }
 }

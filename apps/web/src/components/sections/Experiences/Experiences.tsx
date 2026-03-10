@@ -53,10 +53,10 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
       <article className={styles.card}>
         <header className={styles.cardHeader}>
           <div className={styles.cardMeta}>
-            <span className={styles.sector}>{experience.sector}</span>
+            <span className={styles.sector}>{t(experience.sector)}</span>
             {experience.remote && <span className={styles.remoteBadge} aria-label="Full remote">{t("experiences.remote")}</span>}
           </div>
-          <h3 className={styles.role}>{experience.role}</h3>
+          <h3 className={styles.role}>{t(experience.role)}</h3>
           <div className={styles.companyRow}>
             <a href={experience.companyUrl} target="_blank" rel="noopener noreferrer">
               <img src={logo} alt={experience.company} className={styles.companyLogo} />
@@ -65,14 +65,14 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
           </div>
           <time className={styles.dates} dateTime={experience.startDate}>
             {formatDate(experience.startDate)} — {experience.endDate ? formatDate(experience.endDate) : t("experiences.today")}
-            <span className={styles.duration}> · {experience.duration}</span>
+            <span className={styles.duration}> · {t(experience.duration)}</span>
           </time>
         </header>
         <ul className={styles.descList} role="list">
           {experience.description.map((item, i) => (
             <li key={i} className={styles.descItem}>
               <span className={styles.descBullet} aria-hidden="true">→</span>
-              {item}
+              {t(item)}
             </li>
           ))}
         </ul>

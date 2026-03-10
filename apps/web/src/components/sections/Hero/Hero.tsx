@@ -25,6 +25,12 @@ export function Hero() {
 
   const tagVariants = ["coral", "sage", "mauve", "sand"] as const;
 
+  const stats = [
+    { id: "years",    num: "+9",  label: t("hero.statsYears")     },
+    { id: "companies", num: "2",  label: t("hero.statsCompanies") },
+    { id: "projects", num: "+10", label: t("hero.statsProjects")  },
+  ];
+
   return (
     <section id="hero" className={styles.hero} aria-label="Introduction">
 
@@ -96,7 +102,7 @@ export function Hero() {
             {allTags.map((name, i) => (
               <Tag
                 key={name}
-                label={name}
+                label={t(name)}
                 variant={tagVariants[i % tagVariants.length]}
               />
             ))}
@@ -126,7 +132,7 @@ export function Hero() {
 
           <span className={`${styles.decoTag} ${styles.decoTag1}`}>✦ React · TypeScript</span>
           <span className={`${styles.decoTag} ${styles.decoTag2}`}>♡ EdTech · Remote</span>
-          <span className={`${styles.decoTag} ${styles.decoTag3}`}>◎ Accessibilité</span>
+          <span className={`${styles.decoTag} ${styles.decoTag3}`}>◎ {t("skills.a11y")}</span>
 
           <div className={styles.dotDeco1} />
           <div className={styles.dotDeco2} />
@@ -152,27 +158,22 @@ export function Hero() {
         aria-label="En chiffres"
       >
         <div className={styles.stats}>
-          {[
-            { num: t("hero.statsYearsValue"), label: t("hero.statsYears") },
-            { num: t("hero.statsCompaniesValue"),  label: t("hero.statsCompanies") },
-            { num: t("hero.statsModulesValue"), label: t("hero.statsModules") },
-          ].map(({ num, label }, i) => (
-            <>
-              {i > 0 && <div className={styles.statSep} aria-hidden="true" key={`sep-${i}`} />}
-              <div className={styles.stat} key={label}>
+          {stats.map(({ id, num, label }, i) => (
+            <div key={id} className={styles.statGroup}>
+              {i > 0 && <div className={styles.statSep} aria-hidden="true" />}
+              <div className={styles.stat}>
                 <span className={styles.statNum} aria-label={num}>
-                  <em>{num.replace("+", "")}</em>{num.includes("+") ? "+" : ""}
+                  {num.includes("+") ? "+" : ""}<em>{num.replace("+", "")}</em>
                 </span>
                 <span className={styles.statLabel}>{label}</span>
               </div>
-            </>
+            </div>
           ))}
         </div>
 
         <div className={styles.scrollHint} aria-hidden="true">
           <span className={styles.scrollText}>{t("hero.scroll")}</span>
           <div className={styles.scrollArrow}>
-            {/* Chevron animé SVG */}
             <svg width="14" height="20" viewBox="0 0 14 20" fill="none" className={styles.scrollSvg}>
               <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M1 7L7 13L13 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />

@@ -20,6 +20,7 @@ interface EducationCardProps {
 }
 
 function EducationCard({ formation, index }: EducationCardProps) {
+  const { t } = useTranslation();
   const prefersReduced = useReducedMotion();
   const logo = assets.education[formation.logo as keyof typeof assets.education];
   const { ref, isVisible } = useIntersectionObserver<HTMLLIElement>({
@@ -51,10 +52,10 @@ function EducationCard({ formation, index }: EducationCardProps) {
       <div className={styles.content}>
         <div className={styles.meta}>
           <span className={styles.year}>{formation.year}</span>
-          <span className={styles.duration}>{formation.duration}</span>
+          <span className={styles.duration}>{t(formation.duration)}</span>
         </div>
 
-        <p className={styles.degree}>{formation.degree}</p>
+        <p className={styles.degree}>{t(formation.degree)}</p>
 
         {formation.certifications && (
           <ul className={styles.certList} role="list">
