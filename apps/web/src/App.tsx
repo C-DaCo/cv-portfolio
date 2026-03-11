@@ -92,10 +92,13 @@ export default function App() {
           <li>
             <button
               onClick={toggleTheme}
-              aria-label={theme === "dark" ? t("theme.toggleLight") : t("theme.toggleDark")}
+              aria-label={t(`theme.toggle.${theme}`)}
               className={styles.themeToggle}
             >
-              {theme === "dark" ? "☀ Clair" : "⏾ Sombre"}
+              {theme === "light" && "⏾ Clair"}
+              {theme === "dark"  && "✦ Sombre"}
+              {theme === "neon-dark"  && "◈ Neon"}
+              {theme === "neon-light"  && "☀ Pop"}
             </button>
           </li>
         </ul>

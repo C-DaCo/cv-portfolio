@@ -2,12 +2,13 @@
 @use 'mixins';
 @use 'reset';
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-main > section {
+main>section {
   scroll-margin-top: var(--header-height);
 }
 
@@ -34,12 +35,19 @@ main > section {
   --font-sans: 'OpenDyslexic', sans-serif !important;
   --font-serif: 'OpenDyslexic', sans-serif !important;
 
-  * { font-family: 'OpenDyslexic', sans-serif !important; }
+  * {
+    font-family: 'OpenDyslexic', sans-serif !important;
+  }
 }
 
 // Taille de police
-.a11y-font-md { font-size: 112% !important; }
-.a11y-font-lg { font-size: 125% !important; }
+.a11y-font-md {
+  font-size: 112% !important;
+}
+
+.a11y-font-lg {
+  font-size: 125% !important;
+}
 
 // Espacement
 .a11y-spacing * {
@@ -48,67 +56,166 @@ main > section {
   line-height: 1.9 !important;
 }
 
-// Contraste élevé
+// ── Contraste élevé ───────────────────────────
 
-// Mode clair avec contraste élevé
+// Mode clair
 [data-theme="light"].a11y-contrast,
 :root.a11y-contrast {
-  --clr-text:       #000000 !important;
+  --clr-text: #000000 !important;
   --clr-text-muted: #1a1a1a !important;
-  --clr-border:     rgba(0, 0, 0, 0.5) !important;
+  --clr-border: rgba(0, 0, 0, 0.5) !important;
 
-  p, li, span, time, label, h1, h2, h3 { 
-    color: #000000 !important; 
+  p,
+  li,
+  span,
+  time,
+  label,
+  h1,
+  h2,
+  h3 {
+    color: #000000 !important;
 
-    // Exception — préserve les couleurs du nuage de skills
-    &[data-category="language"] { color: #9e7033 !important; }
-    &[data-category="front"]    { color: #e45627 !important; }
-    &[data-category="back"]     { color: #3d8e59 !important; }
-    &[data-category="divers"]   { color: #793a96 !important; }
-  
+    &[data-category="language"] {
+      color: #9e7033 !important;
+    }
+
+    &[data-category="front"] {
+      color: #e45627 !important;
+    }
+
+    &[data-category="back"] {
+      color: #3d8e59 !important;
+    }
+
+    &[data-category="divers"] {
+      color: #793a96 !important;
+    }
   }
-    
 }
 
-// Mode sombre avec contraste élevé
+// Mode sombre
 [data-theme="dark"].a11y-contrast {
-  --clr-text:       #ffffff !important;
+  --clr-text: #ffffff !important;
   --clr-text-muted: #f0f0f0 !important;
-  --clr-border:     rgba(255, 255, 255, 0.5) !important;
+  --clr-border: rgba(255, 255, 255, 0.5) !important;
 
-  p, li, span, time, label, h1, h2, h3 { 
-    color: #ffffff !important; 
+  p,
+  li,
+  span,
+  time,
+  label,
+  h1,
+  h2,
+  h3 {
+    color: #ffffff !important;
 
-    // Exception — préserve les couleurs du nuage de skills
-    &[data-category="language"] { color: #f1bf7d !important; }
-    &[data-category="front"]    { color: #f48059 !important; }
-    &[data-category="back"]     { color: #69c188 !important; }
-    &[data-category="divers"]   { color: #bc77dc !important; }
+    &[data-category="language"] {
+      color: #f1bf7d !important;
+    }
 
+    &[data-category="front"] {
+      color: #f48059 !important;
+    }
+
+    &[data-category="back"] {
+      color: #69c188 !important;
+    }
+
+    &[data-category="divers"] {
+      color: #bc77dc !important;
+    }
   }
-  
 }
 
+// Neon dark
+[data-theme="neon-dark"].a11y-contrast {
+  --clr-text: #ffffff !important;
+  --clr-text-muted: #f0f0f0 !important;
+  --clr-border: rgba(255, 255, 255, 0.6) !important;
+
+  p,
+  li,
+  span,
+  time,
+  label,
+  h1,
+  h2,
+  h3 {
+    color: #ffffff !important;
+
+    &[data-category="language"] {
+      color: #FFD166 !important;
+    }
+
+    &[data-category="front"] {
+      color: #FF6B8A !important;
+    }
+
+    &[data-category="back"] {
+      color: #00E5C8 !important;
+    }
+
+    &[data-category="divers"] {
+      color: #D4A0FF !important;
+    }
+  }
+}
+
+// Neon light — Pastel Pop 90s
+[data-theme="neon-light"].a11y-contrast {
+  --clr-text: #000000 !important;
+  --clr-text-muted: #1A0A2E !important;
+  --clr-border: rgba(0, 0, 0, 0.5) !important;
+
+  p,
+  li,
+  span,
+  time,
+  label,
+  h1,
+  h2,
+  h3 {
+    color: #000000 !important;
+
+    &[data-category="language"] {
+      color: #A05C00 !important;
+    }
+
+    &[data-category="front"] {
+      color: #C4006A !important;
+    }
+
+    &[data-category="back"] {
+      color: #1A7A2E !important;
+    }
+
+    &[data-category="divers"] {
+      color: #4A1DB0 !important;
+    }
+  }
+}
+
+// Styles communs à tous les modes contraste
 .a11y-contrast {
   a {
     font-weight: 600 !important;
   }
 
-  // Boutons avec bordure forte
   button {
     border-width: 2px !important;
     font-weight: 600 !important;
   }
 
-  // Accentuation corail plus vive
-  em, strong { font-weight: 700 !important; }
+  em,
+  strong {
+    font-weight: 700 !important;
+  }
 }
 
 // Pause animations
 .a11y-no-motion * {
   animation: none !important;
   transition: none !important;
-  // Force la visibilité des éléments animés
   opacity: 1 !important;
   transform: none !important;
 }

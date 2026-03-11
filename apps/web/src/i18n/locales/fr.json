@@ -9,6 +9,14 @@
     "toggleDark": "Activer le thème sombre",
     "toggleLight": "Activer le thème clair"
   },
+  "theme": {
+    "toggle": {
+      "light": "Passer en mode clair",
+      "dark": "Passer en mode sombre",
+      "neon-dark": "Passer en mode Néon",
+      "neon-light": "Passer en mode Pop 90s"
+    }
+  },
   "hero": {
     "available": "Disponible · Full Remote",
     "rolePart1": "Développeuse",

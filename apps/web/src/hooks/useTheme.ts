@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 
-function getThemeFromTime(): "light" | "dark" {
+export type Theme = "light" | "dark" | "neon-dark" | "neon-light";
+
+const THEMES: Theme[] = ["light", "dark", "neon-dark", "neon-light"];
+
+function getThemeFromTime(): Theme {
   const hour = new Date().getHours();
   return hour >= 18 || hour < 7 ? "dark" : "light";
 }
 
 // ── Singleton partagé ─────────────────────────
-let globalTheme: "light" | "dark" = getThemeFromTime();
-const listeners = new Set<(theme: "light" | "dark") => void>();
+let globalTheme: Theme = getThemeFromTime();
+const listeners = new Set<(theme: Theme) => void>();
 
-function setGlobalTheme(theme: "light" | "dark") {
+function setGlobalTheme(theme: Theme) {
   globalTheme = theme;
   document.documentElement.setAttribute("data-theme", theme);
   listeners.forEach((fn) => fn(theme));
@@ -39,11 +43,10 @@ startAutoTheme();
 
 // ── Hook ──────────────────────────────────────
 export function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">(globalTheme);
+  const [theme, setTheme] = useState<Theme>(globalTheme);
 
   useEffect(() => {
-    // S'abonne aux changements globaux
-    const listener = (t: "light" | "dark") => setTheme(t);
+    const listener = (t: Theme) => setTheme(t);
     listeners.add(listener);
     return () => {
       listeners.delete(listener);
@@ -52,7 +55,9 @@ export function useTheme() {
 
   const toggleTheme = () => {
     isManualGlobal = true;
-    setGlobalTheme(globalTheme === "dark" ? "light" : "dark");
+    const currentIndex = THEMES.indexOf(globalTheme);
+    const nextTheme = THEMES[(currentIndex + 1) % THEMES.length];
+    setGlobalTheme(nextTheme);
   };
 
   return { theme, toggleTheme };

@@ -15,6 +15,13 @@
   --clr-blob-a:       #F4C5B0;
   --clr-blob-b:       #C5D9CA;
   --clr-blob-c:       #D4BDE0;
+
+  --clr-coral:        #E8715A;
+  --clr-blush:        #F2BFAD;
+  --clr-sage:         #7B9E87;
+  --clr-sage-light:   #A8C5B0;
+  --clr-mauve:        #9B7EA8;
+  --clr-sand:         #C4A882;
 }
 
 // ── DARK MODE ────────────────────────────────
@@ -30,18 +37,61 @@
   --clr-blob-a:       rgba(232, 113, 90, 0.35);
   --clr-blob-b:       rgba(123, 158, 135, 0.3);
   --clr-blob-c:       rgba(155, 126, 168, 0.25);
-}
 
-// ── Tokens fixes (indépendants du thème) ─────
-:root {
-  // Couleurs fixes
   --clr-coral:        #E8715A;
   --clr-blush:        #F2BFAD;
   --clr-sage:         #7B9E87;
   --clr-sage-light:   #A8C5B0;
   --clr-mauve:        #9B7EA8;
   --clr-sand:         #C4A882;
+}
 
+// ── NEON DARK MODE ───────────────────────────
+[data-theme="neon-dark"] {
+  --clr-bg:           #0D0D0D;
+  --clr-bg-100:       #141414;
+  --clr-bg-200:       #1A1A1A;
+  --clr-surface:      rgba(255, 255, 255, 0.04);
+  --clr-border:       rgba(255, 75, 110, 0.3);
+  --clr-text:         #F0F0F0;
+  --clr-text-muted:   #888888;
+  --clr-stat-border:  rgba(255, 75, 110, 0.2);
+  --clr-blob-a:       rgba(255, 75, 110, 0.45);
+  --clr-blob-b:       rgba(0, 194, 168, 0.4);
+  --clr-blob-c:       rgba(255, 183, 3, 0.35);
+
+  --clr-coral:        #FF4B6E;
+  --clr-blush:        #FF9EB5;
+  --clr-sage:         #00C2A8;
+  --clr-sage-light:   #5DDFD0;
+  --clr-mauve:        #B97FFF;
+  --clr-sand:         #FFB703;
+}
+
+// ── NEON LIGHT — Pastel Pop 90s ───────────────
+[data-theme="neon-light"] {
+  --clr-bg:           #FFFDF5;
+  --clr-bg-100:       #FFF5E6;
+  --clr-bg-200:       #FFE8D6;
+  --clr-surface:      rgba(255, 255, 255, 0.85);
+  --clr-border:       rgba(255, 60, 172, 0.2);
+  --clr-text:         #1A0A2E;
+  --clr-text-muted:   #4A3A5E;
+  --clr-stat-border:  rgba(255, 60, 172, 0.15);
+  --clr-blob-a:       rgba(255, 60, 172, 0.2);
+  --clr-blob-b:       rgba(57, 211, 83, 0.2);
+  --clr-blob-c:       rgba(120, 76, 244, 0.2);
+
+  --clr-coral:        #FF3CAC;
+  --clr-blush:        #FF9EDB;
+  --clr-sage:         #39D353;
+  --clr-sage-light:   #85E896;
+  --clr-mauve:        #784CF4;
+  --clr-sand:         #FFD700;
+}
+
+// ── Tokens fixes (indépendants du thème) ─────
+:root {
   // Typographie
   --font-serif:       'Cormorant Garamond', Georgia, serif;
   --font-sans:        'DM Sans', sans-serif;

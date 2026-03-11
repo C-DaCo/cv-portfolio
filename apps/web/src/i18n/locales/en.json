@@ -8,6 +8,14 @@
     "toggleDark": "Enable dark mode",
     "toggleLight": "Enable light mode"
   },
+  "theme": {
+    "toggle": {
+      "light": "Switch to light mode",
+      "dark":  "Switch to dark mode",
+      "neon-dark":  "Switch to neon dark mode",
+      "neon-light":  "Switch to pop 90smode"
+    }
+  },
   "hero": {
     "available": "Available · Full Remote",
     "rolePart1": "Developer",
