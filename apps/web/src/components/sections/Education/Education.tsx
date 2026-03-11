@@ -35,13 +35,13 @@ function EducationCard({ formation, index }: EducationCardProps) {
       ref={ref}
       className={`${styles.card} ${isVisible || prefersReduced ? styles.visible : ""}`}
       style={{ transitionDelay: prefersReduced ? "0ms" : `${index * 120}ms` }}
-      aria-label={`${formation.school}, ${formation.degree}`}
+      aria-label={`${t(formation.school)}, ${t(formation.degree)}`}
     >
       {/* Logo */}
       <div className={styles.logoWrap} aria-hidden="true">
         {formation.logo ? (
             <a href={formation.url} target="_blank" rel="noopener noreferrer">
-              <img src={logo} alt={formation.school} className={styles.logo} />
+              <img src={logo} alt={t(formation.school)} className={styles.logo} />
             </a>
         ) : (
             <span className={styles.icon}>{icon}</span>

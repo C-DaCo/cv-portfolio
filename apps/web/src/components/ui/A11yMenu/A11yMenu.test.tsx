@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, beforeEach } from "vitest";
 import { A11yMenu } from "./A11yMenu";
+import { axe } from "jest-axe";
 
 describe("A11yMenu", () => {
     beforeEach(() => {
@@ -85,4 +86,21 @@ describe("A11yMenu", () => {
         expect(screen.getByRole("button", { name: /Taille Grande/i })).toBeInTheDocument();
         expect(screen.getByRole("button", { name: /Taille Très grande/i })).toBeInTheDocument();
     });
+});
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("A11yMenu — accessibilité axe-core", () => {
+  it("n'a pas de violations (panel fermé)", async () => {
+    const { container } = render(<A11yMenu />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it("n'a pas de violations (panel ouvert)", async () => {
+    const { container } = render(<A11yMenu />);
+    fireEvent.click(screen.getByRole("button", { name: /Ouvrir les options d'accessibilité/i }));
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
 });

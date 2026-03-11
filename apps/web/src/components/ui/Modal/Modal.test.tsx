@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
 import { Modal } from "./Modal";
+import { axe } from "jest-axe";
 
 describe("Modal", () => {
   it("ne s'affiche pas si isOpen=false", () => {
@@ -38,5 +39,17 @@ describe("Modal", () => {
     const dialog = screen.getByRole("dialog");
     expect(dialog).toHaveAttribute("aria-modal", "true");
     expect(dialog).toHaveAttribute("aria-labelledby", "modal-title");
+  });
+});
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("Modal — accessibilité axe-core", () => {
+  it("n'a pas de violations (ouverte)", async () => {
+    const { container } = render(
+      <Modal isOpen={true} onClose={vi.fn()} title="Test"><p>Contenu</p></Modal>
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

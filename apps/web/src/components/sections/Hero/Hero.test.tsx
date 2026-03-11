@@ -1,11 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
+import { axe } from "jest-axe";
 import { Hero } from "./Hero";
 
-// Mock de l'image pour Vitest
 vi.mock("@assets/photo.jpg", () => ({ default: "photo.jpg" }));
 
-describe("Hero", () => {
+vi.mock("@hooks/useReducedMotion", () => ({
+  useReducedMotion: () => false,
+}));
+
+// ── Rendu ─────────────────────────────────────
+
+describe("Hero — rendu", () => {
   it("affiche le nom complet", () => {
     render(<Hero />);
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
@@ -31,5 +37,15 @@ describe("Hero", () => {
   it("affiche les stats en chiffres", () => {
     render(<Hero />);
     expect(screen.getByText("hero.statsYears")).toBeInTheDocument();
+  });
+});
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("Hero — accessibilité", () => {
+  it("n'a pas de violations d'accessibilité", async () => {
+    const { container } = render(<Hero />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

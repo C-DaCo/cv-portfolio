@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
 import { ToastContainer } from "./Toast";
 import type { ToastItem } from "./Toast";
+import { axe } from "jest-axe";
 
 const mockToasts: ToastItem[] = [
   { id: "1", message: "Opération réussie", type: "success" },
@@ -49,5 +50,17 @@ describe("ToastContainer", () => {
       expect(alert).toHaveAttribute("aria-live", "polite");
       expect(alert).toHaveAttribute("aria-atomic", "true");
     });
+  });
+});
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("ToastContainer — accessibilité axe-core", () => {
+  it("n'a pas de violations", async () => {
+    const { container } = render(
+      <ToastContainer toasts={mockToasts} onRemove={vi.fn()} />
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

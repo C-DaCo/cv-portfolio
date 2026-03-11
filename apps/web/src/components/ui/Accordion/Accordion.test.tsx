@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
 import { Accordion } from "./Accordion";
 import type { AccordionItem } from "./Accordion";
+import { axe } from "jest-axe";
 
 const items: AccordionItem[] = [
   { id: "1", title: "Question 1", content: <p>Réponse 1</p> },
@@ -75,5 +76,22 @@ describe("Accordion", () => {
     secondBtn.focus();
     await userEvent.keyboard("{ArrowUp}");
     expect(screen.getByText("Question 1").closest("button")).toHaveFocus();
+  });
+});
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("Accordion — accessibilité axe-core", () => {
+  it("n'a pas de violations (fermé)", async () => {
+    const { container } = render(<Accordion items={items} />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it("n'a pas de violations (ouvert)", async () => {
+    const { container } = render(<Accordion items={items} />);
+    await userEvent.click(screen.getByText("Question 1"));
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

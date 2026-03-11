@@ -1,9 +1,20 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
+import { axe } from "jest-axe";
 import { Contact } from "./Contact";
 
-describe("Contact", () => {
+vi.mock("@hooks/useReducedMotion", () => ({
+  useReducedMotion: () => false,
+}));
+
+vi.mock("@hooks/useIntersectionObserver", () => ({
+  useIntersectionObserver: () => ({ ref: { current: null }, isVisible: true }),
+}));
+
+// ── Rendu ─────────────────────────────────────
+
+describe("Contact — rendu", () => {
   it("affiche le titre et la description", () => {
     render(<Contact />);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
@@ -40,5 +51,15 @@ describe("Contact", () => {
     render(<Contact />);
     const btn = screen.getByRole("button", { name: "contact.form.submit" });
     expect(btn).toHaveAttribute("type", "submit");
+  });
+});
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("Contact — accessibilité axe-core", () => {
+  it("n'a pas de violations d'accessibilité", async () => {
+    const { container } = render(<Contact />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

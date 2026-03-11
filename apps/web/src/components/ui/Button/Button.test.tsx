@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { Button } from "./Button";
+import { axe } from "jest-axe";
 
 describe("Button", () => {
   it("affiche le contenu enfant", () => {
@@ -49,5 +50,34 @@ describe("Button", () => {
   it("applique la variante outline sur <a>", () => {
     render(<Button as="a" href="#" variant="outline">Lien outline</Button>);
     expect(screen.getByRole("link").className).toMatch(/outline/);
+  });
+});
+
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("Button — accessibilité axe-core", () => {
+  it("n'a pas de violations (primary)", async () => {
+    const { container } = render(<Button>Cliquez ici</Button>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it("n'a pas de violations (outline)", async () => {
+    const { container } = render(<Button variant="outline">Outline</Button>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it("n'a pas de violations (disabled)", async () => {
+    const { container } = render(<Button disabled>Désactivé</Button>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it("n'a pas de violations (as=a)", async () => {
+    const { container } = render(<Button as="a" href="/test">Lien</Button>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

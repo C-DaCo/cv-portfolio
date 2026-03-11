@@ -1,8 +1,19 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
+import { axe } from "jest-axe";
 import { Playground } from "./Playground";
 
-describe("Playground", () => {
+vi.mock("@hooks/useReducedMotion", () => ({
+  useReducedMotion: () => false,
+}));
+
+vi.mock("@hooks/useIntersectionObserver", () => ({
+  useIntersectionObserver: () => ({ ref: { current: null }, isVisible: true }),
+}));
+
+// ── Rendu ─────────────────────────────────────
+
+describe("Playground — rendu", () => {
   it("affiche le titre de la section", () => {
     render(<Playground />);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
@@ -49,5 +60,15 @@ describe("Playground", () => {
     render(<Playground />);
     fireEvent.click(screen.getByRole("button", { name: /playground.toast.success/i }));
     expect(screen.getByText("playground.toast.msgSuccess")).toBeInTheDocument();
+  });
+});
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("Playground — accessibilité axe-core", () => {
+  it("n'a pas de violations d'accessibilité", async () => {
+    const { container } = render(<Playground />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

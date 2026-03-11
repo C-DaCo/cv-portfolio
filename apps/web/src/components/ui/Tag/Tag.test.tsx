@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { Tag } from "./Tag";
+import { axe } from "jest-axe";
 
 describe("Tag", () => {
   it("affiche le label correctement", () => {
@@ -21,5 +22,21 @@ describe("Tag", () => {
   it("applique la variante sage", () => {
     const { container } = render(<Tag label="Node.js" variant="sage" />);
     expect(container.firstChild).toHaveAttribute("class", expect.stringContaining("sage"));
+  });
+});
+
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("Tag — accessibilité axe-core", () => {
+  it("n'a pas de violations", async () => {
+    // Tag a role=listitem — besoin d'un parent role=list pour axe
+    const { container } = render(
+      <ul>
+        <Tag label="React" />
+      </ul>
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

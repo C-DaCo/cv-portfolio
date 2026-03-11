@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
+import { axe } from "jest-axe";
 import { Projects } from "./Projects";
 
 vi.mock("react-i18next", () => ({
@@ -31,20 +32,18 @@ describe("Projects — rendu", () => {
 
   it("affiche les 2 projets", () => {
     render(<Projects />);
-    expect(screen.getByText("Tactileo — Plateforme pédagogique")).toBeInTheDocument();
-    expect(screen.getByText("Ce portfolio")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Tactileo — Plateforme pédagogique" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Ce portfolio" })).toBeInTheDocument();
   });
 
   it("affiche les tags technos", () => {
     render(<Projects />);
-    // Les 2 projets ont "React" et "TypeScript" — on vérifie qu'il y en a au moins 1
     expect(screen.getAllByText("React").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("TypeScript").length).toBeGreaterThanOrEqual(1);
   });
 
   it("affiche les liens externes", () => {
     render(<Projects />);
-    // On cherche par href plutôt que par aria-label (qui contient la traduction)
     expect(document.querySelector('a[href="https://www.maskott.com"]')).toBeInTheDocument();
     expect(document.querySelector('a[href="https://github.com/C-DaCo/cv-portfolio"]')).toBeInTheDocument();
   });
@@ -58,35 +57,34 @@ describe("Projects — rendu", () => {
 // ── Cards cliquables ──────────────────────────
 
 describe("Projects — cards cliquables", () => {
-  it("les cards ont role=button et tabIndex=0", () => {
+  it("les titres de cards sont des boutons", () => {
     render(<Projects />);
-    const cards = screen.getAllByRole("button");
-    const cardButtons = cards.filter(c => c.getAttribute("tabindex") === "0");
-    expect(cardButtons.length).toBeGreaterThanOrEqual(2);
+    expect(screen.getByRole("button", { name: "Tactileo — Plateforme pédagogique" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Ce portfolio" })).toBeInTheDocument();
   });
 
   it("ouvre le drawer au clic sur Tactileo", () => {
     render(<Projects />);
-    fireEvent.click(screen.getByText("Tactileo — Plateforme pédagogique"));
+    fireEvent.click(screen.getByRole("button", { name: "Tactileo — Plateforme pédagogique" }));
     expect(screen.getByRole("dialog")).toBeInTheDocument();
   });
 
   it("ouvre le bon projet dans le drawer", () => {
     render(<Projects />);
-    fireEvent.click(screen.getByText("Ce portfolio"));
+    fireEvent.click(screen.getByRole("button", { name: "Ce portfolio" }));
     expect(screen.getByRole("dialog")).toHaveTextContent("Ce portfolio");
   });
 
   it("ferme le drawer avec le bouton fermer", () => {
     render(<Projects />);
-    fireEvent.click(screen.getByText("Tactileo — Plateforme pédagogique"));
+    fireEvent.click(screen.getByRole("button", { name: "Tactileo — Plateforme pédagogique" }));
     fireEvent.click(screen.getByRole("button", { name: "projects.close" }));
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("ferme le drawer avec Escape", () => {
     render(<Projects />);
-    fireEvent.click(screen.getByText("Tactileo — Plateforme pédagogique"));
+    fireEvent.click(screen.getByRole("button", { name: "Tactileo — Plateforme pédagogique" }));
     fireEvent.keyDown(document, { key: "Escape" });
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
@@ -108,5 +106,15 @@ describe("Projects — accessibilité", () => {
         expect(link.getAttribute("rel")).toContain("noreferrer");
       }
     });
+  });
+});
+
+// ── Accessibilité axe-core ────────────────────
+
+describe("Projects — accessibilité axe-core", () => {
+  it("n'a pas de violations d'accessibilité", async () => {
+    const { container } = render(<Projects />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

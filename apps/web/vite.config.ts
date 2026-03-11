@@ -39,6 +39,7 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
+    testTimeout: 15000,
     reporters: ["verbose", "json"],
     outputFile: {
       json: "./public/test-results.json",

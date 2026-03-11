@@ -1,5 +1,16 @@
 import "@testing-library/jest-dom";
 import { vi } from "vitest";
+import { configureAxe, toHaveNoViolations } from "jest-axe";
+expect.extend(toHaveNoViolations); 
+
+configureAxe({
+  rules: [
+    {
+      id: "color-contrast",
+      selector: "*",
+    },
+  ],
+});
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
