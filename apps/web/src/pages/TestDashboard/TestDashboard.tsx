@@ -4,6 +4,7 @@ import { useTheme } from "@hooks/useTheme";
 import { ArrowLeft } from "lucide-react";
 import { TestDashboardContent } from "./TestDashboardContent";
 import styles from "./TestDashboard.module.scss";
+import { Nav } from "@components/layout/Nav/Nav";
 
 export function TestDashboard() {
   const { theme, toggleTheme } = useTheme();
@@ -16,6 +17,7 @@ export function TestDashboard() {
   return (
     <div className={styles.page} data-theme={theme}>
 
+              <Nav />
       <header className={styles.header}>
         <div className={styles.headerLeft}>
           <Link to="/" className={styles.backLink}>
@@ -28,11 +30,6 @@ export function TestDashboard() {
               Tests <em>Dashboard</em>
             </h1>
           </div>
-        </div>
-        <div className={styles.headerRight}>
-          <button onClick={toggleTheme} className={styles.themeBtn}>
-            {theme === "dark" ? "☀ Clair" : "⏾ Sombre"}
-          </button>
         </div>
       </header>
 

@@ -334,3 +334,77 @@
 
   &:hover { background: #d4604a; }
 }
+
+// ── Setup vocal (mode inactif) ────────────────
+
+.voiceSetup {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.voiceSetupHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.voiceModes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.voiceMode {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--clr-border);
+  background: transparent;
+  color: var(--clr-text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--clr-coral);
+    color: var(--clr-text);
+  }
+}
+
+.voiceModeActive {
+  background: rgba(232, 113, 90, 0.1);
+  border-color: var(--clr-coral);
+  color: var(--clr-coral);
+  font-weight: 500;
+}
+
+.voiceModeInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.voiceStartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(232, 113, 90, 0.08);
+  border: 1px solid rgba(232, 113, 90, 0.3) !important;
+  color: var(--clr-coral) !important;
+
+  &:hover {
+    background: rgba(232, 113, 90, 0.15) !important;
+  }
+}

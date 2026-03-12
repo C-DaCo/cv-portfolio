@@ -227,6 +227,7 @@ function TestColumnPanel({ label, icon, total, passed, groups, accentClass }: Te
                     className={styles.describeBtn}
                     onClick={() => setExpandedDescribe(isExpanded ? null : key)}
                     aria-expanded={isExpanded}
+                    aria-label={d.name}
                   >
                     <span className={allOk ? styles.iconPass : styles.iconFail}>
                       {allOk
@@ -445,9 +446,12 @@ export function TestDashboardContent() {
                   {coverage.total[metric].pct.toFixed(1)}%
                 </span>
               </div>
-              <div className={styles.progressBar} role="progressbar"
+              <div className={styles.progressBar} 
+                role="progressbar"
                 aria-valuenow={coverage.total[metric].pct}
-                aria-valuemin={0} aria-valuemax={100}
+                aria-valuemin={0} 
+                aria-valuemax={100}
+                aria-label={`Couverture ${metric} : ${coverage.total[metric].pct.toFixed(1)}%`}
               >
                 <div
                   className={`${styles.progressFill} ${styles[getCoverageColor(coverage.total[metric].pct)]}`}

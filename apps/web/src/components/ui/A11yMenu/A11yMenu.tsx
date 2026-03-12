@@ -12,7 +12,8 @@ export function A11yMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const { settings, toggle, setFontSize, reset } = useA11y();
   const { isSpeaking, isPaused, isSupported, currentText,
-          speakPage, pause, resume, next, previous, stop } = useSpeech();
+    mode, setMode, start,
+    pause, resume, next, previous, stop } = useSpeech();
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -38,11 +39,6 @@ export function A11yMenu() {
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, [isOpen]);
-
-  const handleVoice = useCallback(() => {
-    if (isSpeaking) stop();
-    else speakPage();
-  }, [isSpeaking, speakPage, stop]);
 
   const isModified =
     settings.dyslexicFont ||
@@ -206,40 +202,81 @@ export function A11yMenu() {
             {isSupported && (
               <li>
                 {!isSpeaking ? (
-                  <button
-                    onClick={speakPage}
-                    className={styles.option}
-                  >
-                    <span className={styles.optionIcon} aria-hidden="true">
-                      <Volume2 size={18} strokeWidth={1.5} />
-                    </span>
-                    <span className={styles.optionLabel}>
-                      <strong>Assistant vocal</strong>
-                      <small>Lire la page</small>
-                    </span>
-                  </button>
+                  <div className={styles.voiceSetup}>
+                    <div className={styles.voiceSetupHeader}>
+                      <span className={styles.optionIcon} aria-hidden="true">
+                        <Volume2 size={18} strokeWidth={1.5} />
+                      </span>
+                      <span className={styles.optionLabel}>
+                        <strong>Assistant vocal</strong>
+                      </span>
+                    </div>
+ 
+                    {/* Sélecteur de mode */}
+                    <div
+                      className={styles.voiceModes}
+                      role="radiogroup"
+                      aria-label="Mode de lecture"
+                    >
+                      <label className={`${styles.voiceMode} ${mode === "page" ? styles.voiceModeActive : ""}`}>
+                        <input
+                          type="radio"
+                          name="speech-mode"
+                          value="page"
+                          checked={mode === "page"}
+                          onChange={() => setMode("page")}
+                          className={styles.voiceModeInput}
+                        />
+                        <span>Lire la page</span>
+                      </label>
+                      <label className={`${styles.voiceMode} ${mode === "click" ? styles.voiceModeActive : ""}`}>
+                        <input
+                          type="radio"
+                          name="speech-mode"
+                          value="click"
+                          checked={mode === "click"}
+                          onChange={() => setMode("click")}
+                          className={styles.voiceModeInput}
+                        />
+                        <span>Au clic</span>
+                      </label>
+                    </div>
+ 
+                    <button
+                      onClick={start}
+                      className={`${styles.option} ${styles.voiceStartBtn}`}
+                      aria-label={mode === "page" ? "Démarrer la lecture de la page" : "Activer la lecture au clic"}
+                    >
+                      <Play size={14} />
+                      <span>{mode === "page" ? "Démarrer" : "Activer"}</span>
+                    </button>
+                  </div>
                 ) : (
                   <div className={styles.voiceControls}>
                     <p className={styles.voiceText} aria-live="polite">
-                      {currentText.slice(0, 40)}{currentText.length > 40 ? "…" : ""}
+                      {mode === "click"
+                        ? "Cliquez sur un texte pour le lire"
+                        : `${currentText.slice(0, 40)}${currentText.length > 40 ? "…" : ""}`
+                      }
                     </p>
                     <div className={styles.voiceBtns} role="group" aria-label="Contrôles lecture">
-                      <button onClick={previous} className={styles.voiceBtn} aria-label="Élément précédent">
-                        <SkipBack size={14} />
-                      </button>
-                      <button
-                        onClick={isPaused ? resume : pause}
-                        className={`${styles.voiceBtn} ${styles.voiceBtnMain}`}
-                        aria-label={isPaused ? "Reprendre" : "Pause"}
-                      >
-                        {isPaused
-                          ? <Play size={16} />
-                          : <Pause size={16} />
-                        }
-                      </button>
-                      <button onClick={next} className={styles.voiceBtn} aria-label="Élément suivant">
-                        <SkipForward size={14} />
-                      </button>
+                      {mode === "page" && (
+                        <>
+                          <button onClick={previous} className={styles.voiceBtn} aria-label="Élément précédent">
+                            <SkipBack size={14} />
+                          </button>
+                          <button
+                            onClick={isPaused ? resume : pause}
+                            className={`${styles.voiceBtn} ${styles.voiceBtnMain}`}
+                            aria-label={isPaused ? "Reprendre" : "Pause"}
+                          >
+                            {isPaused ? <Play size={16} /> : <Pause size={16} />}
+                          </button>
+                          <button onClick={next} className={styles.voiceBtn} aria-label="Élément suivant">
+                            <SkipForward size={14} />
+                          </button>
+                        </>
+                      )}
                       <button onClick={stop} className={styles.voiceBtn} aria-label="Arrêter">
                         <Square size={14} />
                       </button>
