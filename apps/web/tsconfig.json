@@ -46,8 +46,11 @@
       "@/types/*": [
         "src/types/*"
       ],
-      "@/pages/*": [
+      "@pages/*": [
         "src/pages/*"
+      ],
+      "@tests/*": [
+        "src/tests/*"
       ]
     }
   },

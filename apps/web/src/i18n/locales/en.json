@@ -11,9 +11,9 @@
   "theme": {
     "toggle": {
       "light": "Switch to light mode",
-      "dark":  "Switch to dark mode",
-      "neon-dark":  "Switch to neon dark mode",
-      "neon-light":  "Switch to pop 90smode"
+      "dark": "Switch to dark mode",
+      "neon-dark": "Switch to neon dark mode",
+      "neon-light": "Switch to pop 90smode"
     }
   },
   "hero": {
@@ -244,6 +244,8 @@
     "stack": "in React · TypeScript"
   },
   "languages": {
+    "title": "Languages",
+    "ariaLabel": "Languages spoken",
     "french": "French",
     "english": "English",
     "native": "Native",

@@ -4,8 +4,9 @@ import tacktileo from "@assets/projects/Tactileo-mockup.jpg";
 import tacktiléoVideo from "@assets/projects/Video_Tactileo_Module.mp4";
 import portfolioLight from "@assets/projects/Portfolio-Hero-Light.webp";
 import portfolioDark from "@assets/projects/Portfolio-Hero-Dark.webp";
+import { Theme } from "@hooks/useTheme";
 
-export const getProjects = (theme: "light" | "dark", t: TFunction): Project[] => [
+export const getProjects = (theme: Theme, t: TFunction): Project[] => [
   {
     id: "maskott",
     company: "Maskott · EdTech",

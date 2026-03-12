@@ -1,8 +1,9 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, beforeEach } from "vitest";
 import { useA11y } from "./useA11y";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
-describe("useA11y", () => {
+describe(desc(TestScope.HOOK, "useA11y", TestType.RENDU), () => {
   beforeEach(() => {
     localStorage.clear();
     document.documentElement.className = "";
@@ -17,6 +18,27 @@ describe("useA11y", () => {
       pauseAnimations: false,
       letterSpacing: false,
     });
+  });
+
+  it("persiste les settings dans localStorage", () => {
+    const { result } = renderHook(() => useA11y());
+    act(() => { result.current.toggle("dyslexicFont"); });
+    const stored = JSON.parse(localStorage.getItem("cv-a11y-settings")!);
+    expect(stored.dyslexicFont).toBe(true);
+  });
+
+  it("charge les settings depuis localStorage au montage", () => {
+    localStorage.setItem("cv-a11y-settings", JSON.stringify({ dyslexicFont: true, fontSize: 2 }));
+    const { result } = renderHook(() => useA11y());
+    expect(result.current.settings.dyslexicFont).toBe(true);
+    expect(result.current.settings.fontSize).toBe(2);
+  });
+});
+
+describe(desc(TestScope.HOOK, "useA11y", TestType.INTERACTIONS), () => {
+  beforeEach(() => {
+    localStorage.clear();
+    document.documentElement.className = "";
   });
 
   it("toggle dyslexicFont", () => {
@@ -66,19 +88,5 @@ describe("useA11y", () => {
       fontSize: 1,
       highContrast: false,
     });
-  });
-
-  it("persiste les settings dans localStorage", () => {
-    const { result } = renderHook(() => useA11y());
-    act(() => { result.current.toggle("dyslexicFont"); });
-    const stored = JSON.parse(localStorage.getItem("cv-a11y-settings")!);
-    expect(stored.dyslexicFont).toBe(true);
-  });
-
-  it("charge les settings depuis localStorage au montage", () => {
-    localStorage.setItem("cv-a11y-settings", JSON.stringify({ dyslexicFont: true, fontSize: 2 }));
-    const { result } = renderHook(() => useA11y());
-    expect(result.current.settings.dyslexicFont).toBe(true);
-    expect(result.current.settings.fontSize).toBe(2);
   });
 });

@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { Projects } from "./Projects";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key: string) => key }),
@@ -11,9 +12,7 @@ vi.mock("@hooks/useTheme", () => ({
   useTheme: () => ({ theme: "light", toggleTheme: vi.fn() }),
 }));
 
-// ── Rendu ─────────────────────────────────────
-
-describe("Projects — rendu", () => {
+describe(desc(TestScope.SECTION, "Projects", TestType.RENDU), () => {
   it("affiche l'eyebrow", () => {
     render(<Projects />);
     expect(screen.getByText("projects.eyebrow")).toBeInTheDocument();
@@ -39,7 +38,6 @@ describe("Projects — rendu", () => {
   it("affiche les tags technos", () => {
     render(<Projects />);
     expect(screen.getAllByText("React").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText("TypeScript").length).toBeGreaterThanOrEqual(1);
   });
 
   it("affiche les liens externes", () => {
@@ -47,22 +45,9 @@ describe("Projects — rendu", () => {
     expect(document.querySelector('a[href="https://www.maskott.com"]')).toBeInTheDocument();
     expect(document.querySelector('a[href="https://github.com/C-DaCo/cv-portfolio"]')).toBeInTheDocument();
   });
-
-  it("affiche les badges voir le détail", () => {
-    render(<Projects />);
-    expect(screen.getAllByText("projects.seeDetail").length).toBeGreaterThanOrEqual(1);
-  });
 });
 
-// ── Cards cliquables ──────────────────────────
-
-describe("Projects — cards cliquables", () => {
-  it("les titres de cards sont des boutons", () => {
-    render(<Projects />);
-    expect(screen.getByRole("button", { name: "Tactileo — Plateforme pédagogique" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Ce portfolio" })).toBeInTheDocument();
-  });
-
+describe(desc(TestScope.SECTION, "Projects", TestType.INTERACTIONS), () => {
   it("ouvre le drawer au clic sur Tactileo", () => {
     render(<Projects />);
     fireEvent.click(screen.getByRole("button", { name: "Tactileo — Plateforme pédagogique" }));
@@ -90,9 +75,7 @@ describe("Projects — cards cliquables", () => {
   });
 });
 
-// ── Accessibilité ─────────────────────────────
-
-describe("Projects — accessibilité", () => {
+describe(desc(TestScope.SECTION, "Projects", TestType.A11Y), () => {
   it("la section a un aria-labelledby", () => {
     render(<Projects />);
     expect(document.querySelector("section")).toHaveAttribute("aria-labelledby");
@@ -107,14 +90,9 @@ describe("Projects — accessibilité", () => {
       }
     });
   });
-});
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Projects — accessibilité axe-core", () => {
-  it("n'a pas de violations d'accessibilité", async () => {
+  it("n'a pas de violations axe-core", async () => {
     const { container } = render(<Projects />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

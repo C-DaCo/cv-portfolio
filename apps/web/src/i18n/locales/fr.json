@@ -245,9 +245,11 @@
     "stack": "en React · TypeScript"
   },
   "languages": {
+    "title": "Langues",
+    "ariaLabel": "Langues parlées",
     "french": "Français",
     "english": "Anglais",
-    "native": "Natif",
-    "intermediate": "Intermédiaire"
+    "native": "Langue maternelle",
+    "intermediate": "Intermédiaire — B2"
   }
 }

@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
+import { axe } from "jest-axe";
 import { Accordion } from "./Accordion";
 import type { AccordionItem } from "./Accordion";
-import { axe } from "jest-axe";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 const items: AccordionItem[] = [
   { id: "1", title: "Question 1", content: <p>Réponse 1</p> },
@@ -11,7 +12,7 @@ const items: AccordionItem[] = [
   { id: "3", title: "Question 3", content: <p>Réponse 3</p> },
 ];
 
-describe("Accordion", () => {
+describe(desc(TestScope.UI, "Accordion", TestType.RENDU), () => {
   it("affiche tous les titres", () => {
     render(<Accordion items={items} />);
     expect(screen.getByText("Question 1")).toBeInTheDocument();
@@ -21,12 +22,13 @@ describe("Accordion", () => {
 
   it("les panneaux sont fermés par défaut", () => {
     render(<Accordion items={items} />);
-    const buttons = screen.getAllByRole("button");
-    buttons.forEach((btn) => {
+    screen.getAllByRole("button").forEach((btn) => {
       expect(btn).toHaveAttribute("aria-expanded", "false");
     });
   });
+});
 
+describe(desc(TestScope.UI, "Accordion", TestType.INTERACTIONS), () => {
   it("ouvre un panneau au clic", async () => {
     render(<Accordion items={items} />);
     await userEvent.click(screen.getByText("Question 1"));
@@ -64,34 +66,28 @@ describe("Accordion", () => {
 
   it("navigation clavier avec ArrowDown", async () => {
     render(<Accordion items={items} />);
-    const firstBtn = screen.getByText("Question 1").closest("button")!;
-    firstBtn.focus();
+    screen.getByText("Question 1").closest("button")!.focus();
     await userEvent.keyboard("{ArrowDown}");
     expect(screen.getByText("Question 2").closest("button")).toHaveFocus();
   });
 
   it("navigation clavier avec ArrowUp", async () => {
     render(<Accordion items={items} />);
-    const secondBtn = screen.getByText("Question 2").closest("button")!;
-    secondBtn.focus();
+    screen.getByText("Question 2").closest("button")!.focus();
     await userEvent.keyboard("{ArrowUp}");
     expect(screen.getByText("Question 1").closest("button")).toHaveFocus();
   });
 });
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Accordion — accessibilité axe-core", () => {
+describe(desc(TestScope.UI, "Accordion", TestType.A11Y), () => {
   it("n'a pas de violations (fermé)", async () => {
     const { container } = render(<Accordion items={items} />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it("n'a pas de violations (ouvert)", async () => {
     const { container } = render(<Accordion items={items} />);
     await userEvent.click(screen.getByText("Question 1"));
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

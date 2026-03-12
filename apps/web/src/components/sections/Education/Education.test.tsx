@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { Education } from "./Education";
 import { cvData } from "@data/cv.data";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key: string) => key }),
@@ -21,16 +22,14 @@ vi.mock("@assets/index", () => ({
     photo: "photo.webp",
     experiences: {},
     education: {
-      logoDawan:          "dawan.png",
-      logoIfocop:         "ifocop.png",
-      logoOcr:            "ocr.png",
+      logoDawan:  "dawan.png",
+      logoIfocop: "ifocop.png",
+      logoOcr:    "ocr.png",
     },
   },
 }));
 
-// ── Rendu ─────────────────────────────────────
-
-describe("Education — rendu", () => {
+describe(desc(TestScope.SECTION, "Education", TestType.RENDU), () => {
   it("affiche le titre de la section", () => {
     render(<Education />);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
@@ -51,9 +50,7 @@ describe("Education — rendu", () => {
   it("chaque formation a un aria-label accessible", () => {
     render(<Education />);
     cvData.formations.forEach((f) => {
-      expect(
-        screen.getByRole("listitem", { name: new RegExp(f.school, "i") })
-      ).toBeInTheDocument();
+      expect(screen.getByRole("listitem", { name: new RegExp(f.school, "i") })).toBeInTheDocument();
     });
   });
 
@@ -70,14 +67,28 @@ describe("Education — rendu", () => {
     expect(screen.getByText("education.ifocop.degree")).toBeInTheDocument();
     expect(screen.getByText("education.openclassrooms.degree")).toBeInTheDocument();
   });
+
+  it("affiche le titre Langues", () => {
+    render(<Education />);
+    expect(screen.getByRole("heading", { level: 3, name: "languages.title" })).toBeInTheDocument();
+  });
+
+  it("affiche les noms des langues via clés i18n", () => {
+    render(<Education />);
+    expect(screen.getByText("languages.french")).toBeInTheDocument();
+    expect(screen.getByText("languages.english")).toBeInTheDocument();
+  });
+
+  it("affiche les niveaux via clés i18n", () => {
+    render(<Education />);
+    expect(screen.getByText("languages.native")).toBeInTheDocument();
+    expect(screen.getByText("languages.intermediate")).toBeInTheDocument();
+  });
 });
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Education — accessibilité axe-core", () => {
+describe(desc(TestScope.SECTION, "Education", TestType.A11Y), () => {
   it("n'a pas de violations d'accessibilité", async () => {
     const { container } = render(<Education />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

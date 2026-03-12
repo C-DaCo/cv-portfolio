@@ -10,10 +10,12 @@ export default defineConfig({
       "@components": path.resolve(__dirname, "./src/components"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@styles": path.resolve(__dirname, "./src/styles"),
-      "@types": path.resolve(__dirname, "./src/types"),
+      "@/types": path.resolve(__dirname, "./src/types"),
       "@data": path.resolve(__dirname, "./src/data"),
       "@utils": path.resolve(__dirname, "./src/utils"),
       "@assets": path.resolve(__dirname, "./src/assets"),
+      "@tests": path.resolve(__dirname, "./src/tests"),
+      "@pages": path.resolve(__dirname, "./src/pages"),
     },
   },
   css: {
@@ -38,7 +40,7 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     globals: true,
-    setupFiles: ["./src/test/setup.ts"],
+    setupFiles: ["./src/tests/setup.ts"],
     testTimeout: 15000,
     reporters: ["verbose", "json"],
     outputFile: {
@@ -49,7 +51,7 @@ export default defineConfig({
       reporter: ["json-summary", "text"],
       reportsDirectory: path.resolve(__dirname, "./public/coverage"),
       include: ["src/**/*.{ts,tsx}"],
-      exclude: ["src/test/**", "src/**/*.test.{ts,tsx}", "src/vite-env.d.ts"],
+      exclude: ["src/tests/**", "src/**/*.test.{ts,tsx}", "src/vite-env.d.ts"],
       reportOnFailure: true,
     },
   },

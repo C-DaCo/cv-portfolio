@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { Skills } from "./Skills";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key: string) => key }),
@@ -15,9 +16,7 @@ vi.mock("@hooks/useIntersectionObserver", () => ({
   useIntersectionObserver: () => ({ ref: { current: null }, isVisible: true }),
 }));
 
-// ── Rendu ─────────────────────────────────────
-
-describe("Skills — rendu", () => {
+describe(desc(TestScope.SECTION, "Skills", TestType.RENDU), () => {
   it("affiche le titre", () => {
     render(<Skills />);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
@@ -34,12 +33,9 @@ describe("Skills — rendu", () => {
   });
 });
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Skills — accessibilité axe-core", () => {
+describe(desc(TestScope.SECTION, "Skills", TestType.A11Y), () => {
   it("n'a pas de violations d'accessibilité", async () => {
     const { container } = render(<Skills />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

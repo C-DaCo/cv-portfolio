@@ -40,13 +40,13 @@ function EducationCard({ formation, index }: EducationCardProps) {
       {/* Logo */}
       <div className={styles.logoWrap} aria-hidden="true">
         {formation.logo ? (
-            <a href={formation.url} target="_blank" rel="noopener noreferrer">
-              <img src={logo} alt={t(formation.school)} className={styles.logo} />
-            </a>
+          <a href={formation.url} target="_blank" rel="noopener noreferrer">
+            <img src={logo} alt={t(formation.school)} className={styles.logo} />
+          </a>
         ) : (
-            <span className={styles.icon}>{icon}</span>
+          <span className={styles.icon}>{icon}</span>
         )}
-        </div>
+      </div>
 
       {/* Contenu */}
       <div className={styles.content}>
@@ -99,7 +99,7 @@ export function Education() {
         </h2>
       </div>
 
-      {/* Grid */}
+      {/* Grid formations */}
       <ul
         className={styles.grid}
         role="list"
@@ -113,6 +113,21 @@ export function Education() {
           />
         ))}
       </ul>
+
+      {/* Langues */}
+      <div className={styles.languages} aria-labelledby="languages-title">
+        <h3 id="languages-title" className={styles.languagesTitle}>
+          {t("languages.title")}
+        </h3>
+        <ul className={styles.languagesList} role="list" aria-label={t("languages.ariaLabel")}>
+          {cvData.languages.map((lang) => (
+            <li key={lang.name} className={styles.languageItem}>
+              <span className={styles.languageName}>{t(lang.name)}</span>
+              <span className={styles.languageLevel}>{t(lang.level)}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

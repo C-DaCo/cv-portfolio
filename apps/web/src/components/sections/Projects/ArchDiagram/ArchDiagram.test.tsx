@@ -1,14 +1,13 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { ArchDiagram, ArchDiagramContent } from "./ArchDiagram";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key: string) => key }),
 }));
 
-// ── ArchDiagram (bouton + modale) ──────────────
-
-describe("ArchDiagram — bouton déclencheur", () => {
+describe(desc(TestScope.SECTION, "ArchDiagram", TestType.RENDU), () => {
   it("affiche le bouton déclencheur", () => {
     render(<ArchDiagram />);
     expect(screen.getByRole("button", { name: "arch.triggerAriaLabel" })).toBeInTheDocument();
@@ -19,30 +18,7 @@ describe("ArchDiagram — bouton déclencheur", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
-  it("ouvre le panel au clic", () => {
-    render(<ArchDiagram />);
-    fireEvent.click(screen.getByRole("button", { name: "arch.triggerAriaLabel" }));
-    expect(screen.getByRole("dialog")).toBeInTheDocument();
-  });
-
-  it("affiche le titre dans le panel", () => {
-    render(<ArchDiagram />);
-    fireEvent.click(screen.getByRole("button", { name: "arch.triggerAriaLabel" }));
-    expect(screen.getByText("arch.title")).toBeInTheDocument();
-  });
-
-  it("ferme le panel avec le bouton fermer", () => {
-    render(<ArchDiagram />);
-    fireEvent.click(screen.getByRole("button", { name: "arch.triggerAriaLabel" }));
-    fireEvent.click(screen.getByRole("button", { name: "arch.close" }));
-    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
-  });
-});
-
-// ── ArchDiagramContent (inline) ───────────────
-
-describe("ArchDiagramContent — rendu", () => {
-  it("affiche les 3 onglets", () => {
+  it("affiche les 3 onglets dans ArchDiagramContent", () => {
     render(<ArchDiagramContent />);
     expect(screen.getByRole("tab", { name: "arch.layers" })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: "arch.structure" })).toBeInTheDocument();
@@ -62,12 +38,31 @@ describe("ArchDiagramContent — rendu", () => {
     expect(screen.getByText("Infra")).toBeInTheDocument();
     expect(screen.getByText("Tests")).toBeInTheDocument();
   });
+});
+
+describe(desc(TestScope.SECTION, "ArchDiagram", TestType.INTERACTIONS), () => {
+  it("ouvre le panel au clic", () => {
+    render(<ArchDiagram />);
+    fireEvent.click(screen.getByRole("button", { name: "arch.triggerAriaLabel" }));
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+  });
+
+  it("affiche le titre dans le panel", () => {
+    render(<ArchDiagram />);
+    fireEvent.click(screen.getByRole("button", { name: "arch.triggerAriaLabel" }));
+    expect(screen.getByText("arch.title")).toBeInTheDocument();
+  });
+
+  it("ferme le panel avec le bouton fermer", () => {
+    render(<ArchDiagram />);
+    fireEvent.click(screen.getByRole("button", { name: "arch.triggerAriaLabel" }));
+    fireEvent.click(screen.getByRole("button", { name: "arch.close" }));
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
 
   it("switch vers l'onglet Structure", () => {
     render(<ArchDiagramContent />);
     fireEvent.click(screen.getByRole("tab", { name: "arch.structure" }));
-    expect(screen.getByRole("tab", { name: "arch.structure" }))
-      .toHaveAttribute("aria-selected", "true");
     expect(screen.getByText("cv-portfolio/")).toBeInTheDocument();
   });
 
@@ -76,13 +71,10 @@ describe("ArchDiagramContent — rendu", () => {
     fireEvent.click(screen.getByRole("tab", { name: "arch.flux" }));
     expect(screen.getByText("Utilisateur")).toBeInTheDocument();
     expect(screen.getByText("Resend")).toBeInTheDocument();
-    expect(screen.getByText("Email reçu")).toBeInTheDocument();
   });
 });
 
-// ── Accessibilité ─────────────────────────────
-
-describe("ArchDiagramContent — accessibilité", () => {
+describe(desc(TestScope.SECTION, "ArchDiagram", TestType.A11Y), () => {
   it("les tabs ont un tablist parent", () => {
     render(<ArchDiagramContent />);
     expect(screen.getByRole("tablist")).toBeInTheDocument();

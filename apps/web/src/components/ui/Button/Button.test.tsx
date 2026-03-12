@@ -1,9 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-import { Button } from "./Button";
 import { axe } from "jest-axe";
+import { Button } from "./Button";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
-describe("Button", () => {
+describe(desc(TestScope.UI, "Button", TestType.RENDU), () => {
   it("affiche le contenu enfant", () => {
     render(<Button>Cliquez ici</Button>);
     expect(screen.getByRole("button", { name: /Cliquez ici/i })).toBeInTheDocument();
@@ -38,8 +39,6 @@ describe("Button", () => {
     expect(handler).not.toHaveBeenCalled();
   });
 
-  // ── Variante <a> ──────────────────────────
-
   it("rend un <a> quand as='a'", () => {
     render(<Button as="a" href="/test">Lien</Button>);
     const link = screen.getByRole("link", { name: /Lien/i });
@@ -53,31 +52,24 @@ describe("Button", () => {
   });
 });
 
-
-// ── Accessibilité axe-core ────────────────────
-
-describe("Button — accessibilité axe-core", () => {
+describe(desc(TestScope.UI, "Button", TestType.A11Y), () => {
   it("n'a pas de violations (primary)", async () => {
     const { container } = render(<Button>Cliquez ici</Button>);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it("n'a pas de violations (outline)", async () => {
     const { container } = render(<Button variant="outline">Outline</Button>);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it("n'a pas de violations (disabled)", async () => {
     const { container } = render(<Button disabled>Désactivé</Button>);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it("n'a pas de violations (as=a)", async () => {
     const { container } = render(<Button as="a" href="/test">Lien</Button>);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -1,10 +1,11 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
-import { Modal } from "./Modal";
 import { axe } from "jest-axe";
+import { Modal } from "./Modal";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
-describe("Modal", () => {
+describe(desc(TestScope.UI, "Modal", TestType.RENDU), () => {
   it("ne s'affiche pas si isOpen=false", () => {
     render(<Modal isOpen={false} onClose={vi.fn()} title="Test"><p>Contenu</p></Modal>);
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
@@ -20,6 +21,15 @@ describe("Modal", () => {
     expect(screen.getByText("Ma modale")).toBeInTheDocument();
   });
 
+  it("a les attributs ARIA corrects", () => {
+    render(<Modal isOpen={true} onClose={vi.fn()} title="Test"><p>Contenu</p></Modal>);
+    const dialog = screen.getByRole("dialog");
+    expect(dialog).toHaveAttribute("aria-modal", "true");
+    expect(dialog).toHaveAttribute("aria-labelledby", "modal-title");
+  });
+});
+
+describe(desc(TestScope.UI, "Modal", TestType.INTERACTIONS), () => {
   it("appelle onClose au clic sur le bouton fermer", async () => {
     const onClose = vi.fn();
     render(<Modal isOpen={true} onClose={onClose} title="Test"><p>Contenu</p></Modal>);
@@ -33,23 +43,13 @@ describe("Modal", () => {
     await userEvent.keyboard("{Escape}");
     expect(onClose).toHaveBeenCalledOnce();
   });
-
-  it("a les attributs ARIA corrects", () => {
-    render(<Modal isOpen={true} onClose={vi.fn()} title="Test"><p>Contenu</p></Modal>);
-    const dialog = screen.getByRole("dialog");
-    expect(dialog).toHaveAttribute("aria-modal", "true");
-    expect(dialog).toHaveAttribute("aria-labelledby", "modal-title");
-  });
 });
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Modal — accessibilité axe-core", () => {
+describe(desc(TestScope.UI, "Modal", TestType.A11Y), () => {
   it("n'a pas de violations (ouverte)", async () => {
     const { container } = render(
       <Modal isOpen={true} onClose={vi.fn()} title="Test"><p>Contenu</p></Modal>
     );
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

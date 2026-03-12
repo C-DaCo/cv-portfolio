@@ -476,3 +476,144 @@
     background: var(--clr-surface);
   }
 }
+
+// ── Colonnes Rendu / A11y ─────────────────────
+
+.testColumnsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.testColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+
+  @include m.respond-below("md") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testColumn {
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--clr-bg-100);
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.colAccentRendu {
+  background: rgba(123, 158, 135, 0.08);
+  border-bottom-color: rgba(123, 158, 135, 0.2);
+
+  .columnIcon { color: #7B9E87; }
+  .columnLabel { color: #7B9E87; }
+}
+
+.colAccentA11y {
+  background: rgba(155, 126, 168, 0.08);
+  border-bottom-color: rgba(155, 126, 168, 0.2);
+
+  .columnIcon { color: #9B7EA8; }
+  .columnLabel { color: #9B7EA8; }
+}
+
+.columnIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.columnLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  flex: 1;
+}
+
+.columnScore {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--clr-text-muted);
+}
+
+.columnBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.columnBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.scopeGroup {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--clr-border);
+
+  &:last-child { border-bottom: none; }
+}
+
+.scopeLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0 1.25rem 0.5rem;
+}
+
+.describeRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.describeBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1.25rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover { background: var(--clr-bg); }
+  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: -2px; }
+}
+
+.describeName {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--clr-text);
+  flex: 1;
+}
+
+.describeScore {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--clr-text-muted);
+}
+
+.otherSuites {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

@@ -2,14 +2,13 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { Footer } from "./Footer";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key: string) => key }),
 }));
 
-// ── Rendu ─────────────────────────────────────
-
-describe("Footer — rendu", () => {
+describe(desc(TestScope.LAYOUT, "Footer", TestType.RENDU), () => {
   it("affiche le copyright", () => {
     render(<Footer />);
     expect(screen.getByText(/Carole Rotton/i)).toBeInTheDocument();
@@ -31,12 +30,9 @@ describe("Footer — rendu", () => {
   });
 });
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Footer — accessibilité axe-core", () => {
+describe(desc(TestScope.LAYOUT, "Footer", TestType.A11Y), () => {
   it("n'a pas de violations d'accessibilité", async () => {
     const { container } = render(<Footer />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

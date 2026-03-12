@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { Experiences } from "./Experiences";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("@assets/photo.jpg", () => ({ default: "photo.jpg" }));
 
@@ -25,9 +26,7 @@ vi.mock("@hooks/useIntersectionObserver", () => ({
   useIntersectionObserver: () => ({ ref: { current: null }, isVisible: true }),
 }));
 
-// ── Rendu ─────────────────────────────────────
-
-describe("Experiences — rendu", () => {
+describe(desc(TestScope.SECTION, "Experiences", TestType.RENDU), () => {
   it("affiche le titre de la section", () => {
     render(<Experiences />);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
@@ -61,17 +60,13 @@ describe("Experiences — rendu", () => {
 
   it("affiche le badge remote pour les postes remote", () => {
     render(<Experiences />);
-    const badges = screen.getAllByText("experiences.remote");
-    expect(badges.length).toBeGreaterThanOrEqual(2);
+    expect(screen.getAllByText("experiences.remote").length).toBeGreaterThanOrEqual(2);
   });
 });
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Experiences — accessibilité", () => {
+describe(desc(TestScope.SECTION, "Experiences", TestType.A11Y), () => {
   it("n'a pas de violations d'accessibilité", async () => {
     const { container } = render(<Experiences />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

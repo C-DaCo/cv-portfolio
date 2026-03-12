@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { Playground } from "./Playground";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("@hooks/useReducedMotion", () => ({
   useReducedMotion: () => false,
@@ -11,9 +12,7 @@ vi.mock("@hooks/useIntersectionObserver", () => ({
   useIntersectionObserver: () => ({ ref: { current: null }, isVisible: true }),
 }));
 
-// ── Rendu ─────────────────────────────────────
-
-describe("Playground — rendu", () => {
+describe(desc(TestScope.SECTION, "Playground", TestType.RENDU), () => {
   it("affiche le titre de la section", () => {
     render(<Playground />);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
@@ -25,19 +24,6 @@ describe("Playground — rendu", () => {
     expect(screen.getByText("playground.modal.title")).toBeInTheDocument();
     expect(screen.getByText("playground.toast.title")).toBeInTheDocument();
     expect(screen.getByText("playground.accordion.title")).toBeInTheDocument();
-  });
-
-  it("ouvre la modal au clic sur le bouton démo", () => {
-    render(<Playground />);
-    fireEvent.click(screen.getByRole("button", { name: /playground.modal.cta/i }));
-    expect(screen.getByRole("dialog")).toBeInTheDocument();
-  });
-
-  it("ferme la modal avec le bouton de fermeture", () => {
-    render(<Playground />);
-    fireEvent.click(screen.getByRole("button", { name: /playground.modal.cta/i }));
-    fireEvent.click(screen.getByRole("button", { name: /playground.modal.demoClose/i }));
-    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("affiche les boutons toast", () => {
@@ -55,6 +41,21 @@ describe("Playground — rendu", () => {
     expect(screen.getByText("playground.accordion.items.focus.title")).toBeInTheDocument();
     expect(screen.getByText("playground.accordion.items.contrast.title")).toBeInTheDocument();
   });
+});
+
+describe(desc(TestScope.SECTION, "Playground", TestType.INTERACTIONS), () => {
+  it("ouvre la modal au clic sur le bouton démo", () => {
+    render(<Playground />);
+    fireEvent.click(screen.getByRole("button", { name: /playground.modal.cta/i }));
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+  });
+
+  it("ferme la modal avec le bouton de fermeture", () => {
+    render(<Playground />);
+    fireEvent.click(screen.getByRole("button", { name: /playground.modal.cta/i }));
+    fireEvent.click(screen.getByRole("button", { name: /playground.modal.demoClose/i }));
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
 
   it("un clic sur un toast success crée une notification", () => {
     render(<Playground />);
@@ -63,12 +64,9 @@ describe("Playground — rendu", () => {
   });
 });
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Playground — accessibilité axe-core", () => {
+describe(desc(TestScope.SECTION, "Playground", TestType.A11Y), () => {
   it("n'a pas de violations d'accessibilité", async () => {
     const { container } = render(<Playground />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

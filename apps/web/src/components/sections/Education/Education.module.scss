@@ -93,6 +93,7 @@
 }
 
 // ── Logo ─────────────────────────────────────
+
 .logoWrap{
   display: flex;
   align-items: center;
@@ -179,4 +180,46 @@
   letter-spacing: 0.03em;
   display: flex;
   gap: 0.5rem;
+}
+
+// ── Langues ────────────────────────────────────
+
+.languages {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--clr-border);
+}
+
+.languagesTitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--clr-coral);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.languagesList {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.languageItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.languageName {
+  color: var(--clr-text);
+  font-weight: 500;
+}
+
+.languageLevel {
+  color: var(--clr-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
 }

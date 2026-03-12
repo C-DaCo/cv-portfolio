@@ -4,7 +4,7 @@ import { X, Film, Image, TestTube, Layers } from "lucide-react";
 import { ArchDiagramContent } from "../ArchDiagram/ArchDiagram";
 import type { Project, ProjectTab } from "@/types/projects.types";
 import styles from "./Drawer.module.scss";
-import { TestDashboardContent } from "@/pages/TestDashboard/TestDashboardContent";
+import { TestDashboardContent } from "@pages/TestDashboard/TestDashboardContent";
 import { useTranslation } from "react-i18next";
 
 // ── Icônes par onglet ─────────────────────────

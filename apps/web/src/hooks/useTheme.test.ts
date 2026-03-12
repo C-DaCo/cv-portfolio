@@ -1,8 +1,9 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { useTheme } from "./useTheme";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
-describe("useTheme", () => {
+describe(desc(TestScope.HOOK, "useTheme", TestType.RENDU), () => {
   it("retourne un thème initial valide", () => {
     const { result } = renderHook(() => useTheme());
     expect(["light", "dark", "neon-dark", "neon-light"]).toContain(result.current.theme);
@@ -13,17 +14,9 @@ describe("useTheme", () => {
     expect(typeof result.current.toggleTheme).toBe("function");
   });
 
-  it("toggleTheme change le thème", () => {
-    const { result } = renderHook(() => useTheme());
-    const initial = result.current.theme;
-    act(() => { result.current.toggleTheme(); });
-    expect(result.current.theme).not.toBe(initial);
-  });
-
   it("cycle complet light → dark → neon-dark → neon-light → light", () => {
     const { result } = renderHook(() => useTheme());
 
-    // Force le point de départ à light
     while (result.current.theme !== "light") {
       act(() => { result.current.toggleTheme(); });
     }

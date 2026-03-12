@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { CheckCircle, XCircle, Clock, Shield } from "lucide-react";
+import { parseDesc } from "@tests/test-categories";
 import styles from "./TestDashboard.module.scss";
 
 // ── Types ─────────────────────────────────────
@@ -75,7 +76,198 @@ export function formatDuration(ms: number): string {
   return `${(ms / 1000).toFixed(1)}s`;
 }
 
-// ── Composant pur ─────────────────────────────
+// ── Types pour le parsing catégories ──────────
+
+type TestColumn = "rendu" | "a11y" | "other";
+
+const SCOPE_LABELS: Record<string, string> = {
+  ui:      "Composants UI",
+  section: "Sections",
+  hook:    "Hooks",
+  page:    "Pages",
+};
+
+interface ParsedDescribe {
+  scope: string;
+  name: string;
+  column: TestColumn;
+  tests: AssertionResult[];
+  passed: number;
+  total: number;
+}
+
+interface ScopeGroup {
+  scope: string;
+  describes: ParsedDescribe[];
+}
+
+// ── Parsing des résultats ─────────────────────
+
+function parseResults(testResults: TestSuite[]): {
+  rendu: ScopeGroup[];
+  a11y: ScopeGroup[];
+  other: ScopeGroup[];
+  renduTotal: number;
+  renduPassed: number;
+  a11yTotal: number;
+  a11yPassed: number;
+} {
+  const map: Record<TestColumn, Record<string, Record<string, ParsedDescribe>>> = {
+    rendu: {},
+    a11y: {},
+    other: {},
+  };
+
+  for (const suite of testResults) {
+    // Grouper les tests par describe (ancestorTitles[0])
+    const byDescribe: Record<string, AssertionResult[]> = {};
+    for (const test of suite.assertionResults) {
+      const descName = test.ancestorTitles[0] ?? "unknown";
+      if (!byDescribe[descName]) byDescribe[descName] = [];
+      byDescribe[descName].push(test);
+    }
+
+    for (const [descName, tests] of Object.entries(byDescribe)) {
+      const parsed = parseDesc(descName);
+      const scope = parsed?.scope ?? "other";
+      const name = parsed?.name ?? getSuiteName(suite.name);
+      const typeStr = parsed?.type ?? "";
+
+      const column: TestColumn =
+        typeStr === "a11y" ? "a11y" :
+        typeStr === "rendu" || typeStr === "interactions" ? "rendu" :
+        "other";
+
+      if (!map[column][scope]) map[column][scope] = {};
+
+      if (!map[column][scope][name]) {
+        map[column][scope][name] = {
+          scope, name, column,
+          tests: [],
+          passed: 0,
+          total: 0,
+        };
+      }
+
+      map[column][scope][name].tests.push(...tests);
+      map[column][scope][name].passed += tests.filter(t => t.status === "passed").length;
+      map[column][scope][name].total += tests.length;
+    }
+  }
+
+  function toScopeGroups(col: TestColumn): ScopeGroup[] {
+    return Object.entries(map[col]).map(([scope, names]) => ({
+      scope,
+      describes: Object.values(names),
+    }));
+  }
+
+  const renduGroups = toScopeGroups("rendu");
+  const a11yGroups = toScopeGroups("a11y");
+  const otherGroups = toScopeGroups("other");
+
+  const renduTotal  = renduGroups.flatMap(g => g.describes).reduce((s, d) => s + d.total, 0);
+  const renduPassed = renduGroups.flatMap(g => g.describes).reduce((s, d) => s + d.passed, 0);
+  const a11yTotal   = a11yGroups.flatMap(g => g.describes).reduce((s, d) => s + d.total, 0);
+  const a11yPassed  = a11yGroups.flatMap(g => g.describes).reduce((s, d) => s + d.passed, 0);
+
+  return {
+    rendu: renduGroups,
+    a11y: a11yGroups,
+    other: otherGroups,
+    renduTotal, renduPassed,
+    a11yTotal, a11yPassed,
+  };
+}
+
+// ── Sous-composant : colonne de tests ─────────
+
+interface TestColumnPanelProps {
+  label: string;
+  icon: React.ReactNode;
+  total: number;
+  passed: number;
+  groups: ScopeGroup[];
+  accentClass: string;
+}
+
+function TestColumnPanel({ label, icon, total, passed, groups, accentClass }: TestColumnPanelProps) {
+  const [expandedDescribe, setExpandedDescribe] = useState<string | null>(null);
+  const allPassed = passed === total;
+
+  return (
+    <div className={styles.testColumn}>
+      {/* En-tête colonne */}
+      <div className={`${styles.columnHeader} ${accentClass}`}>
+        <span className={styles.columnIcon}>{icon}</span>
+        <span className={styles.columnLabel}>{label}</span>
+        <span className={styles.columnScore}>
+          {passed}/{total}
+        </span>
+        <span className={`${styles.columnBadge} ${allPassed ? styles.badgePass : styles.badgeFail}`}>
+          {allPassed ? "✓ OK" : "✗ Échec"}
+        </span>
+      </div>
+
+      {/* Groupes par scope */}
+      <div className={styles.columnBody}>
+        {groups.map(({ scope, describes }) => (
+          <div key={scope} className={styles.scopeGroup}>
+            <p className={styles.scopeLabel}>
+              {SCOPE_LABELS[scope] ?? scope}
+            </p>
+            {describes.map((d) => {
+              const key = `${d.column}-${d.scope}-${d.name}`;
+              const isExpanded = expandedDescribe === key;
+              const allOk = d.passed === d.total;
+
+              return (
+                <div key={key} className={styles.describeRow}>
+                  <button
+                    className={styles.describeBtn}
+                    onClick={() => setExpandedDescribe(isExpanded ? null : key)}
+                    aria-expanded={isExpanded}
+                  >
+                    <span className={allOk ? styles.iconPass : styles.iconFail}>
+                      {allOk
+                        ? <CheckCircle size={12} strokeWidth={2} />
+                        : <XCircle size={12} strokeWidth={2} />
+                      }
+                    </span>
+                    <span className={styles.describeName}>{d.name}</span>
+                    <span className={styles.describeScore}>{d.passed}/{d.total}</span>
+                    <span className={styles.suiteChevron} aria-hidden="true">
+                      {isExpanded ? "▴" : "▾"}
+                    </span>
+                  </button>
+
+                  {isExpanded && (
+                    <ul className={styles.testList} role="list">
+                      {d.tests.map((test, i) => (
+                        <li
+                          key={i}
+                          className={`${styles.testItem} ${test.status === "failed" ? styles.testFailed : ""}`}
+                        >
+                          <span className={styles.testIcon} aria-hidden="true">
+                            {test.status === "passed" ? "✓" : "✗"}
+                          </span>
+                          <span className={styles.testTitle}>{test.title}</span>
+                          <span className={styles.testDuration}>{formatDuration(test.duration)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Composant principal ───────────────────────
 
 export function TestDashboardContent() {
   const [tests, setTests] = useState<TestResults | null>(null);
@@ -121,6 +313,9 @@ export function TestDashboardContent() {
     .map(([key, val]) => ({ name: getFileName(key), ...val }))
     .sort((a, b) => a.lines.pct - b.lines.pct);
 
+  const { rendu, a11y, other, renduTotal, renduPassed, a11yTotal, a11yPassed } =
+    parseResults(tests.testResults);
+
   return (
     <div className={styles.content}>
 
@@ -146,6 +341,96 @@ export function TestDashboardContent() {
           <span className={styles.statNum}>{formatDuration(totalDuration)}</span>
           <span className={styles.statLabel}>Durée totale</span>
         </div>
+      </section>
+
+      {/* ── Colonnes Rendu / A11y ── */}
+      <section className={styles.testColumnsSection} aria-labelledby="test-cols-title">
+        <h2 id="test-cols-title" className={styles.sectionTitle}>
+          Suites de tests
+          <span className={styles.sectionCount}>{tests.numTotalTestSuites} fichiers</span>
+        </h2>
+        <div className={styles.testColumns}>
+          <TestColumnPanel
+            label="Rendu & Interactions"
+            icon={<CheckCircle size={16} strokeWidth={1.5} />}
+            total={renduTotal}
+            passed={renduPassed}
+            groups={rendu}
+            accentClass={styles.colAccentRendu}
+          />
+          <TestColumnPanel
+            label="Accessibilité"
+            icon={<Shield size={16} strokeWidth={1.5} />}
+            total={a11yTotal}
+            passed={a11yPassed}
+            groups={a11y}
+            accentClass={styles.colAccentA11y}
+          />
+        </div>
+
+        {/* Tests non catégorisés */}
+        {other.length > 0 && (
+          <div className={styles.otherSuites}>
+            <p className={styles.scopeLabel}>Non catégorisés</p>
+            <div className={styles.suitesList}>
+              {tests.testResults
+                .filter(suite =>
+                  suite.assertionResults.some(t => !parseDesc(t.ancestorTitles[0] ?? ""))
+                )
+                .map((suite) => {
+                  const name = getSuiteName(suite.name);
+                  const isExpanded = expandedSuite === suite.name;
+                  const duration = suite.endTime - suite.startTime;
+
+                  return (
+                    <div
+                      key={suite.name}
+                      className={`${styles.suiteCard} ${suite.status === "failed" ? styles.suiteFailed : ""}`}
+                    >
+                      <button
+                        className={styles.suiteHeader}
+                        onClick={() => setExpandedSuite(isExpanded ? null : suite.name)}
+                        aria-expanded={isExpanded}
+                      >
+                        <span className={styles.suiteStatus}>
+                          {suite.status === "passed"
+                            ? <CheckCircle size={14} strokeWidth={2} className={styles.iconPass} />
+                            : <XCircle size={14} strokeWidth={2} className={styles.iconFail} />
+                          }
+                        </span>
+                        <span className={styles.suiteName}>{name}</span>
+                        <span className={styles.suiteCount}>
+                          {suite.assertionResults.filter(a => a.status === "passed").length}
+                          /{suite.assertionResults.length}
+                        </span>
+                        <span className={styles.suiteDuration}>{formatDuration(duration)}</span>
+                        <span className={styles.suiteChevron} aria-hidden="true">
+                          {isExpanded ? "▴" : "▾"}
+                        </span>
+                      </button>
+
+                      {isExpanded && (
+                        <ul className={styles.testList} role="list">
+                          {suite.assertionResults.map((test, i) => (
+                            <li
+                              key={i}
+                              className={`${styles.testItem} ${test.status === "failed" ? styles.testFailed : ""}`}
+                            >
+                              <span className={styles.testIcon} aria-hidden="true">
+                                {test.status === "passed" ? "✓" : "✗"}
+                              </span>
+                              <span className={styles.testTitle}>{test.title}</span>
+                              <span className={styles.testDuration}>{formatDuration(test.duration)}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ── Couverture globale ── */}
@@ -174,67 +459,6 @@ export function TestDashboardContent() {
               </span>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ── Suites de tests ── */}
-      <section className={styles.section} aria-labelledby="suites-title-inline">
-        <h2 id="suites-title-inline" className={styles.sectionTitle}>
-          Suites de tests
-          <span className={styles.sectionCount}>{tests.numTotalTestSuites} fichiers</span>
-        </h2>
-        <div className={styles.suitesList}>
-          {tests.testResults.map((suite) => {
-            const name = getSuiteName(suite.name);
-            const isExpanded = expandedSuite === suite.name;
-            const duration = suite.endTime - suite.startTime;
-
-            return (
-              <div
-                key={suite.name}
-                className={`${styles.suiteCard} ${suite.status === "failed" ? styles.suiteFailed : ""}`}
-              >
-                <button
-                  className={styles.suiteHeader}
-                  onClick={() => setExpandedSuite(isExpanded ? null : suite.name)}
-                  aria-expanded={isExpanded}
-                >
-                  <span className={styles.suiteStatus}>
-                    {suite.status === "passed"
-                      ? <CheckCircle size={14} strokeWidth={2} className={styles.iconPass} />
-                      : <XCircle size={14} strokeWidth={2} className={styles.iconFail} />
-                    }
-                  </span>
-                  <span className={styles.suiteName}>{name}</span>
-                  <span className={styles.suiteCount}>
-                    {suite.assertionResults.filter(a => a.status === "passed").length}
-                    /{suite.assertionResults.length}
-                  </span>
-                  <span className={styles.suiteDuration}>{formatDuration(duration)}</span>
-                  <span className={styles.suiteChevron} aria-hidden="true">
-                    {isExpanded ? "▴" : "▾"}
-                  </span>
-                </button>
-
-                {isExpanded && (
-                  <ul className={styles.testList} role="list">
-                    {suite.assertionResults.map((test, i) => (
-                      <li
-                        key={i}
-                        className={`${styles.testItem} ${test.status === "failed" ? styles.testFailed : ""}`}
-                      >
-                        <span className={styles.testIcon} aria-hidden="true">
-                          {test.status === "passed" ? "✓" : "✗"}
-                        </span>
-                        <span className={styles.testTitle}>{test.title}</span>
-                        <span className={styles.testDuration}>{formatDuration(test.duration)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            );
-          })}
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { Drawer } from "./Drawer";
 import type { Project } from "@/types/projects.types";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key: string) => key }),
@@ -19,9 +20,7 @@ const mockProject: Project = {
   ],
   image: "/mock-image.jpg",
   year: "2023 — 2025",
-  tabs: [
-    { id: "screenshots", label: "projects.drawer.screenshots" },
-  ],
+  tabs: [{ id: "screenshots", label: "projects.drawer.screenshots" }],
 };
 
 const mockProjectMultiTabs: Project = {
@@ -35,9 +34,7 @@ const mockProjectMultiTabs: Project = {
   ],
 };
 
-// ── Rendu ─────────────────────────────────────
-
-describe("Drawer — rendu", () => {
+describe(desc(TestScope.SECTION, "Drawer", TestType.RENDU), () => {
   it("n'est pas affiché quand project=null", () => {
     render(<Drawer project={null} onClose={vi.fn()} />);
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
@@ -69,11 +66,22 @@ describe("Drawer — rendu", () => {
     expect(screen.getByText("React")).toBeInTheDocument();
     expect(screen.getByText("TypeScript")).toBeInTheDocument();
   });
+
+  it("affiche les tabs du projet", () => {
+    render(<Drawer project={mockProjectMultiTabs} onClose={vi.fn()} />);
+    expect(screen.getByRole("tab", { name: "projects.drawer.screenshots" })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "projects.drawer.archi" })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "projects.drawer.tests" })).toBeInTheDocument();
+  });
+
+  it("le premier tab est actif par défaut", () => {
+    render(<Drawer project={mockProjectMultiTabs} onClose={vi.fn()} />);
+    expect(screen.getByRole("tab", { name: "projects.drawer.screenshots" }))
+      .toHaveAttribute("aria-selected", "true");
+  });
 });
 
-// ── Fermeture ─────────────────────────────────
-
-describe("Drawer — fermeture", () => {
+describe(desc(TestScope.SECTION, "Drawer", TestType.INTERACTIONS), () => {
   it("appelle onClose au clic sur le bouton fermer", () => {
     const onClose = vi.fn();
     render(<Drawer project={mockProject} onClose={onClose} />);
@@ -94,23 +102,6 @@ describe("Drawer — fermeture", () => {
     fireEvent.click(screen.getByRole("dialog"));
     expect(onClose).toHaveBeenCalled();
   });
-});
-
-// ── Tabs ──────────────────────────────────────
-
-describe("Drawer — tabs", () => {
-  it("affiche les tabs du projet", () => {
-    render(<Drawer project={mockProjectMultiTabs} onClose={vi.fn()} />);
-    expect(screen.getByRole("tab", { name: "projects.drawer.screenshots" })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: "projects.drawer.archi" })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: "projects.drawer.tests" })).toBeInTheDocument();
-  });
-
-  it("le premier tab est actif par défaut", () => {
-    render(<Drawer project={mockProjectMultiTabs} onClose={vi.fn()} />);
-    expect(screen.getByRole("tab", { name: "projects.drawer.screenshots" }))
-      .toHaveAttribute("aria-selected", "true");
-  });
 
   it("switch de tab au clic", () => {
     render(<Drawer project={mockProjectMultiTabs} onClose={vi.fn()} />);
@@ -124,7 +115,6 @@ describe("Drawer — tabs", () => {
   it("un seul tab drawer est actif à la fois", () => {
     render(<Drawer project={mockProjectMultiTabs} onClose={vi.fn()} />);
     fireEvent.click(screen.getByRole("tab", { name: "projects.drawer.archi" }));
-    // On cible uniquement le tablist du drawer (le premier dans le DOM)
     const drawerTablist = screen.getAllByRole("tablist")[0];
     const selectedTabs = Array.from(drawerTablist.querySelectorAll("[role='tab']"))
       .filter(t => t.getAttribute("aria-selected") === "true");
@@ -132,9 +122,7 @@ describe("Drawer — tabs", () => {
   });
 });
 
-// ── Accessibilité ─────────────────────────────
-
-describe("Drawer — accessibilité", () => {
+describe(desc(TestScope.SECTION, "Drawer", TestType.A11Y), () => {
   it("le dialog a aria-modal=true", () => {
     render(<Drawer project={mockProject} onClose={vi.fn()} />);
     expect(screen.getByRole("dialog")).toHaveAttribute("aria-modal", "true");

@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { Contact } from "./Contact";
+import { desc, TestScope, TestType } from "@tests/test-categories";
 
 vi.mock("@hooks/useReducedMotion", () => ({
   useReducedMotion: () => false,
@@ -12,9 +13,7 @@ vi.mock("@hooks/useIntersectionObserver", () => ({
   useIntersectionObserver: () => ({ ref: { current: null }, isVisible: true }),
 }));
 
-// ── Rendu ─────────────────────────────────────
-
-describe("Contact — rendu", () => {
+describe(desc(TestScope.SECTION, "Contact", TestType.RENDU), () => {
   it("affiche le titre et la description", () => {
     render(<Contact />);
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
@@ -29,6 +28,14 @@ describe("Contact — rendu", () => {
     expect(screen.getByLabelText("contact.form.message")).toBeInTheDocument();
   });
 
+  it("le bouton submit est accessible", () => {
+    render(<Contact />);
+    expect(screen.getByRole("button", { name: "contact.form.submit" }))
+      .toHaveAttribute("type", "submit");
+  });
+});
+
+describe(desc(TestScope.SECTION, "Contact", TestType.INTERACTIONS), () => {
   it("affiche les erreurs si soumis vide", async () => {
     render(<Contact />);
     fireEvent.click(screen.getByRole("button", { name: "contact.form.submit" }));
@@ -46,20 +53,11 @@ describe("Contact — rendu", () => {
       expect(screen.getByText("contact.validation.emailInvalid")).toBeInTheDocument();
     });
   });
-
-  it("le bouton submit est accessible", () => {
-    render(<Contact />);
-    const btn = screen.getByRole("button", { name: "contact.form.submit" });
-    expect(btn).toHaveAttribute("type", "submit");
-  });
 });
 
-// ── Accessibilité axe-core ────────────────────
-
-describe("Contact — accessibilité axe-core", () => {
+describe(desc(TestScope.SECTION, "Contact", TestType.A11Y), () => {
   it("n'a pas de violations d'accessibilité", async () => {
     const { container } = render(<Contact />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });
