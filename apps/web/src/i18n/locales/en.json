@@ -225,6 +225,46 @@
           "content": "WCAG 2.1 level AA requires a contrast ratio of 4.5:1 for normal text and 3:1 for large text. Never convey information through color alone."
         }
       }
+    },
+    "agent": {
+      "title": "AI Assistant",
+      "desc": "Ask questions about my profile or generate a personalised cover letter.",
+      "tabsLabel": "Assistant mode",
+      "tabs": {
+        "chat": "CV Q&A",
+        "poem": "Poem",
+        "motivation": "Cover letter"
+      },
+      "featureList": {
+        "context": "CV context injected as system prompt",
+        "history": "Multi-turn conversation history",
+        "modes": "2 modes: Q&A and letter generation",
+        "model": "claude-sonnet-4"
+      },
+      "offerLabel": "Job offer",
+      "offerPlaceholder": "Paste the job offer content here...",
+      "emptyChat": "Ask a question about my profile, skills or experience.",
+      "emptyMotivation": "Paste a job offer above, then send your message.",
+      "messagesLabel": "Conversation with the assistant",
+      "inputLabel": "Your message",
+      "inputPlaceholderChat": "E.g. What is your React experience?",
+      "inputPlaceholderMotivation": "E.g. Generate a cover letter for this role",
+      "inputHint": "Enter to send · Shift+Enter for new line",
+      "send": "Send",
+      "loading": "Assistant is typing…",
+      "errorNoOffer": "Please paste a job offer before sending.",
+      "errorGeneric": "Something went wrong.",
+      "errorNetwork": "Unable to reach the API.",
+      "inputPlaceholderPoem": "E.g. the sea, autumn, code...",
+      "emptyPoem": "Enter a theme to generate a poem and its illustration.",
+      "tech": {
+        "toggle": "View technical details",
+        "systemLabel": "System prompt",
+        "historyLabel": "Raw history",
+        "systemChat": "You are the AI assistant of Carole Rotton's portfolio. You answer recruiters' questions about her profile, skills and experience. Full CV context injected server-side.",
+        "systemPoem": "Generate a short poem + visual analysis in JSON. Themes: nature, seasons, technology, creativity.",
+        "systemMotivation": "You generate personalised cover letters for Carole based on a job offer. Tone: professional and authentic. Structure: hook / experience / motivation / conclusion."
+      }
     }
   },
   "contact": {

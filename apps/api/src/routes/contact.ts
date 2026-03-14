@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import { Resend } from "resend";
 import { z } from "zod";
+import he from "he";
 
 const router = Router();
 
@@ -35,19 +36,19 @@ router.post("/", async (req: Request, res: Response) => {
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <td style="padding: 8px; color: #666; width: 100px;"><strong>De</strong></td>
-              <td style="padding: 8px;">${body.name}</td>
+              <td style="padding: 8px;">${he.encode(body.name)}</td>
             </tr>
             <tr style="background: #f9f9f9;">
               <td style="padding: 8px; color: #666;"><strong>Email</strong></td>
-              <td style="padding: 8px;"><a href="mailto:${body.email}">${body.email}</a></td>
+              <td style="padding: 8px;"><a href="mailto:${he.encode(body.email)}">${he.encode(body.email)}</a></td>
             </tr>
             <tr>
               <td style="padding: 8px; color: #666;"><strong>Sujet</strong></td>
-              <td style="padding: 8px;">${body.subject}</td>
+              <td style="padding: 8px;">${he.encode(body.subject)}</td>
             </tr>
             <tr style="background: #f9f9f9;">
               <td style="padding: 8px; color: #666; vertical-align: top;"><strong>Message</strong></td>
-              <td style="padding: 8px; white-space: pre-wrap;">${body.message}</td>
+              <td style="padding: 8px; white-space: pre-wrap;">${he.encode(body.message)}</td>
             </tr>
           </table>
           <hr style="margin: 24px 0; border: none; border-top: 1px solid #eee;" />

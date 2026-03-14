@@ -43,6 +43,25 @@
   margin-top: 0.1rem;
 }
 
+.cardIconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  &:focus-visible { outline: 2px solid var(--clr-coral); border-radius: 4px; }
+}
+
+.cardIconActive {
+  color: var(--clr-sage);
+  transition: color 0.3s ease;
+}
+
+.tabSecret {
+  color: var(--clr-sage);
+  &.tabActive { border-bottom-color: var(--clr-sage); color: var(--clr-sage); }
+}
+
 .cardTitle {
   font-family: var(--font-serif);
   font-size: 1.3rem;
@@ -145,7 +164,7 @@
 
 .offerTextarea {
   width: 100%;
-  background: var(--clr-bg-200);
+  background: var(--clr-bg-100);
   border: 1px solid var(--clr-border);
   border-radius: 12px;
   padding: 0.75rem 1rem;
@@ -169,7 +188,7 @@
   max-height: 320px;
   overflow-y: auto;
   padding: 1rem;
-  background: var(--clr-bg-200);
+  background: var(--clr-bg-100);
   border-radius: 12px;
   border: 1px solid var(--clr-border);
 
@@ -281,6 +300,7 @@
 .inputWrapper {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   gap: 0.5rem;
 }
 
@@ -306,6 +326,7 @@
   font-size: 0.65rem;
   color: var(--clr-text-muted);
   opacity: 0.6;
+  flex-shrink: 0;
 }
 
 .sendBtn {

@@ -233,6 +233,7 @@
       "tabsLabel": "Mode de l'assistant",
       "tabs": {
         "chat": "Q&A CV",
+        "poem": "Poème",
         "motivation": "Lettre de motivation"
       },
       "featureList": {
@@ -255,11 +256,14 @@
       "errorNoOffer": "Veuillez coller une offre d'emploi avant d'envoyer.",
       "errorGeneric": "Une erreur est survenue.",
       "errorNetwork": "Impossible de contacter l'API.",
+      "inputPlaceholderPoem": "Ex : la mer, l'automne, le code...",
+      "emptyPoem": "Entrez un thème pour générer un poème et son illustration.",
       "tech": {
         "toggle": "Voir les détails techniques",
         "systemLabel": "System prompt",
         "historyLabel": "Historique brut",
         "systemChat": "Tu es l'assistant IA du portfolio de Carole Rotton. Tu réponds aux questions des recruteurs sur son profil, ses compétences et ses expériences. Contexte CV complet injecté côté serveur.",
+        "systemPoem": "Génère un poème court + analyse visuelle en JSON. Thèmes : nature, saisons, technologie, créativité.",
         "systemMotivation": "Tu génères des lettres de motivation personnalisées pour Carole à partir d'une offre d'emploi. Ton : professionnel et authentique. Structure : accroche / expériences / motivation / conclusion."
       }
     }
