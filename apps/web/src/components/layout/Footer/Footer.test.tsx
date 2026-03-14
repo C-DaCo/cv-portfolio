@@ -4,10 +4,6 @@ import { axe } from "jest-axe";
 import { Footer } from "./Footer";
 import { desc, TestScope, TestType } from "@tests/test-categories";
 
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
-}));
-
 describe(desc(TestScope.LAYOUT, "Footer", TestType.RENDU), () => {
   it("affiche le copyright", () => {
     render(<Footer />);

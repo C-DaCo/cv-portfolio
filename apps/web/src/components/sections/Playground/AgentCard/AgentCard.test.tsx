@@ -4,6 +4,12 @@ import { axe } from "jest-axe";
 import { AgentCard } from "./AgentCard";
 import { desc, TestScope, TestType } from "@tests/test-categories";
 
+const activateCaroleMode = () => {
+  const iconBtn = screen.getByRole("button", { name: /assistant ia/i });
+  fireEvent.click(iconBtn);
+  fireEvent.click(iconBtn);
+};
+
 // ── Mocks ─────────────────────────────────────────────────────────────────────
 
 const mockFetch = vi.fn();
@@ -35,13 +41,19 @@ describe(desc(TestScope.UI, "AgentCard", TestType.RENDU), () => {
   it("affiche les deux onglets", () => {
     render(<AgentCard visible={true} />);
     expect(screen.getByRole("tab", { name: /playground.agent.tabs.chat/i })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: /playground.agent.tabs.motivation/i })).toBeInTheDocument();
+    expect(screen.queryByRole("tab", { name: /playground.agent.tabs.motivation/i })).not.toBeInTheDocument();
   });
 
   it("affiche l'onglet chat sélectionné par défaut", () => {
     render(<AgentCard visible={true} />);
     expect(screen.getByRole("tab", { name: /playground.agent.tabs.chat/i })).toHaveAttribute("aria-selected", "true");
-    expect(screen.getByRole("tab", { name: /playground.agent.tabs.motivation/i })).toHaveAttribute("aria-selected", "false");
+    expect(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i })).toHaveAttribute("aria-selected", "false");
+  });
+
+  it("active l'onglet motivation après double-clic sur l'icône", () => {
+    render(<AgentCard visible={true} />);
+    activateCaroleMode();
+    expect(screen.getByRole("tab", { name: /playground.agent.tabs.motivation/i })).toBeInTheDocument();
   });
 
   it("n'affiche pas le champ offre d'emploi en mode chat", () => {
@@ -68,6 +80,23 @@ describe(desc(TestScope.UI, "AgentCard", TestType.RENDU), () => {
     const { container } = render(<AgentCard visible={false} />);
     expect((container.firstChild as HTMLElement).className).not.toMatch(/visible/);
   });
+
+  it("affiche l'onglet poème", () => {
+    render(<AgentCard visible={true} />);
+    expect(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i })).toBeInTheDocument();
+  });
+
+  it("n'affiche pas le champ offre en mode poème", () => {
+    render(<AgentCard visible={true} />);
+    fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i }));
+    expect(screen.queryByLabelText("playground.agent.offerLabel")).not.toBeInTheDocument();
+  });
+
+  it("affiche le message vide en mode poème", () => {
+    render(<AgentCard visible={true} />);
+    fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i }));
+    expect(screen.getByText("playground.agent.emptyPoem")).toBeInTheDocument();
+  });
 });
 
 // ── Interactions ──────────────────────────────────────────────────────────────
@@ -75,6 +104,7 @@ describe(desc(TestScope.UI, "AgentCard", TestType.RENDU), () => {
 describe(desc(TestScope.UI, "AgentCard", TestType.INTERACTIONS), () => {
   it("bascule vers l'onglet motivation au clic", () => {
     render(<AgentCard visible={true} />);
+    activateCaroleMode();
     fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.motivation/i }));
     expect(screen.getByRole("tab", { name: /playground.agent.tabs.motivation/i })).toHaveAttribute("aria-selected", "true");
     expect(screen.getByLabelText("playground.agent.offerLabel")).toBeInTheDocument();
@@ -93,7 +123,7 @@ describe(desc(TestScope.UI, "AgentCard", TestType.INTERACTIONS), () => {
     await waitFor(() => {
       expect(screen.getByText("Réponse de test")).toBeInTheDocument();
     });
-
+    activateCaroleMode();
     fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.motivation/i }));
     expect(screen.queryByText("Réponse de test")).not.toBeInTheDocument();
   });
@@ -169,6 +199,7 @@ describe(desc(TestScope.UI, "AgentCard", TestType.INTERACTIONS), () => {
 
   it("affiche une erreur si offre manquante en mode motivation", async () => {
     render(<AgentCard visible={true} />);
+    activateCaroleMode();
     fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.motivation/i }));
 
     fireEvent.change(screen.getByRole("textbox", { name: /playground.agent.inputLabel/i }), {
@@ -194,6 +225,70 @@ describe(desc(TestScope.UI, "AgentCard", TestType.INTERACTIONS), () => {
     expect(screen.queryByText("playground.agent.tech.systemLabel")).not.toBeInTheDocument();
     expect(toggleBtn).toHaveAttribute("aria-expanded", "false");
   });
+
+  it("bascule vers l'onglet poème au clic", () => {
+    render(<AgentCard visible={true} />);
+    fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i }));
+    expect(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i })).toHaveAttribute("aria-selected", "true");
+  });
+
+  it("affiche le poème et l'illustration après réponse", async () => {
+    mockFetch.mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({
+          success: true,
+          poem: {
+            poem: "Dans la nuit étoilée\nLes étoiles brillent",
+            keywords: ["nuit", "étoiles"],
+            mood: "calm",
+            palette: "night",
+          },
+        }),
+      })
+    );
+
+    render(<AgentCard visible={true} />);
+    fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i }));
+
+    fireEvent.change(screen.getByRole("textbox", { name: /playground.agent.inputLabel/i }), {
+      target: { value: "les étoiles" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /playground.agent.send/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText("Dans la nuit étoilée")).toBeInTheDocument();
+    });
+  });
+
+  it("réinitialise le poème au changement d'onglet", async () => {
+    mockFetch.mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({
+          success: true,
+          poem: {
+            poem: "Dans la nuit étoilée\nLes étoiles brillent",
+            keywords: ["nuit", "étoiles"],
+            mood: "calm",
+            palette: "night",
+          },
+        }),
+      })
+    );
+
+    render(<AgentCard visible={true} />);
+    fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i }));
+    fireEvent.change(screen.getByRole("textbox", { name: /playground.agent.inputLabel/i }), {
+      target: { value: "les étoiles" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /playground.agent.send/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText("Dans la nuit étoilée")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.chat/i }));
+    expect(screen.queryByText("Dans la nuit étoilée")).not.toBeInTheDocument();
+  });
 });
 
 // ── A11y ──────────────────────────────────────────────────────────────────────
@@ -206,6 +301,7 @@ describe(desc(TestScope.UI, "AgentCard", TestType.A11Y), () => {
 
   it("n'a pas de violations d'accessibilité — mode motivation", async () => {
     const { container } = render(<AgentCard visible={true} />);
+    activateCaroleMode();
     fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.motivation/i }));
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -227,6 +323,41 @@ describe(desc(TestScope.UI, "AgentCard", TestType.A11Y), () => {
 
     await waitFor(() => {
       expect(screen.getByText("Réponse accessible.")).toBeInTheDocument();
+    });
+
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("n'a pas de violations d'accessibilité — mode poème", async () => {
+    const { container } = render(<AgentCard visible={true} />);
+    fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i }));
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("n'a pas de violations d'accessibilité — poème affiché", async () => {
+    mockFetch.mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({
+          success: true,
+          poem: {
+            poem: "Dans la nuit étoilée\nLes étoiles brillent",
+            keywords: ["nuit", "étoiles"],
+            mood: "calm",
+            palette: "night",
+          },
+        }),
+      })
+    );
+
+    const { container } = render(<AgentCard visible={true} />);
+    fireEvent.click(screen.getByRole("tab", { name: /playground.agent.tabs.poem/i }));
+    fireEvent.change(screen.getByRole("textbox", { name: /playground.agent.inputLabel/i }), {
+      target: { value: "les étoiles" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /playground.agent.send/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText("Dans la nuit étoilée")).toBeInTheDocument();
     });
 
     expect(await axe(container)).toHaveNoViolations();

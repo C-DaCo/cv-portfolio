@@ -16,7 +16,10 @@ window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string) => key,
+    t: (key: string, options?: { returnObjects?: boolean }) => {
+      if (options?.returnObjects) return [key];
+      return key;
+    },
     i18n: { changeLanguage: vi.fn(), language: "fr" },
   }),
   initReactI18next: { type: "3rdParty", init: vi.fn() },

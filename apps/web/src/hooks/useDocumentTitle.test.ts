@@ -3,13 +3,6 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { useDocumentTitle } from "./useDocumentTitle";
 import { desc, TestScope, TestType } from "@tests/test-categories";
 
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({
-    t: (key: string) => key,
-    i18n: { language: "fr", changeLanguage: vi.fn() },
-  }),
-}));
-
 // ── Helper : IntersectionObserver constructible ───────
 
 function makeMockObserver(onObserve?: (cb: IntersectionObserverCallback) => void) {

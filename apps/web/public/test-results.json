@@ -3,8 +3,8 @@
   "numPassedTestSuites": 98,
   "numFailedTestSuites": 0,
   "numPendingTestSuites": 0,
-  "numTotalTests": 272,
-  "numPassedTests": 272,
+  "numTotalTests": 281,
+  "numPassedTests": 281,
   "numFailedTests": 0,
   "numPendingTests": 0,
   "numTodoTests": 0,
@@ -24,7 +24,7 @@
     "updated": 0,
     "didUpdate": false
   },
-  "startTime": 1773482830774,
+  "startTime": 1773499006955,
   "success": true,
   "testResults": [
     {
@@ -36,7 +36,7 @@
           "fullName": "[page] App — [rendu] affiche le skip link",
           "status": "passed",
           "title": "affiche le skip link",
-          "duration": 636.4506000000038,
+          "duration": 542.2330000000002,
           "failureMessages": [],
           "meta": {}
         },
@@ -47,7 +47,7 @@
           "fullName": "[page] App — [rendu] affiche la navigation",
           "status": "passed",
           "title": "affiche la navigation",
-          "duration": 560.5276999999987,
+          "duration": 709.9647999999997,
           "failureMessages": [],
           "meta": {}
         },
@@ -58,7 +58,7 @@
           "fullName": "[page] App — [rendu] affiche le main",
           "status": "passed",
           "title": "affiche le main",
-          "duration": 233.6606000000029,
+          "duration": 279.1359999999986,
           "failureMessages": [],
           "meta": {}
         },
@@ -69,7 +69,7 @@
           "fullName": "[page] App — [rendu] affiche toutes les sections principales",
           "status": "passed",
           "title": "affiche toutes les sections principales",
-          "duration": 137.58200000000215,
+          "duration": 144.39040000000023,
           "failureMessages": [],
           "meta": {}
         },
@@ -80,7 +80,7 @@
           "fullName": "[page] App — [rendu] affiche le footer",
           "status": "passed",
           "title": "affiche le footer",
-          "duration": 224.98419999999896,
+          "duration": 398.4525999999987,
           "failureMessages": [],
           "meta": {}
         },
@@ -91,7 +91,7 @@
           "fullName": "[page] App — [rendu] affiche le menu accessibilité",
           "status": "passed",
           "title": "affiche le menu accessibilité",
-          "duration": 1214.7615000000005,
+          "duration": 1392.644299999998,
           "failureMessages": [],
           "meta": {}
         },
@@ -102,13 +102,13 @@
           "fullName": "[page] App — [a11y] n'a pas de violations d'accessibilité",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité",
-          "duration": 11241.555200000003,
+          "duration": 14875.215099999998,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482885935,
-      "endTime": 1773482900186.5552,
+      "startTime": 1773499020363,
+      "endTime": 1773499038706.215,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/App.test.tsx"
@@ -122,7 +122,7 @@
           "fullName": "[hook] useA11y — [rendu] retourne les settings par défaut",
           "status": "passed",
           "title": "retourne les settings par défaut",
-          "duration": 67.41439999999966,
+          "duration": 50.59130000000005,
           "failureMessages": [],
           "meta": {}
         },
@@ -133,7 +133,7 @@
           "fullName": "[hook] useA11y — [rendu] persiste les settings dans localStorage",
           "status": "passed",
           "title": "persiste les settings dans localStorage",
-          "duration": 11.48030000000017,
+          "duration": 8.350800000000163,
           "failureMessages": [],
           "meta": {}
         },
@@ -144,7 +144,7 @@
           "fullName": "[hook] useA11y — [rendu] charge les settings depuis localStorage au montage",
           "status": "passed",
           "title": "charge les settings depuis localStorage au montage",
-          "duration": 5.123100000000704,
+          "duration": 20.842599999999948,
           "failureMessages": [],
           "meta": {}
         },
@@ -155,7 +155,7 @@
           "fullName": "[hook] useA11y — [interactions] toggle dyslexicFont",
           "status": "passed",
           "title": "toggle dyslexicFont",
-          "duration": 6.231899999999769,
+          "duration": 6.248599999999897,
           "failureMessages": [],
           "meta": {}
         },
@@ -166,7 +166,7 @@
           "fullName": "[hook] useA11y — [interactions] toggle highContrast ajoute la classe a11y-contrast",
           "status": "passed",
           "title": "toggle highContrast ajoute la classe a11y-contrast",
-          "duration": 7.268000000000029,
+          "duration": 11.143799999999828,
           "failureMessages": [],
           "meta": {}
         },
@@ -177,7 +177,7 @@
           "fullName": "[hook] useA11y — [interactions] toggle pauseAnimations ajoute la classe a11y-no-motion",
           "status": "passed",
           "title": "toggle pauseAnimations ajoute la classe a11y-no-motion",
-          "duration": 4.050900000000183,
+          "duration": 5.988800000000083,
           "failureMessages": [],
           "meta": {}
         },
@@ -188,7 +188,7 @@
           "fullName": "[hook] useA11y — [interactions] toggle letterSpacing ajoute la classe a11y-spacing",
           "status": "passed",
           "title": "toggle letterSpacing ajoute la classe a11y-spacing",
-          "duration": 5.71559999999954,
+          "duration": 6.486399999999776,
           "failureMessages": [],
           "meta": {}
         },
@@ -199,7 +199,7 @@
           "fullName": "[hook] useA11y — [interactions] setFontSize(2) ajoute a11y-font-md",
           "status": "passed",
           "title": "setFontSize(2) ajoute a11y-font-md",
-          "duration": 3.799699999999575,
+          "duration": 8.744599999999991,
           "failureMessages": [],
           "meta": {}
         },
@@ -210,7 +210,7 @@
           "fullName": "[hook] useA11y — [interactions] setFontSize(3) ajoute a11y-font-lg",
           "status": "passed",
           "title": "setFontSize(3) ajoute a11y-font-lg",
-          "duration": 14.580699999999524,
+          "duration": 35.38940000000002,
           "failureMessages": [],
           "meta": {}
         },
@@ -221,13 +221,13 @@
           "fullName": "[hook] useA11y — [interactions] reset remet les valeurs par défaut",
           "status": "passed",
           "title": "reset remet les valeurs par défaut",
-          "duration": 5.5405000000000655,
+          "duration": 12.439099999999598,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482947062,
-      "endTime": 1773482947194.5405,
+      "startTime": 1773499102391,
+      "endTime": 1773499102559.4392,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/hooks/useA11y.test.ts"
@@ -241,7 +241,7 @@
           "fullName": "[hook] useDocumentTitle — [rendu] monte sans erreur",
           "status": "passed",
           "title": "monte sans erreur",
-          "duration": 51.54959999999937,
+          "duration": 42.56869999999981,
           "failureMessages": [],
           "meta": {}
         },
@@ -252,7 +252,7 @@
           "fullName": "[hook] useDocumentTitle — [rendu] ne change pas le titre si aucune section n'est dans le DOM",
           "status": "passed",
           "title": "ne change pas le titre si aucune section n'est dans le DOM",
-          "duration": 9.980000000000473,
+          "duration": 12.638599999999315,
           "failureMessages": [],
           "meta": {}
         },
@@ -263,7 +263,7 @@
           "fullName": "[hook] useDocumentTitle — [interactions] met à jour le titre quand la section hero est intersectée",
           "status": "passed",
           "title": "met à jour le titre quand la section hero est intersectée",
-          "duration": 11.616899999999987,
+          "duration": 11.390800000000127,
           "failureMessages": [],
           "meta": {}
         },
@@ -274,7 +274,7 @@
           "fullName": "[hook] useDocumentTitle — [interactions] met à jour le titre avec la clé i18n pour une section avec titleKey",
           "status": "passed",
           "title": "met à jour le titre avec la clé i18n pour une section avec titleKey",
-          "duration": 9.663900000000467,
+          "duration": 8.690299999999297,
           "failureMessages": [],
           "meta": {}
         },
@@ -285,7 +285,7 @@
           "fullName": "[hook] useDocumentTitle — [interactions] ne met pas à jour le titre si isIntersecting=false",
           "status": "passed",
           "title": "ne met pas à jour le titre si isIntersecting=false",
-          "duration": 10.140300000000025,
+          "duration": 28.09020000000055,
           "failureMessages": [],
           "meta": {}
         },
@@ -296,13 +296,13 @@
           "fullName": "[hook] useDocumentTitle — [interactions] déconnecte les observers au démontage",
           "status": "passed",
           "title": "déconnecte les observers au démontage",
-          "duration": 5.365899999999783,
+          "duration": 8.005999999999403,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482943463,
-      "endTime": 1773482943562.366,
+      "startTime": 1773499108604,
+      "endTime": 1773499108718.006,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/hooks/useDocumentTitle.test.ts"
@@ -316,7 +316,7 @@
           "fullName": "[hook] useIntersectionObserver — [rendu] retourne isVisible=false par défaut",
           "status": "passed",
           "title": "retourne isVisible=false par défaut",
-          "duration": 21.67540000000008,
+          "duration": 23.389999999999873,
           "failureMessages": [],
           "meta": {}
         },
@@ -327,7 +327,7 @@
           "fullName": "[hook] useIntersectionObserver — [rendu] retourne une ref initialisée",
           "status": "passed",
           "title": "retourne une ref initialisée",
-          "duration": 5.420100000000275,
+          "duration": 2.5827000000003864,
           "failureMessages": [],
           "meta": {}
         },
@@ -338,7 +338,7 @@
           "fullName": "[hook] useIntersectionObserver — [rendu] accepte des options threshold et rootMargin",
           "status": "passed",
           "title": "accepte des options threshold et rootMargin",
-          "duration": 5.366599999999835,
+          "duration": 6.72629999999981,
           "failureMessages": [],
           "meta": {}
         },
@@ -349,7 +349,7 @@
           "fullName": "[hook] useIntersectionObserver — [rendu] accepte triggerOnce=false",
           "status": "passed",
           "title": "accepte triggerOnce=false",
-          "duration": 3.1657000000000153,
+          "duration": 2.9173000000000684,
           "failureMessages": [],
           "meta": {}
         },
@@ -360,13 +360,13 @@
           "fullName": "[hook] useIntersectionObserver — [rendu] monte et démonte sans erreur",
           "status": "passed",
           "title": "monte et démonte sans erreur",
-          "duration": 5.223100000000159,
+          "duration": 3.6131000000000313,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482950408,
-      "endTime": 1773482950449.2231,
+      "startTime": 1773499110284,
+      "endTime": 1773499110323.613,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/hooks/useIntersectionObserver.test.ts"
@@ -380,7 +380,7 @@
           "fullName": "[hook] useReducedMotion — [rendu] retourne false si prefers-reduced-motion=no-preference",
           "status": "passed",
           "title": "retourne false si prefers-reduced-motion=no-preference",
-          "duration": 38.376900000000205,
+          "duration": 45.88119999999981,
           "failureMessages": [],
           "meta": {}
         },
@@ -391,7 +391,7 @@
           "fullName": "[hook] useReducedMotion — [rendu] retourne true si prefers-reduced-motion=reduce",
           "status": "passed",
           "title": "retourne true si prefers-reduced-motion=reduce",
-          "duration": 4.574999999999818,
+          "duration": 5.058700000000499,
           "failureMessages": [],
           "meta": {}
         },
@@ -402,7 +402,7 @@
           "fullName": "[hook] useReducedMotion — [interactions] met à jour la valeur quand la préférence change vers reduce",
           "status": "passed",
           "title": "met à jour la valeur quand la préférence change vers reduce",
-          "duration": 11.04699999999957,
+          "duration": 18.11279999999988,
           "failureMessages": [],
           "meta": {}
         },
@@ -413,7 +413,7 @@
           "fullName": "[hook] useReducedMotion — [interactions] met à jour la valeur quand la préférence change vers no-preference",
           "status": "passed",
           "title": "met à jour la valeur quand la préférence change vers no-preference",
-          "duration": 5.470299999999952,
+          "duration": 8.928399999999783,
           "failureMessages": [],
           "meta": {}
         },
@@ -424,13 +424,13 @@
           "fullName": "[hook] useReducedMotion — [interactions] retire le listener au démontage",
           "status": "passed",
           "title": "retire le listener au démontage",
-          "duration": 11.736100000000079,
+          "duration": 9.506099999999606,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482948122,
-      "endTime": 1773482948194.736,
+      "startTime": 1773499106593,
+      "endTime": 1773499106689.506,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/hooks/useReducedMotion.test.ts"
@@ -444,7 +444,7 @@
           "fullName": "[hook] useSpeech — [rendu] retourne isSupported=true si speechSynthesis est dans window",
           "status": "passed",
           "title": "retourne isSupported=true si speechSynthesis est dans window",
-          "duration": 45.78360000000066,
+          "duration": 58.94329999999991,
           "failureMessages": [],
           "meta": {}
         },
@@ -455,7 +455,7 @@
           "fullName": "[hook] useSpeech — [rendu] retourne isSupported=false si speechSynthesis est absent",
           "status": "passed",
           "title": "retourne isSupported=false si speechSynthesis est absent",
-          "duration": 7.5448999999998705,
+          "duration": 11.180200000000696,
           "failureMessages": [],
           "meta": {}
         },
@@ -466,7 +466,7 @@
           "fullName": "[hook] useSpeech — [rendu] état initial — isSpeaking=false",
           "status": "passed",
           "title": "état initial — isSpeaking=false",
-          "duration": 4.237100000000282,
+          "duration": 4.1148999999995794,
           "failureMessages": [],
           "meta": {}
         },
@@ -477,7 +477,7 @@
           "fullName": "[hook] useSpeech — [rendu] état initial — isPaused=false",
           "status": "passed",
           "title": "état initial — isPaused=false",
-          "duration": 7.548099999999977,
+          "duration": 5.893800000000738,
           "failureMessages": [],
           "meta": {}
         },
@@ -488,7 +488,7 @@
           "fullName": "[hook] useSpeech — [rendu] état initial — currentText vide",
           "status": "passed",
           "title": "état initial — currentText vide",
-          "duration": 7.146099999999933,
+          "duration": 16.14930000000004,
           "failureMessages": [],
           "meta": {}
         },
@@ -499,7 +499,7 @@
           "fullName": "[hook] useSpeech — [rendu] état initial — mode=page",
           "status": "passed",
           "title": "état initial — mode=page",
-          "duration": 6.050699999999779,
+          "duration": 4.129500000000007,
           "failureMessages": [],
           "meta": {}
         },
@@ -510,7 +510,7 @@
           "fullName": "[hook] useSpeech — [rendu] monte et démonte sans erreur",
           "status": "passed",
           "title": "monte et démonte sans erreur",
-          "duration": 6.91359999999986,
+          "duration": 12.719999999999345,
           "failureMessages": [],
           "meta": {}
         },
@@ -521,7 +521,7 @@
           "fullName": "[hook] useSpeech — [rendu] annule la synthèse au démontage",
           "status": "passed",
           "title": "annule la synthèse au démontage",
-          "duration": 4.08849999999984,
+          "duration": 4.445499999999811,
           "failureMessages": [],
           "meta": {}
         },
@@ -532,7 +532,7 @@
           "fullName": "[hook] useSpeech — [interactions] setMode change le mode vers click",
           "status": "passed",
           "title": "setMode change le mode vers click",
-          "duration": 16.19970000000012,
+          "duration": 20.379700000000412,
           "failureMessages": [],
           "meta": {}
         },
@@ -543,7 +543,7 @@
           "fullName": "[hook] useSpeech — [interactions] setMode change le mode vers page",
           "status": "passed",
           "title": "setMode change le mode vers page",
-          "duration": 5.538700000000063,
+          "duration": 39.272399999999834,
           "failureMessages": [],
           "meta": {}
         },
@@ -554,7 +554,7 @@
           "fullName": "[hook] useSpeech — [interactions] pause — appelle speechSynthesis.pause et isPaused=true",
           "status": "passed",
           "title": "pause — appelle speechSynthesis.pause et isPaused=true",
-          "duration": 3.451299999999719,
+          "duration": 4.100699999999961,
           "failureMessages": [],
           "meta": {}
         },
@@ -565,7 +565,7 @@
           "fullName": "[hook] useSpeech — [interactions] resume — appelle speechSynthesis.resume et isPaused=false",
           "status": "passed",
           "title": "resume — appelle speechSynthesis.resume et isPaused=false",
-          "duration": 3.5744000000004235,
+          "duration": 2.814300000000003,
           "failureMessages": [],
           "meta": {}
         },
@@ -576,7 +576,7 @@
           "fullName": "[hook] useSpeech — [interactions] pause ignorée en mode click",
           "status": "passed",
           "title": "pause ignorée en mode click",
-          "duration": 3.0850000000000364,
+          "duration": 2.3661999999994805,
           "failureMessages": [],
           "meta": {}
         },
@@ -587,7 +587,7 @@
           "fullName": "[hook] useSpeech — [interactions] stop — remet isSpeaking, isPaused, currentText à zéro",
           "status": "passed",
           "title": "stop — remet isSpeaking, isPaused, currentText à zéro",
-          "duration": 3.423700000000281,
+          "duration": 4.5578999999997905,
           "failureMessages": [],
           "meta": {}
         },
@@ -598,7 +598,7 @@
           "fullName": "[hook] useSpeech — [interactions] stop — appelle speechSynthesis.cancel",
           "status": "passed",
           "title": "stop — appelle speechSynthesis.cancel",
-          "duration": 3.688999999999396,
+          "duration": 10.667599999999766,
           "failureMessages": [],
           "meta": {}
         },
@@ -609,7 +609,7 @@
           "fullName": "[hook] useSpeech — [interactions] next ignoré en mode click",
           "status": "passed",
           "title": "next ignoré en mode click",
-          "duration": 4.979200000000674,
+          "duration": 4.379799999999705,
           "failureMessages": [],
           "meta": {}
         },
@@ -620,7 +620,7 @@
           "fullName": "[hook] useSpeech — [interactions] previous ignoré en mode click",
           "status": "passed",
           "title": "previous ignoré en mode click",
-          "duration": 3.255000000000109,
+          "duration": 17.970000000000255,
           "failureMessages": [],
           "meta": {}
         },
@@ -631,7 +631,7 @@
           "fullName": "[hook] useSpeech — [interactions] next — appelle cancel en mode page",
           "status": "passed",
           "title": "next — appelle cancel en mode page",
-          "duration": 2.1592000000000553,
+          "duration": 5.2546000000002095,
           "failureMessages": [],
           "meta": {}
         },
@@ -642,13 +642,13 @@
           "fullName": "[hook] useSpeech — [interactions] previous — appelle cancel en mode page",
           "status": "passed",
           "title": "previous — appelle cancel en mode page",
-          "duration": 3.365799999999581,
+          "duration": 4.280000000000655,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482942342,
-      "endTime": 1773482942486.3657,
+      "startTime": 1773499100353,
+      "endTime": 1773499100588.28,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/hooks/useSpeech.test.ts"
@@ -662,7 +662,7 @@
           "fullName": "[hook] useTheme — [rendu] retourne un thème initial valide",
           "status": "passed",
           "title": "retourne un thème initial valide",
-          "duration": 50.03830000000016,
+          "duration": 49.39380000000074,
           "failureMessages": [],
           "meta": {}
         },
@@ -673,7 +673,7 @@
           "fullName": "[hook] useTheme — [rendu] expose une fonction toggleTheme",
           "status": "passed",
           "title": "expose une fonction toggleTheme",
-          "duration": 6.298200000000179,
+          "duration": 12.220800000000054,
           "failureMessages": [],
           "meta": {}
         },
@@ -684,7 +684,7 @@
           "fullName": "[hook] useTheme — [rendu] cycle complet light → dark → light",
           "status": "passed",
           "title": "cycle complet light → dark → light",
-          "duration": 8.634099999999307,
+          "duration": 12.523700000000645,
           "failureMessages": [],
           "meta": {}
         },
@@ -695,7 +695,7 @@
           "fullName": "[hook] useTheme — [rendu] toggleTheme met à jour data-theme sur <html>",
           "status": "passed",
           "title": "toggleTheme met à jour data-theme sur <html>",
-          "duration": 7.148699999999735,
+          "duration": 13.15560000000005,
           "failureMessages": [],
           "meta": {}
         },
@@ -706,13 +706,13 @@
           "fullName": "[hook] useTheme — [rendu] deux instances partagent le même thème",
           "status": "passed",
           "title": "deux instances partagent le même thème",
-          "duration": 7.706299999999828,
+          "duration": 11.453300000000127,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482947251,
-      "endTime": 1773482947331.7063,
+      "startTime": 1773499106596,
+      "endTime": 1773499106695.4534,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/hooks/useTheme.test.ts"
@@ -726,7 +726,7 @@
           "fullName": "[page] TestDashboard — [rendu] affiche le titre",
           "status": "passed",
           "title": "affiche le titre",
-          "duration": 672.3732,
+          "duration": 972.1134999999995,
           "failureMessages": [],
           "meta": {}
         },
@@ -737,7 +737,7 @@
           "fullName": "[page] TestDashboard — [rendu] affiche le lien retour portfolio",
           "status": "passed",
           "title": "affiche le lien retour portfolio",
-          "duration": 435.3607000000002,
+          "duration": 572.8764000000001,
           "failureMessages": [],
           "meta": {}
         },
@@ -748,7 +748,7 @@
           "fullName": "[page] TestDashboard — [rendu] affiche le contenu du dashboard",
           "status": "passed",
           "title": "affiche le contenu du dashboard",
-          "duration": 29.299700000000485,
+          "duration": 31.920199999999568,
           "failureMessages": [],
           "meta": {}
         },
@@ -759,13 +759,13 @@
           "fullName": "[page] TestDashboard — [a11y] n'a pas de violations d'accessibilité",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité",
-          "duration": 818.2220000000007,
+          "duration": 1236.8769999999995,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482929843,
-      "endTime": 1773482931799.222,
+      "startTime": 1773499082206,
+      "endTime": 1773499085023.877,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/pages/TestDashboard/TestDashboard.test.tsx"
@@ -779,7 +779,7 @@
           "fullName": "[page] TestDashboardContent helpers — [rendu] getFileName — nettoie le chemin",
           "status": "passed",
           "title": "getFileName — nettoie le chemin",
-          "duration": 5.359300000000076,
+          "duration": 4.7086000000008426,
           "failureMessages": [],
           "meta": {}
         },
@@ -790,7 +790,7 @@
           "fullName": "[page] TestDashboardContent helpers — [rendu] getSuiteName — extrait le nom du fichier",
           "status": "passed",
           "title": "getSuiteName — extrait le nom du fichier",
-          "duration": 1.1745999999993728,
+          "duration": 1.082999999999629,
           "failureMessages": [],
           "meta": {}
         },
@@ -801,7 +801,7 @@
           "fullName": "[page] TestDashboardContent helpers — [rendu] getCoverageColor — retourne la bonne couleur",
           "status": "passed",
           "title": "getCoverageColor — retourne la bonne couleur",
-          "duration": 1.1955000000007203,
+          "duration": 1.2583999999997104,
           "failureMessages": [],
           "meta": {}
         },
@@ -812,7 +812,7 @@
           "fullName": "[page] TestDashboardContent helpers — [rendu] formatDuration — formate en ms et en secondes",
           "status": "passed",
           "title": "formatDuration — formate en ms et en secondes",
-          "duration": 2.9965000000001965,
+          "duration": 0.9432999999999083,
           "failureMessages": [],
           "meta": {}
         },
@@ -823,7 +823,7 @@
           "fullName": "[page] TestDashboardContent — [rendu] affiche le spinner pendant le chargement",
           "status": "passed",
           "title": "affiche le spinner pendant le chargement",
-          "duration": 87.51260000000002,
+          "duration": 70.59090000000015,
           "failureMessages": [],
           "meta": {}
         },
@@ -834,7 +834,7 @@
           "fullName": "[page] TestDashboardContent — [rendu] affiche le message d'erreur si fetch échoue",
           "status": "passed",
           "title": "affiche le message d'erreur si fetch échoue",
-          "duration": 66.88320000000022,
+          "duration": 55.33839999999964,
           "failureMessages": [],
           "meta": {}
         },
@@ -845,7 +845,7 @@
           "fullName": "[page] TestDashboardContent — [rendu] affiche les stats globales après chargement",
           "status": "passed",
           "title": "affiche les stats globales après chargement",
-          "duration": 219.36809999999969,
+          "duration": 284.34229999999934,
           "failureMessages": [],
           "meta": {}
         },
@@ -856,7 +856,7 @@
           "fullName": "[page] TestDashboardContent — [rendu] affiche le titre Suites de tests",
           "status": "passed",
           "title": "affiche le titre Suites de tests",
-          "duration": 96.9390000000003,
+          "duration": 148.9985999999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -867,7 +867,7 @@
           "fullName": "[page] TestDashboardContent — [rendu] affiche les deux colonnes Rendu et Accessibilité",
           "status": "passed",
           "title": "affiche les deux colonnes Rendu et Accessibilité",
-          "duration": 70.95420000000013,
+          "duration": 117.88270000000102,
           "failureMessages": [],
           "meta": {}
         },
@@ -878,7 +878,7 @@
           "fullName": "[page] TestDashboardContent — [rendu] affiche la section couverture de code",
           "status": "passed",
           "title": "affiche la section couverture de code",
-          "duration": 57.99659999999949,
+          "duration": 70.47689999999966,
           "failureMessages": [],
           "meta": {}
         },
@@ -889,7 +889,7 @@
           "fullName": "[page] TestDashboardContent — [rendu] affiche la section couverture par fichier",
           "status": "passed",
           "title": "affiche la section couverture par fichier",
-          "duration": 54.38709999999992,
+          "duration": 86.06259999999929,
           "failureMessages": [],
           "meta": {}
         },
@@ -900,7 +900,7 @@
           "fullName": "[page] TestDashboardContent — [rendu] affiche les métriques de couverture",
           "status": "passed",
           "title": "affiche les métriques de couverture",
-          "duration": 74.22229999999945,
+          "duration": 115.54349999999977,
           "failureMessages": [],
           "meta": {}
         },
@@ -911,7 +911,7 @@
           "fullName": "[page] TestDashboardContent — [interactions] déplie un describe au clic",
           "status": "passed",
           "title": "déplie un describe au clic",
-          "duration": 794.9431999999997,
+          "duration": 978.4398000000001,
           "failureMessages": [],
           "meta": {}
         },
@@ -922,7 +922,7 @@
           "fullName": "[page] TestDashboardContent — [interactions] referme un describe au second clic",
           "status": "passed",
           "title": "referme un describe au second clic",
-          "duration": 410.5110000000004,
+          "duration": 431.2735999999986,
           "failureMessages": [],
           "meta": {}
         },
@@ -933,135 +933,16 @@
           "fullName": "[page] TestDashboardContent — [a11y] n'a pas de violations (état chargé)",
           "status": "passed",
           "title": "n'a pas de violations (état chargé)",
-          "duration": 2398.7217,
+          "duration": 2752.2117,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482895655,
-      "endTime": 1773482900000.7217,
+      "startTime": 1773499037066,
+      "endTime": 1773499042188.2117,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/pages/TestDashboard/TestDashboardContent.test.tsx"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [rendu]"
-          ],
-          "fullName": "[layout] Nav — [rendu] affiche le logo",
-          "status": "passed",
-          "title": "affiche le logo",
-          "duration": 133.33460000000014,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [rendu]"
-          ],
-          "fullName": "[layout] Nav — [rendu] affiche les liens de navigation",
-          "status": "passed",
-          "title": "affiche les liens de navigation",
-          "duration": 836.6049000000003,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [rendu]"
-          ],
-          "fullName": "[layout] Nav — [rendu] affiche le bouton de langue",
-          "status": "passed",
-          "title": "affiche le bouton de langue",
-          "duration": 191.4351999999999,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [rendu]"
-          ],
-          "fullName": "[layout] Nav — [rendu] affiche le bouton de thème",
-          "status": "passed",
-          "title": "affiche le bouton de thème",
-          "duration": 140.8657000000003,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [rendu]"
-          ],
-          "fullName": "[layout] Nav — [rendu] affiche le bouton hamburger",
-          "status": "passed",
-          "title": "affiche le bouton hamburger",
-          "duration": 139.54259999999977,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [interactions]"
-          ],
-          "fullName": "[layout] Nav — [interactions] ouvre le menu au clic sur hamburger",
-          "status": "passed",
-          "title": "ouvre le menu au clic sur hamburger",
-          "duration": 315.1190999999999,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [interactions]"
-          ],
-          "fullName": "[layout] Nav — [interactions] ferme le menu avec Escape",
-          "status": "passed",
-          "title": "ferme le menu avec Escape",
-          "duration": 252.59420000000046,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [interactions]"
-          ],
-          "fullName": "[layout] Nav — [interactions] ferme le menu au clic sur un lien",
-          "status": "passed",
-          "title": "ferme le menu au clic sur un lien",
-          "duration": 397.78899999999976,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [a11y]"
-          ],
-          "fullName": "[layout] Nav — [a11y] n'a pas de violations (menu fermé)",
-          "status": "passed",
-          "title": "n'a pas de violations (menu fermé)",
-          "duration": 494.16169999999966,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[layout] Nav — [a11y]"
-          ],
-          "fullName": "[layout] Nav — [a11y] n'a pas de violations (menu ouvert)",
-          "status": "passed",
-          "title": "n'a pas de violations (menu ouvert)",
-          "duration": 629.2038000000002,
-          "failureMessages": [],
-          "meta": {}
-        }
-      ],
-      "startTime": 1773482905927,
-      "endTime": 1773482909460.2039,
-      "status": "passed",
-      "message": "",
-      "name": "D:/Projects/cv-portfolio/apps/web/src/components/layout/Nav/Nav.test.tsx"
     },
     {
       "assertionResults": [
@@ -1072,7 +953,7 @@
           "fullName": "[layout] Footer — [rendu] affiche le copyright",
           "status": "passed",
           "title": "affiche le copyright",
-          "duration": 121.76370000000043,
+          "duration": 121.38589999999931,
           "failureMessages": [],
           "meta": {}
         },
@@ -1083,7 +964,7 @@
           "fullName": "[layout] Footer — [rendu] affiche le lien GitHub",
           "status": "passed",
           "title": "affiche le lien GitHub",
-          "duration": 25.76429999999982,
+          "duration": 25.608099999999467,
           "failureMessages": [],
           "meta": {}
         },
@@ -1094,7 +975,7 @@
           "fullName": "[layout] Footer — [rendu] affiche le lien LinkedIn",
           "status": "passed",
           "title": "affiche le lien LinkedIn",
-          "duration": 18.608500000000276,
+          "duration": 39.802999999999884,
           "failureMessages": [],
           "meta": {}
         },
@@ -1105,7 +986,7 @@
           "fullName": "[layout] Footer — [rendu] a le role contentinfo",
           "status": "passed",
           "title": "a le role contentinfo",
-          "duration": 469.6263999999992,
+          "duration": 1040.1174,
           "failureMessages": [],
           "meta": {}
         },
@@ -1116,16 +997,135 @@
           "fullName": "[layout] Footer — [a11y] n'a pas de violations d'accessibilité",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité",
-          "duration": 548.9071000000004,
+          "duration": 726.5984000000008,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482935883,
-      "endTime": 1773482937068.907,
+      "startTime": 1773499092455,
+      "endTime": 1773499094410.5984,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/layout/Footer/Footer.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [rendu]"
+          ],
+          "fullName": "[layout] Nav — [rendu] affiche le logo",
+          "status": "passed",
+          "title": "affiche le logo",
+          "duration": 161.59730000000036,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [rendu]"
+          ],
+          "fullName": "[layout] Nav — [rendu] affiche les liens de navigation",
+          "status": "passed",
+          "title": "affiche les liens de navigation",
+          "duration": 1738.2415999999994,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [rendu]"
+          ],
+          "fullName": "[layout] Nav — [rendu] affiche le bouton de langue",
+          "status": "passed",
+          "title": "affiche le bouton de langue",
+          "duration": 294.5478999999996,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [rendu]"
+          ],
+          "fullName": "[layout] Nav — [rendu] affiche le bouton de thème",
+          "status": "passed",
+          "title": "affiche le bouton de thème",
+          "duration": 267.3292999999994,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [rendu]"
+          ],
+          "fullName": "[layout] Nav — [rendu] affiche le bouton hamburger",
+          "status": "passed",
+          "title": "affiche le bouton hamburger",
+          "duration": 221.88810000000012,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [interactions]"
+          ],
+          "fullName": "[layout] Nav — [interactions] ouvre le menu au clic sur hamburger",
+          "status": "passed",
+          "title": "ouvre le menu au clic sur hamburger",
+          "duration": 602.8209999999999,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [interactions]"
+          ],
+          "fullName": "[layout] Nav — [interactions] ferme le menu avec Escape",
+          "status": "passed",
+          "title": "ferme le menu avec Escape",
+          "duration": 743.9799999999996,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [interactions]"
+          ],
+          "fullName": "[layout] Nav — [interactions] ferme le menu au clic sur un lien",
+          "status": "passed",
+          "title": "ferme le menu au clic sur un lien",
+          "duration": 834.0766999999996,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [a11y]"
+          ],
+          "fullName": "[layout] Nav — [a11y] n'a pas de violations (menu fermé)",
+          "status": "passed",
+          "title": "n'a pas de violations (menu fermé)",
+          "duration": 970.5663000000004,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[layout] Nav — [a11y]"
+          ],
+          "fullName": "[layout] Nav — [a11y] n'a pas de violations (menu ouvert)",
+          "status": "passed",
+          "title": "n'a pas de violations (menu ouvert)",
+          "duration": 923.3161999999993,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1773499047010,
+      "endTime": 1773499053770.3162,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Projects/cv-portfolio/apps/web/src/components/layout/Nav/Nav.test.tsx"
     },
     {
       "assertionResults": [
@@ -1136,7 +1136,7 @@
           "fullName": "[section] Contact — [rendu] affiche le titre et la description",
           "status": "passed",
           "title": "affiche le titre et la description",
-          "duration": 813.7876000000006,
+          "duration": 1244.5707000000002,
           "failureMessages": [],
           "meta": {}
         },
@@ -1147,7 +1147,7 @@
           "fullName": "[section] Contact — [rendu] affiche les champs du formulaire",
           "status": "passed",
           "title": "affiche les champs du formulaire",
-          "duration": 123.8148000000001,
+          "duration": 99.17699999999968,
           "failureMessages": [],
           "meta": {}
         },
@@ -1158,7 +1158,7 @@
           "fullName": "[section] Contact — [rendu] le bouton submit est accessible",
           "status": "passed",
           "title": "le bouton submit est accessible",
-          "duration": 261.14879999999994,
+          "duration": 368.65250000000015,
           "failureMessages": [],
           "meta": {}
         },
@@ -1169,7 +1169,7 @@
           "fullName": "[section] Contact — [interactions] affiche les erreurs si soumis vide",
           "status": "passed",
           "title": "affiche les erreurs si soumis vide",
-          "duration": 302.3294999999998,
+          "duration": 350.7634999999991,
           "failureMessages": [],
           "meta": {}
         },
@@ -1180,7 +1180,7 @@
           "fullName": "[section] Contact — [interactions] valide l'email au blur",
           "status": "passed",
           "title": "valide l'email au blur",
-          "duration": 479.7667000000001,
+          "duration": 645.3389999999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -1191,13 +1191,13 @@
           "fullName": "[section] Contact — [a11y] n'a pas de violations d'accessibilité",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité",
-          "duration": 1341.8172999999997,
+          "duration": 2430.9452,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482914146,
-      "endTime": 1773482917470.8174,
+      "startTime": 1773499052174,
+      "endTime": 1773499057315.9453,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Contact/Contact.test.tsx"
@@ -1211,7 +1211,7 @@
           "fullName": "[section] Education — [rendu] affiche le titre de la section",
           "status": "passed",
           "title": "affiche le titre de la section",
-          "duration": 771.6905999999999,
+          "duration": 726.4882000000007,
           "failureMessages": [],
           "meta": {}
         },
@@ -1222,7 +1222,7 @@
           "fullName": "[section] Education — [rendu] affiche la liste des formations",
           "status": "passed",
           "title": "affiche la liste des formations",
-          "duration": 161.38360000000011,
+          "duration": 169.85659999999916,
           "failureMessages": [],
           "meta": {}
         },
@@ -1233,7 +1233,7 @@
           "fullName": "[section] Education — [rendu] affiche autant de cartes que de formations",
           "status": "passed",
           "title": "affiche autant de cartes que de formations",
-          "duration": 237.0011999999997,
+          "duration": 323.0640999999996,
           "failureMessages": [],
           "meta": {}
         },
@@ -1244,7 +1244,7 @@
           "fullName": "[section] Education — [rendu] chaque formation a un aria-label accessible",
           "status": "passed",
           "title": "chaque formation a un aria-label accessible",
-          "duration": 240.96549999999934,
+          "duration": 371.1352000000006,
           "failureMessages": [],
           "meta": {}
         },
@@ -1255,7 +1255,7 @@
           "fullName": "[section] Education — [rendu] chaque formation affiche son année",
           "status": "passed",
           "title": "chaque formation affiche son année",
-          "duration": 26.120099999999184,
+          "duration": 33.89509999999973,
           "failureMessages": [],
           "meta": {}
         },
@@ -1266,7 +1266,7 @@
           "fullName": "[section] Education — [rendu] affiche les diplômes via clés i18n",
           "status": "passed",
           "title": "affiche les diplômes via clés i18n",
-          "duration": 34.168400000000474,
+          "duration": 47.116799999999785,
           "failureMessages": [],
           "meta": {}
         },
@@ -1277,7 +1277,7 @@
           "fullName": "[section] Education — [rendu] affiche le titre Langues",
           "status": "passed",
           "title": "affiche le titre Langues",
-          "duration": 92.76969999999983,
+          "duration": 127.39390000000094,
           "failureMessages": [],
           "meta": {}
         },
@@ -1288,7 +1288,7 @@
           "fullName": "[section] Education — [rendu] affiche les noms des langues via clés i18n",
           "status": "passed",
           "title": "affiche les noms des langues via clés i18n",
-          "duration": 21.59269999999924,
+          "duration": 31.566499999998996,
           "failureMessages": [],
           "meta": {}
         },
@@ -1299,7 +1299,7 @@
           "fullName": "[section] Education — [rendu] affiche les niveaux via clés i18n",
           "status": "passed",
           "title": "affiche les niveaux via clés i18n",
-          "duration": 25.253600000000006,
+          "duration": 46.91899999999987,
           "failureMessages": [],
           "meta": {}
         },
@@ -1310,16 +1310,102 @@
           "fullName": "[section] Education — [a11y] n'a pas de violations d'accessibilité",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité",
-          "duration": 999.3378999999995,
+          "duration": 1306.8441000000003,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482917263,
-      "endTime": 1773482919875.338,
+      "startTime": 1773499076912,
+      "endTime": 1773499080098.844,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Education/Education.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "[section] Experiences — [rendu]"
+          ],
+          "fullName": "[section] Experiences — [rendu] affiche le titre de la section",
+          "status": "passed",
+          "title": "affiche le titre de la section",
+          "duration": 814.8301000000001,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[section] Experiences — [rendu]"
+          ],
+          "fullName": "[section] Experiences — [rendu] affiche la liste des expériences",
+          "status": "passed",
+          "title": "affiche la liste des expériences",
+          "duration": 438.7537999999995,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[section] Experiences — [rendu]"
+          ],
+          "fullName": "[section] Experiences — [rendu] affiche les 3 expériences",
+          "status": "passed",
+          "title": "affiche les 3 expériences",
+          "duration": 91.39379999999983,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[section] Experiences — [rendu]"
+          ],
+          "fullName": "[section] Experiences — [rendu] affiche les rôles via clés i18n",
+          "status": "passed",
+          "title": "affiche les rôles via clés i18n",
+          "duration": 112.85390000000007,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[section] Experiences — [rendu]"
+          ],
+          "fullName": "[section] Experiences — [rendu] affiche les descriptions via clés i18n",
+          "status": "passed",
+          "title": "affiche les descriptions via clés i18n",
+          "duration": 96.94800000000032,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[section] Experiences — [rendu]"
+          ],
+          "fullName": "[section] Experiences — [rendu] affiche le badge remote pour les postes remote",
+          "status": "passed",
+          "title": "affiche le badge remote pour les postes remote",
+          "duration": 66.5609999999997,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[section] Experiences — [a11y]"
+          ],
+          "fullName": "[section] Experiences — [a11y] n'a pas de violations d'accessibilité",
+          "status": "passed",
+          "title": "n'a pas de violations d'accessibilité",
+          "duration": 3275.800299999999,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1773499064247,
+      "endTime": 1773499069145.8003,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Experiences/Experiences.test.tsx"
     },
     {
       "assertionResults": [
@@ -1330,7 +1416,7 @@
           "fullName": "[section] Hero — [rendu] affiche le prénom et nom",
           "status": "passed",
           "title": "affiche le prénom et nom",
-          "duration": 157.6367999999993,
+          "duration": 152.96799999999985,
           "failureMessages": [],
           "meta": {}
         },
@@ -1341,7 +1427,7 @@
           "fullName": "[section] Hero — [rendu] affiche le titre du poste",
           "status": "passed",
           "title": "affiche le titre du poste",
-          "duration": 73.1264000000001,
+          "duration": 52.90860000000066,
           "failureMessages": [],
           "meta": {}
         },
@@ -1352,7 +1438,7 @@
           "fullName": "[section] Hero — [rendu] affiche le résumé",
           "status": "passed",
           "title": "affiche le résumé",
-          "duration": 50.819800000000214,
+          "duration": 41.22639999999956,
           "failureMessages": [],
           "meta": {}
         },
@@ -1363,7 +1449,7 @@
           "fullName": "[section] Hero — [rendu] affiche la photo de profil",
           "status": "passed",
           "title": "affiche la photo de profil",
-          "duration": 50.90180000000055,
+          "duration": 53.04780000000028,
           "failureMessages": [],
           "meta": {}
         },
@@ -1374,7 +1460,7 @@
           "fullName": "[section] Hero — [rendu] contient les liens CTA",
           "status": "passed",
           "title": "contient les liens CTA",
-          "duration": 593.9906999999994,
+          "duration": 816.2635,
           "failureMessages": [],
           "meta": {}
         },
@@ -1385,7 +1471,7 @@
           "fullName": "[section] Hero — [rendu] affiche les stats en chiffres",
           "status": "passed",
           "title": "affiche les stats en chiffres",
-          "duration": 54.52729999999974,
+          "duration": 85.12159999999949,
           "failureMessages": [],
           "meta": {}
         },
@@ -1396,13 +1482,13 @@
           "fullName": "[section] Hero — [a11y] n'a pas de violations d'accessibilité",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité",
-          "duration": 1431.7586000000001,
+          "duration": 2536.0583000000006,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482924557,
-      "endTime": 1773482926970.7585,
+      "startTime": 1773499060001,
+      "endTime": 1773499063740.0583,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Hero/Hero.test.tsx"
@@ -1416,7 +1502,7 @@
           "fullName": "[section] Playground — [rendu] affiche le titre de la section",
           "status": "passed",
           "title": "affiche le titre de la section",
-          "duration": 748.4644000000008,
+          "duration": 937.3975,
           "failureMessages": [],
           "meta": {}
         },
@@ -1427,7 +1513,7 @@
           "fullName": "[section] Playground — [rendu] affiche les 3 cards",
           "status": "passed",
           "title": "affiche les 3 cards",
-          "duration": 93.56930000000011,
+          "duration": 80.95220000000063,
           "failureMessages": [],
           "meta": {}
         },
@@ -1438,7 +1524,7 @@
           "fullName": "[section] Playground — [rendu] affiche les boutons toast",
           "status": "passed",
           "title": "affiche les boutons toast",
-          "duration": 909.2582999999995,
+          "duration": 1135.3192,
           "failureMessages": [],
           "meta": {}
         },
@@ -1449,7 +1535,7 @@
           "fullName": "[section] Playground — [rendu] affiche les items de l'accordion",
           "status": "passed",
           "title": "affiche les items de l'accordion",
-          "duration": 79.52289999999994,
+          "duration": 107.8762999999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -1460,7 +1546,7 @@
           "fullName": "[section] Playground — [interactions] ouvre la modal au clic sur le bouton démo",
           "status": "passed",
           "title": "ouvre la modal au clic sur le bouton démo",
-          "duration": 745.1285000000007,
+          "duration": 1005.7434999999987,
           "failureMessages": [],
           "meta": {}
         },
@@ -1471,7 +1557,7 @@
           "fullName": "[section] Playground — [interactions] ferme la modal avec le bouton de fermeture",
           "status": "passed",
           "title": "ferme la modal avec le bouton de fermeture",
-          "duration": 1437.406,
+          "duration": 2432.446099999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -1482,7 +1568,7 @@
           "fullName": "[section] Playground — [interactions] un clic sur un toast success crée une notification",
           "status": "passed",
           "title": "un clic sur un toast success crée une notification",
-          "duration": 682.7084000000013,
+          "duration": 740.9343000000008,
           "failureMessages": [],
           "meta": {}
         },
@@ -1493,102 +1579,16 @@
           "fullName": "[section] Playground — [a11y] n'a pas de violations d'accessibilité",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité",
-          "duration": 2331.7521000000015,
+          "duration": 2722.2219999999998,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482894299,
-      "endTime": 1773482901328.7522,
+      "startTime": 1773499030863,
+      "endTime": 1773499040029.222,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Playground/Playground.test.tsx"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "[section] Experiences — [rendu]"
-          ],
-          "fullName": "[section] Experiences — [rendu] affiche le titre de la section",
-          "status": "passed",
-          "title": "affiche le titre de la section",
-          "duration": 791.9999999999995,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[section] Experiences — [rendu]"
-          ],
-          "fullName": "[section] Experiences — [rendu] affiche la liste des expériences",
-          "status": "passed",
-          "title": "affiche la liste des expériences",
-          "duration": 448.96209999999974,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[section] Experiences — [rendu]"
-          ],
-          "fullName": "[section] Experiences — [rendu] affiche les 3 expériences",
-          "status": "passed",
-          "title": "affiche les 3 expériences",
-          "duration": 89.51319999999942,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[section] Experiences — [rendu]"
-          ],
-          "fullName": "[section] Experiences — [rendu] affiche les rôles via clés i18n",
-          "status": "passed",
-          "title": "affiche les rôles via clés i18n",
-          "duration": 92.45469999999932,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[section] Experiences — [rendu]"
-          ],
-          "fullName": "[section] Experiences — [rendu] affiche les descriptions via clés i18n",
-          "status": "passed",
-          "title": "affiche les descriptions via clés i18n",
-          "duration": 78.63140000000021,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[section] Experiences — [rendu]"
-          ],
-          "fullName": "[section] Experiences — [rendu] affiche le badge remote pour les postes remote",
-          "status": "passed",
-          "title": "affiche le badge remote pour les postes remote",
-          "duration": 55.488399999999274,
-          "failureMessages": [],
-          "meta": {}
-        },
-        {
-          "ancestorTitles": [
-            "[section] Experiences — [a11y]"
-          ],
-          "fullName": "[section] Experiences — [a11y] n'a pas de violations d'accessibilité",
-          "status": "passed",
-          "title": "n'a pas de violations d'accessibilité",
-          "duration": 2008.1269000000002,
-          "failureMessages": [],
-          "meta": {}
-        }
-      ],
-      "startTime": 1773482913648,
-      "endTime": 1773482917214.127,
-      "status": "passed",
-      "message": "",
-      "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Experiences/Experiences.test.tsx"
     },
     {
       "assertionResults": [
@@ -1599,7 +1599,7 @@
           "fullName": "[section] Projects — [rendu] affiche l'eyebrow",
           "status": "passed",
           "title": "affiche l'eyebrow",
-          "duration": 175.77989999999954,
+          "duration": 160.20789999999943,
           "failureMessages": [],
           "meta": {}
         },
@@ -1610,7 +1610,7 @@
           "fullName": "[section] Projects — [rendu] affiche le titre de section",
           "status": "passed",
           "title": "affiche le titre de section",
-          "duration": 645.6817000000001,
+          "duration": 683.0234,
           "failureMessages": [],
           "meta": {}
         },
@@ -1621,7 +1621,7 @@
           "fullName": "[section] Projects — [rendu] affiche le sous-titre",
           "status": "passed",
           "title": "affiche le sous-titre",
-          "duration": 53.19500000000062,
+          "duration": 72.11220000000048,
           "failureMessages": [],
           "meta": {}
         },
@@ -1632,7 +1632,7 @@
           "fullName": "[section] Projects — [rendu] affiche les 2 projets",
           "status": "passed",
           "title": "affiche les 2 projets",
-          "duration": 299.3274000000001,
+          "duration": 515.3215,
           "failureMessages": [],
           "meta": {}
         },
@@ -1643,7 +1643,7 @@
           "fullName": "[section] Projects — [rendu] affiche les tags technos",
           "status": "passed",
           "title": "affiche les tags technos",
-          "duration": 43.358000000000175,
+          "duration": 79.89500000000044,
           "failureMessages": [],
           "meta": {}
         },
@@ -1654,7 +1654,7 @@
           "fullName": "[section] Projects — [rendu] affiche les liens externes",
           "status": "passed",
           "title": "affiche les liens externes",
-          "duration": 42.09850000000006,
+          "duration": 95.42419999999947,
           "failureMessages": [],
           "meta": {}
         },
@@ -1665,7 +1665,7 @@
           "fullName": "[section] Projects — [interactions] ouvre le drawer au clic sur Tactileo",
           "status": "passed",
           "title": "ouvre le drawer au clic sur Tactileo",
-          "duration": 340.72630000000026,
+          "duration": 815.4382000000005,
           "failureMessages": [],
           "meta": {}
         },
@@ -1676,7 +1676,7 @@
           "fullName": "[section] Projects — [interactions] ouvre le bon projet dans le drawer",
           "status": "passed",
           "title": "ouvre le bon projet dans le drawer",
-          "duration": 316.33259999999973,
+          "duration": 504.21069999999963,
           "failureMessages": [],
           "meta": {}
         },
@@ -1687,7 +1687,7 @@
           "fullName": "[section] Projects — [interactions] ferme le drawer avec le bouton fermer",
           "status": "passed",
           "title": "ferme le drawer avec le bouton fermer",
-          "duration": 439.5475999999999,
+          "duration": 917.4193000000014,
           "failureMessages": [],
           "meta": {}
         },
@@ -1698,7 +1698,7 @@
           "fullName": "[section] Projects — [interactions] ferme le drawer avec Escape",
           "status": "passed",
           "title": "ferme le drawer avec Escape",
-          "duration": 185.1850000000004,
+          "duration": 596.5680999999986,
           "failureMessages": [],
           "meta": {}
         },
@@ -1709,7 +1709,7 @@
           "fullName": "[section] Projects — [a11y] la section a un aria-labelledby",
           "status": "passed",
           "title": "la section a un aria-labelledby",
-          "duration": 20.424700000000485,
+          "duration": 28.812400000000707,
           "failureMessages": [],
           "meta": {}
         },
@@ -1720,7 +1720,7 @@
           "fullName": "[section] Projects — [a11y] les liens externes ont rel=noopener noreferrer",
           "status": "passed",
           "title": "les liens externes ont rel=noopener noreferrer",
-          "duration": 211.5609000000004,
+          "duration": 261.3725999999988,
           "failureMessages": [],
           "meta": {}
         },
@@ -1731,13 +1731,13 @@
           "fullName": "[section] Projects — [a11y] n'a pas de violations axe-core",
           "status": "passed",
           "title": "n'a pas de violations axe-core",
-          "duration": 1125.6524,
+          "duration": 1922.2327000000005,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482905149,
-      "endTime": 1773482909050.6523,
+      "startTime": 1773499059955,
+      "endTime": 1773499066610.2327,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Projects/Projects.test.tsx"
@@ -1751,7 +1751,7 @@
           "fullName": "[section] Skills — [rendu] affiche le titre",
           "status": "passed",
           "title": "affiche le titre",
-          "duration": 665.4776000000002,
+          "duration": 935.9983000000002,
           "failureMessages": [],
           "meta": {}
         },
@@ -1762,7 +1762,7 @@
           "fullName": "[section] Skills — [rendu] affiche le nuage de compétences",
           "status": "passed",
           "title": "affiche le nuage de compétences",
-          "duration": 96.72099999999955,
+          "duration": 325.33280000000013,
           "failureMessages": [],
           "meta": {}
         },
@@ -1773,7 +1773,7 @@
           "fullName": "[section] Skills — [rendu] affiche la légende des catégories",
           "status": "passed",
           "title": "affiche la légende des catégories",
-          "duration": 68.95920000000024,
+          "duration": 84.14799999999923,
           "failureMessages": [],
           "meta": {}
         },
@@ -1784,13 +1784,13 @@
           "fullName": "[section] Skills — [a11y] n'a pas de violations d'accessibilité",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité",
-          "duration": 939.0937000000004,
+          "duration": 1455.3136000000004,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482929350,
-      "endTime": 1773482931121.0938,
+      "startTime": 1773499084107,
+      "endTime": 1773499086908.3137,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Skills/Skills.test.tsx"
@@ -1804,7 +1804,7 @@
           "fullName": "[ui] A11yMenu — [rendu] affiche le bouton déclencheur",
           "status": "passed",
           "title": "affiche le bouton déclencheur",
-          "duration": 794.1278999999995,
+          "duration": 872.6628000000001,
           "failureMessages": [],
           "meta": {}
         },
@@ -1815,7 +1815,7 @@
           "fullName": "[ui] A11yMenu — [rendu] le panel est fermé par défaut",
           "status": "passed",
           "title": "le panel est fermé par défaut",
-          "duration": 16.370899999994435,
+          "duration": 20.314899999999398,
           "failureMessages": [],
           "meta": {}
         },
@@ -1826,7 +1826,7 @@
           "fullName": "[ui] A11yMenu — [rendu] affiche les 4 switches quand ouvert",
           "status": "passed",
           "title": "affiche les 4 switches quand ouvert",
-          "duration": 463.34939999999915,
+          "duration": 801.0835999999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -1837,7 +1837,7 @@
           "fullName": "[ui] A11yMenu — [rendu] les boutons de taille de police sont accessibles",
           "status": "passed",
           "title": "les boutons de taille de police sont accessibles",
-          "duration": 391.71140000000014,
+          "duration": 829.6515999999992,
           "failureMessages": [],
           "meta": {}
         },
@@ -1848,7 +1848,7 @@
           "fullName": "[ui] A11yMenu — [interactions] ouvre le panel au clic",
           "status": "passed",
           "title": "ouvre le panel au clic",
-          "duration": 185.9435999999987,
+          "duration": 283.83480000000054,
           "failureMessages": [],
           "meta": {}
         },
@@ -1859,7 +1859,7 @@
           "fullName": "[ui] A11yMenu — [interactions] ferme le panel avec le bouton fermer",
           "status": "passed",
           "title": "ferme le panel avec le bouton fermer",
-          "duration": 328.4037000000026,
+          "duration": 523.1607999999997,
           "failureMessages": [],
           "meta": {}
         },
@@ -1870,7 +1870,7 @@
           "fullName": "[ui] A11yMenu — [interactions] ferme le panel avec Escape",
           "status": "passed",
           "title": "ferme le panel avec Escape",
-          "duration": 119.07000000000698,
+          "duration": 112.3117999999995,
           "failureMessages": [],
           "meta": {}
         },
@@ -1881,7 +1881,7 @@
           "fullName": "[ui] A11yMenu — [interactions] toggle Police Dyslexie change aria-checked",
           "status": "passed",
           "title": "toggle Police Dyslexie change aria-checked",
-          "duration": 518.2969000000012,
+          "duration": 619.4462000000003,
           "failureMessages": [],
           "meta": {}
         },
@@ -1892,7 +1892,7 @@
           "fullName": "[ui] A11yMenu — [interactions] toggle Contraste élevé change aria-checked",
           "status": "passed",
           "title": "toggle Contraste élevé change aria-checked",
-          "duration": 569.9061000000002,
+          "duration": 631.6974999999984,
           "failureMessages": [],
           "meta": {}
         },
@@ -1903,7 +1903,7 @@
           "fullName": "[ui] A11yMenu — [interactions] affiche le bouton reset quand un paramètre est modifié",
           "status": "passed",
           "title": "affiche le bouton reset quand un paramètre est modifié",
-          "duration": 923.9435000000012,
+          "duration": 985.3446999999996,
           "failureMessages": [],
           "meta": {}
         },
@@ -1914,7 +1914,7 @@
           "fullName": "[ui] A11yMenu — [interactions] reset remet les switches à false",
           "status": "passed",
           "title": "reset remet les switches à false",
-          "duration": 1097.383099999999,
+          "duration": 1293.3873999999996,
           "failureMessages": [],
           "meta": {}
         },
@@ -1925,7 +1925,7 @@
           "fullName": "[ui] A11yMenu — [a11y] n'a pas de violations (panel fermé)",
           "status": "passed",
           "title": "n'a pas de violations (panel fermé)",
-          "duration": 343.14400000000023,
+          "duration": 237.5743999999995,
           "failureMessages": [],
           "meta": {}
         },
@@ -1936,13 +1936,13 @@
           "fullName": "[ui] A11yMenu — [a11y] n'a pas de violations (panel ouvert)",
           "status": "passed",
           "title": "n'a pas de violations (panel ouvert)",
-          "duration": 1143.6122000000032,
+          "duration": 1346.0746999999992,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482882860,
-      "endTime": 1773482889757.6123,
+      "startTime": 1773499015679,
+      "endTime": 1773499024237.0747,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/ui/A11yMenu/A11yMenu.test.tsx"
@@ -1956,7 +1956,7 @@
           "fullName": "[ui] Accordion — [rendu] affiche tous les titres",
           "status": "passed",
           "title": "affiche tous les titres",
-          "duration": 146.1879000000008,
+          "duration": 145.32279999999992,
           "failureMessages": [],
           "meta": {}
         },
@@ -1967,7 +1967,7 @@
           "fullName": "[ui] Accordion — [rendu] les panneaux sont fermés par défaut",
           "status": "passed",
           "title": "les panneaux sont fermés par défaut",
-          "duration": 703.6514999999999,
+          "duration": 1049.0510999999997,
           "failureMessages": [],
           "meta": {}
         },
@@ -1978,7 +1978,7 @@
           "fullName": "[ui] Accordion — [interactions] ouvre un panneau au clic",
           "status": "passed",
           "title": "ouvre un panneau au clic",
-          "duration": 297.3770000000004,
+          "duration": 769.7139000000006,
           "failureMessages": [],
           "meta": {}
         },
@@ -1989,7 +1989,7 @@
           "fullName": "[ui] Accordion — [interactions] ferme un panneau ouvert au second clic",
           "status": "passed",
           "title": "ferme un panneau ouvert au second clic",
-          "duration": 291.9417999999987,
+          "duration": 685.6823999999997,
           "failureMessages": [],
           "meta": {}
         },
@@ -2000,7 +2000,7 @@
           "fullName": "[ui] Accordion — [interactions] ferme le précédent quand allowMultiple=false",
           "status": "passed",
           "title": "ferme le précédent quand allowMultiple=false",
-          "duration": 314.9857000000011,
+          "duration": 564.1187000000009,
           "failureMessages": [],
           "meta": {}
         },
@@ -2011,7 +2011,7 @@
           "fullName": "[ui] Accordion — [interactions] garde plusieurs ouverts si allowMultiple=true",
           "status": "passed",
           "title": "garde plusieurs ouverts si allowMultiple=true",
-          "duration": 284.96699999999873,
+          "duration": 482.5446000000011,
           "failureMessages": [],
           "meta": {}
         },
@@ -2022,7 +2022,7 @@
           "fullName": "[ui] Accordion — [interactions] navigation clavier avec ArrowDown",
           "status": "passed",
           "title": "navigation clavier avec ArrowDown",
-          "duration": 65.6877999999997,
+          "duration": 91.85699999999997,
           "failureMessages": [],
           "meta": {}
         },
@@ -2033,7 +2033,7 @@
           "fullName": "[ui] Accordion — [interactions] navigation clavier avec ArrowUp",
           "status": "passed",
           "title": "navigation clavier avec ArrowUp",
-          "duration": 49.69720000000052,
+          "duration": 55.22640000000138,
           "failureMessages": [],
           "meta": {}
         },
@@ -2044,7 +2044,7 @@
           "fullName": "[ui] Accordion — [a11y] n'a pas de violations (fermé)",
           "status": "passed",
           "title": "n'a pas de violations (fermé)",
-          "duration": 547.4747000000007,
+          "duration": 1453.2769000000008,
           "failureMessages": [],
           "meta": {}
         },
@@ -2055,13 +2055,13 @@
           "fullName": "[ui] Accordion — [a11y] n'a pas de violations (ouvert)",
           "status": "passed",
           "title": "n'a pas de violations (ouvert)",
-          "duration": 527.2094000000016,
+          "duration": 1080.478500000001,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482908863,
-      "endTime": 1773482912094.2095,
+      "startTime": 1773499046046,
+      "endTime": 1773499052425.4785,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/ui/Accordion/Accordion.test.tsx"
@@ -2075,7 +2075,7 @@
           "fullName": "[ui] Button — [rendu] affiche le contenu enfant",
           "status": "passed",
           "title": "affiche le contenu enfant",
-          "duration": 522.5739000000003,
+          "duration": 809.2172,
           "failureMessages": [],
           "meta": {}
         },
@@ -2086,7 +2086,7 @@
           "fullName": "[ui] Button — [rendu] applique la variante primary par défaut",
           "status": "passed",
           "title": "applique la variante primary par défaut",
-          "duration": 66.96860000000015,
+          "duration": 216.17709999999988,
           "failureMessages": [],
           "meta": {}
         },
@@ -2097,7 +2097,7 @@
           "fullName": "[ui] Button — [rendu] applique la variante outline",
           "status": "passed",
           "title": "applique la variante outline",
-          "duration": 79.69560000000001,
+          "duration": 82.97879999999986,
           "failureMessages": [],
           "meta": {}
         },
@@ -2108,7 +2108,7 @@
           "fullName": "[ui] Button — [rendu] est désactivé avec disabled",
           "status": "passed",
           "title": "est désactivé avec disabled",
-          "duration": 72.41309999999976,
+          "duration": 95.97720000000027,
           "failureMessages": [],
           "meta": {}
         },
@@ -2119,7 +2119,7 @@
           "fullName": "[ui] Button — [rendu] déclenche onClick au clic",
           "status": "passed",
           "title": "déclenche onClick au clic",
-          "duration": 62.77980000000025,
+          "duration": 97.39730000000054,
           "failureMessages": [],
           "meta": {}
         },
@@ -2130,7 +2130,7 @@
           "fullName": "[ui] Button — [rendu] ne déclenche pas onClick si disabled",
           "status": "passed",
           "title": "ne déclenche pas onClick si disabled",
-          "duration": 64.60869999999977,
+          "duration": 82.73120000000017,
           "failureMessages": [],
           "meta": {}
         },
@@ -2141,7 +2141,7 @@
           "fullName": "[ui] Button — [rendu] rend un <a> quand as='a'",
           "status": "passed",
           "title": "rend un <a> quand as='a'",
-          "duration": 78.17740000000049,
+          "duration": 165.51480000000083,
           "failureMessages": [],
           "meta": {}
         },
@@ -2152,7 +2152,7 @@
           "fullName": "[ui] Button — [rendu] applique la variante outline sur <a>",
           "status": "passed",
           "title": "applique la variante outline sur <a>",
-          "duration": 50.8783999999996,
+          "duration": 148.9401000000007,
           "failureMessages": [],
           "meta": {}
         },
@@ -2163,7 +2163,7 @@
           "fullName": "[ui] Button — [a11y] n'a pas de violations (primary)",
           "status": "passed",
           "title": "n'a pas de violations (primary)",
-          "duration": 240.91949999999997,
+          "duration": 259.0070999999989,
           "failureMessages": [],
           "meta": {}
         },
@@ -2174,7 +2174,7 @@
           "fullName": "[ui] Button — [a11y] n'a pas de violations (outline)",
           "status": "passed",
           "title": "n'a pas de violations (outline)",
-          "duration": 79.45750000000044,
+          "duration": 86.77750000000015,
           "failureMessages": [],
           "meta": {}
         },
@@ -2185,7 +2185,7 @@
           "fullName": "[ui] Button — [a11y] n'a pas de violations (disabled)",
           "status": "passed",
           "title": "n'a pas de violations (disabled)",
-          "duration": 74.59180000000015,
+          "duration": 74.18189999999959,
           "failureMessages": [],
           "meta": {}
         },
@@ -2196,13 +2196,13 @@
           "fullName": "[ui] Button — [a11y] n'a pas de violations (as=a)",
           "status": "passed",
           "title": "n'a pas de violations (as=a)",
-          "duration": 83.24309999999969,
+          "duration": 88.94970000000103,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482931481,
-      "endTime": 1773482932959.2432,
+      "startTime": 1773499086930,
+      "endTime": 1773499089138.9497,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/ui/Button/Button.test.tsx"
@@ -2216,7 +2216,7 @@
           "fullName": "[ui] Modal — [rendu] ne s'affiche pas si isOpen=false",
           "status": "passed",
           "title": "ne s'affiche pas si isOpen=false",
-          "duration": 69.5025999999998,
+          "duration": 70.3787999999995,
           "failureMessages": [],
           "meta": {}
         },
@@ -2227,7 +2227,7 @@
           "fullName": "[ui] Modal — [rendu] s'affiche si isOpen=true",
           "status": "passed",
           "title": "s'affiche si isOpen=true",
-          "duration": 434.4895999999999,
+          "duration": 651.7646000000004,
           "failureMessages": [],
           "meta": {}
         },
@@ -2238,7 +2238,7 @@
           "fullName": "[ui] Modal — [rendu] affiche le titre correctement",
           "status": "passed",
           "title": "affiche le titre correctement",
-          "duration": 16.64220000000023,
+          "duration": 22.06330000000071,
           "failureMessages": [],
           "meta": {}
         },
@@ -2249,7 +2249,7 @@
           "fullName": "[ui] Modal — [rendu] a les attributs ARIA corrects",
           "status": "passed",
           "title": "a les attributs ARIA corrects",
-          "duration": 71.79100000000017,
+          "duration": 76.82349999999951,
           "failureMessages": [],
           "meta": {}
         },
@@ -2260,7 +2260,7 @@
           "fullName": "[ui] Modal — [interactions] appelle onClose au clic sur le bouton fermer",
           "status": "passed",
           "title": "appelle onClose au clic sur le bouton fermer",
-          "duration": 235.9448999999995,
+          "duration": 174.10239999999976,
           "failureMessages": [],
           "meta": {}
         },
@@ -2271,7 +2271,7 @@
           "fullName": "[ui] Modal — [interactions] appelle onClose sur la touche Escape",
           "status": "passed",
           "title": "appelle onClose sur la touche Escape",
-          "duration": 32.80720000000019,
+          "duration": 51.89570000000003,
           "failureMessages": [],
           "meta": {}
         },
@@ -2282,13 +2282,13 @@
           "fullName": "[ui] Modal — [a11y] n'a pas de violations (ouverte)",
           "status": "passed",
           "title": "n'a pas de violations (ouverte)",
-          "duration": 130.03209999999945,
+          "duration": 110.67920000000049,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482936470,
-      "endTime": 1773482937464.032,
+      "startTime": 1773499093989,
+      "endTime": 1773499095148.6792,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/ui/Modal/Modal.test.tsx"
@@ -2302,7 +2302,7 @@
           "fullName": "[ui] Tag — [rendu] affiche le label correctement",
           "status": "passed",
           "title": "affiche le label correctement",
-          "duration": 100.59010000000035,
+          "duration": 82.8183999999992,
           "failureMessages": [],
           "meta": {}
         },
@@ -2313,7 +2313,7 @@
           "fullName": "[ui] Tag — [rendu] a le role listitem pour l'accessibilité",
           "status": "passed",
           "title": "a le role listitem pour l'accessibilité",
-          "duration": 538.2708000000002,
+          "duration": 534.1596999999992,
           "failureMessages": [],
           "meta": {}
         },
@@ -2324,7 +2324,7 @@
           "fullName": "[ui] Tag — [rendu] applique la variante par défaut coral",
           "status": "passed",
           "title": "applique la variante par défaut coral",
-          "duration": 15.127900000000409,
+          "duration": 11.139900000000125,
           "failureMessages": [],
           "meta": {}
         },
@@ -2335,7 +2335,7 @@
           "fullName": "[ui] Tag — [rendu] applique la variante sage",
           "status": "passed",
           "title": "applique la variante sage",
-          "duration": 8.265400000000227,
+          "duration": 13.249199999999291,
           "failureMessages": [],
           "meta": {}
         },
@@ -2346,13 +2346,13 @@
           "fullName": "[ui] Tag — [a11y] n'a pas de violations",
           "status": "passed",
           "title": "n'a pas de violations",
-          "duration": 210.34450000000015,
+          "duration": 357.2430000000004,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482941861,
-      "endTime": 1773482942737.3445,
+      "startTime": 1773499099607,
+      "endTime": 1773499100607.243,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/ui/Tag/Tag.test.tsx"
@@ -2366,7 +2366,7 @@
           "fullName": "[ui] Toast — [rendu] n'affiche rien si la liste est vide",
           "status": "passed",
           "title": "n'affiche rien si la liste est vide",
-          "duration": 56.15640000000076,
+          "duration": 67.97870000000057,
           "failureMessages": [],
           "meta": {}
         },
@@ -2377,7 +2377,7 @@
           "fullName": "[ui] Toast — [rendu] affiche les toasts correctement",
           "status": "passed",
           "title": "affiche les toasts correctement",
-          "duration": 518.9195,
+          "duration": 559.5646999999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -2388,7 +2388,7 @@
           "fullName": "[ui] Toast — [rendu] a les attributs aria corrects",
           "status": "passed",
           "title": "a les attributs aria corrects",
-          "duration": 142.40169999999944,
+          "duration": 264.2951000000003,
           "failureMessages": [],
           "meta": {}
         },
@@ -2399,7 +2399,7 @@
           "fullName": "[ui] Toast — [interactions] appelle onRemove au clic sur fermer",
           "status": "passed",
           "title": "appelle onRemove au clic sur fermer",
-          "duration": 263.22919999999976,
+          "duration": 331.64470000000074,
           "failureMessages": [],
           "meta": {}
         },
@@ -2410,7 +2410,7 @@
           "fullName": "[ui] Toast — [interactions] se ferme automatiquement après la durée",
           "status": "passed",
           "title": "se ferme automatiquement après la durée",
-          "duration": 16.841300000000047,
+          "duration": 20.690999999999804,
           "failureMessages": [],
           "meta": {}
         },
@@ -2421,13 +2421,13 @@
           "fullName": "[ui] Toast — [a11y] n'a pas de violations",
           "status": "passed",
           "title": "n'a pas de violations",
-          "duration": 134.48949999999968,
+          "duration": 140.66709999999966,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482937609,
-      "endTime": 1773482938742.4895,
+      "startTime": 1773499095617,
+      "endTime": 1773499097004.667,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/ui/Toast/Toast.test.tsx"
@@ -2441,7 +2441,7 @@
           "fullName": "[ui] AgentCard — [rendu] affiche le titre et la description",
           "status": "passed",
           "title": "affiche le titre et la description",
-          "duration": 161.9036999999953,
+          "duration": 179.6262999999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -2452,7 +2452,7 @@
           "fullName": "[ui] AgentCard — [rendu] affiche les deux onglets",
           "status": "passed",
           "title": "affiche les deux onglets",
-          "duration": 759.3271000000022,
+          "duration": 809.4084999999995,
           "failureMessages": [],
           "meta": {}
         },
@@ -2463,7 +2463,18 @@
           "fullName": "[ui] AgentCard — [rendu] affiche l'onglet chat sélectionné par défaut",
           "status": "passed",
           "title": "affiche l'onglet chat sélectionné par défaut",
-          "duration": 188.60599999999977,
+          "duration": 238.10450000000128,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [rendu]"
+          ],
+          "fullName": "[ui] AgentCard — [rendu] active l'onglet motivation après double-clic sur l'icône",
+          "status": "passed",
+          "title": "active l'onglet motivation après double-clic sur l'icône",
+          "duration": 828.9987999999994,
           "failureMessages": [],
           "meta": {}
         },
@@ -2474,7 +2485,7 @@
           "fullName": "[ui] AgentCard — [rendu] n'affiche pas le champ offre d'emploi en mode chat",
           "status": "passed",
           "title": "n'affiche pas le champ offre d'emploi en mode chat",
-          "duration": 89.92710000000079,
+          "duration": 52.16609999999855,
           "failureMessages": [],
           "meta": {}
         },
@@ -2485,7 +2496,7 @@
           "fullName": "[ui] AgentCard — [rendu] affiche le message vide en mode chat",
           "status": "passed",
           "title": "affiche le message vide en mode chat",
-          "duration": 53.500700000004144,
+          "duration": 41.677200000000084,
           "failureMessages": [],
           "meta": {}
         },
@@ -2496,7 +2507,7 @@
           "fullName": "[ui] AgentCard — [rendu] affiche le bouton toggle technique",
           "status": "passed",
           "title": "affiche le bouton toggle technique",
-          "duration": 171.69320000000153,
+          "duration": 395.9478999999992,
           "failureMessages": [],
           "meta": {}
         },
@@ -2507,7 +2518,7 @@
           "fullName": "[ui] AgentCard — [rendu] applique la classe visible quand visible=true",
           "status": "passed",
           "title": "applique la classe visible quand visible=true",
-          "duration": 30.530500000000757,
+          "duration": 14.172300000000178,
           "failureMessages": [],
           "meta": {}
         },
@@ -2518,7 +2529,40 @@
           "fullName": "[ui] AgentCard — [rendu] n'applique pas la classe visible quand visible=false",
           "status": "passed",
           "title": "n'applique pas la classe visible quand visible=false",
-          "duration": 26.55500000000029,
+          "duration": 21.90889999999854,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [rendu]"
+          ],
+          "fullName": "[ui] AgentCard — [rendu] affiche l'onglet poème",
+          "status": "passed",
+          "title": "affiche l'onglet poème",
+          "duration": 200.77160000000003,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [rendu]"
+          ],
+          "fullName": "[ui] AgentCard — [rendu] n'affiche pas le champ offre en mode poème",
+          "status": "passed",
+          "title": "n'affiche pas le champ offre en mode poème",
+          "duration": 199.6806000000015,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [rendu]"
+          ],
+          "fullName": "[ui] AgentCard — [rendu] affiche le message vide en mode poème",
+          "status": "passed",
+          "title": "affiche le message vide en mode poème",
+          "duration": 201.98259999999937,
           "failureMessages": [],
           "meta": {}
         },
@@ -2529,7 +2573,7 @@
           "fullName": "[ui] AgentCard — [interactions] bascule vers l'onglet motivation au clic",
           "status": "passed",
           "title": "bascule vers l'onglet motivation au clic",
-          "duration": 311.3046000000031,
+          "duration": 335.16719999999987,
           "failureMessages": [],
           "meta": {}
         },
@@ -2540,7 +2584,7 @@
           "fullName": "[ui] AgentCard — [interactions] réinitialise l'historique au changement d'onglet",
           "status": "passed",
           "title": "réinitialise l'historique au changement d'onglet",
-          "duration": 482.1756000000023,
+          "duration": 678.2584999999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -2551,7 +2595,7 @@
           "fullName": "[ui] AgentCard — [interactions] envoie un message et affiche la réponse",
           "status": "passed",
           "title": "envoie un message et affiche la réponse",
-          "duration": 274.5975999999937,
+          "duration": 265.23259999999937,
           "failureMessages": [],
           "meta": {}
         },
@@ -2562,7 +2606,7 @@
           "fullName": "[ui] AgentCard — [interactions] envoie le message avec la touche Entrée",
           "status": "passed",
           "title": "envoie le message avec la touche Entrée",
-          "duration": 143.92029999999795,
+          "duration": 181.29380000000128,
           "failureMessages": [],
           "meta": {}
         },
@@ -2573,7 +2617,7 @@
           "fullName": "[ui] AgentCard — [interactions] ne soumet pas avec Shift+Entrée",
           "status": "passed",
           "title": "ne soumet pas avec Shift+Entrée",
-          "duration": 107.54579999999987,
+          "duration": 130.38510000000133,
           "failureMessages": [],
           "meta": {}
         },
@@ -2584,7 +2628,7 @@
           "fullName": "[ui] AgentCard — [interactions] désactive le bouton envoyer quand l'input est vide",
           "status": "passed",
           "title": "désactive le bouton envoyer quand l'input est vide",
-          "duration": 109.2039999999979,
+          "duration": 194.6962999999996,
           "failureMessages": [],
           "meta": {}
         },
@@ -2595,7 +2639,7 @@
           "fullName": "[ui] AgentCard — [interactions] affiche une erreur si l'API échoue",
           "status": "passed",
           "title": "affiche une erreur si l'API échoue",
-          "duration": 320.2693000000072,
+          "duration": 339.34970000000067,
           "failureMessages": [],
           "meta": {}
         },
@@ -2606,7 +2650,7 @@
           "fullName": "[ui] AgentCard — [interactions] affiche une erreur réseau si fetch échoue",
           "status": "passed",
           "title": "affiche une erreur réseau si fetch échoue",
-          "duration": 262.7191000000021,
+          "duration": 379.04639999999927,
           "failureMessages": [],
           "meta": {}
         },
@@ -2617,7 +2661,7 @@
           "fullName": "[ui] AgentCard — [interactions] affiche une erreur si offre manquante en mode motivation",
           "status": "passed",
           "title": "affiche une erreur si offre manquante en mode motivation",
-          "duration": 409.1524999999965,
+          "duration": 568.1646999999994,
           "failureMessages": [],
           "meta": {}
         },
@@ -2628,7 +2672,40 @@
           "fullName": "[ui] AgentCard — [interactions] affiche et masque le panel technique au toggle",
           "status": "passed",
           "title": "affiche et masque le panel technique au toggle",
-          "duration": 129.46740000000136,
+          "duration": 159.47870000000148,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [interactions]"
+          ],
+          "fullName": "[ui] AgentCard — [interactions] bascule vers l'onglet poème au clic",
+          "status": "passed",
+          "title": "bascule vers l'onglet poème au clic",
+          "duration": 263.1973999999991,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [interactions]"
+          ],
+          "fullName": "[ui] AgentCard — [interactions] affiche le poème et l'illustration après réponse",
+          "status": "passed",
+          "title": "affiche le poème et l'illustration après réponse",
+          "duration": 390.6270999999997,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [interactions]"
+          ],
+          "fullName": "[ui] AgentCard — [interactions] réinitialise le poème au changement d'onglet",
+          "status": "passed",
+          "title": "réinitialise le poème au changement d'onglet",
+          "duration": 483.9997000000003,
           "failureMessages": [],
           "meta": {}
         },
@@ -2639,7 +2716,7 @@
           "fullName": "[ui] AgentCard — [a11y] n'a pas de violations d'accessibilité — état initial",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité — état initial",
-          "duration": 772.5000999999975,
+          "duration": 642.2307000000001,
           "failureMessages": [],
           "meta": {}
         },
@@ -2650,7 +2727,7 @@
           "fullName": "[ui] AgentCard — [a11y] n'a pas de violations d'accessibilité — mode motivation",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité — mode motivation",
-          "duration": 559.4559000000008,
+          "duration": 766.6545000000006,
           "failureMessages": [],
           "meta": {}
         },
@@ -2661,7 +2738,7 @@
           "fullName": "[ui] AgentCard — [a11y] n'a pas de violations d'accessibilité — panel technique ouvert",
           "status": "passed",
           "title": "n'a pas de violations d'accessibilité — panel technique ouvert",
-          "duration": 634.3245999999999,
+          "duration": 1388.4123,
           "failureMessages": [],
           "meta": {}
         },
@@ -2672,13 +2749,35 @@
           "fullName": "[ui] AgentCard — [a11y] n'a pas de violations après réception d'une réponse",
           "status": "passed",
           "title": "n'a pas de violations après réception d'une réponse",
-          "duration": 672.9756999999954,
+          "duration": 1390.8148,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [a11y]"
+          ],
+          "fullName": "[ui] AgentCard — [a11y] n'a pas de violations d'accessibilité — mode poème",
+          "status": "passed",
+          "title": "n'a pas de violations d'accessibilité — mode poème",
+          "duration": 831.3606,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "[ui] AgentCard — [a11y]"
+          ],
+          "fullName": "[ui] AgentCard — [a11y] n'a pas de violations d'accessibilité — poème affiché",
+          "status": "passed",
+          "title": "n'a pas de violations d'accessibilité — poème affiché",
+          "duration": 1070.6800000000003,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482882121,
-      "endTime": 1773482888811.9756,
+      "startTime": 1773499015725,
+      "endTime": 1773499029377.68,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Playground/AgentCard/AgentCard.test.tsx"
@@ -2692,7 +2791,7 @@
           "fullName": "[section] ArchDiagram — [rendu] affiche le bouton déclencheur",
           "status": "passed",
           "title": "affiche le bouton déclencheur",
-          "duration": 598.6507000000001,
+          "duration": 739.1500999999998,
           "failureMessages": [],
           "meta": {}
         },
@@ -2703,7 +2802,7 @@
           "fullName": "[section] ArchDiagram — [rendu] le panel est fermé par défaut",
           "status": "passed",
           "title": "le panel est fermé par défaut",
-          "duration": 11.247199999999793,
+          "duration": 14.85570000000007,
           "failureMessages": [],
           "meta": {}
         },
@@ -2714,7 +2813,7 @@
           "fullName": "[section] ArchDiagram — [rendu] affiche les 3 onglets dans ArchDiagramContent",
           "status": "passed",
           "title": "affiche les 3 onglets dans ArchDiagramContent",
-          "duration": 314.7549000000008,
+          "duration": 361.2526000000007,
           "failureMessages": [],
           "meta": {}
         },
@@ -2725,7 +2824,7 @@
           "fullName": "[section] ArchDiagram — [rendu] l'onglet Couches est actif par défaut",
           "status": "passed",
           "title": "l'onglet Couches est actif par défaut",
-          "duration": 284.1062000000002,
+          "duration": 289.7644,
           "failureMessages": [],
           "meta": {}
         },
@@ -2736,7 +2835,7 @@
           "fullName": "[section] ArchDiagram — [rendu] affiche les 4 couches",
           "status": "passed",
           "title": "affiche les 4 couches",
-          "duration": 76.27019999999993,
+          "duration": 223.54100000000108,
           "failureMessages": [],
           "meta": {}
         },
@@ -2747,7 +2846,7 @@
           "fullName": "[section] ArchDiagram — [interactions] ouvre le panel au clic",
           "status": "passed",
           "title": "ouvre le panel au clic",
-          "duration": 127.56829999999991,
+          "duration": 180.39209999999912,
           "failureMessages": [],
           "meta": {}
         },
@@ -2758,7 +2857,7 @@
           "fullName": "[section] ArchDiagram — [interactions] affiche le titre dans le panel",
           "status": "passed",
           "title": "affiche le titre dans le panel",
-          "duration": 99.69380000000001,
+          "duration": 304.7652999999991,
           "failureMessages": [],
           "meta": {}
         },
@@ -2769,7 +2868,7 @@
           "fullName": "[section] ArchDiagram — [interactions] ferme le panel avec le bouton fermer",
           "status": "passed",
           "title": "ferme le panel avec le bouton fermer",
-          "duration": 192.7444999999998,
+          "duration": 365.22220000000016,
           "failureMessages": [],
           "meta": {}
         },
@@ -2780,7 +2879,7 @@
           "fullName": "[section] ArchDiagram — [interactions] switch vers l'onglet Structure",
           "status": "passed",
           "title": "switch vers l'onglet Structure",
-          "duration": 240.97029999999995,
+          "duration": 485.01800000000003,
           "failureMessages": [],
           "meta": {}
         },
@@ -2791,7 +2890,7 @@
           "fullName": "[section] ArchDiagram — [interactions] switch vers l'onglet Flux",
           "status": "passed",
           "title": "switch vers l'onglet Flux",
-          "duration": 161.78209999999945,
+          "duration": 248.1239000000005,
           "failureMessages": [],
           "meta": {}
         },
@@ -2802,7 +2901,7 @@
           "fullName": "[section] ArchDiagram — [a11y] les tabs ont un tablist parent",
           "status": "passed",
           "title": "les tabs ont un tablist parent",
-          "duration": 124.41110000000026,
+          "duration": 127.62700000000041,
           "failureMessages": [],
           "meta": {}
         },
@@ -2813,13 +2912,13 @@
           "fullName": "[section] ArchDiagram — [a11y] un seul tab est actif à la fois",
           "status": "passed",
           "title": "un seul tab est actif à la fois",
-          "duration": 272.84509999999955,
+          "duration": 378.1323999999986,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482922274,
-      "endTime": 1773482924780.8452,
+      "startTime": 1773499071298,
+      "endTime": 1773499075021.1323,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Projects/ArchDiagram/ArchDiagram.test.tsx"
@@ -2833,7 +2932,7 @@
           "fullName": "[section] Drawer — [rendu] n'est pas affiché quand project=null",
           "status": "passed",
           "title": "n'est pas affiché quand project=null",
-          "duration": 70.13950000000023,
+          "duration": 59.60750000000007,
           "failureMessages": [],
           "meta": {}
         },
@@ -2844,7 +2943,7 @@
           "fullName": "[section] Drawer — [rendu] s'affiche quand un projet est passé",
           "status": "passed",
           "title": "s'affiche quand un projet est passé",
-          "duration": 482.1189000000004,
+          "duration": 820.8985000000002,
           "failureMessages": [],
           "meta": {}
         },
@@ -2855,7 +2954,7 @@
           "fullName": "[section] Drawer — [rendu] affiche le titre du projet",
           "status": "passed",
           "title": "affiche le titre du projet",
-          "duration": 33.71820000000025,
+          "duration": 31.128500000000713,
           "failureMessages": [],
           "meta": {}
         },
@@ -2866,7 +2965,7 @@
           "fullName": "[section] Drawer — [rendu] affiche la company et l'année",
           "status": "passed",
           "title": "affiche la company et l'année",
-          "duration": 20.981000000000677,
+          "duration": 34.8099000000002,
           "failureMessages": [],
           "meta": {}
         },
@@ -2877,7 +2976,7 @@
           "fullName": "[section] Drawer — [rendu] affiche la description longue",
           "status": "passed",
           "title": "affiche la description longue",
-          "duration": 21.787099999999555,
+          "duration": 63.39969999999994,
           "failureMessages": [],
           "meta": {}
         },
@@ -2888,7 +2987,7 @@
           "fullName": "[section] Drawer — [rendu] affiche les tags",
           "status": "passed",
           "title": "affiche les tags",
-          "duration": 23.200600000000122,
+          "duration": 19.265400000000227,
           "failureMessages": [],
           "meta": {}
         },
@@ -2899,7 +2998,7 @@
           "fullName": "[section] Drawer — [rendu] affiche les tabs du projet",
           "status": "passed",
           "title": "affiche les tabs du projet",
-          "duration": 314.9398000000001,
+          "duration": 465.3749000000007,
           "failureMessages": [],
           "meta": {}
         },
@@ -2910,7 +3009,7 @@
           "fullName": "[section] Drawer — [rendu] le premier tab est actif par défaut",
           "status": "passed",
           "title": "le premier tab est actif par défaut",
-          "duration": 220.91159999999945,
+          "duration": 297.180699999999,
           "failureMessages": [],
           "meta": {}
         },
@@ -2921,7 +3020,7 @@
           "fullName": "[section] Drawer — [interactions] appelle onClose au clic sur le bouton fermer",
           "status": "passed",
           "title": "appelle onClose au clic sur le bouton fermer",
-          "duration": 145.59329999999954,
+          "duration": 187.20739999999932,
           "failureMessages": [],
           "meta": {}
         },
@@ -2932,7 +3031,7 @@
           "fullName": "[section] Drawer — [interactions] appelle onClose avec la touche Escape",
           "status": "passed",
           "title": "appelle onClose avec la touche Escape",
-          "duration": 10.676799999999275,
+          "duration": 36.64729999999872,
           "failureMessages": [],
           "meta": {}
         },
@@ -2943,7 +3042,7 @@
           "fullName": "[section] Drawer — [interactions] appelle onClose au clic sur l'overlay",
           "status": "passed",
           "title": "appelle onClose au clic sur l'overlay",
-          "duration": 44.05579999999918,
+          "duration": 109.78330000000096,
           "failureMessages": [],
           "meta": {}
         },
@@ -2954,7 +3053,7 @@
           "fullName": "[section] Drawer — [interactions] switch de tab au clic",
           "status": "passed",
           "title": "switch de tab au clic",
-          "duration": 517.2538999999997,
+          "duration": 563.6952999999994,
           "failureMessages": [],
           "meta": {}
         },
@@ -2965,7 +3064,7 @@
           "fullName": "[section] Drawer — [interactions] un seul tab drawer est actif à la fois",
           "status": "passed",
           "title": "un seul tab drawer est actif à la fois",
-          "duration": 346.0653000000002,
+          "duration": 363.2652999999991,
           "failureMessages": [],
           "meta": {}
         },
@@ -2976,7 +3075,7 @@
           "fullName": "[section] Drawer — [a11y] le dialog a aria-modal=true",
           "status": "passed",
           "title": "le dialog a aria-modal=true",
-          "duration": 55.10829999999987,
+          "duration": 42.29600000000028,
           "failureMessages": [],
           "meta": {}
         },
@@ -2987,7 +3086,7 @@
           "fullName": "[section] Drawer — [a11y] le dialog a un aria-label ou aria-labelledby",
           "status": "passed",
           "title": "le dialog a un aria-label ou aria-labelledby",
-          "duration": 46.332900000000336,
+          "duration": 45.83940000000075,
           "failureMessages": [],
           "meta": {}
         },
@@ -2998,7 +3097,7 @@
           "fullName": "[section] Drawer — [a11y] le bouton fermer est accessible",
           "status": "passed",
           "title": "le bouton fermer est accessible",
-          "duration": 69.1939999999995,
+          "duration": 93.65570000000116,
           "failureMessages": [],
           "meta": {}
         },
@@ -3009,13 +3108,13 @@
           "fullName": "[section] Drawer — [a11y] les tabs ont un tablist parent",
           "status": "passed",
           "title": "les tabs ont un tablist parent",
-          "duration": 61.45380000000023,
+          "duration": 121.51429999999891,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1773482922261,
-      "endTime": 1773482924747.4539,
+      "startTime": 1773499074725,
+      "endTime": 1773499078083.5144,
       "status": "passed",
       "message": "",
       "name": "D:/Projects/cv-portfolio/apps/web/src/components/sections/Projects/Drawer/Drawer.test.tsx"
@@ -3030,7 +3129,7 @@
           "fullName": " agentSchema (Zod) — mode chat valide un body chat minimal",
           "status": "passed",
           "title": "valide un body chat minimal",
-          "duration": 4,
+          "duration": 5,
           "failureMessages": []
         },
         {
@@ -3085,7 +3184,7 @@
           "fullName": " agentSchema (Zod) — mode chat rejette un mode invalide",
           "status": "passed",
           "title": "rejette un mode invalide",
-          "duration": 1,
+          "duration": 2,
           "failureMessages": []
         },
         {
@@ -3096,7 +3195,7 @@
           "fullName": " agentSchema (Zod) — mode chat rejette un role invalide dans l'historique",
           "status": "passed",
           "title": "rejette un role invalide dans l'historique",
-          "duration": 1,
+          "duration": 0,
           "failureMessages": []
         },
         {
@@ -3118,7 +3217,7 @@
           "fullName": " agentSchema (Zod) — mode motivation valide un body motivation complet",
           "status": "passed",
           "title": "valide un body motivation complet",
-          "duration": 1,
+          "duration": 0,
           "failureMessages": []
         },
         {
@@ -3129,7 +3228,7 @@
           "fullName": " agentSchema (Zod) — mode motivation valide un body motivation sans jobOffer (validation métier côté route)",
           "status": "passed",
           "title": "valide un body motivation sans jobOffer (validation métier côté route)",
-          "duration": 0,
+          "duration": 1,
           "failureMessages": []
         },
         {
@@ -3177,8 +3276,8 @@
           "failureMessages": []
         }
       ],
-      "startTime": 1773482966999,
-      "endTime": 1773482967015,
+      "startTime": 1773499114321,
+      "endTime": 1773499114341,
       "status": "passed",
       "message": "",
       "name": "[API] agent"
@@ -3193,7 +3292,7 @@
           "fullName": " contactSchema (Zod) valide un body correct",
           "status": "passed",
           "title": "valide un body correct",
-          "duration": 5,
+          "duration": 4,
           "failureMessages": []
         },
         {
@@ -3248,7 +3347,7 @@
           "fullName": " contactSchema (Zod) rejette un message trop court",
           "status": "passed",
           "title": "rejette un message trop court",
-          "duration": 0,
+          "duration": 1,
           "failureMessages": []
         },
         {
@@ -3259,7 +3358,7 @@
           "fullName": " contactSchema (Zod) trim les espaces sur name et subject",
           "status": "passed",
           "title": "trim les espaces sur name et subject",
-          "duration": 1,
+          "duration": 2,
           "failureMessages": []
         },
         {
@@ -3270,12 +3369,12 @@
           "fullName": " contactSchema (Zod) rejette un body vide",
           "status": "passed",
           "title": "rejette un body vide",
-          "duration": 1,
+          "duration": 2,
           "failureMessages": []
         }
       ],
-      "startTime": 1773482971071,
-      "endTime": 1773482971081,
+      "startTime": 1773499114555,
+      "endTime": 1773499114568,
       "status": "passed",
       "message": "",
       "name": "[API] contact"

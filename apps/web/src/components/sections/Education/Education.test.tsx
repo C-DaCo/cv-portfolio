@@ -5,14 +5,6 @@ import { Education } from "./Education";
 import { cvData } from "@data/cv.data";
 import { desc, TestScope, TestType } from "@tests/test-categories";
 
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
-}));
-
-vi.mock("@hooks/useReducedMotion", () => ({
-  useReducedMotion: () => false,
-}));
-
 vi.mock("@hooks/useIntersectionObserver", () => ({
   useIntersectionObserver: () => ({ ref: { current: null }, isVisible: true }),
 }));

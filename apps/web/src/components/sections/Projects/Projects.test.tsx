@@ -4,10 +4,6 @@ import { axe } from "jest-axe";
 import { Projects } from "./Projects";
 import { desc, TestScope, TestType } from "@tests/test-categories";
 
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
-}));
-
 vi.mock("@hooks/useTheme", () => ({
   useTheme: () => ({ theme: "light", toggleTheme: vi.fn() }),
 }));

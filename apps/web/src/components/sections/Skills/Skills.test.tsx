@@ -4,10 +4,6 @@ import { axe } from "jest-axe";
 import { Skills } from "./Skills";
 import { desc, TestScope, TestType } from "@tests/test-categories";
 
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
-}));
-
 vi.mock("@hooks/useReducedMotion", () => ({
   useReducedMotion: () => false,
 }));

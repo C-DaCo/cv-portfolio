@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { generateIllustration, type PoemData, type ShapeConfig } from "./poem.utils";
+import { generateIllustration, type PoemData, type ShapeConfig } from "./poem.utils.ts";
 import styles from "./PoemIllustration.module.scss";
 
 // ── Rendu d'une forme SVG ─────────────────────────────────────────────────────
