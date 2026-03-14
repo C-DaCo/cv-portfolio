@@ -28,7 +28,19 @@
     "statsYears": "Years of experience",
     "statsCompanies": "EdTech companies",
     "statsProjects": "Projects created",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "practicesLabel": "Development best practices",
+    "practicesTitle": "✦ Best practices",
+    "practicesList": [
+      "Clean code & architecture",
+      "Accessibility WCAG / ARIA",
+      "Testing Vitest & RTL",
+      "CI/CD",
+      "Documentation",
+      "Code review",
+      "Security",
+      "Conventional Git"
+    ]
   },
   "experiences": {
     "eyebrow": "✦ Journey",
@@ -122,6 +134,10 @@
     "portfolio": {
       "desc": "Yarn Workspaces monorepo, React 18, TypeScript, Node.js, Resend API, Vitest tests, i18n fr/en, WCAG accessibility, a11y menu, automatic dark/light mode.",
       "longDesc": "Yarn Workspaces monorepo, React 18, TypeScript, Node.js, Resend API, Vitest tests, i18n fr/en, WCAG accessibility, a11y menu, automatic dark/light mode. Real-time test dashboard, WebP image optimization."
+    },
+    "weather": {
+      "desc": "Connected weather station on Raspberry Pi — real-time temperature, humidity and pressure readings.",
+      "longDesc": "IoT project currently in development. The station will be connected to the portfolio to display live weather data."
     }
   },
   "arch": {

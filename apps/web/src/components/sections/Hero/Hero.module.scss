@@ -230,6 +230,54 @@
   }
 }
 
+// Bonnes pratiques
+.practices {
+  opacity: 0;
+  max-width: 440px;
+
+  @include m.respond-below("md") {
+    max-width: 100%;
+  }
+}
+
+.practicesTitle {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--clr-coral);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.practicesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.2rem;
+  list-style: none;
+  padding: 0;
+
+  li {
+    font-size: 0.82rem;
+    color: var(--clr-text-muted);
+    font-weight: 300;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &::before {
+      content: "→";
+      color: var(--clr-coral);
+      font-size: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    @include m.respond-below("sm") {
+      font-size: 0.78rem;
+    }
+  }
+}
+
 // Tags
 .tags {
   display: flex;

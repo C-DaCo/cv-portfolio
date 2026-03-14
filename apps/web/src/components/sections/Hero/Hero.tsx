@@ -92,6 +92,20 @@ export function Hero() {
             {t("hero.summary")}
           </p>
 
+          {/* Bonnes pratiques */}
+          <div
+            className={`${styles.practices} ${!prefersReduced ? styles.animFadeUp : ""}`}
+            style={{ animationDelay: "0.58s" }}
+            aria-label={t("hero.practicesLabel")}
+          >
+            <p className={styles.practicesTitle}>{t("hero.practicesTitle")}</p>
+            <ul className={styles.practicesList} role="list">
+              {(t("hero.practicesList", { returnObjects: true }) as string[]).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
           {/* Tags */}
           <div
             className={`${styles.tags} ${!prefersReduced ? styles.animFadeUp : ""}`}

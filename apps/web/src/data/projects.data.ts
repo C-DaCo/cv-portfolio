@@ -4,6 +4,7 @@ import tacktileo from "@assets/projects/Tactileo-mockup.jpg";
 import tacktiléoVideo from "@assets/projects/Video_Tactileo_Module.mp4";
 import portfolioLight from "@assets/projects/Portfolio-Hero-Light.webp";
 import portfolioDark from "@assets/projects/Portfolio-Hero-Dark.webp";
+import weather from "@assets/projects/Weather-API.jpg";
 import { Theme } from "@hooks/useTheme";
 
 export const getProjects = (theme: Theme, t: TFunction): Project[] => [
@@ -14,12 +15,12 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
     desc: t("projects.maskott.desc"),
     longDesc: t("projects.maskott.longDesc"),
     tags: [
-      { label: "React",             variant: "coral" },
-      { label: "TypeScript",        variant: "coral" },
-      { label: "GitLab",            variant: "sage"  },
-      { label: "Docker",            variant: "sage"  },
-      { label: "API",               variant: "mauve" },
-      { label: "Responsive Design", variant: "sand"  },
+      { label: "React", variant: "coral" },
+      { label: "TypeScript", variant: "coral" },
+      { label: "GitLab", variant: "sage" },
+      { label: "Docker", variant: "sage" },
+      { label: "API", variant: "mauve" },
+      { label: "Responsive Design", variant: "sand" },
     ],
     image: tacktileo,
     video: tacktiléoVideo,
@@ -30,7 +31,7 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
     year: "2023 — 2025",
     tabs: [
       { id: "screenshots", label: t("projects.drawer.screenshots") },
-      { id: "video",       label: t("projects.drawer.video") },
+      { id: "video", label: t("projects.drawer.video") },
     ],
   },
   {
@@ -40,21 +41,39 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
     desc: t("projects.portfolio.desc"),
     longDesc: t("projects.portfolio.longDesc"),
     tags: [
-      { label: "React",      variant: "coral" },
+      { label: "React", variant: "coral" },
       { label: "TypeScript", variant: "coral" },
-      { label: "Node.js",    variant: "sage"  },
-      { label: "Vitest",     variant: "sage"  },
-      { label: "i18n",       variant: "mauve" },
-      { label: "WCAG",       variant: "sand"  },
+      { label: "Node.js", variant: "sage" },
+      { label: "Vitest", variant: "sage" },
+      { label: "i18n", variant: "mauve" },
+      { label: "WCAG", variant: "sand" },
     ],
-    image: theme === "dark" ? portfolioLight : portfolioDark,
-    screenshots: [theme === "dark" ? portfolioLight : portfolioDark],
+    image: theme === "light" ? portfolioLight : portfolioDark,
+    screenshots: [theme === "light" ? portfolioLight : portfolioDark],
     github: "https://github.com/C-DaCo/cv-portfolio",
     year: "2026",
     tabs: [
       { id: "screenshots", label: t("projects.drawer.screenshots") },
-      { id: "archi",       label: t("projects.drawer.archi") },
-      { id: "tests",       label: t("projects.drawer.tests") },
+      { id: "archi", label: t("projects.drawer.archi") },
+      { id: "tests", label: t("projects.drawer.tests") },
+    ],
+  },
+  {
+    id: "weather-station",
+    company: "Projet personnel · IoT",
+    title: "Station météo Raspberry Pi",
+    desc: t("projects.weather.desc"),
+    longDesc: t("projects.weather.longDesc"),
+    tags: [
+      { label: "Raspberry Pi", variant: "coral" },
+      { label: "Python", variant: "coral" },
+      { label: "IoT", variant: "sage" },
+      { label: "API REST", variant: "mauve" },
+    ],
+    image: weather,
+    year: "2026",
+    tabs: [
+      { id: "screenshots", label: t("projects.drawer.screenshots") },
     ],
   },
 ];

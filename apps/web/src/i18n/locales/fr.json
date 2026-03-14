@@ -29,7 +29,19 @@
     "statsYears": "Ans d'expérience",
     "statsCompanies": "Entreprises EdTech",
     "statsProjects": "Projets créés",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "practicesLabel": "Bonnes pratiques de développement",
+    "practicesTitle": "✦ Bonnes pratiques",
+    "practicesList": [
+      "Clean code & architecture",
+      "Accessibilité WCAG / ARIA",
+      "Tests Vitest & RTL",
+      "CI/CD",
+      "Documentation",
+      "Code review",
+      "Sécurité",
+      "Git conventionnel"
+    ]
   },
   "experiences": {
     "eyebrow": "✦ Parcours",
@@ -123,6 +135,10 @@
     "portfolio": {
       "desc": "Monorepo Yarn Workspaces, React 18, TypeScript, Node.js, API Resend, tests Vitest, i18n fr/en, accessibilité WCAG, menu a11y, dark/light mode automatique.",
       "longDesc": "Monorepo Yarn Workspaces, React 18, TypeScript, Node.js, API Resend, tests Vitest, i18n fr/en, accessibilité WCAG, menu a11y, dark/light mode automatique. Dashboard de tests en temps réel, optimisation images WebP."
+    },
+    "weather": {
+      "desc": "Station météo connectée sur Raspberry Pi — relevés de température, humidité et pression en temps réel.",
+      "longDesc": "Projet IoT en cours de développement. La station sera connectée au portfolio pour afficher les données météo en direct."
     }
   },
   "arch": {
