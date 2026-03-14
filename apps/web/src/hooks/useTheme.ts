@@ -22,6 +22,7 @@ function setGlobalTheme(theme: Theme) {
 // Intervalle global — une seule instance
 let intervalId: ReturnType<typeof setInterval> | null = null;
 let isManualGlobal = false;
+setGlobalTheme(globalTheme);
 
 function startAutoTheme() {
   if (intervalId) return;

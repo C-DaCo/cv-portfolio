@@ -12,9 +12,11 @@
   "theme": {
     "toggle": {
       "light": "Passer en mode clair",
-      "dark": "Passer en mode sombre",
-      "neon-dark": "Passer en mode Néon",
-      "neon-light": "Passer en mode Pop 90s"
+      "dark": "Passer en mode sombre"
+    },
+    "label": {
+      "light": "☀ Clair",
+      "dark": "✦ Sombre"
     }
   },
   "hero": {

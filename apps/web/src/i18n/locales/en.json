@@ -11,9 +11,11 @@
   "theme": {
     "toggle": {
       "light": "Switch to light mode",
-      "dark": "Switch to dark mode",
-      "neon-dark": "Switch to neon dark mode",
-      "neon-light": "Switch to pop 90smode"
+      "dark": "Switch to dark mode"
+    },
+    "label": {
+      "light": "☀ Light",
+      "dark": "✦ Dark"
     }
   },
   "hero": {

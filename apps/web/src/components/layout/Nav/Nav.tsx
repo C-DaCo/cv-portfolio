@@ -89,8 +89,7 @@ export function Nav() {
               aria-label={t(`theme.toggle.${theme}`)}
               className={styles.themeToggle}
             >
-              {theme === "light"      && "⏾ Clair"}
-              {theme === "dark"       && "✦ Sombre"}
+              {t(`theme.label.${theme}`)}
             </button>
           </li>
         </ul>
