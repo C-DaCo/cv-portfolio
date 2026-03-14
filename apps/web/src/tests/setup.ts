@@ -12,6 +12,8 @@ configureAxe({
   ],
 });
 
+window.HTMLElement.prototype.scrollIntoView = vi.fn();
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,

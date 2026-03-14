@@ -208,6 +208,42 @@
           "content": "Le WCAG 2.1 niveau AA exige un ratio de contraste de 4.5:1 pour le texte normal et 3:1 pour le texte large. Ne jamais transmettre une information uniquement par la couleur."
         }
       }
+    },
+    "agent": {
+      "title": "Assistant IA",
+      "desc": "Posez vos questions sur mon profil ou générez une lettre de motivation personnalisée.",
+      "tabsLabel": "Mode de l'assistant",
+      "tabs": {
+        "chat": "Q&A CV",
+        "motivation": "Lettre de motivation"
+      },
+      "featureList": {
+        "context": "Contexte CV injecté en system prompt",
+        "history": "Historique de conversation multi-tours",
+        "modes": "2 modes : Q&A et génération de lettre",
+        "model": "claude-sonnet-4"
+      },
+      "offerLabel": "Offre d'emploi",
+      "offerPlaceholder": "Collez ici le contenu de l'offre d'emploi...",
+      "emptyChat": "Posez une question sur mon profil, mes compétences ou mes expériences.",
+      "emptyMotivation": "Collez une offre d'emploi ci-dessus, puis envoyez votre message.",
+      "messagesLabel": "Conversation avec l'assistant",
+      "inputLabel": "Votre message",
+      "inputPlaceholderChat": "Ex : Quelles sont tes expériences en React ?",
+      "inputPlaceholderMotivation": "Ex : Génère une lettre pour ce poste",
+      "inputHint": "Entrée pour envoyer · Shift+Entrée pour sauter une ligne",
+      "send": "Envoyer",
+      "loading": "L'assistant rédige une réponse…",
+      "errorNoOffer": "Veuillez coller une offre d'emploi avant d'envoyer.",
+      "errorGeneric": "Une erreur est survenue.",
+      "errorNetwork": "Impossible de contacter l'API.",
+      "tech": {
+        "toggle": "Voir les détails techniques",
+        "systemLabel": "System prompt",
+        "historyLabel": "Historique brut",
+        "systemChat": "Tu es l'assistant IA du portfolio de Carole Rotton. Tu réponds aux questions des recruteurs sur son profil, ses compétences et ses expériences. Contexte CV complet injecté côté serveur.",
+        "systemMotivation": "Tu génères des lettres de motivation personnalisées pour Carole à partir d'une offre d'emploi. Ton : professionnel et authentique. Structure : accroche / expériences / motivation / conclusion."
+      }
     }
   },
   "contact": {

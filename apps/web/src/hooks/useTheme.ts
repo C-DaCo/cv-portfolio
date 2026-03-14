@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-export type Theme = "light" | "dark" | "neon-dark" | "neon-light";
+export type Theme = "light" | "dark";
 
-const THEMES: Theme[] = ["light", "dark", "neon-dark", "neon-light"];
+const THEMES: Theme[] = ["light", "dark"];
 
 function getThemeFromTime(): Theme {
   const hour = new Date().getHours();

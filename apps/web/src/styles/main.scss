@@ -58,77 +58,8 @@ main>section {
 
 // ── Contraste élevé ───────────────────────────
 
-// Mode clair
-[data-theme="light"].a11y-contrast,
-:root.a11y-contrast {
-  --clr-text: #000000 !important;
-  --clr-text-muted: #1a1a1a !important;
-  --clr-border: rgba(0, 0, 0, 0.5) !important;
-
-  p,
-  li,
-  span,
-  time,
-  label,
-  h1,
-  h2,
-  h3 {
-    color: #000000 !important;
-
-    &[data-category="language"] {
-      color: #9e7033 !important;
-    }
-
-    &[data-category="front"] {
-      color: #e45627 !important;
-    }
-
-    &[data-category="back"] {
-      color: #3d8e59 !important;
-    }
-
-    &[data-category="divers"] {
-      color: #793a96 !important;
-    }
-  }
-}
-
-// Mode sombre
+// dark
 [data-theme="dark"].a11y-contrast {
-  --clr-text: #ffffff !important;
-  --clr-text-muted: #f0f0f0 !important;
-  --clr-border: rgba(255, 255, 255, 0.5) !important;
-
-  p,
-  li,
-  span,
-  time,
-  label,
-  h1,
-  h2,
-  h3 {
-    color: #ffffff !important;
-
-    &[data-category="language"] {
-      color: #f1bf7d !important;
-    }
-
-    &[data-category="front"] {
-      color: #f48059 !important;
-    }
-
-    &[data-category="back"] {
-      color: #69c188 !important;
-    }
-
-    &[data-category="divers"] {
-      color: #bc77dc !important;
-    }
-  }
-}
-
-// Neon dark
-[data-theme="neon-dark"].a11y-contrast {
   --clr-text: #ffffff !important;
   --clr-text-muted: #f0f0f0 !important;
   --clr-border: rgba(255, 255, 255, 0.6) !important;
@@ -161,8 +92,8 @@ main>section {
   }
 }
 
-// Neon light — Pastel Pop 90s
-[data-theme="neon-light"].a11y-contrast {
+// light
+[data-theme="light"].a11y-contrast {
   --clr-text: #000000 !important;
   --clr-text-muted: #1A0A2E !important;
   --clr-border: rgba(0, 0, 0, 0.5) !important;

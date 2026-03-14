@@ -6,7 +6,7 @@ import { desc, TestScope, TestType } from "@tests/test-categories";
 describe(desc(TestScope.HOOK, "useTheme", TestType.RENDU), () => {
   it("retourne un thème initial valide", () => {
     const { result } = renderHook(() => useTheme());
-    expect(["light", "dark", "neon-dark", "neon-light"]).toContain(result.current.theme);
+    expect(["light", "dark"]).toContain(result.current.theme);
   });
 
   it("expose une fonction toggleTheme", () => {
@@ -14,7 +14,7 @@ describe(desc(TestScope.HOOK, "useTheme", TestType.RENDU), () => {
     expect(typeof result.current.toggleTheme).toBe("function");
   });
 
-  it("cycle complet light → dark → neon-dark → neon-light → light", () => {
+  it("cycle complet light → dark → light", () => {
     const { result } = renderHook(() => useTheme());
 
     while (result.current.theme !== "light") {
@@ -23,12 +23,6 @@ describe(desc(TestScope.HOOK, "useTheme", TestType.RENDU), () => {
 
     act(() => { result.current.toggleTheme(); });
     expect(result.current.theme).toBe("dark");
-
-    act(() => { result.current.toggleTheme(); });
-    expect(result.current.theme).toBe("neon-dark");
-
-    act(() => { result.current.toggleTheme(); });
-    expect(result.current.theme).toBe("neon-light");
 
     act(() => { result.current.toggleTheme(); });
     expect(result.current.theme).toBe("light");

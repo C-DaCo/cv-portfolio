@@ -2,52 +2,8 @@
 // Design Tokens — Carole Rotton Portfolio
 // ─────────────────────────────────────────────
 
-// ── LIGHT MODE ───────────────────────────────
-[data-theme="light"], :root {
-  --clr-bg:           #FDF6EE;
-  --clr-bg-100:       #FAF0E4;
-  --clr-bg-200:       #F2DFC8;
-  --clr-surface:      rgba(255, 255, 255, 0.80);
-  --clr-border:       rgba(196, 168, 130, 0.25);
-  --clr-text:         #2C2420;
-  --clr-text-muted:   #6B5C54;
-  --clr-stat-border:  #F2DFC8;
-  --clr-blob-a:       #F4C5B0;
-  --clr-blob-b:       #C5D9CA;
-  --clr-blob-c:       #D4BDE0;
-
-  --clr-coral:        #E8715A;
-  --clr-blush:        #F2BFAD;
-  --clr-sage:         #7B9E87;
-  --clr-sage-light:   #A8C5B0;
-  --clr-mauve:        #9B7EA8;
-  --clr-sand:         #C4A882;
-}
-
-// ── DARK MODE ────────────────────────────────
+// ── DARK MODE ───────────────────────────
 [data-theme="dark"] {
-  --clr-bg:           #252d42;
-  --clr-bg-100:       #212839;
-  --clr-bg-200:       #10131b;
-  --clr-surface:      rgba(28, 26, 43, 0.85);
-  --clr-border:       rgba(196, 168, 130, 0.15);
-  --clr-text:         #F5EDE4;
-  --clr-text-muted:   #B5A89E;
-  --clr-stat-border:  rgba(196, 168, 130, 0.15);
-  --clr-blob-a:       rgba(232, 113, 90, 0.35);
-  --clr-blob-b:       rgba(123, 158, 135, 0.3);
-  --clr-blob-c:       rgba(155, 126, 168, 0.25);
-
-  --clr-coral:        #E8715A;
-  --clr-blush:        #F2BFAD;
-  --clr-sage:         #7B9E87;
-  --clr-sage-light:   #A8C5B0;
-  --clr-mauve:        #9B7EA8;
-  --clr-sand:         #C4A882;
-}
-
-// ── NEON DARK MODE ───────────────────────────
-[data-theme="neon-dark"] {
   --clr-bg:           #0D0D0D;
   --clr-bg-100:       #141414;
   --clr-bg-200:       #1A1A1A;
@@ -68,11 +24,11 @@
   --clr-sand:         #FFB703;
 }
 
-// ── NEON LIGHT — Pastel Pop 90s ───────────────
-[data-theme="neon-light"] {
-  --clr-bg:           #FFFDF5;
-  --clr-bg-100:       #FFF5E6;
-  --clr-bg-200:       #FFE8D6;
+// ── LIGHT MODE ───────────────────────────
+[data-theme="light"] { //#f3ebde
+  --clr-bg:           #f9f4ec;
+  --clr-bg-100:       #f8f3eb;
+  --clr-bg-200:       #f3ebde;
   --clr-surface:      rgba(255, 255, 255, 0.85);
   --clr-border:       rgba(255, 60, 172, 0.2);
   --clr-text:         #1A0A2E;
@@ -82,12 +38,12 @@
   --clr-blob-b:       rgba(57, 211, 83, 0.2);
   --clr-blob-c:       rgba(120, 76, 244, 0.2);
 
-  --clr-coral:        #FF3CAC;
-  --clr-blush:        #FF9EDB;
-  --clr-sage:         #39D353;
-  --clr-sage-light:   #85E896;
-  --clr-mauve:        #784CF4;
-  --clr-sand:         #FFD700;
+  --clr-coral:        #F34961;
+  --clr-blush:        #f0889f;
+  --clr-sage:         #5cba74;
+  --clr-sage-light:   #85e8b7;
+  --clr-mauve:        #0d529c;
+  --clr-sand:         #ffb900;
 }
 
 // ── Tokens fixes (indépendants du thème) ─────

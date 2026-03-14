@@ -91,8 +91,6 @@ export function Nav() {
             >
               {theme === "light"      && "⏾ Clair"}
               {theme === "dark"       && "✦ Sombre"}
-              {theme === "neon-dark"  && "◈ Neon"}
-              {theme === "neon-light" && "☀ Pop"}
             </button>
           </li>
         </ul>

@@ -7,6 +7,7 @@ import { ToastContainer } from "@components/ui/Toast/Toast";
 import { useToast } from "@components/ui/Toast/useToast";
 import { Accordion } from "@components/ui/Accordion/Accordion";
 import type { AccordionItem } from "@components/ui/Accordion/Accordion";
+import { AgentCard } from "./AgentCard/AgentCard";
 import styles from "./Playground.module.scss";
 
 export function Playground() {
@@ -139,6 +140,8 @@ export function Playground() {
           </ul>
           <Accordion items={accordionItems} />
         </div>
+
+        <AgentCard visible={visible} />
 
       </div>
 
