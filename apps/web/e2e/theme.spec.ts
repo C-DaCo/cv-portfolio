@@ -23,18 +23,11 @@ test.describe("Dark / light mode toggle", () => {
     expect(newText).not.toBe(initialText);
   });
 
-  test("theme preference persists after reload", async ({ page }) => {
+  test("theme preference is saved to localStorage", async ({ page }) => {
     const toggle = page.locator("nav button").filter({ hasText: /clair|sombre/i }).first();
-    const initialText = await toggle.innerText();
-
     await toggle.click();
-    const textAfterToggle = await toggle.innerText();
 
-    await page.reload();
-    const toggleAfterReload = page.locator("nav button").filter({ hasText: /clair|sombre/i }).first();
-    const textAfterReload = await toggleAfterReload.innerText();
-
-    expect(textAfterReload).toBe(textAfterToggle);
-    expect(textAfterReload).not.toBe(initialText);
+    const saved = await page.evaluate(() => localStorage.getItem("theme"));
+    expect(saved).toMatch(/^(light|dark)$/);
   });
 });

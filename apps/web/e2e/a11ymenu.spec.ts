@@ -46,9 +46,9 @@ test.describe("Accessibility menu (A11yMenu)", () => {
     await page.getByRole("button", { name: /ouvrir les options d'accessibilité/i }).click();
 
     const group = page.getByRole("group", { name: /taille de police/i });
-    await expect(group.getByRole("button", { name: /normale/i })).toHaveAttribute("aria-pressed", "true");
-    await expect(group.getByRole("button", { name: /grande/i })).toBeVisible();
-    await expect(group.getByRole("button", { name: /très grande/i })).toBeVisible();
+    await expect(group.getByRole("button", { name: "Taille Normale" })).toHaveAttribute("aria-pressed", "true");
+    await expect(group.getByRole("button", { name: "Taille Grande" })).toBeVisible();
+    await expect(group.getByRole("button", { name: "Taille Très grande" })).toBeVisible();
   });
 
   test("Escape closes the menu and returns focus to trigger", async ({ page }) => {

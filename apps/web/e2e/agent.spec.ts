@@ -8,31 +8,28 @@ test.describe("AI Assistant (AgentCard)", () => {
   });
 
   test("agent card is visible with tabs", async ({ page }) => {
-    const card = page.locator('[role="tablist"][aria-label]').filter({
-      has: page.getByRole("tab", { name: /Q&A CV/i }),
-    });
-    await expect(card).toBeVisible();
-    await expect(page.getByRole("tab", { name: /Q&A CV/i })).toBeVisible();
-    await expect(page.getByRole("tab", { name: /poème/i })).toBeVisible();
+    const playground = page.locator("#playground");
+    await expect(playground.getByRole("tab", { name: /Q&A CV/i })).toBeVisible();
+    await expect(playground.getByRole("tab", { name: /poème/i })).toBeVisible();
   });
 
   test("chat tab is selected by default", async ({ page }) => {
-    const chatTab = page.getByRole("tab", { name: /Q&A CV/i });
+    const chatTab = page.locator("#playground").getByRole("tab", { name: /Q&A CV/i });
     await expect(chatTab).toHaveAttribute("aria-selected", "true");
   });
 
   test("input field is present", async ({ page }) => {
-    const input = page.locator("#agent-input");
-    await expect(input).toBeVisible();
+    await expect(page.locator("#agent-input")).toBeVisible();
   });
 
   test("send button is disabled when input is empty", async ({ page }) => {
-    const sendBtn = page.getByRole("button", { name: /envoyer/i }).last();
+    // Scope to playground to avoid matching Contact form's submit button
+    const sendBtn = page.locator("#playground").getByRole("button", { name: /^Envoyer$/ });
     await expect(sendBtn).toBeDisabled();
   });
 
   test("chat mode — mocked response appears in conversation", async ({ page }) => {
-    await page.route("**/api/agent", (route) =>
+    await page.route(/\/api\/agent/, (route) =>
       route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -46,16 +43,14 @@ test.describe("AI Assistant (AgentCard)", () => {
 
     const input = page.locator("#agent-input");
     await input.fill("Quelles sont les expériences de Carole ?");
-    await page.getByRole("button", { name: /envoyer/i }).last().click();
+    await page.locator("#playground").getByRole("button", { name: /^Envoyer$/ }).click();
 
-    // User message appears
     await expect(page.getByText("Quelles sont les expériences de Carole ?")).toBeVisible();
-    // Assistant response appears
     await expect(page.getByText("Carole a 9 ans d'expérience en développement frontend React.")).toBeVisible();
   });
 
   test("Enter key submits the message", async ({ page }) => {
-    await page.route("**/api/agent", (route) =>
+    await page.route(/\/api\/agent/, (route) =>
       route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -78,7 +73,7 @@ test.describe("AI Assistant (AgentCard)", () => {
     const input = page.locator("#agent-input");
     const initialPlaceholder = await input.getAttribute("placeholder");
 
-    await page.getByRole("tab", { name: /poème/i }).click();
+    await page.locator("#playground").getByRole("tab", { name: /poème/i }).click();
     const poemPlaceholder = await input.getAttribute("placeholder");
 
     expect(poemPlaceholder).not.toBe(initialPlaceholder);
@@ -86,7 +81,7 @@ test.describe("AI Assistant (AgentCard)", () => {
   });
 
   test("poem mode — mocked response renders illustration", async ({ page }) => {
-    await page.route("**/api/agent", (route) =>
+    await page.route(/\/api\/agent/, (route) =>
       route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -102,17 +97,16 @@ test.describe("AI Assistant (AgentCard)", () => {
       })
     );
 
-    await page.getByRole("tab", { name: /poème/i }).click();
-    const input = page.locator("#agent-input");
-    await input.fill("la mer");
-    await page.getByRole("button", { name: /envoyer/i }).last().click();
+    await page.locator("#playground").getByRole("tab", { name: /poème/i }).click();
+    await page.locator("#agent-input").fill("la mer");
+    await page.locator("#playground").getByRole("button", { name: /^Envoyer$/ }).click();
 
-    // Poem text appears
-    await expect(page.getByText(/la mer murmure/i)).toBeVisible();
+    // Each verse is a <p> inside a blockquote
+    await expect(page.getByText("La mer murmure")).toBeVisible();
   });
 
   test("error message displayed on API failure", async ({ page }) => {
-    await page.route("**/api/agent", (route) =>
+    await page.route(/\/api\/agent/, (route) =>
       route.fulfill({
         status: 500,
         contentType: "application/json",
@@ -122,9 +116,10 @@ test.describe("AI Assistant (AgentCard)", () => {
 
     const input = page.locator("#agent-input");
     await input.fill("Question qui échoue");
-    await page.getByRole("button", { name: /envoyer/i }).last().click();
+    await page.locator("#playground").getByRole("button", { name: /^Envoyer$/ }).click();
 
-    await expect(page.getByRole("alert")).toBeVisible();
+    // Scope alert to playground to avoid contact form alerts
+    await expect(page.locator("#playground [role='alert']")).toBeVisible();
   });
 
   test("technical details panel toggles", async ({ page }) => {
