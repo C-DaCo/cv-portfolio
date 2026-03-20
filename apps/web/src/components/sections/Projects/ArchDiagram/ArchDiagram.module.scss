@@ -16,7 +16,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  &:hover { color: var(--clr-coral); border-color: var(--clr-coral); }
+  &:hover { color: var(--clr-coral-text); border-color: var(--clr-coral-text); }
   &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 3px; }
 }
 
@@ -96,7 +96,7 @@
 .panelEyebrow {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.25rem;
@@ -122,7 +122,7 @@
   flex-shrink: 0;
   transition: all 0.2s ease;
 
-  &:hover { color: var(--clr-coral); border-color: var(--clr-coral); }
+  &:hover { color: var(--clr-coral-text); border-color: var(--clr-coral-text); }
   &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 3px; }
 }
 
@@ -158,8 +158,8 @@
 }
 
 .tabActive {
-  color: var(--clr-coral);
-  border-bottom-color: var(--clr-coral);
+  color: var(--clr-coral-text);
+  border-bottom-color: var(--clr-coral-text);
 }
 
 // ── Tab content ───────────────────────────────
@@ -242,8 +242,8 @@
 }
 
 // Couleurs des couches
-.coral { color: var(--clr-coral); border-color: rgba(232,113,90,0.2); background: rgba(232,113,90,0.04); .layerLabel { color: var(--clr-coral); } }
-.sage  { color: var(--clr-sage); border-color: rgba(123,158,135,0.2); background: rgba(123,158,135,0.04); .layerLabel { color: var(--clr-sage); } }
+.coral { color: var(--clr-coral-text); border-color: rgba(232,113,90,0.2); background: rgba(232,113,90,0.04); .layerLabel { color: var(--clr-coral-text); } }
+.sage  { color: var(--clr-sage-text); border-color: rgba(123,158,135,0.2); background: rgba(123,158,135,0.04); .layerLabel { color: var(--clr-sage-text); } }
 .mauve { color: var(--clr-mauve); border-color: rgba(155,126,168,0.2); background: rgba(155,126,168,0.04); .layerLabel { color: var(--clr-mauve); } }
 .sand  { color: var(--clr-sand); border-color: rgba(196,168,130,0.2); background: rgba(196,168,130,0.04); .layerLabel { color: var(--clr-sand); } }
 
@@ -278,7 +278,7 @@
 .treeRoot { font-weight: 600; }
 
 .treeIcon {
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   font-size: 0.7rem;
   flex-shrink: 0;
   width: 12px;

@@ -22,7 +22,7 @@
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -44,7 +44,7 @@
   line-height: 1.8;
   font-weight: 300;
   margin-bottom: 2rem;
-  em { font-style: normal; color: var(--clr-coral); font-weight: 400; }
+  em { font-style: normal; color: var(--clr-coral-text); font-weight: 400; }
 }
 
 .legend {
@@ -146,6 +146,6 @@
 // ── Couleurs ──────────────────────────────────
 
 .colorYellow { color: var(--clr-sand); }
-.colorCoral  { color: var(--clr-coral); }
-.colorSage   { color: var(--clr-sage); }
+.colorCoral  { color: var(--clr-coral-text); }
+.colorSage   { color: var(--clr-sage-text); }
 .colorMauve  { color: var(--clr-mauve); }

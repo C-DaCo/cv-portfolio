@@ -18,7 +18,7 @@
 .spinner {
   width: 32px; height: 32px;
   border: 2px solid var(--clr-border);
-  border-top-color: var(--clr-coral);
+  border-top-color: var(--clr-coral-text);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -75,13 +75,13 @@
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &:hover { color: var(--clr-coral); }
+  &:hover { color: var(--clr-coral-text); }
 }
 
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.25rem;
@@ -95,7 +95,7 @@
 
   em {
     font-style: italic;
-    color: var(--clr-coral);
+    color: var(--clr-coral-text);
   }
 }
 
@@ -119,7 +119,7 @@
 
 .badgeFail {
   background: rgba(232, 113, 90, 0.15);
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   border: 1px solid rgba(232, 113, 90, 0.3);
 }
 
@@ -134,7 +134,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  &:hover { color: var(--clr-coral); border-color: var(--clr-coral); }
+  &:hover { color: var(--clr-coral-text); border-color: var(--clr-coral-text); }
 }
 
 // ── Main ──────────────────────────────────────
@@ -189,7 +189,7 @@
 }
 
 .iconPass    { color: #7B9E87; }
-.iconFail    { color: var(--clr-coral); }
+.iconFail    { color: var(--clr-coral-text); }
 .iconCoverage { color: #9B7EA8; }
 .iconTime    { color: #C4A882; }
 
@@ -258,7 +258,7 @@
 
   &.high { color: #7B9E87; }
   &.mid  { color: #C4A882; }
-  &.low  { color: var(--clr-coral); }
+  &.low  { color: var(--clr-coral-text); }
 }
 
 .progressBar {
@@ -360,7 +360,7 @@
   flex-shrink: 0;
   color: var(--clr-text-muted);
 
-  .testFailed & { color: var(--clr-coral); }
+  .testFailed & { color: var(--clr-coral-text); }
 }
 
 .testTitle {
@@ -431,7 +431,7 @@
 
   &.high { color: #7B9E87; }
   &.mid  { color: #C4A882; }
-  &.low  { color: var(--clr-coral); }
+  &.low  { color: var(--clr-coral-text); }
 }
 
 // ── Footer ────────────────────────────────────

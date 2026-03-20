@@ -38,7 +38,7 @@
 }
 
 .poemPalette {
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   border-color: rgba(232, 113, 90, 0.3);
 }
 
@@ -74,7 +74,7 @@
 
   &::before {
     content: "#";
-    color: var(--clr-coral);
+    color: var(--clr-coral-text);
     margin-right: 0.1rem;
   }
 }

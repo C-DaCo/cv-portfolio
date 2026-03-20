@@ -28,7 +28,7 @@
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -107,7 +107,7 @@
 
 .cardIcon {
   font-size: 1.4rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
@@ -147,7 +147,7 @@
 
     &::before {
       content: "→";
-      color: var(--clr-coral);
+      color: var(--clr-coral-text);
       font-size: 0.65rem;
       flex-shrink: 0;
     }
@@ -240,7 +240,7 @@
 }
 
 .success {
-  color: var(--clr-sage);
+  color: var(--clr-sage-text);
   border-color: rgba(123, 158, 135, 0.4);
   &:hover { background: rgba(123, 158, 135, 0.1); }
 }

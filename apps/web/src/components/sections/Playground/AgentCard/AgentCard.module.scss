@@ -38,7 +38,7 @@
 
 .cardIcon {
   font-size: 1.4rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
@@ -53,13 +53,13 @@
 }
 
 .cardIconActive {
-  color: var(--clr-sage);
+  color: var(--clr-sage-text);
   transition: color 0.3s ease;
 }
 
 .tabSecret {
-  color: var(--clr-sage);
-  &.tabActive { border-bottom-color: var(--clr-sage); color: var(--clr-sage); }
+  color: var(--clr-sage-text);
+  &.tabActive { border-bottom-color: var(--clr-sage-text); color: var(--clr-sage-text); }
 }
 
 .cardTitle {
@@ -95,7 +95,7 @@
 
     &::before {
       content: "→";
-      color: var(--clr-coral);
+      color: var(--clr-coral-text);
       font-size: 0.65rem;
       flex-shrink: 0;
     }
@@ -143,8 +143,8 @@
 }
 
 .tabActive {
-  color: var(--clr-coral);
-  border-bottom-color: var(--clr-coral);
+  color: var(--clr-coral-text);
+  border-bottom-color: var(--clr-coral-text);
 }
 
 // ── Offre d'emploi ────────────────────────────────────────────────────────────
@@ -175,7 +175,7 @@
   transition: border-color 0.2s ease;
 
   &::placeholder { color: var(--clr-text-muted); opacity: 0.6; }
-  &:focus { outline: none; border-color: var(--clr-coral); }
+  &:focus { outline: none; border-color: var(--clr-coral-text); }
 }
 
 // ── Messages ──────────────────────────────────────────────────────────────────
@@ -317,7 +317,7 @@
   transition: border-color 0.2s ease;
 
   &::placeholder { color: var(--clr-text-muted); opacity: 0.6; }
-  &:focus { outline: none; border-color: var(--clr-coral); }
+  &:focus { outline: none; border-color: var(--clr-coral-text); }
   &:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 
@@ -386,7 +386,7 @@
   padding: 0;
   transition: color 0.2s ease;
 
-  &:hover { color: var(--clr-coral); }
+  &:hover { color: var(--clr-coral-text); }
 
   &:focus-visible {
     outline: 2px solid var(--clr-coral);
@@ -399,7 +399,7 @@
 
 .techToggleIcon {
   font-size: 0.8rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
 }
 
 .techPanel {
@@ -418,7 +418,7 @@
 .techLabel {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }

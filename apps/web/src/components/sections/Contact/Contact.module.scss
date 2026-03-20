@@ -31,7 +31,7 @@
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -46,7 +46,7 @@
 
   em {
     font-style: italic;
-    color: var(--clr-coral);
+    color: var(--clr-coral-text);
   }
 }
 
@@ -92,7 +92,7 @@
   border-radius: 50%;
   background: rgba(232, 113, 90, 0.1);
   border: 1px solid rgba(232, 113, 90, 0.2);
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   font-size: 0.8rem;
   flex-shrink: 0;
 }
@@ -102,7 +102,7 @@
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &:hover { color: var(--clr-coral); }
+  &:hover { color: var(--clr-coral-text); }
   &:focus-visible {
     outline: 2px solid var(--clr-coral);
     outline-offset: 3px;
@@ -141,8 +141,8 @@
   }
 
   &:hover {
-    color: var(--clr-coral);
-    border-color: var(--clr-coral);
+    color: var(--clr-coral-text);
+    border-color: var(--clr-coral-text);
     transform: translateY(-2px);
   }
 
@@ -226,7 +226,7 @@
   }
 
   &:focus {
-    border-color: var(--clr-coral);
+    border-color: var(--clr-coral-text);
     box-shadow: 0 0 0 3px rgba(232, 113, 90, 0.15);
   }
 }
@@ -324,7 +324,7 @@
   border-radius: 12px;
   background: rgba(123, 158, 135, 0.12);
   border: 1px solid rgba(123, 158, 135, 0.3);
-  color: var(--clr-sage);
+  color: var(--clr-sage-text);
   font-size: 0.9rem;
 
   p {

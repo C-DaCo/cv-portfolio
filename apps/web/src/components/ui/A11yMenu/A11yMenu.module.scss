@@ -38,8 +38,8 @@
   }
 
   &:hover {
-    color: var(--clr-coral);
-    border-color: var(--clr-coral);
+    color: var(--clr-coral-text);
+    border-color: var(--clr-coral-text);
     transform: scale(1.08);
   }
 
@@ -55,7 +55,7 @@
 }
 
 .triggerActive {
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   border-color: rgba(232, 113, 90, 0.4);
   background: rgba(232, 113, 90, 0.08);
 }
@@ -123,7 +123,7 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.06em;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   background: none;
   border: 1px solid rgba(232, 113, 90, 0.3);
   border-radius: 9999px;
@@ -189,7 +189,7 @@
 }
 
 .optionIcon {
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   flex-shrink: 0;
   display: flex;
 }
@@ -237,7 +237,7 @@
 
 .toggleOn {
   background: rgba(232, 113, 90, 0.15);
-  border-color: var(--clr-coral);
+  border-color: var(--clr-coral-text);
 
   &::after {
     transform: translateX(14px);
@@ -265,14 +265,14 @@
   font-family: var(--font-serif);
   transition: all 0.2s ease;
 
-  &:hover { border-color: var(--clr-coral); color: var(--clr-coral); }
+  &:hover { border-color: var(--clr-coral-text); color: var(--clr-coral-text); }
   &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
 }
 
 .fontSizeBtnActive {
   background: rgba(232, 113, 90, 0.1);
-  border-color: var(--clr-coral);
-  color: var(--clr-coral);
+  border-color: var(--clr-coral-text);
+  color: var(--clr-coral-text);
 }
 
 // ── Animation ─────────────────────────────────
@@ -322,14 +322,14 @@
   justify-content: center;
   transition: all 0.2s ease;
 
-  &:hover { color: var(--clr-coral); border-color: var(--clr-coral); }
+  &:hover { color: var(--clr-coral-text); border-color: var(--clr-coral-text); }
   &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
 }
 
 .voiceBtnMain {
   width: 40px; height: 40px;
   background: var(--clr-coral);
-  border-color: var(--clr-coral);
+  border-color: var(--clr-coral-text);
   color: #fff;
 
   &:hover { background: #d4604a; }
@@ -373,15 +373,15 @@
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: var(--clr-coral);
+    border-color: var(--clr-coral-text);
     color: var(--clr-text);
   }
 }
 
 .voiceModeActive {
   background: rgba(232, 113, 90, 0.1);
-  border-color: var(--clr-coral);
-  color: var(--clr-coral);
+  border-color: var(--clr-coral-text);
+  color: var(--clr-coral-text);
   font-weight: 500;
 }
 
@@ -402,7 +402,7 @@
   font-weight: 500;
   background: rgba(232, 113, 90, 0.08);
   border: 1px solid rgba(232, 113, 90, 0.3) !important;
-  color: var(--clr-coral) !important;
+  color: var(--clr-coral-text) !important;
 
   &:hover {
     background: rgba(232, 113, 90, 0.15) !important;

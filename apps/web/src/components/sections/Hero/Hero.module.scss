@@ -139,7 +139,7 @@
   border: 1px solid var(--clr-blush);
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
@@ -185,7 +185,7 @@
 
   em {
     font-style: italic;
-    color: var(--clr-coral);
+    color: var(--clr-coral-text);
   }
 }
 
@@ -212,7 +212,7 @@
   strong {
     font-style: normal;
     font-weight: 600;
-    color: var(--clr-sage);
+    color: var(--clr-sage-text);
   }
 }
 
@@ -243,7 +243,7 @@
 .practicesTitle {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.6rem;
@@ -267,7 +267,7 @@
 
     &::before {
       content: "→";
-      color: var(--clr-coral);
+      color: var(--clr-coral-text);
       font-size: 0.65rem;
       flex-shrink: 0;
     }
@@ -402,7 +402,7 @@
 
 .decoTag1 {
   top: 12%; right: -8%;
-  color: var(--clr-sage);
+  color: var(--clr-sage-text);
   background: rgba(203, 230, 212, 0.25);
   border: 1.5px solid rgba(123, 158, 135, 0.4);
 
@@ -416,7 +416,7 @@
 
 .decoTag2 {
   bottom: 22%; left: -10%;
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
   background: rgba(232, 113, 90, 0.12);
   border: 1.5px solid rgba(232, 113, 90, 0.35);
 
@@ -511,7 +511,7 @@
 
   em {
     font-style: italic;
-    color: var(--clr-coral);
+    color: var(--clr-coral-text);
   }
 }
 
@@ -573,7 +573,7 @@
 }
 
 .scrollSvg {
-  color: var(--clr-coral);
+  color: var(--clr-coral-text);
 }
 
 @keyframes scrollBounce {

@@ -74,7 +74,7 @@
 .drawerCompany {
     font-family: var(--font-mono);
     font-size: 0.68rem;
-    color: var(--clr-coral);
+    color: var(--clr-coral-text);
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
@@ -113,7 +113,7 @@
 
     &:hover {
         background: var(--clr-coral);
-        border-color: var(--clr-coral);
+        border-color: var(--clr-coral-text);
         color: #fff;
     }
 
@@ -166,13 +166,13 @@
 }
 
 .coral {
-    color: var(--clr-coral);
+    color: var(--clr-coral-text);
     border-color: rgba(232, 113, 90, 0.3);
     background: rgba(232, 113, 90, 0.06);
 }
 
 .sage {
-    color: var(--clr-sage);
+    color: var(--clr-sage-text);
     border-color: rgba(123, 158, 135, 0.3);
     background: rgba(123, 158, 135, 0.06);
 }
@@ -215,8 +215,8 @@
     transition: all 0.2s ease;
 
     &:hover {
-        color: var(--clr-coral);
-        border-color: var(--clr-coral);
+        color: var(--clr-coral-text);
+        border-color: var(--clr-coral-text);
     }
 
     &:focus-visible {
@@ -273,8 +273,8 @@
     }
 
     &.tabActive {
-        color: var(--clr-coral);
-        border-bottom-color: var(--clr-coral);
+        color: var(--clr-coral-text);
+        border-bottom-color: var(--clr-coral-text);
     }
 }
 
@@ -379,7 +379,7 @@
     }
 
     &.thumbActive {
-        border-color: var(--clr-coral);
+        border-color: var(--clr-coral-text);
     }
 
     &:focus-visible {
@@ -418,7 +418,7 @@
     transition: color 0.2s ease;
 
     &:hover {
-        color: var(--clr-coral);
+        color: var(--clr-coral-text);
     }
 
     &:focus-visible {

@@ -22,6 +22,10 @@
   --clr-sage-light:   #5DDFD0;
   --clr-mauve:        #B97FFF;
   --clr-sand:         #FFB703;
+
+  /* Couleurs accessibles pour le texte (WCAG AA sur fond sombre) */
+  --clr-coral-text:   #FF4B6E;
+  --clr-sage-text:    #00C2A8;
 }
 
 // ── LIGHT MODE ───────────────────────────
@@ -44,6 +48,10 @@
   --clr-sage-light:   #85e8b7;
   --clr-mauve:        #0d529c;
   --clr-sand:         #ffb900;
+
+  /* Couleurs accessibles pour le texte (WCAG AA sur fond clair ≥ 4.5:1) */
+  --clr-coral-text:   #B5172F;
+  --clr-sage-text:    #1F6B30;
 }
 
 // ── Tokens fixes (indépendants du thème) ─────
