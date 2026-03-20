@@ -21,6 +21,8 @@
   },
   "hero": {
     "available": "Disponible · Full Remote",
+    "techAriaLabel": "Technologies maîtrisées",
+    "statsAriaLabel": "En chiffres",
     "rolePart1": "Développeuse",
     "rolePart2": "Front-End",
     "summary": "Développeuse Front-End React avec 9 ans d'expérience, dont 5 en full remote dans des équipes agiles. J'ai conçu des applications utilisées par des milliers d'utilisateurs, en portant l'accessibilité WCAG comme exigence, pas comme option. Autonome, proactive et à l'aise en équipe comme en solo — j'aime transformer des besoins complexes en interfaces simples, solides et inclusives.",
@@ -83,6 +85,7 @@
   },
   "skills": {
     "eyebrow": "✦ Savoir-faire",
+    "levelAriaLabel": "{{name}} — niveau {{level}} sur 5",
     "title": "Compétences",
     "subtitle": "Un spectre large, une expertise front-end.",
     "cloudAriaLabel": "Nuage de compétences",
@@ -139,6 +142,10 @@
     "weather": {
       "desc": "Station météo connectée sur Raspberry Pi — relevés de température, humidité et pression en temps réel.",
       "longDesc": "Projet IoT en cours de développement. La station sera connectée au portfolio pour afficher les données météo en direct."
+    },
+    "brainboost": {
+      "desc": "Application de flashcards avec répétition espacée (algorithme SM-2), génération de cartes par IA via scan de leçons, modes d'entraînement variés et notifications push.",
+      "longDesc": "Next.js 15 App Router, Prisma + SQLite, authentification Clerk, i18n fr/en, IA Claude API pour la génération de flashcards depuis des photos de notes. Algorithme SM-2 implémenté from scratch, 5 modes d'entraînement (flashcards, QCM, interro, match, drag-drop), notifications push VAPID, thèmes saisonniers. 233 tests Jest (89.6% coverage) + 20 tests E2E Playwright avec validation WCAG AA."
     }
   },
   "arch": {
@@ -270,6 +277,7 @@
   },
   "contact": {
     "eyebrow": "✦ Contact",
+    "formAriaLabel": "Formulaire de contact",
     "title": "Travaillons",
     "titleAccent": "ensemble",
     "desc": "Une opportunité, un projet, une question ? Je lis tous mes messages et réponds sous 48h.",
@@ -289,7 +297,8 @@
       "submitting": "Envoi en cours...",
       "successTitle": "Message envoyé !",
       "successDesc": "Merci, je vous réponds dans les meilleurs délais.",
-      "errorMsg": "Une erreur est survenue. Réessayez ou contactez-moi directement par email."
+      "errorMsg": "Une erreur est survenue. Réessayez ou contactez-moi directement par email.",
+      "newMessage": "Envoyer un autre message"
     },
     "validation": {
       "nameMin": "Le nom doit contenir au moins 2 caractères.",

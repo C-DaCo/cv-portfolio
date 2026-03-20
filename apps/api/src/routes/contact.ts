@@ -9,7 +9,7 @@ export const contactSchema = z.object({
   name:    z.string().trim().min(2, "Nom invalide."),
   email:   z.string().email("Email invalide."),
   subject: z.string().trim().min(5, "Sujet invalide."),
-  message: z.string().trim().min(20, "Message invalide."),
+  message: z.string().trim().min(20, "Message invalide.").max(2000, "Message trop long."),
 });
 
 export type ContactBody = z.infer<typeof contactSchema>;
@@ -22,11 +22,12 @@ router.post("/", async (req: Request, res: Response) => {
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
+  const from = process.env.FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>";
   const body = parsed.data;
 
   try {
     await resend.emails.send({
-      from: "Portfolio <onboarding@resend.dev>",
+      from,
       to: process.env.CONTACT_EMAIL!,
       replyTo: body.email,
       subject: `[Portfolio] ${body.subject}`,
@@ -52,10 +53,31 @@ router.post("/", async (req: Request, res: Response) => {
             </tr>
           </table>
           <hr style="margin: 24px 0; border: none; border-top: 1px solid #eee;" />
-          <p style="color: #999; font-size: 12px;">Envoyé depuis carole-rotton.dev</p>
+          <p style="color: #999; font-size: 12px;">Envoyé depuis le portfolio de Carole Rotton</p>
         </div>
       `,
     });
+
+    // Email de confirmation au recruteur — optionnel, ne bloque pas la réponse principale
+    // Nécessite un domaine vérifié dans Resend (FROM_EMAIL configuré) pour fonctionner en prod
+    if (process.env.FROM_EMAIL) {
+      resend.emails.send({
+        from,
+        to: body.email,
+        subject: `Votre message a bien été reçu — Carole Rotton`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #E8715A;">Merci pour votre message !</h2>
+            <p>Bonjour ${he.encode(body.name)},</p>
+            <p>J'ai bien reçu votre message concernant <strong>${he.encode(body.subject)}</strong> et je vous répondrai dans les plus brefs délais (généralement sous 48h).</p>
+            <p>À bientôt,<br/><strong>Carole Rotton</strong><br/>Développeuse Front-End React</p>
+            <hr style="margin: 24px 0; border: none; border-top: 1px solid #eee;" />
+            <p style="color: #999; font-size: 12px;">Cet email est un accusé de réception automatique. Merci de ne pas y répondre directement.</p>
+          </div>
+        `,
+      }).catch((err) => console.error("Confirmation email failed:", err));
+    }
+
     return res.status(200).json({ success: true, message: "Email envoyé avec succès." });
   } catch (err) {
     console.error("Erreur Resend:", err);

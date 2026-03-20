@@ -39,7 +39,7 @@ function EducationCard({ formation, index }: EducationCardProps) {
     >
       {/* Logo */}
       <div className={styles.logoWrap} aria-hidden="true">
-        {formation.logo ? (
+        {formation.logo && formation.url ? (
           <a href={formation.url} target="_blank" rel="noopener noreferrer">
             <img src={logo} alt={t(formation.school)} className={styles.logo} />
           </a>

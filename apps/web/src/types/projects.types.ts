@@ -27,7 +27,6 @@ export interface Project {
   link?: string;
   linkLabel?: string;
   github?: string;
-  iframeUrl?: string;
   year: string;
   tabs: ProjectTab[];
 }

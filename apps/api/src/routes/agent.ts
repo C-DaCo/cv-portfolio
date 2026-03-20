@@ -4,6 +4,8 @@ import { z } from "zod";
 
 const router = Router();
 
+const MODEL = "claude-sonnet-4-20250514";
+
 // ── Schéma de validation ──────────────────────────────────────────────────────
 
 export const agentSchema = z.object({
@@ -16,7 +18,7 @@ export const agentSchema = z.object({
         content: z.string().max(2000),
       })
     ).max(20).optional().default([]),
-  jobOffer: z.string().trim().optional(),
+  jobOffer: z.string().trim().max(5000, "Offre d'emploi trop longue.").optional(),
 });
 
 export type AgentBody = z.infer<typeof agentSchema>;
@@ -34,9 +36,9 @@ IDENTITÉ
 - Points forts : accessibilité (a11y), tests (Vitest/RTL), architecture propre, i18n
 
 EXPÉRIENCES
-- Maskott / Tactileo : développement d'une plateforme e-learning (React, TypeScript)
-- KTM Advance : intégration et développement frontend
-- Hippocad : développement web
+- Maskott / Tactileo (2023–2025, 2,5 ans) : développement from scratch d'une app web/mobile e-learning (React, TypeScript, Capacitor), migration Design System JS → TS, mise en conformité WCAG, outil de gestion d'abonnements full stack via API GAR (Éducation Nationale), contributions au moteur de recommandation de ressources. Équipe agile, CI/CD GitLab.
+- KTM Advance (2020–2022, 2 ans) : développement d'une bibliothèque de composants Angular pour modules e-learning (JS et TS), conception et livraison de 15+ modules pour grands comptes (Bouygues TP, TotalEnergies, PSA, Agreenium), refonte complète du back-office GRDF. Travail en autonomie sur plusieurs projets simultanés.
+- Hippocad (2018–2020, 3 ans) : création from scratch d'une app web mobile-first (ExtJS) de liaison soignants/famille remplaçant le carnet patient papier, développement de toutes les fonctionnalités front (auth, fiches patient, messagerie, responsive multi-profils), maintenance d'une app Android/Java. Seule développeuse front-end en binôme avec le back-end.
 
 FORMATIONS
 - OpenClassrooms : Développeur web
@@ -165,7 +167,7 @@ router.post("/", async (req: Request, res: Response) => {
 
   try {
     const response = await client.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: MODEL,
       max_tokens: 1024,
       system: systemMap[mode],
       messages,

@@ -13,8 +13,8 @@ export const cvData: CVData = {
     remote: true,
     photo: "/assets/photo.jpg",
     links: [
-      { platform: "github", url: "https://github.com/carole-rotton", label: "GitHub" },
-      { platform: "linkedin", url: "https://linkedin.com/in/carole-rotton", label: "LinkedIn" },
+      { platform: "github",   url: "https://github.com/C-DaCo",                                label: "GitHub"   },
+      { platform: "linkedin", url: "https://www.linkedin.com/in/carole-rotton-b09854b0",        label: "LinkedIn" },
     ],
   },
 

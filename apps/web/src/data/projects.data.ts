@@ -1,10 +1,14 @@
 import type { TFunction } from "i18next";
 import type { Project } from "@/types/projects.types";
 import tacktileo from "@assets/projects/Tactileo-mockup.jpg";
-import tacktiléoVideo from "@assets/projects/Video_Tactileo_Module.mp4";
+import tactiloVideo from "@assets/projects/Video_Tactileo_Module.mp4";
 import portfolioLight from "@assets/projects/Portfolio-Hero-Light.webp";
 import portfolioDark from "@assets/projects/Portfolio-Hero-Dark.webp";
 import weather from "@assets/projects/Weather-API.jpg";
+import mockupBrainboost from "@assets/projects/MockupBrainboost.png";
+import brainboostDesktop from "@assets/projects/BrainBoost-desktop.png";
+import brainboostTablet from "@assets/projects/BrainBoost-tablet.png";
+import brainboostMobile from "@assets/projects/BrainBoost-mobile.png";
 import { Theme } from "@hooks/useTheme";
 
 export const getProjects = (theme: Theme, t: TFunction): Project[] => [
@@ -23,11 +27,10 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
       { label: "Responsive Design", variant: "sand" },
     ],
     image: tacktileo,
-    video: tacktiléoVideo,
+    video: tactiloVideo,
     screenshots: [tacktileo],
     link: "https://www.maskott.com",
     linkLabel: t("projects.maskott.linkName"),
-    iframeUrl: "https://www.maskott.com",
     year: "2023 — 2025",
     tabs: [
       { id: "screenshots", label: t("projects.drawer.screenshots") },
@@ -56,6 +59,32 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
       { id: "screenshots", label: t("projects.drawer.screenshots") },
       { id: "archi", label: t("projects.drawer.archi") },
       { id: "tests", label: t("projects.drawer.tests") },
+    ],
+  },
+  {
+    id: "brainboost",
+    company: "Projet personnel · EdTech",
+    title: "BrainBoost — Flashcards & répétition espacée",
+    desc: t("projects.brainboost.desc"),
+    longDesc: t("projects.brainboost.longDesc"),
+    tags: [
+      { label: "Next.js", variant: "coral" },
+      { label: "TypeScript", variant: "coral" },
+      { label: "Prisma", variant: "sage" },
+      { label: "Claude API", variant: "mauve" },
+      { label: "Jest · Playwright", variant: "sage" },
+      { label: "WCAG", variant: "sand" },
+    ],
+    image: mockupBrainboost,
+    screenshots: [brainboostDesktop, brainboostTablet, brainboostMobile],
+    github: "https://github.com/C-DaCo/BrainBoost",
+    year: "2026",
+    link: "https://brain-boost-delta.vercel.app/",
+    linkLabel: "BrainBoost",
+    tabs: [
+      { id: "screenshots", label: t("projects.drawer.screenshots") },
+      { id: "tests", label: t("projects.drawer.tests") },
+      { id: "archi", label: t("projects.drawer.archi") },
     ],
   },
   {

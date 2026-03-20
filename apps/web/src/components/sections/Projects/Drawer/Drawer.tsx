@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { X, Film, Image, TestTube, Layers } from "lucide-react";
 import { ArchDiagramContent } from "../ArchDiagram/ArchDiagram";
+import { BrainBoostArchiContent } from "../ArchDiagram/BrainBoostArchiContent";
 import type { Project, ProjectTab } from "@/types/projects.types";
 import styles from "./Drawer.module.scss";
 import { TestDashboardContent } from "@pages/TestDashboard/TestDashboardContent";
+import { BrainBoostTestsStatic } from "@pages/TestDashboard/BrainBoostTestsStatic";
 import { useTranslation } from "react-i18next";
 
 // ── Icônes par onglet ─────────────────────────
@@ -75,18 +77,25 @@ function ScreenshotsTab({ project }: { project: Project }) {
     );
 }
 
-function TestsTab() {
+function TestsTab({ project }: { project: Project }) {
     return (
         <div className={styles.tabContent}>
-            <TestDashboardContent />
+            {project.id === "brainboost"
+                ? <BrainBoostTestsStatic />
+                : <TestDashboardContent />
+            }
         </div>
     );
 }
 
-function ArchiTab() {
-    return (<div className={styles.tabContent}>
-        <ArchDiagramContent />
-    </div>
+function ArchiTab({ project }: { project: Project }) {
+    return (
+        <div className={styles.tabContent}>
+            {project.id === "brainboost"
+                ? <BrainBoostArchiContent />
+                : <ArchDiagramContent />
+            }
+        </div>
     );
 }
 
@@ -143,8 +152,8 @@ export function Drawer({ project, onClose }: DrawerProps) {
         switch (activeTab) {
             case "screenshots": return <ScreenshotsTab project={project} />;
             case "video": return <VideoTab project={project} />;
-            case "archi": return <ArchiTab />;
-            case "tests": return <TestsTab />;
+            case "archi": return <ArchiTab project={project} />;
+            case "tests": return <TestsTab project={project} />;
             default: return null;
         }
     };

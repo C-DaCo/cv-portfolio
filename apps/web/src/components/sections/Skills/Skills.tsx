@@ -91,7 +91,7 @@ export function Skills() {
             <span
               key={skill.name}
               role="listitem"
-              aria-label={`${skill.name} — niveau ${skill.level} sur 5`}
+              aria-label={t("skills.levelAriaLabel", { name: skill.name, level: skill.level })}
               data-category={skill.category}
               className={`${styles.word} ${categoryColor[skill.category]}`}
               style={{

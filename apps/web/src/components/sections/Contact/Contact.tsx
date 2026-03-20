@@ -2,6 +2,7 @@ import { useState, useId } from "react";
 import styles from "./Contact.module.scss";
 import { useTranslation } from "react-i18next";
 import { Mail, Phone, MapPin, Github, Linkedin, MessageCircle } from "lucide-react";
+import { cvData } from "@data/cv.data";
 
 // ── Types ──────────────────────────────────────
 
@@ -26,7 +27,7 @@ type Status = "idle" | "loading" | "success" | "error";
 function validate(fields: FormFields, t: ReturnType<typeof useTranslation>['t']): FormErrors {
   const errors: FormErrors = {};
   if (fields.name.trim().length < 2) errors.name = t("contact.validation.nameMin");
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) errors.email = t("contact.validation.emailInvalid");
+  if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(fields.email)) errors.email = t("contact.validation.emailInvalid");
   if (fields.subject.trim().length < 5) errors.subject = t("contact.validation.subjectMin");
   if (fields.message.trim().length < 20) errors.message = t("contact.validation.messageMin");
   return errors;
@@ -79,6 +80,7 @@ export function Contact() {
       setStatus("success");
       setFields({ name: "", email: "", subject: "", message: "" });
       setErrors({});
+      setTouched({});
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -103,64 +105,65 @@ export function Contact() {
         <p className={styles.desc}>{t("contact.desc")}</p>
 
         {/* Infos de contact */}
-        <ul className={styles.infoList} role="list">
-          <li className={styles.infoItem}>
-            <span className={styles.infoIcon} aria-hidden="true">
-              <Mail size={16} strokeWidth={1.5} />
-            </span>
-            <a href="mailto:caroledacosta.rotton@gmail.com" className={styles.infoLink}>
-              caroledacosta.rotton@gmail.com
-            </a>
-          </li>
-          <li className={styles.infoItem}>
-            <span className={styles.infoIcon} aria-hidden="true">
-              <Phone size={16} strokeWidth={1.5} />
-            </span>
-            <a href="tel:+33687727549" className={styles.infoLink}>
-              06 87 72 75 49
-            </a>
-          </li>
-          <li className={styles.infoItem}>
-            <span className={styles.infoIcon} aria-hidden="true">
-              <MapPin size={16} strokeWidth={1.5} />
-            </span>
-            <span>France · Full Remote</span>
-          </li>
-        </ul>
+        {(() => {
+          const { email, phone, location, links } = cvData.personalInfo;
+          const github   = links.find(l => l.platform === "github");
+          const linkedin = links.find(l => l.platform === "linkedin");
+          const whatsapp = phone.replace(/\s/g, "").replace(/^0/, "33");
+          return (
+            <>
+              <ul className={styles.infoList} role="list">
+                <li className={styles.infoItem}>
+                  <span className={styles.infoIcon} aria-hidden="true">
+                    <Mail size={16} strokeWidth={1.5} />
+                  </span>
+                  <a href={`mailto:${email}`} className={styles.infoLink}>{email}</a>
+                </li>
+                <li className={styles.infoItem}>
+                  <span className={styles.infoIcon} aria-hidden="true">
+                    <Phone size={16} strokeWidth={1.5} />
+                  </span>
+                  <a href={`tel:+${whatsapp}`} className={styles.infoLink}>{phone}</a>
+                </li>
+                <li className={styles.infoItem}>
+                  <span className={styles.infoIcon} aria-hidden="true">
+                    <MapPin size={16} strokeWidth={1.5} />
+                  </span>
+                  <span>{location} · Full Remote</span>
+                </li>
+              </ul>
 
-        {/* Liens sociaux */}
-        <div className={styles.socials}>
-          
-            <a href="https://github.com/C-DaCo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialLink}
-            aria-label="Profil GitHub de Carole Rotton (nouvelle fenêtre)"
-          >
-            <Github size={18} strokeWidth={1.5} />
-            <span>GitHub</span>
-          </a>
-          
-           <a  href="https://www.linkedin.com/in/carole-rotton-b09854b0"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialLink}
-            aria-label="Profil LinkedIn de Carole Rotton (nouvelle fenêtre)"
-          >
-            <Linkedin size={18} strokeWidth={1.5} />
-            <span>LinkedIn</span>
-          </a>
-          
-            <a href="https://wa.me/33687727549"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${styles.socialLink} ${styles.whatsapp}`}
-            aria-label="Contacter Carole sur WhatsApp (nouvelle fenêtre)"
-          >
-            <MessageCircle size={18} strokeWidth={1.5} />
-            <span>WhatsApp</span>
-          </a>
-        </div>
+              {/* Liens sociaux */}
+              <div className={styles.socials}>
+                {github && (
+                  <a href={github.url} target="_blank" rel="noopener noreferrer"
+                    className={styles.socialLink}
+                    aria-label="Profil GitHub de Carole Rotton (nouvelle fenêtre)"
+                  >
+                    <Github size={18} strokeWidth={1.5} />
+                    <span>GitHub</span>
+                  </a>
+                )}
+                {linkedin && (
+                  <a href={linkedin.url} target="_blank" rel="noopener noreferrer"
+                    className={styles.socialLink}
+                    aria-label="Profil LinkedIn de Carole Rotton (nouvelle fenêtre)"
+                  >
+                    <Linkedin size={18} strokeWidth={1.5} />
+                    <span>LinkedIn</span>
+                  </a>
+                )}
+                <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer"
+                  className={`${styles.socialLink} ${styles.whatsapp}`}
+                  aria-label="Contacter Carole sur WhatsApp (nouvelle fenêtre)"
+                >
+                  <MessageCircle size={18} strokeWidth={1.5} />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </>
+          );
+        })()}
       </div>
 
       {/* ── Droite : formulaire ── */}
@@ -174,6 +177,13 @@ export function Contact() {
                 <strong>{t("contact.form.successTitle")}</strong>
                 <p>{t("contact.form.successDesc")}</p>
               </div>
+              <button
+                type="button"
+                className={styles.newMessageBtn}
+                onClick={() => setStatus("idle")}
+              >
+                {t("contact.form.newMessage")}
+              </button>
             </div>
           )}
 
@@ -183,7 +193,7 @@ export function Contact() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} noValidate aria-label="Formulaire de contact">
+          <form onSubmit={handleSubmit} noValidate aria-label={t("contact.formAriaLabel")}>
 
             <div className={styles.field}>
               <label htmlFor={`${uid}-name`} className={styles.label}>
@@ -253,9 +263,11 @@ export function Contact() {
               {hasError("message") && (
                 <p id={`${uid}-message-err`} className={styles.fieldError} role="alert">{errors.message}</p>
               )}
-              <p className={styles.charCount} aria-live="polite">
-                {fields.message.length} / 20 {t("contact.form.charMin")}
-              </p>
+              {touched.message && (
+                <p className={styles.charCount} aria-live="polite">
+                  {fields.message.length} / 20 {t("contact.form.charMin")}
+                </p>
+              )}
             </div>
 
             <button

@@ -20,6 +20,8 @@
   },
   "hero": {
     "available": "Available · Full Remote",
+    "techAriaLabel": "Key technologies",
+    "statsAriaLabel": "By the numbers",
     "rolePart1": "Developer",
     "rolePart2": "Front-End",
     "summary": "Front-End React Developer with 9 years of experience, including 5 years fully remote in agile teams. I've built applications used by thousands of users, treating WCAG accessibility as a requirement, not an afterthought. Autonomous, proactive and comfortable working solo or in a team — I love turning complex needs into simple, solid and inclusive interfaces.",
@@ -82,6 +84,7 @@
   },
   "skills": {
     "eyebrow": "✦ Expertise",
+    "levelAriaLabel": "{{name}} — level {{level}} out of 5",
     "title": "Skills",
     "subtitle": "Broad spectrum, front-end expertise.",
     "cloudAriaLabel": "Skills cloud",
@@ -138,6 +141,10 @@
     "weather": {
       "desc": "Connected weather station on Raspberry Pi — real-time temperature, humidity and pressure readings.",
       "longDesc": "IoT project currently in development. The station will be connected to the portfolio to display live weather data."
+    },
+    "brainboost": {
+      "desc": "Flashcard app with spaced repetition (SM-2 algorithm), AI-powered card generation from handwritten notes, multiple study modes and push notifications.",
+      "longDesc": "Next.js 15 App Router, Prisma + SQLite, Clerk authentication, i18n fr/en, Claude AI API for generating flashcards from photo scans. SM-2 algorithm implemented from scratch, 5 study modes (flashcards, MCQ, written test, match, drag-drop), VAPID push notifications, seasonal themes. 233 Jest tests (89.6% coverage) + 20 Playwright E2E tests with WCAG AA validation."
     }
   },
   "arch": {
@@ -269,6 +276,7 @@
   },
   "contact": {
     "eyebrow": "✦ Contact",
+    "formAriaLabel": "Contact form",
     "title": "Let's work",
     "titleAccent": "together",
     "desc": "An opportunity, a project, a question? I read all my messages and reply within 48h.",
@@ -288,49 +296,14 @@
       "submitting": "Sending...",
       "successTitle": "Message sent!",
       "successDesc": "Thank you, I'll get back to you shortly.",
-      "errorMsg": "An error occurred. Please try again or contact me directly by email."
+      "errorMsg": "An error occurred. Please try again or contact me directly by email.",
+      "newMessage": "Send another message"
     },
     "validation": {
       "nameMin": "Name must be at least 2 characters.",
       "emailInvalid": "Invalid email address.",
       "subjectMin": "Subject must be at least 5 characters.",
       "messageMin": "Message must be at least 20 characters."
-    },
-    "agent": {
-      "title": "AI Assistant",
-      "desc": "Ask questions about my profile or generate a personalised cover letter.",
-      "tabsLabel": "Assistant mode",
-      "tabs": {
-        "chat": "CV Q&A",
-        "motivation": "Cover letter"
-      },
-      "featureList": {
-        "context": "CV context injected as system prompt",
-        "history": "Multi-turn conversation history",
-        "modes": "2 modes: Q&A and letter generation",
-        "model": "claude-sonnet-4"
-      },
-      "offerLabel": "Job offer",
-      "offerPlaceholder": "Paste the job offer content here...",
-      "emptyChat": "Ask a question about my profile, skills or experience.",
-      "emptyMotivation": "Paste a job offer above, then send your message.",
-      "messagesLabel": "Conversation with the assistant",
-      "inputLabel": "Your message",
-      "inputPlaceholderChat": "E.g. What is your React experience?",
-      "inputPlaceholderMotivation": "E.g. Generate a cover letter for this role",
-      "inputHint": "Enter to send · Shift+Enter for new line",
-      "send": "Send",
-      "loading": "Assistant is typing…",
-      "errorNoOffer": "Please paste a job offer before sending.",
-      "errorGeneric": "Something went wrong.",
-      "errorNetwork": "Unable to reach the API.",
-      "tech": {
-        "toggle": "View technical details",
-        "systemLabel": "System prompt",
-        "historyLabel": "Raw history",
-        "systemChat": "You are the AI assistant embedded in Carole Rotton's portfolio. You answer recruiters' questions about her profile, skills and experience. Full CV context injected server-side.",
-        "systemMotivation": "You generate personalised cover letters for Carole based on a job offer. Tone: professional and authentic. Structure: hook / experience / motivation / conclusion."
-      }
     }
   },
   "footer": {
@@ -343,6 +316,6 @@
     "french": "French",
     "english": "English",
     "native": "Native",
-    "intermediate": "Intermediate"
+    "intermediate": "Intermediate — B2"
   }
 }

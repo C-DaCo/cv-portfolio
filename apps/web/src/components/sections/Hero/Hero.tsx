@@ -110,7 +110,7 @@ export function Hero() {
           <div
             className={`${styles.tags} ${!prefersReduced ? styles.animFadeUp : ""}`}
             style={{ animationDelay: "0.65s" }}
-            aria-label="Technologies maîtrisées"
+            aria-label={t("hero.techAriaLabel")}
             role="list"
           >
             {allTags.map((name, i) => (
@@ -169,7 +169,7 @@ export function Hero() {
       <footer
         className={`${styles.statsBar} ${!prefersReduced ? styles.animFadeUp : ""}`}
         style={{ animationDelay: "1s" }}
-        aria-label="En chiffres"
+        aria-label={t("hero.statsAriaLabel")}
       >
         <div className={styles.stats}>
           {stats.map(({ id, num, label }, i) => (
