@@ -20,4 +20,10 @@ export default defineConfig({
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
     { name: "firefox",  use: { ...devices["Desktop Firefox"] } },
   ],
+
+  webServer: {
+    command: "yarn dev",
+    url: "http://localhost:5173",
+    reuseExistingServer: !process.env.CI,
+  },
 });

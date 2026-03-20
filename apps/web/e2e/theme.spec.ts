@@ -23,11 +23,13 @@ test.describe("Dark / light mode toggle", () => {
     expect(newText).not.toBe(initialText);
   });
 
-  test("theme preference is saved to localStorage", async ({ page }) => {
+  test("clicking theme toggle updates data-theme on <html>", async ({ page }) => {
     const toggle = page.locator("nav button").filter({ hasText: /clair|sombre/i }).first();
     await toggle.click();
 
-    const saved = await page.evaluate(() => localStorage.getItem("theme"));
-    expect(saved).toMatch(/^(light|dark)$/);
+    const dataTheme = await page.evaluate(() =>
+      document.documentElement.getAttribute("data-theme")
+    );
+    expect(dataTheme).toMatch(/^(light|dark)$/);
   });
 });
