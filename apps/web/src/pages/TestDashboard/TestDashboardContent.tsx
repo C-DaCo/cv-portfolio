@@ -3,7 +3,39 @@ import { CheckCircle, XCircle, Clock, Shield } from "lucide-react";
 import { parseDesc } from "@tests/test-categories";
 import styles from "./TestDashboard.module.scss";
 
-// ── Types ─────────────────────────────────────
+// ── Types Playwright ──────────────────────────
+
+interface PlaywrightTestRun {
+  projectName: string;
+  status: "passed" | "failed" | "skipped" | "timedOut";
+  duration: number;
+}
+
+interface PlaywrightSpec {
+  title: string;
+  ok: boolean;
+  tests: PlaywrightTestRun[];
+}
+
+interface PlaywrightSuite {
+  title: string;
+  file?: string;
+  suites?: PlaywrightSuite[];
+  specs?: PlaywrightSpec[];
+}
+
+export interface PlaywrightResults {
+  suites: PlaywrightSuite[];
+  stats: {
+    startTime: string;
+    duration: number;
+    expected: number;
+    unexpected: number;
+    skipped: number;
+  };
+}
+
+// ── Types Vitest ───────────────────────────────
 
 export interface AssertionResult {
   title: string;
@@ -101,7 +133,110 @@ interface ScopeGroup {
   describes: ParsedDescribe[];
 }
 
-// ── Parsing des résultats ─────────────────────
+// ── Parsing E2E ───────────────────────────────
+
+interface E2EFile {
+  name: string;
+  specs: { title: string; ok: boolean; browsers: string[] }[];
+  passed: number;
+  total: number;
+}
+
+function collectSpecs(suite: PlaywrightSuite): PlaywrightSpec[] {
+  const specs: PlaywrightSpec[] = [...(suite.specs ?? [])];
+  for (const child of suite.suites ?? []) {
+    specs.push(...collectSpecs(child));
+  }
+  return specs;
+}
+
+function parseE2EResults(results: PlaywrightResults): E2EFile[] {
+  return results.suites.map((fileSuite) => {
+    const specs = collectSpecs(fileSuite);
+    return {
+      name: fileSuite.title.replace(/^e2e\//, ""),
+      specs: specs.map((s) => ({
+        title: s.title,
+        ok: s.ok,
+        browsers: [...new Set(s.tests.map((t) => t.projectName))],
+      })),
+      passed: specs.filter((s) => s.ok).length,
+      total: specs.length,
+    };
+  });
+}
+
+// ── Section E2E ───────────────────────────────
+
+function E2ESection({ results }: { results: PlaywrightResults }) {
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const files = parseE2EResults(results);
+  const totalSpecs = files.reduce((s, f) => s + f.total, 0);
+  const passedSpecs = files.reduce((s, f) => s + f.passed, 0);
+  const browsers = [...new Set(
+    results.suites.flatMap((s) => collectSpecs(s)).flatMap((s) => s.tests.map((t) => t.projectName))
+  )];
+  const allPassed = results.stats.unexpected === 0;
+
+  return (
+    <section className={styles.testColumnsSection} aria-labelledby="e2e-title">
+      <h2 id="e2e-title" className={styles.sectionTitle}>
+        Tests E2E — Playwright
+        <span className={styles.sectionCount}>{browsers.join(" · ")}</span>
+      </h2>
+
+      <div className={`${styles.columnHeader} ${styles.colAccentA11y}`} style={{ marginBottom: "0.75rem", borderRadius: "6px" }}>
+        <span className={styles.columnIcon}><Shield size={16} strokeWidth={1.5} /></span>
+        <span className={styles.columnLabel}>
+          {files.length} fichiers · {totalSpecs} scénarios
+        </span>
+        <span className={styles.columnScore}>{passedSpecs}/{totalSpecs}</span>
+        <span className={`${styles.columnBadge} ${allPassed ? styles.badgePass : styles.badgeFail}`}>
+          {allPassed ? "✓ OK" : "✗ Échec"}
+        </span>
+      </div>
+
+      <div className={styles.suitesList}>
+        {files.map((file) => {
+          const isExpanded = expanded === file.name;
+          const allOk = file.passed === file.total;
+          return (
+            <div key={file.name} className={styles.suiteCard}>
+              <button
+                className={styles.suiteHeader}
+                onClick={() => setExpanded(isExpanded ? null : file.name)}
+                aria-expanded={isExpanded}
+              >
+                <span className={styles.suiteStatus}>
+                  {allOk
+                    ? <CheckCircle size={14} strokeWidth={2} className={styles.iconPass} />
+                    : <XCircle size={14} strokeWidth={2} className={styles.iconFail} />
+                  }
+                </span>
+                <span className={styles.suiteName}>{file.name}</span>
+                <span className={styles.suiteCount}>{file.passed}/{file.total}</span>
+                <span className={styles.suiteChevron} aria-hidden="true">{isExpanded ? "▴" : "▾"}</span>
+              </button>
+              {isExpanded && (
+                <ul className={styles.testList} role="list">
+                  {file.specs.map((spec, i) => (
+                    <li key={i} className={`${styles.testItem} ${!spec.ok ? styles.testFailed : ""}`}>
+                      <span className={styles.testIcon} aria-hidden="true">{spec.ok ? "✓" : "✗"}</span>
+                      <span className={styles.testTitle}>{spec.title}</span>
+                      <span className={styles.testDuration}>{spec.browsers.join(" · ")}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+// ── Parsing des résultats Vitest ───────────────
 
 function parseResults(testResults: TestSuite[]): {
   rendu: ScopeGroup[];
@@ -273,6 +408,7 @@ function TestColumnPanel({ label, icon, total, passed, groups, accentClass }: Te
 export function TestDashboardContent() {
   const [tests, setTests] = useState<TestResults | null>(null);
   const [coverage, setCoverage] = useState<CoverageSummary | null>(null);
+  const [e2e, setE2e] = useState<PlaywrightResults | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [expandedSuite, setExpandedSuite] = useState<string | null>(null);
@@ -281,10 +417,12 @@ export function TestDashboardContent() {
     Promise.all([
       fetch("/test-results.json").then(r => r.json()),
       fetch("/coverage/coverage-summary.json").then(r => r.json()),
+      fetch("/e2e-results.json").then(r => r.ok ? r.json() : null).catch(() => null),
     ])
-      .then(([t, c]) => {
+      .then(([t, c, e]) => {
         setTests(t);
         setCoverage(c);
+        setE2e(e);
         setLoading(false);
       })
       .catch(() => {
@@ -434,6 +572,9 @@ export function TestDashboardContent() {
         )}
       </section>
 
+      {/* ── Tests E2E ── */}
+      {e2e && <E2ESection results={e2e} />}
+
       {/* ── Couverture globale ── */}
       <section className={styles.section} aria-labelledby="coverage-title-inline">
         <h2 id="coverage-title-inline" className={styles.sectionTitle}>Couverture de code</h2>
@@ -497,7 +638,9 @@ export function TestDashboardContent() {
       </section>
 
       <p className={styles.footer}>
-        Généré au build · Vitest {tests.numTotalTests} tests · 94 tests E2E Playwright (Chromium + Firefox) · {new Date(tests.startTime).toLocaleDateString("fr-FR")}
+        Vitest {tests.numTotalTests} tests
+        {e2e && ` · E2E ${e2e.stats.expected} runs Playwright`}
+        {" · "}{new Date(tests.startTime).toLocaleDateString("fr-FR")}
       </p>
 
     </div>
