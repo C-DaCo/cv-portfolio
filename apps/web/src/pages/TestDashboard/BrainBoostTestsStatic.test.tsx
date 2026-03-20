@@ -7,19 +7,19 @@ import { desc, TestScope, TestType } from "@tests/test-categories";
 describe(desc(TestScope.PAGE, "BrainBoostTestsStatic", TestType.RENDU), () => {
   it("affiche le nombre de tests Jest", () => {
     render(<BrainBoostTestsStatic />);
-    expect(screen.getByText("233")).toBeInTheDocument();
+    expect(screen.getByText("282")).toBeInTheDocument();
     expect(screen.getByText("Tests Jest")).toBeInTheDocument();
   });
 
   it("affiche la couverture globale", () => {
     render(<BrainBoostTestsStatic />);
-    expect(screen.getAllByText("89.6%").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("91.7%").length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText("Couverture")).toBeInTheDocument();
   });
 
   it("affiche le nombre de tests E2E", () => {
     render(<BrainBoostTestsStatic />);
-    expect(screen.getByText("20")).toBeInTheDocument();
+    expect(screen.getByText("29")).toBeInTheDocument();
     expect(screen.getByText("Tests E2E")).toBeInTheDocument();
   });
 

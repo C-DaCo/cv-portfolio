@@ -2,8 +2,8 @@ import { CheckCircle, Shield, GitBranch, TestTube } from "lucide-react";
 import styles from "./TestDashboard.module.scss";
 
 const COVERAGE = [
-  { metric: "lines",      pct: 89.6 },
-  { metric: "statements", pct: 88.4 },
+  { metric: "lines",      pct: 93.0 },
+  { metric: "statements", pct: 91.7 },
   { metric: "functions",  pct: 87.1 },
   { metric: "branches",   pct: 82.3 },
 ];
@@ -30,7 +30,7 @@ const SUITES = [
   {
     label: "E2E · Playwright",
     icon: <Shield size={14} strokeWidth={1.5} />,
-    items: ["Auth Clerk sign-in", "Navigation matières", "Révision flashcard", "Accessibilité WCAG AA (axe-core)"],
+    items: ["Auth Clerk (sign-in token bypass)", "A11y WCAG AA (axe-core)", "Navbar & ScanModal", "Pages métier (révision, stats)"],
     color: styles.colAccentA11y,
   },
 ];
@@ -49,17 +49,17 @@ export function BrainBoostTestsStatic() {
       <section className={styles.statsGrid} aria-label="Résumé des tests BrainBoost">
         <div className={styles.statCard}>
           <CheckCircle size={20} strokeWidth={1.5} className={styles.iconPass} />
-          <span className={styles.statNum}>233</span>
+          <span className={styles.statNum}>282</span>
           <span className={styles.statLabel}>Tests Jest</span>
         </div>
         <div className={styles.statCard}>
           <Shield size={20} strokeWidth={1.5} className={styles.iconCoverage} />
-          <span className={styles.statNum}>89.6%</span>
+          <span className={styles.statNum}>91.7%</span>
           <span className={styles.statLabel}>Couverture</span>
         </div>
         <div className={styles.statCard}>
           <GitBranch size={20} strokeWidth={1.5} className={styles.iconTime} />
-          <span className={styles.statNum}>20</span>
+          <span className={styles.statNum}>29</span>
           <span className={styles.statLabel}>Tests E2E</span>
         </div>
         <div className={styles.statCard}>
@@ -127,7 +127,7 @@ export function BrainBoostTestsStatic() {
       </section>
 
       <p className={styles.footer}>
-        Jest 89.6% coverage · 20 tests E2E Playwright · WCAG AA validé axe-core
+        Jest 91.7% coverage · 29 tests E2E Playwright · WCAG AA validé axe-core
       </p>
     </div>
   );

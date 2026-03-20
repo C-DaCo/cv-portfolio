@@ -497,7 +497,7 @@ export function TestDashboardContent() {
       </section>
 
       <p className={styles.footer}>
-        Généré au build · Vitest {tests.numTotalTests} tests · {new Date(tests.startTime).toLocaleDateString("fr-FR")}
+        Généré au build · Vitest {tests.numTotalTests} tests · 94 tests E2E Playwright (Chromium + Firefox) · {new Date(tests.startTime).toLocaleDateString("fr-FR")}
       </p>
 
     </div>
