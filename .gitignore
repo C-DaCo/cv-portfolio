@@ -11,3 +11,6 @@ playwright-report/
 .vite/
 *.log
 .lighthouseci/
+.claude/
+apps/web/test-results/
+scripts/fonts/
