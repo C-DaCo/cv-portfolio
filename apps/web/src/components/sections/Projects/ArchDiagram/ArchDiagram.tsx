@@ -59,7 +59,7 @@ function StructureNode({ node, depth = 0 }: { node: ArchNode; depth?: number }) 
       </button>
       {hasChildren && open && (
         <div className={styles.treeChildren}>
-          {node.children.map((child: ArchNode) => (
+          {node.children!.map((child: ArchNode) => (
             <StructureNode key={child.name} node={child} depth={depth + 1} />
           ))}
         </div>
