@@ -15,9 +15,9 @@ describe(desc(TestScope.UI, "Button", TestType.RENDU), () => {
     expect(screen.getByRole("button").className).toMatch(/primary/);
   });
 
-  it("applique la variante outline", () => {
-    render(<Button variant="outline">Outline</Button>);
-    expect(screen.getByRole("button").className).toMatch(/outline/);
+  it("applique la variante secondary", () => {
+    render(<Button variant="secondary">Outline</Button>);
+    expect(screen.getByRole("button").className).toMatch(/secondary/);
   });
 
   it("est désactivé avec disabled", () => {
@@ -46,9 +46,9 @@ describe(desc(TestScope.UI, "Button", TestType.RENDU), () => {
     expect(link).toHaveAttribute("href", "/test");
   });
 
-  it("applique la variante outline sur <a>", () => {
-    render(<Button as="a" href="#" variant="outline">Lien outline</Button>);
-    expect(screen.getByRole("link").className).toMatch(/outline/);
+  it("applique la variante secondary sur <a>", () => {
+    render(<Button as="a" href="#" variant="secondary">Lien secondary</Button>);
+    expect(screen.getByRole("link").className).toMatch(/secondary/);
   });
 });
 
@@ -58,8 +58,8 @@ describe(desc(TestScope.UI, "Button", TestType.A11Y), () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("n'a pas de violations (outline)", async () => {
-    const { container } = render(<Button variant="outline">Outline</Button>);
+  it("n'a pas de violations (secondary)", async () => {
+    const { container } = render(<Button variant="secondary">Outline</Button>);
     expect(await axe(container)).toHaveNoViolations();
   });
 

@@ -3,6 +3,82 @@ import { CheckCircle, XCircle, Clock, Shield } from "lucide-react";
 import { parseDesc } from "@tests/test-categories";
 import styles from "./TestDashboard.module.scss";
 
+// ── Types Lighthouse ──────────────────────────
+
+export interface LighthouseScores {
+  date: string;
+  scores: {
+    performance:   number;
+    accessibility: number;
+    bestPractices: number;
+    seo:           number;
+  };
+}
+
+const LH_THRESHOLDS: Record<keyof LighthouseScores["scores"], number> = {
+  performance:   90,
+  accessibility: 95,
+  bestPractices: 90,
+  seo:           90,
+};
+
+const LH_LABELS: Record<keyof LighthouseScores["scores"], string> = {
+  performance:   "Performance",
+  accessibility: "Accessibilité",
+  bestPractices: "Best Practices",
+  seo:           "SEO",
+};
+
+function getLhColor(score: number, threshold: number): string {
+  if (score >= threshold)       return "high";
+  if (score >= threshold - 10)  return "mid";
+  return "low";
+}
+
+function LighthouseSection({ data }: { data: LighthouseScores }) {
+  const keys = Object.keys(LH_THRESHOLDS) as (keyof LighthouseScores["scores"])[];
+  const allPass = keys.every(k => data.scores[k] >= LH_THRESHOLDS[k]);
+
+  return (
+    <section className={styles.section} aria-labelledby="lh-title">
+      <h2 id="lh-title" className={styles.sectionTitle}>
+        Audit Lighthouse
+        <span className={styles.sectionCount}>{data.date}</span>
+        <span className={`${styles.lhBadge} ${allPass ? styles.badgePass : styles.badgeFail}`}>
+          {allPass ? "✓ Tous les seuils" : "✗ Seuil non atteint"}
+        </span>
+      </h2>
+      <div className={styles.lhGrid}>
+        {keys.map((key) => {
+          const score = data.scores[key];
+          const threshold = LH_THRESHOLDS[key];
+          const color = getLhColor(score, threshold);
+          return (
+            <div key={key} className={styles.lhCard}>
+              <span className={`${styles.lhScore} ${styles[color]}`}>{score}</span>
+              <span className={styles.lhLabel}>{LH_LABELS[key]}</span>
+              <div
+                className={styles.progressBar}
+                role="progressbar"
+                aria-valuenow={score}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label={`${LH_LABELS[key]} : ${score}/100`}
+              >
+                <div
+                  className={`${styles.progressFill} ${styles[color]}`}
+                  style={{ width: `${score}%` }}
+                />
+              </div>
+              <span className={styles.lhThreshold}>seuil {threshold}</span>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 // ── Types Playwright ──────────────────────────
 
 interface PlaywrightTestRun {
@@ -409,20 +485,23 @@ export function TestDashboardContent() {
   const [tests, setTests] = useState<TestResults | null>(null);
   const [coverage, setCoverage] = useState<CoverageSummary | null>(null);
   const [e2e, setE2e] = useState<PlaywrightResults | null>(null);
+  const [lh, setLh] = useState<LighthouseScores | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [expandedSuite, setExpandedSuite] = useState<string | null>(null);
 
   useEffect(() => {
     Promise.all([
-      fetch("/test-results.json").then(r => r.json()),
-      fetch("/coverage/coverage-summary.json").then(r => r.json()),
+      fetch("/test-results.json").then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch("/coverage/coverage-summary.json").then(r => r.ok ? r.json() : null).catch(() => null),
       fetch("/e2e-results.json").then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch("/lighthouse-scores.json").then(r => r.ok ? r.json() : null).catch(() => null),
     ])
-      .then(([t, c, e]) => {
+      .then(([t, c, e, l]) => {
         setTests(t);
         setCoverage(c);
         setE2e(e);
+        setLh(l);
         setLoading(false);
       })
       .catch(() => {
@@ -437,7 +516,7 @@ export function TestDashboardContent() {
     </div>
   );
 
-  if (error || !tests || !coverage) return (
+  if (error || !tests) return (
     <div className={styles.error}>
       <p>{error ?? "Données indisponibles."}</p>
     </div>
@@ -447,10 +526,12 @@ export function TestDashboardContent() {
     (acc, s) => acc + (s.endTime - s.startTime), 0
   );
 
-  const coverageFiles = Object.entries(coverage)
-    .filter(([key]) => key !== "total")
-    .map(([key, val]) => ({ name: getFileName(key), ...val }))
-    .sort((a, b) => a.lines.pct - b.lines.pct);
+  const coverageFiles = coverage
+    ? Object.entries(coverage)
+        .filter(([key]) => key !== "total")
+        .map(([key, val]) => ({ name: getFileName(key), ...val }))
+        .sort((a, b) => a.lines.pct - b.lines.pct)
+    : [];
 
   const { rendu, a11y, other, renduTotal, renduPassed, a11yTotal, a11yPassed } =
     parseResults(tests.testResults);
@@ -470,11 +551,13 @@ export function TestDashboardContent() {
           <span className={styles.statNum}>{tests.numFailedTests}</span>
           <span className={styles.statLabel}>Tests échoués</span>
         </div>
-        <div className={styles.statCard}>
-          <Shield size={20} strokeWidth={1.5} className={styles.iconCoverage} />
-          <span className={styles.statNum}>{coverage.total.lines.pct.toFixed(0)}%</span>
-          <span className={styles.statLabel}>Couverture lignes</span>
-        </div>
+        {coverage && (
+          <div className={styles.statCard}>
+            <Shield size={20} strokeWidth={1.5} className={styles.iconCoverage} />
+            <span className={styles.statNum}>{coverage.total.lines.pct.toFixed(0)}%</span>
+            <span className={styles.statLabel}>Couverture lignes</span>
+          </div>
+        )}
         <div className={styles.statCard}>
           <Clock size={20} strokeWidth={1.5} className={styles.iconTime} />
           <span className={styles.statNum}>{formatDuration(totalDuration)}</span>
@@ -575,7 +658,11 @@ export function TestDashboardContent() {
       {/* ── Tests E2E ── */}
       {e2e && <E2ESection results={e2e} />}
 
+      {/* ── Audit Lighthouse ── */}
+      {lh && <LighthouseSection data={lh} />}
+
       {/* ── Couverture globale ── */}
+      {coverage && (
       <section className={styles.section} aria-labelledby="coverage-title-inline">
         <h2 id="coverage-title-inline" className={styles.sectionTitle}>Couverture de code</h2>
         <div className={styles.coverageGrid}>
@@ -587,10 +674,10 @@ export function TestDashboardContent() {
                   {coverage.total[metric].pct.toFixed(1)}%
                 </span>
               </div>
-              <div className={styles.progressBar} 
+              <div className={styles.progressBar}
                 role="progressbar"
                 aria-valuenow={coverage.total[metric].pct}
-                aria-valuemin={0} 
+                aria-valuemin={0}
                 aria-valuemax={100}
                 aria-label={`Couverture ${metric} : ${coverage.total[metric].pct.toFixed(1)}%`}
               >
@@ -606,8 +693,10 @@ export function TestDashboardContent() {
           ))}
         </div>
       </section>
+      )}
 
       {/* ── Couverture par fichier ── */}
+      {coverage && coverageFiles.length > 0 && (
       <section className={styles.section} aria-labelledby="files-title-inline">
         <h2 id="files-title-inline" className={styles.sectionTitle}>
           Couverture par fichier
@@ -636,10 +725,12 @@ export function TestDashboardContent() {
           ))}
         </div>
       </section>
+      )}
 
       <p className={styles.footer}>
         Vitest {tests.numTotalTests} tests
         {e2e && ` · E2E ${e2e.stats.expected} runs Playwright`}
+        {lh && ` · Lighthouse ${lh.date}`}
         {" · "}{new Date(tests.startTime).toLocaleDateString("fr-FR")}
       </p>
 

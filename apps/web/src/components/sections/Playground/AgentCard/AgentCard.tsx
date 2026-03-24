@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { PoemIllustration } from "./PoemIllustration";
 import type { PoemData } from "./poem.utils";
+import { Button } from "@components/ui/Button/Button";
 import styles from "./AgentCard.module.scss";
 
 type Mode = "chat" | "poem" | "motivation";
@@ -225,10 +226,10 @@ export function AgentCard({ visible }: AgentCardProps) {
           onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown}
           placeholder={inputPlaceholder} rows={2} disabled={isLoading} aria-describedby="agent-hint" />
         <p id="agent-hint" className={styles.inputHint}>{t("playground.agent.inputHint")}</p>
-        <button className={styles.sendBtn} onClick={handleSubmit}
+        <Button className={styles.sendBtn} onClick={handleSubmit}
           disabled={isLoading || !input.trim()} aria-label={t("playground.agent.send")}>
           {t("playground.agent.send")} <span aria-hidden="true">→</span>
-        </button>
+        </Button>
       </div>
 
       <div className={styles.techToggleWrapper}>

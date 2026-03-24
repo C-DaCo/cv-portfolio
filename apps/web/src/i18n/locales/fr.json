@@ -125,7 +125,7 @@
       "video": "Vidéo",
       "screenshots": "Screenshots",
       "live": "Site live",
-      "tests": "Tests",
+      "tests": "Tests & Audit",
       "archi": "Architecture",
       "liveBlocked": "Ce site ne peut pas être affiché directement ici pour des raisons de sécurité.",
       "liveOpen": "Ouvrir dans un nouvel onglet"
@@ -293,6 +293,13 @@
       "messagePlaceholder": "Dites-moi tout...",
       "charCount": "{{count}} / 20 caractères minimum",
       "charMin": "caractères minimum",
+      "required": "* Champs obligatoires",
+      "hint": {
+        "name": "2 caractères minimum",
+        "email": "Format : vous@exemple.com",
+        "subject": "5 caractères minimum",
+        "message": "20 caractères minimum"
+      },
       "submit": "Envoyer le message",
       "submitting": "Envoi en cours...",
       "successTitle": "Message envoyé !",
@@ -302,7 +309,7 @@
     },
     "validation": {
       "nameMin": "Le nom doit contenir au moins 2 caractères.",
-      "emailInvalid": "Adresse email invalide.",
+      "emailInvalid": "Adresse email invalide. Format attendu : vous@exemple.com",
       "subjectMin": "Le sujet doit contenir au moins 5 caractères.",
       "messageMin": "Le message doit contenir au moins 20 caractères."
     }

@@ -2,8 +2,6 @@ import type { TFunction } from "i18next";
 import type { Project } from "@/types/projects.types";
 import tacktileo from "@assets/projects/Tactileo-mockup.jpg";
 import tactiloVideo from "@assets/projects/Video_Tactileo_Module.mp4";
-import portfolioLight from "@assets/projects/Portfolio-Hero-Light.webp";
-import portfolioDark from "@assets/projects/Portfolio-Hero-Dark.webp";
 import weather from "@assets/projects/Weather-API.jpg";
 import mockupBrainboost from "@assets/projects/MockupBrainboost.png";
 import brainboostDesktop from "@assets/projects/BrainBoost-desktop.png";
@@ -51,8 +49,8 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
       { label: "i18n", variant: "mauve" },
       { label: "WCAG", variant: "sand" },
     ],
-    image: theme === "light" ? portfolioLight : portfolioDark,
-    screenshots: [theme === "light" ? portfolioLight : portfolioDark],
+    image: "/portfolio-card.jpg",
+    screenshots: ["/portfolio-card.jpg"],
     github: "https://github.com/C-DaCo/cv-portfolio",
     year: "2026",
     tabs: [

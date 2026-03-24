@@ -434,6 +434,64 @@
   &.low  { color: var(--clr-coral-text); }
 }
 
+// ── Lighthouse ────────────────────────────────
+
+.lhGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  @include m.respond-below("md") { grid-template-columns: repeat(2, 1fr); }
+  @include m.respond-below("sm") { grid-template-columns: repeat(2, 1fr); }
+}
+
+.lhCard {
+  background: var(--clr-bg-100);
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  padding: 1.25rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+
+  .progressBar { width: 100%; }
+}
+
+.lhScore {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+
+  &.high { color: #7B9E87; }
+  &.mid  { color: #C4A882; }
+  &.low  { color: var(--clr-coral-text); }
+}
+
+.lhLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lhThreshold {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--clr-text-muted);
+}
+
+.lhBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  margin-left: 0.5rem;
+}
+
 // ── Footer ────────────────────────────────────
 
 .footer {

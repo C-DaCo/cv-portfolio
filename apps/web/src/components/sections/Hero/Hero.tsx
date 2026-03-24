@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useReducedMotion } from "@hooks/useReducedMotion";
 import { Tag } from "@components/ui/Tag/Tag";
 import { Button } from "@components/ui/Button/Button";
+import { Skeleton } from "@components/ui/Skeleton/Skeleton";
 import { cvData } from "@data/cv.data";
 import styles from "./Hero.module.scss";
 import { assets } from "@assets/index";
@@ -9,6 +11,7 @@ import { assets } from "@assets/index";
 export function Hero() {
   const { t } = useTranslation();
   const prefersReduced = useReducedMotion();
+  const [photoLoaded, setPhotoLoaded] = useState(false);
   const { personalInfo, skills } = cvData;
 
   const frontTags = skills
@@ -130,7 +133,7 @@ export function Hero() {
             <Button as="a" href="#contact" variant="primary">
               {t("hero.ctaContact")} <span aria-hidden="true">→</span>
             </Button>
-            <Button as="a" href="#projects" variant="outline">
+            <Button as="a" href="#projects" variant="secondary">
               {t("hero.ctaProjects")}
             </Button>
           </div>
@@ -153,12 +156,17 @@ export function Hero() {
           <div className={styles.dotDeco3} />
 
           <div className={styles.photoCard}>
+            {!photoLoaded && (
+              <Skeleton style={{ width: "100%", height: "100%", position: "absolute", inset: 0, borderRadius: "inherit" }} />
+            )}
             <img
               src={assets.photo}
               alt={`Portrait de ${personalInfo.firstName} ${personalInfo.lastName}, ${personalInfo.title}`}
               className={styles.photo}
               width={400}
               height={533}
+              onLoad={() => setPhotoLoaded(true)}
+              style={{ opacity: photoLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
             />
           </div>
         </div>

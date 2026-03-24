@@ -11,7 +11,7 @@ const SECTIONS = [
   { id: "contact",     titleKey: "nav.contact" },
 ];
 
-const BASE_TITLE = "Carole Rotton";
+const BASE_TITLE = "Carole Rotton — Développeuse Front-End React & TypeScript";
 
 export function useDocumentTitle() {
   const { t } = useTranslation();

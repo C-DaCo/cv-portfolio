@@ -17,6 +17,7 @@
   --clr-blob-c:       rgba(255, 183, 3, 0.35);
 
   --clr-coral:        #FF4B6E;
+  --clr-coral-light:  #FF3960;
   --clr-blush:        #FF9EB5;
   --clr-sage:         #00C2A8;
   --clr-sage-light:   #5DDFD0;
@@ -35,14 +36,15 @@
   --clr-bg-200:       #f3ebde;
   --clr-surface:      rgba(255, 255, 255, 0.85);
   --clr-border:       rgba(255, 60, 172, 0.2);
-  --clr-text:         #1A0A2E;
+  --clr-text:         #000000;
   --clr-text-muted:   #4A3A5E;
   --clr-stat-border:  rgba(255, 60, 172, 0.15);
   --clr-blob-a:       rgba(255, 60, 172, 0.2);
   --clr-blob-b:       rgba(57, 211, 83, 0.2);
   --clr-blob-c:       rgba(120, 76, 244, 0.2);
 
-  --clr-coral:        #F34961;
+  --clr-coral:        #FF5E73;
+  --clr-coral-light:  #f7697c;
   --clr-blush:        #f0889f;
   --clr-sage:         #5cba74;
   --clr-sage-light:   #85e8b7;
@@ -50,7 +52,7 @@
   --clr-sand:         #ffb900;
 
   /* Couleurs accessibles pour le texte (WCAG AA sur fond clair ≥ 4.5:1) */
-  --clr-coral-text:   #B5172F;
+  --clr-coral-text:   #991f3e;
   --clr-sage-text:    #1F6B30;
 }
 
@@ -58,8 +60,19 @@
 :root {
   // Typographie
   --font-serif:       'Cormorant Garamond', Georgia, serif;
-  --font-sans:        'DM Sans', sans-serif;
+  --font-sans:        'Plus Jakarta Sans', sans-serif;
   --font-mono:        'DM Mono', monospace;
+  --font-body:        'Plus Jakarta Sans', sans-serif;
+  --font-display:     'Cormorant Garamond', Georgia, serif;
+
+  // Font weights
+  --fw-regular:       400;
+  --fw-medium:        500;
+  --fw-bold:          600;
+  --fw-black:         800;
+
+  // Font sizes
+  --fs-body:          1rem;
 
   // Transitions
   --transition-fast:  150ms ease;
@@ -82,6 +95,9 @@
   --space-xl:         2.5rem;
   --space-2xl:        4rem;
   --space-3xl:        6rem;
+
+  // Texte sur fond coral (WCAG AA ≥ 4.5:1 dans les 2 thèmes)
+  --clr-on-coral:     #1a0a2e;
 
   // Layout
   --max-width:        1200px;

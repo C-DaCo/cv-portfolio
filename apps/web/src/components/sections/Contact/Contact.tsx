@@ -1,6 +1,7 @@
 import { useState, useId } from "react";
 import styles from "./Contact.module.scss";
 import { useTranslation } from "react-i18next";
+import { Button } from "@components/ui/Button/Button";
 import { Mail, Phone, MapPin, Github, Linkedin, MessageCircle } from "lucide-react";
 import { cvData } from "@data/cv.data";
 
@@ -195,10 +196,13 @@ export function Contact() {
 
           <form onSubmit={handleSubmit} noValidate aria-label={t("contact.formAriaLabel")}>
 
+            <p className={styles.fieldRequired}>{t("contact.form.required")}</p>
+
             <div className={styles.field}>
               <label htmlFor={`${uid}-name`} className={styles.label}>
-                {t("contact.form.name")}
+                {t("contact.form.name")} <span aria-hidden="true">*</span>
               </label>
+              <p id={`${uid}-name-hint`} className={styles.hint}>{t("contact.form.hint.name")}</p>
               <input
                 id={`${uid}-name`} name="name" type="text"
                 value={fields.name} onChange={handleChange} onBlur={handleBlur}
@@ -206,7 +210,7 @@ export function Contact() {
                 placeholder={t("contact.form.namePlaceholder")}
                 autoComplete="name" aria-required="true"
                 aria-invalid={hasError("name")}
-                aria-describedby={hasError("name") ? `${uid}-name-err` : undefined}
+                aria-describedby={`${uid}-name-hint${hasError("name") ? ` ${uid}-name-err` : ""}`}
               />
               {hasError("name") && (
                 <p id={`${uid}-name-err`} className={styles.fieldError} role="alert">{errors.name}</p>
@@ -215,8 +219,9 @@ export function Contact() {
 
             <div className={styles.field}>
               <label htmlFor={`${uid}-email`} className={styles.label}>
-                {t("contact.form.email")}
+                {t("contact.form.email")} <span aria-hidden="true">*</span>
               </label>
+              <p id={`${uid}-email-hint`} className={styles.hint}>{t("contact.form.hint.email")}</p>
               <input
                 id={`${uid}-email`} name="email" type="email"
                 value={fields.email} onChange={handleChange} onBlur={handleBlur}
@@ -224,7 +229,7 @@ export function Contact() {
                 placeholder={t("contact.form.emailPlaceholder")}
                 autoComplete="email" aria-required="true"
                 aria-invalid={hasError("email")}
-                aria-describedby={hasError("email") ? `${uid}-email-err` : undefined}
+                aria-describedby={`${uid}-email-hint${hasError("email") ? ` ${uid}-email-err` : ""}`}
               />
               {hasError("email") && (
                 <p id={`${uid}-email-err`} className={styles.fieldError} role="alert">{errors.email}</p>
@@ -233,15 +238,16 @@ export function Contact() {
 
             <div className={styles.field}>
               <label htmlFor={`${uid}-subject`} className={styles.label}>
-                {t("contact.form.subject")}
+                {t("contact.form.subject")} <span aria-hidden="true">*</span>
               </label>
+              <p id={`${uid}-subject-hint`} className={styles.hint}>{t("contact.form.hint.subject")}</p>
               <input
                 id={`${uid}-subject`} name="subject" type="text"
                 value={fields.subject} onChange={handleChange} onBlur={handleBlur}
                 className={`${styles.input} ${hasError("subject") ? styles.inputError : ""}`}
                 placeholder={t("contact.form.subjectPlaceholder")}
                 aria-required="true" aria-invalid={hasError("subject")}
-                aria-describedby={hasError("subject") ? `${uid}-subject-err` : undefined}
+                aria-describedby={`${uid}-subject-hint${hasError("subject") ? ` ${uid}-subject-err` : ""}`}
               />
               {hasError("subject") && (
                 <p id={`${uid}-subject-err`} className={styles.fieldError} role="alert">{errors.subject}</p>
@@ -250,15 +256,16 @@ export function Contact() {
 
             <div className={styles.field}>
               <label htmlFor={`${uid}-message`} className={styles.label}>
-                {t("contact.form.message")}
+                {t("contact.form.message")} <span aria-hidden="true">*</span>
               </label>
+              <p id={`${uid}-message-hint`} className={styles.hint}>{t("contact.form.hint.message")}</p>
               <textarea
                 id={`${uid}-message`} name="message"
                 value={fields.message} onChange={handleChange} onBlur={handleBlur}
                 className={`${styles.textarea} ${hasError("message") ? styles.inputError : ""}`}
                 placeholder={t("contact.form.messagePlaceholder")}
                 rows={5} aria-required="true" aria-invalid={hasError("message")}
-                aria-describedby={hasError("message") ? `${uid}-message-err` : undefined}
+                aria-describedby={`${uid}-message-hint${hasError("message") ? ` ${uid}-message-err` : ""}`}
               />
               {hasError("message") && (
                 <p id={`${uid}-message-err`} className={styles.fieldError} role="alert">{errors.message}</p>
@@ -270,7 +277,7 @@ export function Contact() {
               )}
             </div>
 
-            <button
+            <Button
               type="submit"
               className={styles.submitBtn}
               disabled={status === "loading"}
@@ -287,7 +294,7 @@ export function Contact() {
                   <span aria-hidden="true">→</span>
                 </>
               )}
-            </button>
+            </Button>
           </form>
         </div>
       </div>

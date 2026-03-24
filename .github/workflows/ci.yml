@@ -46,5 +46,127 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run build -w apps/web
-      - name: Test accessibilité
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Test accessibilité & visuels
         run: npm run test:e2e -w apps/web
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: apps/web/playwright-report/
+          retention-days: 7
+
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build -w apps/web
+
+      - name: Install Lighthouse CLI
+        run: npm install -g lighthouse
+
+      - name: Launch preview & run Lighthouse
+        run: |
+          npx --prefix apps/web vite preview &
+          sleep 5
+          lighthouse http://localhost:4173/ \
+            --output=json --output=html \
+            --output-path=apps/web/public/lighthouse \
+            --chrome-flags="--headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage" \
+            --log-level=error
+
+      - name: Generate lighthouse-scores.json
+        run: |
+          node -e "
+          const fs = require('fs');
+          const lhr = JSON.parse(fs.readFileSync('apps/web/public/lighthouse.report.json', 'utf8'));
+          const cats = lhr.categories;
+          const summary = {
+            date: new Date().toISOString().slice(0, 10),
+            scores: {
+              performance:   Math.round((cats['performance']?.score   ?? 0) * 100),
+              accessibility: Math.round((cats['accessibility']?.score ?? 0) * 100),
+              bestPractices: Math.round((cats['best-practices']?.score ?? 0) * 100),
+              seo:           Math.round((cats['seo']?.score           ?? 0) * 100),
+            }
+          };
+          fs.writeFileSync('apps/web/public/lighthouse-scores.json', JSON.stringify(summary, null, 2));
+          console.log('lighthouse-scores.json généré');
+          "
+
+      - name: Commit lighthouse-scores.json on main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add apps/web/public/lighthouse-scores.json
+          git diff --staged --quiet || git commit -m "chore: update lighthouse scores [skip ci]"
+          git push
+
+      - name: Post Lighthouse comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const jsonPath = 'apps/web/public/lighthouse.report.json';
+            if (!fs.existsSync(jsonPath)) {
+              console.log('Rapport JSON introuvable — étape ignorée.');
+              return;
+            }
+            const lhr  = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+            const cats = lhr.categories;
+            const pct  = (key) => Math.round((cats[key]?.score ?? 0) * 100);
+            const ok   = (s, min) => s >= min ? '✅' : '❌';
+
+            const body = [
+              '## 🔦 Lighthouse',
+              '',
+              '| Catégorie | Score | Seuil |',
+              '|-----------|------:|------:|',
+              `| ${ok(pct('performance'),    90)} Performance    | ${pct('performance')}    | 90 |`,
+              `| ${ok(pct('accessibility'), 95)} Accessibilité  | ${pct('accessibility')}  | 95 |`,
+              `| ${ok(pct('best-practices'), 90)} Best Practices | ${pct('best-practices')} | 90 |`,
+              `| ${ok(pct('seo'),            90)} SEO            | ${pct('seo')}            | 90 |`,
+            ].join('\n');
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existing = comments.find(c => c.body.includes('🔦 Lighthouse'));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

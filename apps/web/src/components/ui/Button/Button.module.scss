@@ -28,16 +28,16 @@
 
 .primary {
   background: var(--clr-coral);
-  color: #1a0a2e;
+  color: var(--clr-text);
 
   &:hover {
-    background: var(--clr-text);
+    background: var(--clr-coral-light);
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(232, 113, 90, 0.3);
   }
 }
 
-.outline {
+.secondary {
   background: transparent;
   color: var(--clr-text);
   border: 1px solid var(--clr-border);

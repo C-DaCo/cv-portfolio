@@ -164,41 +164,11 @@
 // ── Bouton démo modal ─────────────────────────
 
 .demoBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 9999px;
-  background: var(--clr-coral);
-  color: #fff;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  border: none;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease;
   align-self: flex-start;
   margin-top: auto;
 
   @include m.respond-below("sm") {
-    font-size: 0.85rem;
-    padding: 0.7rem 1.25rem;
     width: 100%;
-    justify-content: center;
-  }
-  
-  &:hover {
-    background: #2C2420;
-    transform: translateY(-2px);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--clr-coral);
-    outline-offset: 4px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-    &:hover { transform: none; }
   }
 }
 
@@ -281,15 +251,4 @@
 
 .modalCloseBtn {
   margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  background: var(--clr-coral);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: opacity 0.2s ease;
-
-  &:hover { opacity: 0.85; }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 3px; }
 }

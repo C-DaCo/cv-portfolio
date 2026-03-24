@@ -3,7 +3,7 @@ import { X, Layers, FolderTree, GitBranch } from "lucide-react";
 import { createPortal } from "react-dom";
 import styles from "./ArchDiagram.module.scss";
 import { useTranslation } from "react-i18next";
-import { layers, structure, flux, getArchTabs } from "@data/arch.data";
+import { layers, structure, flux, getArchTabs, type ArchNode } from "@data/arch.data";
 
 const ARCH_ICONS = {
   layers:    <Layers size={14} />,
@@ -35,7 +35,7 @@ export function ArchLayersTab() {
   );
 }
 
-function StructureNode({ node, depth = 0 }: { node: any; depth?: number }) {
+function StructureNode({ node, depth = 0 }: { node: ArchNode; depth?: number }) {
   const [open, setOpen] = useState(depth < 2);
   const hasChildren = node.children && node.children.length > 0;
 
@@ -59,7 +59,7 @@ function StructureNode({ node, depth = 0 }: { node: any; depth?: number }) {
       </button>
       {hasChildren && open && (
         <div className={styles.treeChildren}>
-          {node.children.map((child: any) => (
+          {node.children.map((child: ArchNode) => (
             <StructureNode key={child.name} node={child} depth={depth + 1} />
           ))}
         </div>

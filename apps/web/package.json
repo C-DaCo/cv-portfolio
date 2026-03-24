@@ -12,7 +12,8 @@
     "test:coverage": "vitest run --coverage",
     "build": "vitest run --coverage && node ../../scripts/run-api-tests.mjs && node ../../scripts/merge-test-results.mjs && tsc && vite build",
     "test:e2e": "playwright test",
-    "lint": "eslint src --ext ts,tsx"
+    "lint": "eslint src --ext ts,tsx",
+    "lighthouse": "vite build && node ../../scripts/lighthouse.mjs"
   },
   "dependencies": {
     "i18next": "^25.8.13",

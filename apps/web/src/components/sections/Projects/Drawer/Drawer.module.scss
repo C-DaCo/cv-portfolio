@@ -114,7 +114,7 @@
     &:hover {
         background: var(--clr-coral);
         border-color: var(--clr-coral-text);
-        color: #fff;
+        color: var(--clr-text);
     }
 
     &:focus-visible {
@@ -449,4 +449,41 @@
     font-size: 0.85rem;
     color: var(--clr-text-muted);
     font-style: italic;
+}
+
+// ── Dark mode — lisibilité ─────────────────────
+
+.drawer {
+    :global([data-theme="dark"]) & {
+        background: var(--clr-bg-200);
+        box-shadow: -24px 0 80px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.coral {
+    :global([data-theme="dark"]) & {
+        background: rgba(232, 113, 90, 0.12);
+        border-color: rgba(232, 113, 90, 0.45);
+    }
+}
+
+.sage {
+    :global([data-theme="dark"]) & {
+        background: rgba(123, 158, 135, 0.12);
+        border-color: rgba(123, 158, 135, 0.45);
+    }
+}
+
+.mauve {
+    :global([data-theme="dark"]) & {
+        background: rgba(155, 126, 168, 0.12);
+        border-color: rgba(155, 126, 168, 0.45);
+    }
+}
+
+.sand {
+    :global([data-theme="dark"]) & {
+        background: rgba(196, 168, 130, 0.12);
+        border-color: rgba(196, 168, 130, 0.45);
+    }
 }

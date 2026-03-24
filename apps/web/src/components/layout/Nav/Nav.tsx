@@ -7,6 +7,18 @@ export function Nav() {
   const { theme, toggleTheme } = useTheme();
   const { i18n, t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  const nextTheme = theme === "light" ? "dark" : "light";
+
+  const navItems = [
+    { href: "#experiences", label: t("nav.experiences") },
+    { href: "#projects",    label: t("nav.projects") },
+    { href: "#skills",      label: t("nav.skills") },
+    { href: "#playground",  label: t("nav.playground") },
+    { href: "#education",   label: t("nav.education") },
+    { href: "#contact",     label: t("nav.contact") },
+  ];
 
   const toggleLang = () => i18n.changeLanguage(i18n.language === "fr" ? "en" : "fr");
   const handleNavClick = () => setMenuOpen(false);
@@ -25,6 +37,25 @@ export function Nav() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  // Section active au scroll
+  useEffect(() => {
+    const ids = navItems.map(({ href }) => href.slice(1));
+    const observers: IntersectionObserver[] = [];
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { threshold: 0.3 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
 
   return (
     <>
@@ -60,18 +91,20 @@ export function Nav() {
           className={`${styles.navLinks} ${menuOpen ? styles.navOpen : ""}`}
           role="list"
         >
-          {[
-            { href: "#experiences", label: t("nav.experiences") },
-            { href: "#projects",    label: t("nav.projects") },
-            { href: "#skills",      label: t("nav.skills") },
-            { href: "#playground",  label: t("nav.playground") },
-            { href: "#education",   label: t("nav.education") },
-            { href: "#contact",     label: t("nav.contact") },
-          ].map(({ href, label }) => (
-            <li key={href}>
-              <a href={href} onClick={handleNavClick}>{label}</a>
-            </li>
-          ))}
+          {navItems.map(({ href, label }) => {
+            const id = href.slice(1);
+            return (
+              <li key={href}>
+                <a
+                  href={href}
+                  onClick={handleNavClick}
+                  className={activeSection === id ? styles.navLinkActive : undefined}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })}
 
           <li>
             <button
@@ -89,7 +122,7 @@ export function Nav() {
               aria-label={t(`theme.toggle.${theme}`)}
               className={styles.themeToggle}
             >
-              {t(`theme.label.${theme}`)}
+              {t(`theme.label.${nextTheme}`)}
             </button>
           </li>
         </ul>

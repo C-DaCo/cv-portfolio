@@ -219,7 +219,7 @@
 
   .messageContent {
     background: var(--clr-coral);
-    color: #fff;
+    color: var(--clr-text);
     border-radius: 16px 16px 4px 16px;
   }
 }
@@ -330,38 +330,11 @@
 }
 
 .sendBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 9999px;
-  background: var(--clr-coral);
-  color: #fff;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  border: none;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease;
   align-self: flex-end;
-
-  &:hover:not(:disabled) {
-    background: #2C2420;
-    transform: translateY(-2px);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--clr-coral);
-    outline-offset: 4px;
-  }
 
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-    &:hover { transform: none; }
   }
 }
 

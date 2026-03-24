@@ -330,7 +330,7 @@
   width: 40px; height: 40px;
   background: var(--clr-coral);
   border-color: var(--clr-coral-text);
-  color: #fff;
+  color: var(--clr-text);
 
   &:hover { background: #d4604a; }
 }

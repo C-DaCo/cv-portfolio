@@ -7,6 +7,7 @@ import { ToastContainer } from "@components/ui/Toast/Toast";
 import { useToast } from "@components/ui/Toast/useToast";
 import { Accordion } from "@components/ui/Accordion/Accordion";
 import type { AccordionItem } from "@components/ui/Accordion/Accordion";
+import { Button } from "@components/ui/Button/Button";
 import { AgentCard } from "./AgentCard/AgentCard";
 import styles from "./Playground.module.scss";
 
@@ -86,9 +87,9 @@ export function Playground() {
             <li>{t("playground.modal.featureList.focusReturn")}</li>
             <li><code>{t("playground.modal.featureList.aria")}</code></li>
           </ul>
-          <button className={styles.demoBtn} onClick={() => setIsModalOpen(true)} aria-haspopup="dialog">
+          <Button className={styles.demoBtn} onClick={() => setIsModalOpen(true)} aria-haspopup="dialog">
             {t("playground.modal.cta")} <span aria-hidden="true">→</span>
-          </button>
+          </Button>
         </div>
 
         {/* Card Toast */}
@@ -155,9 +156,9 @@ export function Playground() {
           <li>{t("playground.modal.features.scrollLock")}</li>
           <li>{t("playground.modal.features.focusReturn")}</li>
         </ul>
-        <button onClick={() => setIsModalOpen(false)} className={styles.modalCloseBtn}>
+        <Button onClick={() => setIsModalOpen(false)} className={styles.modalCloseBtn}>
           {t("playground.modal.demoClose")}
-        </button>
+        </Button>
       </Modal>
 
       <ToastContainer toasts={toasts} onRemove={removeToast} />

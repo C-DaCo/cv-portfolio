@@ -9,8 +9,14 @@ function getThemeFromTime(): Theme {
   return hour >= 18 || hour < 7 ? "dark" : "light";
 }
 
+function getInitialTheme(): Theme {
+  if (window.matchMedia?.("(prefers-color-scheme: dark)").matches) return "dark";
+  if (window.matchMedia?.("(prefers-color-scheme: light)").matches) return "light";
+  return getThemeFromTime();
+}
+
 // ── Singleton partagé ─────────────────────────
-let globalTheme: Theme = getThemeFromTime();
+let globalTheme: Theme = getInitialTheme();
 const listeners = new Set<(theme: Theme) => void>();
 
 function setGlobalTheme(theme: Theme) {
@@ -41,6 +47,11 @@ setTimeout(() => {
 }, msUntilMidnight);
 
 startAutoTheme();
+
+// Suit les changements de préférence OS (sauf si l'utilisateur a toggleé manuellement)
+window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+  if (!isManualGlobal) setGlobalTheme(e.matches ? "dark" : "light");
+});
 
 // ── Hook ──────────────────────────────────────
 export function useTheme() {
