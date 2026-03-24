@@ -22,10 +22,10 @@ describe(desc(TestScope.SECTION, "Contact", TestType.RENDU), () => {
 
   it("affiche les champs du formulaire", () => {
     render(<Contact />);
-    expect(screen.getByLabelText("contact.form.name")).toBeInTheDocument();
-    expect(screen.getByLabelText("contact.form.email")).toBeInTheDocument();
-    expect(screen.getByLabelText("contact.form.subject")).toBeInTheDocument();
-    expect(screen.getByLabelText("contact.form.message")).toBeInTheDocument();
+    expect(screen.getByLabelText(/contact\.form\.name/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/contact\.form\.email/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/contact\.form\.subject/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/contact\.form\.message/)).toBeInTheDocument();
   });
 
   it("le bouton submit est accessible", () => {

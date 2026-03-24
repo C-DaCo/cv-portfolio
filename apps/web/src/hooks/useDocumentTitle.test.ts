@@ -56,7 +56,7 @@ describe(desc(TestScope.HOOK, "useDocumentTitle", TestType.INTERACTIONS), () => 
       [{ isIntersecting: true, target: hero } as unknown as IntersectionObserverEntry],
       {} as IntersectionObserver
     );
-    expect(document.title).toBe("Carole Rotton");
+    expect(document.title).toBe("Carole Rotton — Développeuse Front-End React & TypeScript");
   });
 
   it("met à jour le titre avec la clé i18n pour une section avec titleKey", () => {
@@ -73,7 +73,7 @@ describe(desc(TestScope.HOOK, "useDocumentTitle", TestType.INTERACTIONS), () => 
       [{ isIntersecting: true, target: el } as unknown as IntersectionObserverEntry],
       {} as IntersectionObserver
     );
-    expect(document.title).toBe("nav.experiences — Carole Rotton");
+    expect(document.title).toBe("nav.experiences — Carole Rotton — Développeuse Front-End React & TypeScript");
   });
 
   it("ne met pas à jour le titre si isIntersecting=false", () => {

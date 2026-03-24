@@ -99,10 +99,13 @@ const mockCoverage = {
 beforeEach(() => {
     vi.stubGlobal("fetch", vi.fn().mockImplementation((url: string) => {
         if (url === "/test-results.json") {
-            return Promise.resolve({ json: () => Promise.resolve(mockTestResults) });
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTestResults) });
         }
         if (url === "/coverage/coverage-summary.json") {
-            return Promise.resolve({ json: () => Promise.resolve(mockCoverage) });
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockCoverage) });
+        }
+        if (url === "/e2e-results.json" || url === "/lighthouse-scores.json") {
+            return Promise.resolve({ ok: false });
         }
         return Promise.reject(new Error("URL inconnue"));
     }));
@@ -151,7 +154,7 @@ describe(desc(TestScope.PAGE, "TestDashboardContent", TestType.RENDU), () => {
         vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("network")));
         render(<TestDashboardContent />);
         await waitFor(() => {
-            expect(screen.getByText("Impossible de charger les résultats de tests.")).toBeInTheDocument();
+            expect(screen.getByText("Données indisponibles.")).toBeInTheDocument();
         });
     });
 
