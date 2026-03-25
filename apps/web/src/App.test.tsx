@@ -1,4 +1,4 @@
-import { render, screen, act } from "@testing-library/react";
+import { render, screen, act, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { MemoryRouter } from "react-router-dom";
@@ -59,11 +59,11 @@ describe(desc(TestScope.PAGE, "App", TestType.RENDU), () => {
     expect(screen.getByRole("main")).toBeInTheDocument();
   });
 
-  it("affiche toutes les sections principales", () => {
+  it("affiche toutes les sections principales", async () => {
     renderApp();
     expect(document.getElementById("hero")).toBeInTheDocument();
     expect(document.getElementById("experiences")).toBeInTheDocument();
-    expect(document.getElementById("projects")).toBeInTheDocument();
+    await waitFor(() => expect(document.getElementById("projects")).toBeInTheDocument());
     expect(document.getElementById("skills")).toBeInTheDocument();
     expect(document.getElementById("education")).toBeInTheDocument();
     expect(document.getElementById("contact")).toBeInTheDocument();

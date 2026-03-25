@@ -9,6 +9,5 @@ export { Modal } from "./ui/Modal/Modal";
 export { ToastContainer } from "./ui/Toast/Toast";
 export { useToast } from "./ui/Toast/useToast";
 export { Accordion } from "./ui/Accordion/Accordion";
-export { Playground } from "./sections/Playground/Playground";
 export { A11yMenu } from "./ui/A11yMenu/A11yMenu";
-export { Projects } from "./sections/Projects/Projects";
+// Projects et Playground sont lazy-loadés dans App.tsx — ne pas exporter ici
