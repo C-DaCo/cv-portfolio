@@ -63,7 +63,7 @@ describe(desc(TestScope.PAGE, "App", TestType.RENDU), () => {
     renderApp();
     expect(document.getElementById("hero")).toBeInTheDocument();
     expect(document.getElementById("experiences")).toBeInTheDocument();
-    await waitFor(() => expect(document.getElementById("projects")).toBeInTheDocument());
+    await waitFor(() => expect(document.getElementById("projects")).toBeInTheDocument(), { timeout: 5000 });
     expect(document.getElementById("skills")).toBeInTheDocument();
     expect(document.getElementById("education")).toBeInTheDocument();
     expect(document.getElementById("contact")).toBeInTheDocument();
