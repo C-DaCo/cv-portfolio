@@ -15,4 +15,5 @@ playwright-report/
 apps/web/test-results/
 scripts/fonts/
 apps/web/public/lighthouse.report.*
-apps/web/public/*-results.json
+apps/web/public/api-test-results.json
+apps/web/public/e2e-results.json
