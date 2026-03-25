@@ -133,11 +133,11 @@
     "maskott": {
       "linkName": "Maskott",
       "desc": "Interactive module player (MCQ, drag & drop, fill-in-the-blank, video, educational content...), resource recommendation engine, Design System, WCAG 2.1 Accessibility.",
-      "longDesc": "Interactive module player (MCQ, drag & drop, fill-in-the-blank, video, educational content...), resource recommendation engine, full Design System, WCAG 2.1 Accessibility. Agile team, code reviews, CI/CD GitLab."
+      "longDesc": "Interactive module player (MCQ, drag & drop, fill-in-the-blank, video, educational content...), resource recommendation engine, full Design System, WCAG 2.1 accessibility. Agile team, code reviews, continuous integration."
     },
     "portfolio": {
-      "desc": "Yarn Workspaces monorepo, React 18, TypeScript, Node.js, Resend API, Vitest tests, i18n fr/en, WCAG accessibility, a11y menu, automatic dark/light mode.",
-      "longDesc": "Yarn Workspaces monorepo, React 18, TypeScript, Node.js, Resend API, Vitest tests, i18n fr/en, WCAG accessibility, a11y menu, automatic dark/light mode. Real-time test dashboard, WebP image optimization."
+      "desc": "Portfolio built like a real product: dark/light mode, accessibility menu, fr/en i18n, real-time test dashboard and secure contact API.",
+      "longDesc": "Portfolio built like a real product: dark/light mode, accessibility menu, fr/en i18n, real-time test dashboard, WebP optimization. Monorepo architecture with independent front-end and API."
     },
     "weather": {
       "desc": "Connected weather station on Raspberry Pi — real-time temperature, humidity and pressure readings.",
@@ -145,7 +145,7 @@
     },
     "brainboost": {
       "desc": "Flashcard app with spaced repetition (SM-2 algorithm), AI-powered card generation from handwritten notes, multiple study modes and push notifications.",
-      "longDesc": "Next.js 15 App Router, Prisma + SQLite, Clerk authentication, i18n fr/en, Claude AI API for generating flashcards from photo scans. SM-2 algorithm implemented from scratch, 5 study modes (flashcards, MCQ, written test, match, drag-drop), VAPID push notifications, seasonal themes. 233 Jest tests (89.6% coverage) + 20 Playwright E2E tests with WCAG AA validation."
+      "longDesc": "SM-2 algorithm implemented from scratch, 5 study modes (flashcards, MCQ, written test, match, drag-drop). AI-powered card generation from handwritten notes, VAPID push notifications, seasonal themes. 233 tests (89.6% coverage) + 20 Playwright E2E with WCAG AA validation."
     }
   },
   "arch": {

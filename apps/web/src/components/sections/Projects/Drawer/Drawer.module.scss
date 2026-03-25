@@ -41,8 +41,8 @@
         border-left: none;
         border-top: 1px solid var(--clr-border);
         top: auto;
-        height: 92vh;
-        border-radius: 20px 20px 0 0;
+        height: 100dvh;
+        border-radius: 0;
         transform: translateY(100%);
 
         &.drawerVisible {

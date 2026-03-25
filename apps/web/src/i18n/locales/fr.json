@@ -134,11 +134,11 @@
     "maskott": {
       "linkName": "Maskott",
       "desc": "Lecteur de modules interactifs (QCM, drag & drop, textes à trou, vidéo, contenu pédagogique...), moteur de recommandation de ressources, Design System, Accessibilité WCAG 2.1.",
-      "longDesc": "Lecteur de modules interactifs (QCM, drag & drop, textes à trou, vidéo, contenu pédagogique...), moteur de recommandation de ressources, Design System complet, Accessibilité WCAG 2.1. Travail en équipe agile, revues de code, CI/CD GitLab."
+      "longDesc": "Lecteur de modules interactifs (QCM, drag & drop, textes à trou, vidéo, contenu pédagogique...), moteur de recommandation de ressources, Design System complet, accessibilité WCAG 2.1. Travail en équipe agile, revues de code, intégration continue."
     },
     "portfolio": {
-      "desc": "Monorepo Yarn Workspaces, React 18, TypeScript, Node.js, API Resend, tests Vitest, i18n fr/en, accessibilité WCAG, menu a11y, dark/light mode automatique.",
-      "longDesc": "Monorepo Yarn Workspaces, React 18, TypeScript, Node.js, API Resend, tests Vitest, i18n fr/en, accessibilité WCAG, menu a11y, dark/light mode automatique. Dashboard de tests en temps réel, optimisation images WebP."
+      "desc": "Portfolio conçu comme un vrai produit : dark/light mode, menu d'accessibilité, i18n fr/en, dashboard de tests en temps réel et API de contact sécurisée.",
+      "longDesc": "Portfolio conçu comme un vrai produit : dark/light mode, menu d'accessibilité, i18n fr/en, dashboard de tests en temps réel, optimisation WebP. Architecture monorepo avec front et API indépendants."
     },
     "weather": {
       "desc": "Station météo connectée sur Raspberry Pi — relevés de température, humidité et pression en temps réel.",
@@ -146,7 +146,7 @@
     },
     "brainboost": {
       "desc": "Application de flashcards avec répétition espacée (algorithme SM-2), génération de cartes par IA via scan de leçons, modes d'entraînement variés et notifications push.",
-      "longDesc": "Next.js 15 App Router, Prisma + SQLite, authentification Clerk, i18n fr/en, IA Claude API pour la génération de flashcards depuis des photos de notes. Algorithme SM-2 implémenté from scratch, 5 modes d'entraînement (flashcards, QCM, interro, match, drag-drop), notifications push VAPID, thèmes saisonniers. 233 tests Jest (89.6% coverage) + 20 tests E2E Playwright avec validation WCAG AA."
+      "longDesc": "Algorithme SM-2 implémenté from scratch, 5 modes d'entraînement (flashcards, QCM, interro écrite, match, drag-drop). Génération de cartes par IA depuis des photos de notes manuscrites, notifications push VAPID, thèmes saisonniers. 233 tests (89.6% coverage) + 20 E2E avec validation WCAG AA."
     }
   },
   "arch": {
