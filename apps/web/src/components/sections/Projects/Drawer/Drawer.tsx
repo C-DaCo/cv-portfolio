@@ -136,14 +136,27 @@ export function Drawer({ project, onClose }: DrawerProps) {
         return () => document.removeEventListener("keydown", handleKey);
     }, [project, onClose]);
 
-    // Scroll lock
+    // Scroll lock (iOS-safe)
     useEffect(() => {
-        if (project) {
-            document.body.style.overflow = "hidden";
-        } else {
+        const restoreScroll = () => {
+            const top = document.body.style.top;
             document.body.style.overflow = "";
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.width = "";
+            if (top) try { window.scrollTo(0, -parseInt(top)); } catch { /* jsdom */ }
+        };
+
+        if (project) {
+            const scrollY = window.scrollY;
+            document.body.style.overflow = "hidden";
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = "100%";
+        } else {
+            restoreScroll();
         }
-        return () => { document.body.style.overflow = ""; };
+        return restoreScroll;
     }, [project]);
 
     if (!project) return null;

@@ -16,8 +16,14 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  &:hover { color: var(--clr-coral-text); border-color: var(--clr-coral-text); }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 3px; }
+  &:hover {
+    color: var(--clr-coral-text);
+    border-color: var(--clr-coral-text);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--clr-coral);
+    outline-offset: 3px;
+  }
 }
 
 // ── Overlay ───────────────────────────────────
@@ -57,29 +63,46 @@
     animation: fadeIn 0.25s ease;
   }
 
-  @media (prefers-reduced-motion: reduce) { animation: none; }
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
 @keyframes slideUp {
-  from { transform: translateY(100%); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.97); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 // ── Handle mobile ─────────────────────────────
 
 .handle {
-  width: 36px; height: 4px;
+  width: 36px;
+  height: 4px;
   border-radius: 9999px;
   background: var(--clr-border);
   margin: 0.75rem auto 0;
   flex-shrink: 0;
 
-  @include m.respond-to("md") { display: none; }
+  @include m.respond-to("md") {
+    display: none;
+  }
 }
 
 // ── Header ────────────────────────────────────
@@ -110,7 +133,8 @@
 }
 
 .closeBtn {
-  width: 32px; height: 32px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid var(--clr-border);
   background: transparent;
@@ -122,8 +146,14 @@
   flex-shrink: 0;
   transition: all 0.2s ease;
 
-  &:hover { color: var(--clr-coral-text); border-color: var(--clr-coral-text); }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 3px; }
+  &:hover {
+    color: var(--clr-coral-text);
+    border-color: var(--clr-coral-text);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--clr-coral);
+    outline-offset: 3px;
+  }
 }
 
 // ── Tabs ──────────────────────────────────────
@@ -152,8 +182,13 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  &:hover { color: var(--clr-text); }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: -2px; }
+  &:hover {
+    color: var(--clr-text);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--clr-coral);
+    outline-offset: -2px;
+  }
 }
 
 .tabActive {
@@ -169,23 +204,59 @@
   padding: 1.5rem;
   overscroll-behavior: contain;
   min-height: 380px;
+  @include m.respond-below("sm") {
+    padding: 0.75rem;
+  }
 }
 
 .inlineContent {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   border: 1px solid var(--clr-border);
   background: var(--clr-bg);
   border-radius: 12px;
+  overflow: hidden;
 
-  // Quand inline dans le drawer, le tabContent ne doit pas créer
-  // un 2e scroll container — c'est le drawer qui gère le scroll
+  // Contenu — côté gauche, prend tout l'espace
   .tabContent {
+    flex: 1;
     overflow-y: visible;
     min-height: unset;
-    flex: none;
     height: auto;
+    padding: 1.25rem;
+    order: 1;
+  }
+
+  // Tabs — bande verticale à droite (texte pivoté)
+  .tabs {
+    flex-direction: column;
+    flex-shrink: 0;
+    width: auto;
+    border-bottom: none;
+    border-left: 1px solid var(--clr-border);
+    padding: 0.5rem 0;
+    gap: 0;
+    order: 2;
+  }
+
+  .tab {
+    writing-mode: vertical-rl;
+    padding: 0.9rem 0.5rem;
+    border-bottom: none;
+    border-left: 2px solid transparent;
+    margin-bottom: 0;
+    justify-content: center;
+    width: auto;
+
+    svg {
+      display: none;
+    }
+  }
+
+  .tabActive {
+    border-bottom-color: transparent;
+    border-left-color: var(--clr-coral-text);
   }
 }
 
@@ -208,6 +279,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+
+  @include m.respond-below("sm") {
+    padding: 0.75rem;
+  }
 }
 
 .layerHeader {
@@ -228,6 +303,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+
+  @include m.respond-below("sm") {
+    gap: 0.1rem;
+  }
 }
 
 .techItem {
@@ -250,10 +329,38 @@
 }
 
 // Couleurs des couches
-.coral { color: var(--clr-coral-text); border-color: rgba(232,113,90,0.2); background: rgba(232,113,90,0.04); .layerLabel { color: var(--clr-coral-text); } }
-.sage  { color: var(--clr-sage-text); border-color: rgba(123,158,135,0.2); background: rgba(123,158,135,0.04); .layerLabel { color: var(--clr-sage-text); } }
-.mauve { color: var(--clr-mauve); border-color: rgba(155,126,168,0.2); background: rgba(155,126,168,0.04); .layerLabel { color: var(--clr-mauve); } }
-.sand  { color: var(--clr-sand); border-color: rgba(196,168,130,0.2); background: rgba(196,168,130,0.04); .layerLabel { color: var(--clr-sand); } }
+.coral {
+  color: var(--clr-coral-text);
+  border-color: rgba(232, 113, 90, 0.2);
+  background: rgba(232, 113, 90, 0.04);
+  .layerLabel {
+    color: var(--clr-coral-text);
+  }
+}
+.sage {
+  color: var(--clr-sage-text);
+  border-color: rgba(123, 158, 135, 0.2);
+  background: rgba(123, 158, 135, 0.04);
+  .layerLabel {
+    color: var(--clr-sage-text);
+  }
+}
+.mauve {
+  color: var(--clr-mauve);
+  border-color: rgba(155, 126, 168, 0.2);
+  background: rgba(155, 126, 168, 0.04);
+  .layerLabel {
+    color: var(--clr-mauve);
+  }
+}
+.sand {
+  color: var(--clr-sand);
+  border-color: rgba(196, 168, 130, 0.2);
+  background: rgba(196, 168, 130, 0.04);
+  .layerLabel {
+    color: var(--clr-sand);
+  }
+}
 
 // ── Structure ─────────────────────────────────
 
@@ -279,11 +386,18 @@
   width: 100%;
   transition: background 0.15s ease;
 
-  &:hover { background: var(--clr-bg-100); }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
+  &:hover {
+    background: var(--clr-bg-100);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--clr-coral);
+    outline-offset: 2px;
+  }
 }
 
-.treeRoot { font-weight: 600; }
+.treeRoot {
+  font-weight: 600;
+}
 
 .treeIcon {
   color: var(--clr-coral-text);
@@ -295,9 +409,15 @@
 .treeName {
   color: var(--clr-text);
 
-  &.folder { color: var(--clr-sand); }
-  &.file   { color: var(--clr-text-muted); }
-  &.root   { color: var(--clr-text); }
+  &.folder {
+    color: var(--clr-sand);
+  }
+  &.file {
+    color: var(--clr-text-muted);
+  }
+  &.root {
+    color: var(--clr-text);
+  }
 }
 
 .treeDesc {

@@ -45,6 +45,7 @@
         border-radius: 0;
         transform: translateY(100%);
         overflow-y: auto; // scroll container unique sur mobile
+        overscroll-behavior: contain;
 
         &.drawerVisible {
             transform: translateY(0);
@@ -325,7 +326,7 @@
     gap: 1rem;
 
     @include m.respond-below("sm") {
-        padding: 1.25rem;
+        padding: 0.75rem;
         height: auto;
     }
 }
