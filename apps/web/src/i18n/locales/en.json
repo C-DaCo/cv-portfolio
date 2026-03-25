@@ -6,7 +6,8 @@
     "education": "Education",
     "contact": "Contact",
     "toggleDark": "Enable dark mode",
-    "toggleLight": "Enable light mode"
+    "toggleLight": "Enable light mode",
+    "toggleLang": "Switch to French"
   },
   "theme": {
     "toggle": {
