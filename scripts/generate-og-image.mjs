@@ -77,7 +77,7 @@ const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <!-- URL -->
   <text x="1100" y="566"
         font-family="Arial,sans-serif" font-size="22"
-        fill="#888888" text-anchor="end">carole-rotton.dev</text>
+        fill="#888888" text-anchor="end">caroleroton.dev</text>
 
 </svg>`;
 
