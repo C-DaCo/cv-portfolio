@@ -1,6 +1,6 @@
 import photo from "./photo.webp";
 import photo320 from "./photo-320.webp";
-import maskott from "./experiences/maskott.png";
+import maskott from "./experiences/maskott.webp";
 import ktmAdvance from "./experiences/ktm-advance.png";
 import hippocad from "./experiences/hippocad.jpg";
 import logoDawan from "./education/logo_dawan.png";
