@@ -59,7 +59,7 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
           <h3 className={styles.role}>{t(experience.role)}</h3>
           <div className={styles.companyRow}>
             <a href={experience.companyUrl} target="_blank" rel="noopener noreferrer">
-              <img src={logo} alt={experience.company} className={styles.companyLogo} />
+              <img src={logo} alt={experience.company} className={styles.companyLogo} loading="lazy" />
             </a>
             <span className={styles.location}>{experience.location}</span>
           </div>

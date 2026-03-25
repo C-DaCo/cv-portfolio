@@ -57,7 +57,7 @@ function ScreenshotsTab({ project }: { project: Project }) {
     return (
         <div className={styles.tabContent}>
             <div className={styles.screenshotMain}>
-                <img src={shots[active]} alt={`Screenshot ${active + 1} de ${project.title}`} className={styles.screenshotImg} />
+                <img src={shots[active]} alt={`Screenshot ${active + 1} de ${project.title}`} className={styles.screenshotImg} loading="lazy" />
             </div>
             {shots.length > 1 && (
                 <div className={styles.screenshotThumbs}>
@@ -68,7 +68,7 @@ function ScreenshotsTab({ project }: { project: Project }) {
                             onClick={() => setActive(i)}
                             aria-label={`Screenshot ${i + 1}`}
                         >
-                            <img src={src} alt="" />
+                            <img src={src} alt="" loading="lazy" />
                         </button>
                     ))}
                 </div>

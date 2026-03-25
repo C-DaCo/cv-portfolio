@@ -30,6 +30,7 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
             src={project.image}
             alt={`Capture de ${project.title}`}
             className={styles.poster}
+            loading="lazy"
           />
         )}
         {!project.image && (

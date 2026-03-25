@@ -41,7 +41,7 @@ function EducationCard({ formation, index }: EducationCardProps) {
       <div className={styles.logoWrap} aria-hidden="true">
         {formation.logo && formation.url ? (
           <a href={formation.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
-            <img src={logo} alt="" className={styles.logo} />
+            <img src={logo} alt="" className={styles.logo} loading="lazy" />
           </a>
         ) : (
           <span className={styles.icon}>{icon}</span>

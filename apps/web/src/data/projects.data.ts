@@ -1,12 +1,12 @@
 import type { TFunction } from "i18next";
 import type { Project } from "@/types/projects.types";
-import tacktileo from "@assets/projects/Tactileo-mockup.jpg";
+import tacktileo from "@assets/projects/Tactileo-mockup.webp";
 import tactiloVideo from "@assets/projects/Video_Tactileo_Module.mp4";
-import weather from "@assets/projects/Weather-API.jpg";
-import mockupBrainboost from "@assets/projects/MockupBrainboost.png";
-import brainboostDesktop from "@assets/projects/BrainBoost-desktop.png";
-import brainboostTablet from "@assets/projects/BrainBoost-tablet.png";
-import brainboostMobile from "@assets/projects/BrainBoost-mobile.png";
+import weather from "@assets/projects/Weather-API.webp";
+import mockupBrainboost from "@assets/projects/MockupBrainboost.webp";
+import brainboostDesktop from "@assets/projects/BrainBoost-desktop.webp";
+import brainboostTablet from "@assets/projects/BrainBoost-tablet.webp";
+import brainboostMobile from "@assets/projects/BrainBoost-mobile.webp";
 import { Theme } from "@hooks/useTheme";
 
 export const getProjects = (theme: Theme, t: TFunction): Project[] => [

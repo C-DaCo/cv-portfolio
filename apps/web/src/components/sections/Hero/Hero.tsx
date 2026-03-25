@@ -165,6 +165,7 @@ export function Hero() {
               className={styles.photo}
               width={400}
               height={533}
+              fetchPriority="high"
               onLoad={() => setPhotoLoaded(true)}
               style={{ opacity: photoLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
             />
