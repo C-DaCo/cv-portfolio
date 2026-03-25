@@ -5,7 +5,7 @@ import { cvData } from "@data/cv.data";
 import type { Experience } from "@/types/cv.types";
 import styles from "./Experiences.module.scss";
 import { useTranslation } from "react-i18next";
-import { assets, assetMeta } from "@assets/index";
+import { assets } from "@assets/index";
 
 const techVariant = (category: string) => {
   const map: Record<string, "coral" | "sage" | "mauve" | "sand"> = {
@@ -33,7 +33,6 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
   const { t } = useTranslation();
   const prefersReduced = useReducedMotion();
   const logo = assets.experiences[experience.companyLogo as keyof typeof assets.experiences];
-  const logoMeta = assetMeta.experiences[experience.companyLogo as keyof typeof assetMeta.experiences];
 
   const { ref, isVisible } = useIntersectionObserver<HTMLLIElement>({
     threshold: 0.15,
@@ -60,7 +59,7 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
           <h3 className={styles.role}>{t(experience.role)}</h3>
           <div className={styles.companyRow}>
             <a href={experience.companyUrl} target="_blank" rel="noopener noreferrer">
-              <img src={logo} alt={experience.company} className={styles.companyLogo} loading="lazy" width={logoMeta?.w} height={logoMeta?.h} />
+              <img src={logo} alt={experience.company} className={styles.companyLogo} loading="lazy" />
             </a>
             <span className={styles.location}>{experience.location}</span>
           </div>
