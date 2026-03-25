@@ -211,6 +211,10 @@ describe(desc(TestScope.PAGE, "TestDashboardContent", TestType.RENDU), () => {
 describe(desc(TestScope.PAGE, "TestDashboardContent", TestType.INTERACTIONS), () => {
     it("déplie un describe au clic", async () => {
         render(<TestDashboardContent />);
+        await waitFor(() => screen.getByText("Suites de tests"));
+        // Ouvre le scope "Composants UI" d'abord
+        const scopeBtn = screen.getAllByRole("button").find(b => b.textContent?.includes("Composants UI"))!;
+        fireEvent.click(scopeBtn);
         await waitFor(() => screen.getAllByText("Button"));
         const btn = screen.getAllByRole("button").find(b => b.textContent?.includes("Button"))!;
         expect(btn).toBeDefined();
@@ -220,6 +224,10 @@ describe(desc(TestScope.PAGE, "TestDashboardContent", TestType.INTERACTIONS), ()
 
     it("referme un describe au second clic", async () => {
         render(<TestDashboardContent />);
+        await waitFor(() => screen.getByText("Suites de tests"));
+        // Ouvre le scope "Composants UI" d'abord
+        const scopeBtn = screen.getAllByRole("button").find(b => b.textContent?.includes("Composants UI"))!;
+        fireEvent.click(scopeBtn);
         await waitFor(() => screen.getAllByText("Button"));
         const btn = screen.getAllByRole("button").find(b => b.textContent?.includes("Button"))!;
         fireEvent.click(btn);

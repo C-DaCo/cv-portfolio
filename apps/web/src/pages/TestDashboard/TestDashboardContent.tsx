@@ -404,7 +404,15 @@ interface TestColumnPanelProps {
 
 function TestColumnPanel({ label, icon, total, passed, groups, accentClass }: TestColumnPanelProps) {
   const [expandedDescribe, setExpandedDescribe] = useState<string | null>(null);
+  const [expandedScopes, setExpandedScopes] = useState<Set<string>>(new Set());
   const allPassed = passed === total;
+
+  const toggleScope = (scope: string) =>
+    setExpandedScopes(prev => {
+      const next = new Set(prev);
+      next.has(scope) ? next.delete(scope) : next.add(scope);
+      return next;
+    });
 
   return (
     <div className={styles.testColumn}>
@@ -422,12 +430,22 @@ function TestColumnPanel({ label, icon, total, passed, groups, accentClass }: Te
 
       {/* Groupes par scope */}
       <div className={styles.columnBody}>
-        {groups.map(({ scope, describes }) => (
+        {groups.map(({ scope, describes }) => {
+          const isOpen = expandedScopes.has(scope);
+          const scopePassed = describes.reduce((s, d) => s + d.passed, 0);
+          const scopeTotal  = describes.reduce((s, d) => s + d.total, 0);
+          return (
           <div key={scope} className={styles.scopeGroup}>
-            <p className={styles.scopeLabel}>
-              {SCOPE_LABELS[scope] ?? scope}
-            </p>
-            {describes.map((d) => {
+            <button
+              className={styles.scopeLabel}
+              onClick={() => toggleScope(scope)}
+              aria-expanded={isOpen}
+            >
+              <span>{SCOPE_LABELS[scope] ?? scope}</span>
+              <span className={styles.scopeMeta}>{scopePassed}/{scopeTotal}</span>
+              <span className={styles.suiteChevron} aria-hidden="true">{isOpen ? "▴" : "▾"}</span>
+            </button>
+            {isOpen && describes.map((d) => {
               const key = `${d.column}-${d.scope}-${d.name}`;
               const isExpanded = expandedDescribe === key;
               const allOk = d.passed === d.total;
@@ -473,7 +491,8 @@ function TestColumnPanel({ label, icon, total, passed, groups, accentClass }: Te
               );
             })}
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
