@@ -40,4 +40,10 @@ describe(desc(TestScope.HOOK, "useTheme", TestType.RENDU), () => {
     act(() => { a.current.toggleTheme(); });
     expect(b.current.theme).toBe(a.current.theme);
   });
+
+  it("toggleTheme persiste le thème dans localStorage", () => {
+    const { result } = renderHook(() => useTheme());
+    act(() => { result.current.toggleTheme(); });
+    expect(localStorage.getItem("cv-theme")).toBe(result.current.theme);
+  });
 });

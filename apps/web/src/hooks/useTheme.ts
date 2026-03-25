@@ -9,15 +9,27 @@ function getThemeFromTime(): Theme {
   return hour >= 18 || hour < 7 ? "dark" : "light";
 }
 
+const THEME_STORAGE_KEY = "cv-theme";
+
+// ── Singleton partagé ─────────────────────────
+let isManualGlobal = false;
+let intervalId: ReturnType<typeof setInterval> | null = null;
+const listeners = new Set<(theme: Theme) => void>();
+
 function getInitialTheme(): Theme {
+  try {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    if (stored === "dark" || stored === "light") {
+      isManualGlobal = true;
+      return stored;
+    }
+  } catch { /* ignore */ }
   if (window.matchMedia?.("(prefers-color-scheme: dark)").matches) return "dark";
   if (window.matchMedia?.("(prefers-color-scheme: light)").matches) return "light";
   return getThemeFromTime();
 }
 
-// ── Singleton partagé ─────────────────────────
 let globalTheme: Theme = getInitialTheme();
-const listeners = new Set<(theme: Theme) => void>();
 
 function setGlobalTheme(theme: Theme) {
   globalTheme = theme;
@@ -25,9 +37,6 @@ function setGlobalTheme(theme: Theme) {
   listeners.forEach((fn) => fn(theme));
 }
 
-// Intervalle global — une seule instance
-let intervalId: ReturnType<typeof setInterval> | null = null;
-let isManualGlobal = false;
 setGlobalTheme(globalTheme);
 
 function startAutoTheme() {
@@ -43,6 +52,7 @@ const msUntilMidnight =
   new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - now.getTime();
 setTimeout(() => {
   isManualGlobal = false;
+  try { localStorage.removeItem(THEME_STORAGE_KEY); } catch { /* ignore */ }
   setGlobalTheme(getThemeFromTime());
 }, msUntilMidnight);
 
@@ -69,6 +79,7 @@ export function useTheme() {
     isManualGlobal = true;
     const currentIndex = THEMES.indexOf(globalTheme);
     const nextTheme = THEMES[(currentIndex + 1) % THEMES.length];
+    try { localStorage.setItem(THEME_STORAGE_KEY, nextTheme); } catch { /* ignore */ }
     setGlobalTheme(nextTheme);
   };
 
