@@ -721,27 +721,29 @@ export function TestDashboardContent() {
           Couverture par fichier
           <span className={styles.sectionCount}>{coverageFiles.length} fichiers</span>
         </h2>
-        <div className={styles.filesTable}>
-          <div className={styles.filesHeader}>
-            <span>Fichier</span>
-            <span>Lignes</span>
-            <span>Fonctions</span>
-            <span>Branches</span>
-          </div>
-          {coverageFiles.map((file) => (
-            <div key={file.name} className={styles.fileRow}>
-              <span className={styles.fileName}>{file.name}</span>
-              <span className={`${styles.filePct} ${styles[getCoverageColor(file.lines.pct)]}`}>
-                {file.lines.pct.toFixed(0)}%
-              </span>
-              <span className={`${styles.filePct} ${styles[getCoverageColor(file.functions.pct)]}`}>
-                {file.functions.pct.toFixed(0)}%
-              </span>
-              <span className={`${styles.filePct} ${styles[getCoverageColor(file.branches.pct)]}`}>
-                {file.branches.pct.toFixed(0)}%
-              </span>
+        <div className={styles.filesTableWrapper}>
+          <div className={styles.filesTable}>
+            <div className={styles.filesHeader}>
+              <span>Fichier</span>
+              <span>Lignes</span>
+              <span>Fonctions</span>
+              <span>Branches</span>
             </div>
-          ))}
+            {coverageFiles.map((file) => (
+              <div key={file.name} className={styles.fileRow}>
+                <span className={styles.fileName}>{file.name}</span>
+                <span className={`${styles.filePct} ${styles[getCoverageColor(file.lines.pct)]}`}>
+                  {file.lines.pct.toFixed(0)}%
+                </span>
+                <span className={`${styles.filePct} ${styles[getCoverageColor(file.functions.pct)]}`}>
+                  {file.functions.pct.toFixed(0)}%
+                </span>
+                <span className={`${styles.filePct} ${styles[getCoverageColor(file.branches.pct)]}`}>
+                  {file.branches.pct.toFixed(0)}%
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       )}
