@@ -6,12 +6,6 @@ const validChatBody = {
   message: "Quelles sont tes expériences en React ?",
 };
 
-const validMotivationBody = {
-  mode: "motivation",
-  message: "Génère une lettre pour ce poste.",
-  jobOffer: "Nous recherchons un développeur frontend React expérimenté pour rejoindre notre équipe.",
-};
-
 // ── Mode chat ─────────────────────────────────────────────────────────────────
 
 describe("agentSchema (Zod) — mode chat", () => {
@@ -71,35 +65,6 @@ describe("agentSchema (Zod) — mode chat", () => {
     expect(result.success).toBe(true);
     if (result.success) {
       expect(result.data.message).toBe("Quelles sont tes compétences ?");
-    }
-  });
-});
-
-// ── Mode motivation ───────────────────────────────────────────────────────────
-
-describe("agentSchema (Zod) — mode motivation", () => {
-  it("valide un body motivation complet", () => {
-    const result = agentSchema.safeParse(validMotivationBody);
-    expect(result.success).toBe(true);
-  });
-
-  it("valide un body motivation sans jobOffer (validation métier côté route)", () => {
-    const result = agentSchema.safeParse({
-      mode: "motivation",
-      message: "Génère une lettre.",
-    });
-    // Le schéma Zod accepte jobOffer optionnel — la validation métier est dans la route
-    expect(result.success).toBe(true);
-  });
-
-  it("trim les espaces sur jobOffer", () => {
-    const result = agentSchema.safeParse({
-      ...validMotivationBody,
-      jobOffer: "  Offre avec espaces  ",
-    });
-    expect(result.success).toBe(true);
-    if (result.success) {
-      expect(result.data.jobOffer).toBe("Offre avec espaces");
     }
   });
 });

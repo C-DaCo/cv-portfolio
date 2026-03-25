@@ -43,25 +43,6 @@
   margin-top: 0.1rem;
 }
 
-.cardIconBtn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  line-height: 1;
-  &:focus-visible { outline: 2px solid var(--clr-coral); border-radius: 4px; }
-}
-
-.cardIconActive {
-  color: var(--clr-sage-text);
-  transition: color 0.3s ease;
-}
-
-.tabSecret {
-  color: var(--clr-sage-text);
-  &.tabActive { border-bottom-color: var(--clr-sage-text); color: var(--clr-sage-text); }
-}
-
 .cardTitle {
   font-family: var(--font-serif);
   font-size: 1.3rem;
@@ -145,37 +126,6 @@
 .tabActive {
   color: var(--clr-coral-text);
   border-bottom-color: var(--clr-coral-text);
-}
-
-// ── Offre d'emploi ────────────────────────────────────────────────────────────
-
-.offerWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.offerLabel {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--clr-text-muted);
-  letter-spacing: 0.05em;
-}
-
-.offerTextarea {
-  width: 100%;
-  background: var(--clr-bg-100);
-  border: 1px solid var(--clr-border);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: var(--clr-text);
-  resize: vertical;
-  transition: border-color 0.2s ease;
-
-  &::placeholder { color: var(--clr-text-muted); opacity: 0.6; }
-  &:focus { outline: none; border-color: var(--clr-coral-text); }
 }
 
 // ── Messages ──────────────────────────────────────────────────────────────────
@@ -409,6 +359,7 @@
     font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--clr-text-muted);
-    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 }

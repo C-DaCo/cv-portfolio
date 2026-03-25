@@ -217,62 +217,46 @@
       },
       "items": {
         "a11y": {
-          "title": "♿ Pourquoi l'accessibilité web ?",
+          "title": "Pourquoi l'accessibilité web ?",
           "content": "15% de la population mondiale vit avec un handicap. Une interface accessible bénéficie à tous — utilisateurs de lecteurs d'écran, navigation au clavier, personnes âgées, contextes de faible connectivité. C'est un droit, pas une option."
         },
         "aria": {
-          "title": "🏷 ARIA — quand et comment l'utiliser ?",
+          "title": "ARIA — quand et comment l'utiliser ?",
           "content": "ARIA (Accessible Rich Internet Applications) enrichit le HTML sémantique. Règle d'or : ne pas utiliser ARIA si le HTML natif suffit. Un <button> est toujours préférable à un <div role=\"button\">.",
           "rule": "ne pas utiliser ARIA si le HTML natif suffit"
         },
         "focus": {
-          "title": "⌨️ Gestion du focus clavier",
+          "title": "Gestion du focus clavier",
           "content": "Tout élément interactif doit être atteignable au clavier (Tab) et avoir un indicateur de focus visible. Les modales nécessitent un focus trap — le focus ne doit pas s'échapper vers le contenu en arrière-plan."
         },
         "contrast": {
-          "title": "🎨 Contraste et couleurs",
+          "title": "Contraste et couleurs",
           "content": "Le WCAG 2.1 niveau AA exige un ratio de contraste de 4.5:1 pour le texte normal et 3:1 pour le texte large. Ne jamais transmettre une information uniquement par la couleur."
         }
       }
     },
     "agent": {
       "title": "Assistant IA",
-      "desc": "Posez vos questions sur mon profil ou générez une lettre de motivation personnalisée.",
-      "tabsLabel": "Mode de l'assistant",
-      "tabs": {
-        "chat": "Q&A CV",
-        "poem": "Poème",
-        "motivation": "Lettre de motivation"
-      },
+      "desc": "Posez vos questions sur mon profil.",
       "featureList": {
         "context": "Contexte CV injecté en system prompt",
         "history": "Historique de conversation multi-tours",
-        "modes": "2 modes : Q&A et génération de lettre",
         "model": "claude-sonnet-4"
       },
-      "offerLabel": "Offre d'emploi",
-      "offerPlaceholder": "Collez ici le contenu de l'offre d'emploi...",
       "emptyChat": "Posez une question sur mon profil, mes compétences ou mes expériences.",
-      "emptyMotivation": "Collez une offre d'emploi ci-dessus, puis envoyez votre message.",
       "messagesLabel": "Conversation avec l'assistant",
       "inputLabel": "Votre message",
-      "inputPlaceholderChat": "Ex : Quelles sont tes expériences en React ?",
-      "inputPlaceholderMotivation": "Ex : Génère une lettre pour ce poste",
+      "inputPlaceholder": "Ex : Quelles sont tes expériences en React ?",
       "inputHint": "Entrée pour envoyer · Shift+Entrée pour sauter une ligne",
       "send": "Envoyer",
       "loading": "L'assistant rédige une réponse…",
-      "errorNoOffer": "Veuillez coller une offre d'emploi avant d'envoyer.",
       "errorGeneric": "Une erreur est survenue.",
       "errorNetwork": "Impossible de contacter l'API.",
-      "inputPlaceholderPoem": "Ex : la mer, l'automne, le code...",
-      "emptyPoem": "Entrez un thème pour générer un poème et son illustration.",
       "tech": {
         "toggle": "Voir les détails techniques",
         "systemLabel": "System prompt",
         "historyLabel": "Historique brut",
-        "systemChat": "Tu es l'assistant IA du portfolio de Carole Rotton. Tu réponds aux questions des recruteurs sur son profil, ses compétences et ses expériences. Contexte CV complet injecté côté serveur.",
-        "systemPoem": "Génère un poème court + analyse visuelle en JSON. Thèmes : nature, saisons, technologie, créativité.",
-        "systemMotivation": "Tu génères des lettres de motivation personnalisées pour Carole à partir d'une offre d'emploi. Ton : professionnel et authentique. Structure : accroche / expériences / motivation / conclusion."
+        "systemChat": "Tu es l'assistant IA du portfolio de Carole Rotton. Tu réponds aux questions des recruteurs sur son profil, ses compétences et ses expériences. Contexte CV complet injecté côté serveur."
       }
     }
   },
