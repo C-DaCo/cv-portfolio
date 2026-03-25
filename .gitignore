@@ -14,3 +14,5 @@ playwright-report/
 .claude/
 apps/web/test-results/
 scripts/fonts/
+apps/web/public/lighthouse.report.*
+apps/web/public/*-results.json
