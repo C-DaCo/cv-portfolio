@@ -7,15 +7,9 @@ test.describe("AI Assistant (AgentCard)", () => {
     await page.waitForTimeout(300);
   });
 
-  test("agent card is visible with tabs", async ({ page }) => {
+  test("agent card is visible", async ({ page }) => {
     const playground = page.locator("#playground");
-    await expect(playground.getByRole("tab", { name: /Q&A CV/i })).toBeVisible();
-    await expect(playground.getByRole("tab", { name: /poème/i })).toBeVisible();
-  });
-
-  test("chat tab is selected by default", async ({ page }) => {
-    const chatTab = page.locator("#playground").getByRole("tab", { name: /Q&A CV/i });
-    await expect(chatTab).toHaveAttribute("aria-selected", "true");
+    await expect(playground.getByText("Assistant IA")).toBeVisible();
   });
 
   test("input field is present", async ({ page }) => {
@@ -67,42 +61,6 @@ test.describe("AI Assistant (AgentCard)", () => {
     await input.press("Enter");
 
     await expect(page.getByText("Réponse de l'assistant.")).toBeVisible();
-  });
-
-  test("switching to poem tab changes the placeholder", async ({ page }) => {
-    const input = page.locator("#agent-input");
-    const initialPlaceholder = await input.getAttribute("placeholder");
-
-    await page.locator("#playground").getByRole("tab", { name: /poème/i }).click();
-    const poemPlaceholder = await input.getAttribute("placeholder");
-
-    expect(poemPlaceholder).not.toBe(initialPlaceholder);
-    expect(poemPlaceholder).toMatch(/mer|automne|code/i);
-  });
-
-  test("poem mode — mocked response renders illustration", async ({ page }) => {
-    await page.route(/\/api\/agent/, (route) =>
-      route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        body: JSON.stringify({
-          success: true,
-          poem: {
-            poem: "La mer murmure\nSes secrets au vent\nDoux et bienveillant",
-            keywords: ["mer", "vent", "calme"],
-            mood: "calm",
-            palette: "ocean",
-          },
-        }),
-      })
-    );
-
-    await page.locator("#playground").getByRole("tab", { name: /poème/i }).click();
-    await page.locator("#agent-input").fill("la mer");
-    await page.locator("#playground").getByRole("button", { name: /^Envoyer$/ }).click();
-
-    // Each verse is a <p> inside a blockquote
-    await expect(page.getByText("La mer murmure")).toBeVisible();
   });
 
   test("error message displayed on API failure", async ({ page }) => {
