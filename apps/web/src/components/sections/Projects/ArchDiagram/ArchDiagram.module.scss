@@ -221,6 +221,8 @@
   // Contenu — côté gauche, prend tout l'espace
   .tabContent {
     flex: 1;
+    min-width: 0; // empêche le contenu large (tree) de pousser les tabs
+    overflow-x: hidden;
     overflow-y: visible;
     min-height: unset;
     height: auto;
