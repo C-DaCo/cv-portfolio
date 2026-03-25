@@ -148,7 +148,7 @@ export function Hero() {
           <div className={styles.decoBlob} />
 
           <span className={`${styles.decoTag} ${styles.decoTag1}`}>✦ React · TypeScript</span>
-          <span className={`${styles.decoTag} ${styles.decoTag2}`}>♡ EdTech · Remote</span>
+          <span className={`${styles.decoTag} ${styles.decoTag2}`}>♡ Beau · Utile</span>
           <span className={`${styles.decoTag} ${styles.decoTag3}`}>◎ {t("skills.a11y")}</span>
 
           <div className={styles.dotDeco1} />

@@ -31,4 +31,5 @@ export interface Project {
   github?: string;
   year: string;
   tabs: ProjectTab[];
+  wip?: boolean;
 }

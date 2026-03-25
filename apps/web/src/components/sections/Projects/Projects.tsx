@@ -25,6 +25,9 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
     >
       {/* ── Média ── */}
       <div className={styles.media}>
+        {project.wip && (
+          <span className={styles.wipBadge} aria-label="Projet en cours">En cours</span>
+        )}
         {project.image && (
           <img
             src={project.image}

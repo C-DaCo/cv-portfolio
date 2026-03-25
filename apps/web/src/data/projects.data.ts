@@ -90,6 +90,7 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
   },
   {
     id: "weather-station",
+    wip: true,
     company: "Projet personnel · IoT",
     title: "Station météo Raspberry Pi",
     desc: t("projects.weather.desc"),

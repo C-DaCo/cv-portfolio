@@ -1,9 +1,9 @@
 {
   "date": "2026-03-25",
   "scores": {
-    "performance": 64,
-    "accessibility": 97,
-    "bestPractices": 92,
+    "performance": 98,
+    "accessibility": 100,
+    "bestPractices": 100,
     "seo": 100
   }
 }

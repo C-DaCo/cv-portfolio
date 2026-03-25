@@ -107,6 +107,7 @@ export const cvData: CVData = {
     { name: "Python", category: "language", level: 2 },
     { name: "Java", category: "language", level: 2 },
     { name: "React", category: "front", level: 5 },
+    { name: "Next.js", category: "front", level: 3 },
     { name: "SCSS", category: "front", level: 4 },
     { name: "Redux", category: "front", level: 4 },
     { name: "skills.responsive", category: "front", level: 5 },
