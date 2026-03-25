@@ -196,13 +196,11 @@ export function Contact() {
 
           <form onSubmit={handleSubmit} noValidate aria-label={t("contact.formAriaLabel")}>
 
-            <p className={styles.fieldRequired}>{t("contact.form.required")}</p>
 
             <div className={styles.field}>
               <label htmlFor={`${uid}-name`} className={styles.label}>
                 {t("contact.form.name")} <span aria-hidden="true">*</span>
               </label>
-              <p id={`${uid}-name-hint`} className={styles.hint}>{t("contact.form.hint.name")}</p>
               <input
                 id={`${uid}-name`} name="name" type="text"
                 value={fields.name} onChange={handleChange} onBlur={handleBlur}
@@ -212,6 +210,7 @@ export function Contact() {
                 aria-invalid={hasError("name")}
                 aria-describedby={`${uid}-name-hint${hasError("name") ? ` ${uid}-name-err` : ""}`}
               />
+              <p id={`${uid}-name-hint`} className={styles.hint}>{t("contact.form.hint.name")}</p>
               {hasError("name") && (
                 <p id={`${uid}-name-err`} className={styles.fieldError} role="alert">{errors.name}</p>
               )}
@@ -221,7 +220,6 @@ export function Contact() {
               <label htmlFor={`${uid}-email`} className={styles.label}>
                 {t("contact.form.email")} <span aria-hidden="true">*</span>
               </label>
-              <p id={`${uid}-email-hint`} className={styles.hint}>{t("contact.form.hint.email")}</p>
               <input
                 id={`${uid}-email`} name="email" type="email"
                 value={fields.email} onChange={handleChange} onBlur={handleBlur}
@@ -231,6 +229,7 @@ export function Contact() {
                 aria-invalid={hasError("email")}
                 aria-describedby={`${uid}-email-hint${hasError("email") ? ` ${uid}-email-err` : ""}`}
               />
+              <p id={`${uid}-email-hint`} className={styles.hint}>{t("contact.form.hint.email")}</p>
               {hasError("email") && (
                 <p id={`${uid}-email-err`} className={styles.fieldError} role="alert">{errors.email}</p>
               )}
@@ -240,7 +239,6 @@ export function Contact() {
               <label htmlFor={`${uid}-subject`} className={styles.label}>
                 {t("contact.form.subject")} <span aria-hidden="true">*</span>
               </label>
-              <p id={`${uid}-subject-hint`} className={styles.hint}>{t("contact.form.hint.subject")}</p>
               <input
                 id={`${uid}-subject`} name="subject" type="text"
                 value={fields.subject} onChange={handleChange} onBlur={handleBlur}
@@ -249,6 +247,7 @@ export function Contact() {
                 aria-required="true" aria-invalid={hasError("subject")}
                 aria-describedby={`${uid}-subject-hint${hasError("subject") ? ` ${uid}-subject-err` : ""}`}
               />
+              <p id={`${uid}-subject-hint`} className={styles.hint}>{t("contact.form.hint.subject")}</p>
               {hasError("subject") && (
                 <p id={`${uid}-subject-err`} className={styles.fieldError} role="alert">{errors.subject}</p>
               )}
@@ -258,7 +257,6 @@ export function Contact() {
               <label htmlFor={`${uid}-message`} className={styles.label}>
                 {t("contact.form.message")} <span aria-hidden="true">*</span>
               </label>
-              <p id={`${uid}-message-hint`} className={styles.hint}>{t("contact.form.hint.message")}</p>
               <textarea
                 id={`${uid}-message`} name="message"
                 value={fields.message} onChange={handleChange} onBlur={handleBlur}
@@ -267,6 +265,7 @@ export function Contact() {
                 rows={5} aria-required="true" aria-invalid={hasError("message")}
                 aria-describedby={`${uid}-message-hint${hasError("message") ? ` ${uid}-message-err` : ""}`}
               />
+              <p id={`${uid}-message-hint`} className={styles.hint}>{t("contact.form.hint.message")}</p>
               {hasError("message") && (
                 <p id={`${uid}-message-err`} className={styles.fieldError} role="alert">{errors.message}</p>
               )}
@@ -276,6 +275,8 @@ export function Contact() {
                 </p>
               )}
             </div>
+
+            <p className={styles.fieldRequired}>{t("contact.form.required")}</p>
 
             <Button
               type="submit"

@@ -17,3 +17,5 @@ scripts/fonts/
 apps/web/public/lighthouse.report.*
 apps/web/public/api-test-results.json
 apps/web/public/e2e-results.json
+lh-test.json
+test-results.json
