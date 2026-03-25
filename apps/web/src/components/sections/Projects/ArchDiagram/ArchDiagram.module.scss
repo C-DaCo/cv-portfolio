@@ -204,7 +204,7 @@
   padding: 1.5rem;
   overscroll-behavior: contain;
   min-height: 380px;
-  @include m.respond-below("sm") {
+    @include m.respond-below("sm") {
     padding: 0.75rem;
   }
 }
@@ -216,18 +216,21 @@
   border: 1px solid var(--clr-border);
   background: var(--clr-bg);
   border-radius: 12px;
-  overflow: hidden;
+  overflow: clip;
 
   // Contenu — côté gauche, prend tout l'espace
   .tabContent {
     flex: 1;
     min-width: 0; // empêche le contenu large (tree) de pousser les tabs
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible;
     min-height: unset;
     height: auto;
     padding: 1.25rem;
     order: 1;
+
+      @include m.respond-below("sm") {
+    padding: 0.75rem;
+  }
   }
 
   // Tabs — bande verticale à droite (texte pivoté)
