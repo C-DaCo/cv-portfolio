@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { axe } from "jest-axe";
 import { MemoryRouter } from "react-router-dom";
@@ -84,8 +84,12 @@ describe(desc(TestScope.PAGE, "App", TestType.RENDU), () => {
 
 describe(desc(TestScope.PAGE, "App", TestType.A11Y), () => {
   it("n'a pas de violations d'accessibilité", async () => {
-    const { container } = renderApp();
-    const results = await axe(container);
+    let container: HTMLElement;
+    await act(async () => {
+      const result = renderApp();
+      container = result.container;
+    });
+    const results = await axe(container!);
     expect(results).toHaveNoViolations();
   });
 });
