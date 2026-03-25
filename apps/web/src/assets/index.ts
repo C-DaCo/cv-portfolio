@@ -13,3 +13,17 @@ export const assets = {
   experiences: { maskott, ktmAdvance, hippocad },
   education: { logoDawan, logoIfocop, logoOcr },
 };
+
+/** Dimensions intrinsèques — utilisées comme width/height sur les <img> pour éviter le CLS */
+export const assetMeta = {
+  experiences: {
+    maskott:    { w: 494, h: 102 },
+    ktmAdvance: { w: 318, h: 158 },
+    hippocad:   { w: 200, h: 56  },
+  },
+  education: {
+    logoDawan:  { w: 418, h: 120 },
+    logoIfocop: { w: 290, h: 138 },
+    logoOcr:    { w: 192, h: 73  },
+  },
+};

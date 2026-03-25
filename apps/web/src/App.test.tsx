@@ -35,6 +35,18 @@ vi.mock("@assets/index", () => ({
       logoOcr:    "ocr.png",
     },
   },
+  assetMeta: {
+    experiences: {
+      maskott:    { w: 494, h: 102 },
+      ktmAdvance: { w: 318, h: 158 },
+      hippocad:   { w: 200, h: 56  },
+    },
+    education: {
+      logoDawan:  { w: 418, h: 120 },
+      logoIfocop: { w: 290, h: 138 },
+      logoOcr:    { w: 192, h: 73  },
+    },
+  },
 }));
 
 const renderApp = () => render(

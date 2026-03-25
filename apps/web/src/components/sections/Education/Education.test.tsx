@@ -19,6 +19,14 @@ vi.mock("@assets/index", () => ({
       logoOcr:    "ocr.png",
     },
   },
+  assetMeta: {
+    experiences: {},
+    education: {
+      logoDawan:  { w: 418, h: 120 },
+      logoIfocop: { w: 290, h: 138 },
+      logoOcr:    { w: 192, h: 73  },
+    },
+  },
 }));
 
 describe(desc(TestScope.SECTION, "Education", TestType.RENDU), () => {

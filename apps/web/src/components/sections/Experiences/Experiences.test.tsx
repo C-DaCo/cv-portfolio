@@ -16,6 +16,14 @@ vi.mock("@assets/index", () => ({
     },
     education: {},
   },
+  assetMeta: {
+    experiences: {
+      maskott:    { w: 494, h: 102 },
+      ktmAdvance: { w: 318, h: 158 },
+      hippocad:   { w: 200, h: 56  },
+    },
+    education: {},
+  },
 }));
 
 vi.mock("@hooks/useReducedMotion", () => ({

@@ -22,6 +22,8 @@ export interface Project {
   longDesc?: string;
   tags: ProjectTag[];
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   video?: string;
   screenshots?: string[];
   link?: string;
