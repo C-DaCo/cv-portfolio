@@ -125,7 +125,7 @@
       "video": "Video",
       "screenshots": "Screenshots",
       "live": "Live site",
-      "tests": "Tests & Audit",
+      "tests": "Tests",
       "archi": "Architecture",
       "liveBlocked": "This site cannot be displayed here for security reasons.",
       "liveOpen": "Open in a new tab"

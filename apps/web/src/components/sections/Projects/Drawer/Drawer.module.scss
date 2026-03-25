@@ -235,9 +235,11 @@
     flex-shrink: 0;
 
     @include m.respond-below("sm") {
-        padding: 1rem 1.25rem 0;
+        padding: 1rem 0 0 1.25rem;
         overflow-x: auto;
         scrollbar-width: none;
+        -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+        mask-image: linear-gradient(to right, black 80%, transparent 100%);
 
         &::-webkit-scrollbar {
             display: none;
@@ -270,6 +272,11 @@
         outline: 2px solid var(--clr-coral);
         outline-offset: -2px;
         border-radius: 4px;
+    }
+
+    @include m.respond-below("sm") {
+        padding: 0.5rem 0.75rem 0.65rem;
+        font-size: 0.65rem;
     }
 
     &.tabActive {
