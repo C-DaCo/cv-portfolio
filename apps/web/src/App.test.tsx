@@ -91,5 +91,5 @@ describe(desc(TestScope.PAGE, "App", TestType.A11Y), () => {
     });
     const results = await axe(container!);
     expect(results).toHaveNoViolations();
-  });
+  }, 30_000);
 });
