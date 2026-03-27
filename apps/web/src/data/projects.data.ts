@@ -80,7 +80,7 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
     screenshots: [brainboostDesktop, brainboostTablet, brainboostMobile],
     github: "https://github.com/C-DaCo/BrainBoost",
     year: "2026",
-    link: "https://brain-boost-delta.vercel.app/",
+    link: "https://brainboost.carolerotton.dev",
     linkLabel: "BrainBoost",
     tabs: [
       { id: "screenshots", label: t("projects.drawer.screenshots") },
