@@ -7,7 +7,7 @@ import styles from "./TestDashboard.module.scss";
 import { Nav } from "@components/layout/Nav/Nav";
 
 export function TestDashboard() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   useEffect(() => {
     document.title = `Tests — Carole Rotton`;

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { axe } from "jest-axe";
 import { Footer } from "./Footer";
 import { desc, TestScope, TestType } from "@tests/test-categories";

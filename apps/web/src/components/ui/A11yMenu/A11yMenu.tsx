@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useA11y } from "@hooks/useA11y";
 import { useSpeech } from "@hooks/useSpeech";
 import { useFocusTrap } from "@hooks/useFocusTrap";

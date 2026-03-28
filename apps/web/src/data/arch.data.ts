@@ -1,5 +1,4 @@
 import type { TFunction } from "i18next";
-import { Layers, FolderTree, GitBranch } from "lucide-react";
 
 // ── Types ─────────────────────────────────────
 

@@ -46,7 +46,7 @@ class MockIntersectionObserver {
   observe = vi.fn();
   unobserve = vi.fn();
   disconnect = vi.fn();
-  constructor(callback: IntersectionObserverCallback) {}
+  constructor(_callback: IntersectionObserverCallback) {}
 }
 
 Object.defineProperty(window, "IntersectionObserver", {

@@ -32,6 +32,7 @@ function VideoTab({ project }: { project: Project }) {
 
     return (
         <div className={styles.tabContent}>
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
             <video
                 ref={videoRef}
                 src={project.video}

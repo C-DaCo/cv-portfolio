@@ -717,7 +717,6 @@ export function TestDashboardContent() {
               {scopes.map((scope) => {
                 const d = byScope[scope];
                 const linesPct = d.lines > 0 ? (d.linesCovered / d.lines) * 100 : 0;
-                const fnsPct   = d.fns   > 0 ? (d.fnsCovered   / d.fns)   * 100 : 0;
                 return (
                   <div key={scope} className={styles.coverageCard}>
                     <div className={styles.coverageHeader}>

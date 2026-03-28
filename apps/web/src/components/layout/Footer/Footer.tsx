@@ -4,7 +4,6 @@ import styles from "./Footer.module.scss";
 
 export function Footer() {
   const { t } = useTranslation();
-  const year = new Date().getFullYear();
 
   return (
     <footer className={styles.footer} role="contentinfo">
