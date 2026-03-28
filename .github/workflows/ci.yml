@@ -28,7 +28,7 @@ jobs:
         run: yarn lint
 
       - name: Tests unitaires
-        run: yarn workspace apps/web test
+        run: yarn workspace @cv-portfolio/web test
 
       - name: Build
         run: yarn build
@@ -45,12 +45,12 @@ jobs:
           node-version: "20"
           cache: "yarn"
       - run: yarn install --frozen-lockfile
-      - run: yarn workspace apps/web build
+      - run: yarn workspace @cv-portfolio/web build
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
       - name: Test accessibilité & visuels
-        run: yarn workspace apps/web test:e2e
+        run: yarn workspace @cv-portfolio/web test:e2e
 
       - name: Upload Playwright report
         if: always()
@@ -78,14 +78,14 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build
-        run: yarn workspace apps/web build
+        run: yarn workspace @cv-portfolio/web build
 
       - name: Install Lighthouse CLI
         run: yarn global add lighthouse
 
       - name: Launch preview & run Lighthouse
         run: |
-          yarn workspace apps/web preview &
+          yarn workspace @cv-portfolio/web preview &
           sleep 5
           lighthouse http://localhost:4173/ \
             --output=json --output=html \

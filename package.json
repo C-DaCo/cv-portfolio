@@ -5,9 +5,9 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "concurrently \"yarn workspace apps/web dev\" \"yarn workspace apps/api dev\"",
-    "build": "yarn workspace apps/web build && yarn workspace apps/api build",
-    "test": "yarn workspace apps/web test && yarn workspace apps/api test:json && node scripts/merge-test-results.mjs",
+    "dev": "concurrently \"yarn workspace @cv-portfolio/web dev\" \"yarn workspace @cv-portfolio/api dev\"",
+    "build": "yarn workspace @cv-portfolio/web build && yarn workspace @cv-portfolio/api build",
+    "test": "yarn workspace @cv-portfolio/web test && yarn workspace @cv-portfolio/api test:json && node scripts/merge-test-results.mjs",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"**/*.{ts,tsx,scss,json}\""
   },
