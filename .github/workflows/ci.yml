@@ -99,7 +99,7 @@ jobs:
         run: yarn workspace @cv-portfolio/web build
 
       - name: Install Lighthouse CLI
-        run: yarn global add lighthouse
+        run: yarn global add lighthouse@12
 
       - name: Launch preview & run Lighthouse
         run: |
