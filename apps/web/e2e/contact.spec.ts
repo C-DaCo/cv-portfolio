@@ -24,13 +24,12 @@ test.describe("Contact form", () => {
     await expect(page.getByText(/adresse email invalide/i)).toBeVisible();
   });
 
-  test("shows char counter only after message field touched", async ({ page }) => {
+  test("shows char counter after message field touched", async ({ page }) => {
     const form = page.getByRole("form", { name: /formulaire de contact/i });
-    const msgHint = page.getByText(/20 caractères minimum/);
 
     await form.getByLabel(/message/i).fill("bonjour");
     await form.getByLabel(/message/i).blur();
-    await expect(msgHint).toBeVisible();
+    await expect(page.locator("[aria-live='polite']").filter({ hasText: /caractères minimum/ })).toBeVisible();
   });
 
   test("successful submission shows success message", async ({ page }) => {
