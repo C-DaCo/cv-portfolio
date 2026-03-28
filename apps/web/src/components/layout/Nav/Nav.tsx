@@ -4,6 +4,8 @@ import { useTheme } from "@hooks/useTheme";
 import { useFocusTrap } from "@hooks/useFocusTrap";
 import styles from "./Nav.module.scss";
 
+const NAV_IDS = ["experiences", "projects", "skills", "playground", "education", "contact"];
+
 export function Nav() {
   const { theme, toggleTheme } = useTheme();
   const { i18n, t } = useTranslation();
@@ -54,10 +56,9 @@ export function Nav() {
 
   // Section active au scroll
   useEffect(() => {
-    const ids = navItems.map(({ href }) => href.slice(1));
     const observers: IntersectionObserver[] = [];
 
-    ids.forEach((id) => {
+    NAV_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
