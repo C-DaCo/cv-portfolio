@@ -23,6 +23,7 @@
   color: var(--clr-text);
   letter-spacing: 0.04em;
   z-index: 1;
+  white-space: nowrap;
 
   strong {
     font-style: normal;
@@ -68,7 +69,7 @@
     }
   }
 
-  @include m.respond-below("md") {
+  @include m.respond-below("lg") {
     display: flex;
   }
 
@@ -87,7 +88,7 @@
   background: rgba(0, 0, 0, 0.4);
   z-index: calc(var(--z-sticky) - 1);
 
-  @include m.respond-above("md") {
+  @include m.respond-above("lg") {
     display: none;
   }
 }
@@ -97,7 +98,7 @@
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: clamp(1rem, 2vw, 2.5rem);
   list-style: none;
 
   a {
@@ -128,7 +129,7 @@
 
   // ── Mobile menu ───────────────────────────
 
-  @include m.respond-below("md") {
+  @include m.respond-below("lg") {
     position: fixed;
     top: calc(var(--header-height) + 7px);
     right: 0;
@@ -143,11 +144,13 @@
     padding: 2rem;
     z-index: calc(var(--z-sticky) + 1);
     transform: translateX(100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
     box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
 
     &.navOpen {
       transform: translateX(0);
+      visibility: visible;
     }
 
     li {
@@ -198,6 +201,7 @@
     padding: 0.3rem 0.7rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    white-space: nowrap;
 
     &:hover {
       color: var(--clr-coral-text);
@@ -209,7 +213,7 @@
       outline-offset: 4px;
     }
 
-    @include m.respond-below("md") {
+    @include m.respond-below("lg") {
       background: transparent !important;
       border: none !important;
       border-radius: 0 !important;

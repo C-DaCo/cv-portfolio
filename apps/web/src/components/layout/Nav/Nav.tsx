@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@hooks/useTheme";
+import { useFocusTrap } from "@hooks/useFocusTrap";
 import styles from "./Nav.module.scss";
 
 export function Nav() {
@@ -11,6 +12,13 @@ export function Nav() {
 
   const nextTheme = theme === "light" ? "dark" : "light";
 
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const menuRef      = useRef<HTMLUListElement>(null);
+  const navRef       = useRef<HTMLElement>(null);
+  const wasOpenRef   = useRef(false);
+
+  useFocusTrap(navRef, menuOpen);
+
   const navItems = [
     { href: "#experiences", label: t("nav.experiences") },
     { href: "#projects",    label: t("nav.projects") },
@@ -20,8 +28,14 @@ export function Nav() {
     { href: "#contact",     label: t("nav.contact") },
   ];
 
-  const toggleLang = () => i18n.changeLanguage(i18n.language === "fr" ? "en" : "fr");
+  const toggleLang   = () => i18n.changeLanguage(i18n.language === "fr" ? "en" : "fr");
   const handleNavClick = () => setMenuOpen(false);
+
+  // Retour du focus au hamburger à la fermeture (guard pour éviter le focus au mount)
+  useEffect(() => {
+    if (!menuOpen && wasOpenRef.current) hamburgerRef.current?.focus();
+    if (menuOpen) wasOpenRef.current = true;
+  }, [menuOpen]);
 
   // Ferme sur Escape
   useEffect(() => {
@@ -68,13 +82,14 @@ export function Nav() {
         />
       )}
 
-      <nav className={styles.nav} aria-label="Navigation principale">
+      <nav ref={navRef} className={styles.nav} aria-label="Navigation principale">
         <span className={styles.navLogo}>
           <strong>Carole</strong> Rotton
         </span>
 
         {/* Bouton hamburger — mobile uniquement */}
         <button
+          ref={hamburgerRef}
           className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ""}`}
           onClick={() => setMenuOpen(prev => !prev)}
           aria-label={menuOpen ? t("nav.close") : t("nav.open")}
@@ -87,6 +102,7 @@ export function Nav() {
         </button>
 
         <ul
+          ref={menuRef}
           id="nav-menu"
           className={`${styles.navLinks} ${menuOpen ? styles.navOpen : ""}`}
           role="list"

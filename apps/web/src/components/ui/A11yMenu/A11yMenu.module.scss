@@ -376,6 +376,11 @@
     border-color: var(--clr-coral-text);
     color: var(--clr-text);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--clr-coral);
+    outline-offset: 2px;
+  }
 }
 
 .voiceModeActive {
@@ -385,13 +390,6 @@
   font-weight: 500;
 }
 
-.voiceModeInput {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-}
 
 .voiceStartBtn {
   display: flex;

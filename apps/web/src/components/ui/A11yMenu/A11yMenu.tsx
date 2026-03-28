@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useA11y } from "@hooks/useA11y";
 import { useSpeech } from "@hooks/useSpeech";
+import { useFocusTrap } from "@hooks/useFocusTrap";
 import {
   Accessibility, Type, Contrast, ZapOff,
-  Space, Volume2, VolumeX, RotateCcw, X,
+  Space, Volume2, RotateCcw, X,
   SkipBack, SkipForward, Play, Pause, Square
 } from "lucide-react";
 import styles from "./A11yMenu.module.scss";
@@ -14,13 +15,32 @@ export function A11yMenu() {
   const { isSpeaking, isPaused, isSupported, currentText,
     mode, setMode, start,
     pause, resume, next, previous, stop } = useSpeech();
-  const menuRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const panelRef         = useRef<HTMLDivElement>(null);
+  const triggerRef       = useRef<HTMLButtonElement>(null);
+  const voiceControlsRef = useRef<HTMLButtonElement>(null);
+  const wasOpenRef       = useRef(false);
+
+  useFocusTrap(panelRef, isOpen);
+
+  // Retour du focus au trigger à la fermeture (guard pour éviter le focus au mount)
+  useEffect(() => {
+    if (!isOpen && wasOpenRef.current) triggerRef.current?.focus();
+    if (isOpen) wasOpenRef.current = true;
+  }, [isOpen]);
+
+  // Focus sur le premier contrôle vocal quand la lecture démarre
+  useEffect(() => {
+    if (isSpeaking) {
+      requestAnimationFrame(() => voiceControlsRef.current?.focus());
+    }
+  }, [isSpeaking]);
 
   // Ferme au clic extérieur
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node) &&
+          triggerRef.current && !triggerRef.current.contains(e.target as Node)) {
         setIsOpen(false);
       }
     };
@@ -31,10 +51,7 @@ export function A11yMenu() {
   // Ferme sur Escape
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        setIsOpen(false);
-        triggerRef.current?.focus();
-      }
+      if (e.key === "Escape" && isOpen) setIsOpen(false);
     };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
@@ -48,15 +65,16 @@ export function A11yMenu() {
     settings.letterSpacing;
 
   return (
-    <div ref={menuRef} className={styles.wrapper}>
+    <div className={styles.wrapper}>
 
       {/* ── Panel ── */}
       {isOpen && (
         <div
+          ref={panelRef}
           className={styles.panel}
           role="dialog"
           aria-label="Options d'accessibilité"
-          aria-modal="false"
+          aria-modal="true"
         >
           {/* Header */}
           <div className={styles.panelHeader}>
@@ -211,37 +229,30 @@ export function A11yMenu() {
                         <strong>Assistant vocal</strong>
                       </span>
                     </div>
- 
-                    {/* Sélecteur de mode */}
+
                     <div
                       className={styles.voiceModes}
-                      role="radiogroup"
+                      role="group"
                       aria-label="Mode de lecture"
                     >
-                      <label className={`${styles.voiceMode} ${mode === "page" ? styles.voiceModeActive : ""}`}>
-                        <input
-                          type="radio"
-                          name="speech-mode"
-                          value="page"
-                          checked={mode === "page"}
-                          onChange={() => setMode("page")}
-                          className={styles.voiceModeInput}
-                        />
-                        <span>Lire la page</span>
-                      </label>
-                      <label className={`${styles.voiceMode} ${mode === "click" ? styles.voiceModeActive : ""}`}>
-                        <input
-                          type="radio"
-                          name="speech-mode"
-                          value="click"
-                          checked={mode === "click"}
-                          onChange={() => setMode("click")}
-                          className={styles.voiceModeInput}
-                        />
-                        <span>Au clic</span>
-                      </label>
+                      <button
+                        type="button"
+                        className={`${styles.voiceMode} ${mode === "page" ? styles.voiceModeActive : ""}`}
+                        aria-pressed={mode === "page"}
+                        onClick={() => setMode("page")}
+                      >
+                        Lire la page
+                      </button>
+                      <button
+                        type="button"
+                        className={`${styles.voiceMode} ${mode === "click" ? styles.voiceModeActive : ""}`}
+                        aria-pressed={mode === "click"}
+                        onClick={() => setMode("click")}
+                      >
+                        Au clic
+                      </button>
                     </div>
- 
+
                     <button
                       onClick={start}
                       className={`${styles.option} ${styles.voiceStartBtn}`}
@@ -269,6 +280,7 @@ export function A11yMenu() {
                             onClick={isPaused ? resume : pause}
                             className={`${styles.voiceBtn} ${styles.voiceBtnMain}`}
                             aria-label={isPaused ? "Reprendre" : "Pause"}
+                            ref={voiceControlsRef}
                           >
                             {isPaused ? <Play size={16} /> : <Pause size={16} />}
                           </button>
@@ -277,7 +289,12 @@ export function A11yMenu() {
                           </button>
                         </>
                       )}
-                      <button onClick={stop} className={styles.voiceBtn} aria-label="Arrêter">
+                      <button
+                        onClick={stop}
+                        className={styles.voiceBtn}
+                        aria-label="Arrêter"
+                        ref={mode !== "page" ? voiceControlsRef : undefined}
+                      >
                         <Square size={14} />
                       </button>
                     </div>
