@@ -78,7 +78,6 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
     image: mockupBrainboost,
     imageWidth: 3333, imageHeight: 2500,
     screenshots: [brainboostDesktop, brainboostTablet, brainboostMobile],
-    github: "https://github.com/C-DaCo/BrainBoost",
     year: "2026",
     link: "https://brainboost.carolerotton.dev",
     linkLabel: "BrainBoost",
