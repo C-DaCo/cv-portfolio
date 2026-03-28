@@ -231,7 +231,7 @@ export function Drawer({ project, onClose }: DrawerProps) {
                 </div>
 
                 {/* ── Contenu onglet ── */}
-                <div className={styles.tabPanel} role="tabpanel">
+                <div className={styles.tabPanel} role="tabpanel" tabIndex={0}>
                     {renderTabContent()}
                 </div>
             </div>

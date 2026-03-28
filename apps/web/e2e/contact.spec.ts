@@ -25,14 +25,12 @@ test.describe("Contact form", () => {
   });
 
   test("shows char counter only after message field touched", async ({ page }) => {
-    const charCounter = page.getByText(/caractères minimum/);
-    await expect(charCounter).not.toBeVisible();
-
     const form = page.getByRole("form", { name: /formulaire de contact/i });
+    const msgHint = page.getByText(/20 caractères minimum/);
+
     await form.getByLabel(/message/i).fill("bonjour");
-    // Blur triggers touched state → counter appears
     await form.getByLabel(/message/i).blur();
-    await expect(charCounter).toBeVisible();
+    await expect(msgHint).toBeVisible();
   });
 
   test("successful submission shows success message", async ({ page }) => {

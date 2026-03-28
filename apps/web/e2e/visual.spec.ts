@@ -1,6 +1,9 @@
 import { test, expect } from "@playwright/test";
 
+// Les snapshots visuels sont platform-specific (Windows local vs Linux CI).
+// Ces tests sont réservés à l'exécution locale après génération des snapshots.
 test.describe("Visual regression", () => {
+  test.skip(!!process.env.CI, "Visual snapshots skipped in CI (platform-specific).");
   test("Hero section — light mode", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "light" });
     await page.goto("/");
