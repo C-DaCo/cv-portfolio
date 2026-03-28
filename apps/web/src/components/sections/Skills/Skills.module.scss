@@ -8,14 +8,16 @@
   }
 }
 
+// ── En-tête ───────────────────────────────────
+
 .header {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.7s ease, transform 0.7s ease;
   &.visible { opacity: 1; transform: translateY(0); }
 
-  @include m.respond-below("md") { margin-bottom: 2.5rem; }
+  @include m.respond-below("md") { margin-bottom: 2rem; }
   @media (prefers-reduced-motion: reduce) { transition: none; }
 }
 
@@ -43,109 +45,97 @@
   color: var(--clr-text-muted);
   line-height: 1.8;
   font-weight: 300;
-  margin-bottom: 2rem;
   em { font-style: normal; color: var(--clr-coral-text); font-weight: 400; }
 }
 
-.legend {
+// ── Groupes ───────────────────────────────────
+
+.groups {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  &.visible { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { transition: none; opacity: 1; }
+}
+
+.group {
+  padding: 1.5rem 1.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-surface);
+  backdrop-filter: blur(8px);
 
   @include m.respond-below("sm") {
-    gap: 0.75rem;
+    padding: 1.25rem 1rem;
   }
 }
 
-.legendItem {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.groupTitle {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--clr-text-muted);
+  margin-bottom: 1rem;
+}
 
-  @include m.respond-below("sm") {
-    font-size: 0.6rem;
+.language .groupTitle { color: var(--clr-sand-text); }
+.front    .groupTitle { color: var(--clr-coral-text); }
+.back     .groupTitle { color: var(--clr-sage-text);  }
+.divers   .groupTitle { color: var(--clr-mauve);      }
+
+// ── Chips ─────────────────────────────────────
+
+.chipList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem 0.35rem 0.55rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--clr-border);
+  background: var(--clr-bg);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  @include m.reduced-motion {
+    &:hover { transform: none; }
   }
 }
 
-.legendDot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
+// Hiérarchie visuelle par niveau (opacité uniquement)
+.level3 { opacity: 0.9; }
+.level2 { opacity: 0.75; }
+.level1 { opacity: 0.6; }
+
+.logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
-// ── Nuage ─────────────────────────────────────
-
-.cloud {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem 3.5rem;
-  padding: 5rem 4rem;
-  min-height: 320px;
-  background: var(--clr-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: 32px;
-  backdrop-filter: blur(8px);
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  
-  &.visible { opacity: 1; }
-
-  @include m.respond-below("md") {
-    gap: 1.25rem 2rem;
-    padding: 3rem 2rem;
-    min-height: 240px;
-    border-radius: 20px;
-  }
-
-  @include m.respond-below("sm") {
-    gap: 1rem 1.5rem;
-    padding: 2rem 1.25rem;
-    min-height: 200px;
-  }
-
-  @media (prefers-reduced-motion: reduce) { transition: none; }
+// Logo noir (ex: Next.js) → inversion en dark mode
+[data-theme="dark"] .invertDark {
+  filter: invert(1);
 }
 
-// ── Mot ───────────────────────────────────────
-
-.word {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  line-height: 1;
-  cursor: default;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.5s ease, transform 0.5s ease, filter 0.2s ease;
-
-  .cloud.visible & {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &:hover { filter: brightness(1.25); }
-
-  @include m.respond-below("sm") {
-    font-size: 80% !important; // override les tailles inline
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+.chipName {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--clr-text);
+  white-space: nowrap;
 }
-
-// ── Couleurs ──────────────────────────────────
-
-.colorYellow { color: var(--clr-sand); }
-.colorCoral  { color: var(--clr-coral-text); }
-.colorSage   { color: var(--clr-sage-text); }
-.colorMauve  { color: var(--clr-mauve); }

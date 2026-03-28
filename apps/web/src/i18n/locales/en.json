@@ -25,7 +25,7 @@
     "statsAriaLabel": "By the numbers",
     "rolePart1": "Developer",
     "rolePart2": "Front-End",
-    "summary": "Front-End React Developer with 9 years of experience, including 5 years fully remote in agile teams. I've built applications used by thousands of users, treating WCAG accessibility as a requirement, not an afterthought. I integrate AI into my projects to enrich the user experience, never losing sight of the interface and the human behind it.",
+    "summary": "Fullstack JavaScript Developer with 9 years of experience, including 5 years fully remote in agile teams. I've built applications used by thousands of users, treating WCAG accessibility as a requirement, not an afterthought. I integrate AI into my projects to enrich the user experience, never losing sight of the interface and the human behind it.",
     "ctaContact": "Get in touch",
     "ctaProjects": "See my projects",
     "statsYears": "Years of experience",
@@ -66,7 +66,7 @@
     },
     "ktm": {
       "role": "Full Stack Web Developer",
-      "sector": "EdTech",
+      "sector": "EdTech / e-Learning",
       "duration": "2 years",
       "desc1": "Development and evolution of an Angular component library for e-learning module creation (JSON structure + reusable components)",
       "desc2": "Design and delivery of 15+ training modules for major clients (Bouygues TP, TotalEnergies, PSA, Agreenium...)",
@@ -75,7 +75,7 @@
     },
     "hippocad": {
       "role": "Front-End Mobile App Developer",
-      "sector": "Healthcare",
+      "sector": "B2B SaaS publisher (healthcare and social services sector)",
       "duration": "3 years",
       "desc1": "Built from scratch a mobile-first web application (ExtJS) for carer/family liaison — replacing the paper patient follow-up booklet",
       "desc2": "Developed all front-end features: authentication, patient records, liaison messaging, responsive multi-profile UI (carers, home helpers, family)",
@@ -95,7 +95,6 @@
       "back": "Back-End",
       "divers": "Tools & Methods"
     },
-    "responsive": "Responsive Design",
     "a11y": "Accessibility"
   },
   "education": {
@@ -264,7 +263,7 @@
     "formAriaLabel": "Contact form",
     "title": "Let's work",
     "titleAccent": "together",
-    "desc": "An opportunity, a project, a question? I read all my messages and reply within 48h.",
+    "desc": "An opportunity, a project, a question? Contact me.",
     "location": "France · Full Remote",
     "form": {
       "name": "Full name",
@@ -299,8 +298,7 @@
     }
   },
   "footer": {
-    "madeWith": "Made with",
-    "stack": "in React · TypeScript"
+    "madeWithStack": "Made in React · TypeScript"
   },
   "languages": {
     "title": "Languages",

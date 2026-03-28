@@ -18,14 +18,21 @@ describe(desc(TestScope.SECTION, "Skills", TestType.RENDU), () => {
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
   });
 
-  it("affiche le nuage de compétences", () => {
+  it("affiche la grille de compétences", () => {
     render(<Skills />);
-    expect(screen.getByRole("list", { name: /skills.cloudAriaLabel/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/skills.cloudAriaLabel/i)).toBeInTheDocument();
   });
 
-  it("affiche la légende des catégories", () => {
+  it("affiche les titres de catégories", () => {
     render(<Skills />);
-    expect(screen.getByLabelText(/légende/i)).toBeInTheDocument();
+    const groupTitles = screen.getAllByRole("heading", { level: 3 });
+    expect(groupTitles.length).toBeGreaterThanOrEqual(4);
+  });
+
+  it("affiche les chips de compétences", () => {
+    render(<Skills />);
+    const items = screen.getAllByRole("listitem");
+    expect(items.length).toBeGreaterThan(0);
   });
 });
 

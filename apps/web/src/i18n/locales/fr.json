@@ -26,7 +26,7 @@
     "statsAriaLabel": "En chiffres",
     "rolePart1": "Développeuse",
     "rolePart2": "Front-End",
-    "summary": "Développeuse Front-End React avec 9 ans d'expérience, dont 5 en full remote dans des équipes agiles. J'ai conçu des applications utilisées par des milliers d'utilisateurs, en portant l'accessibilité WCAG comme exigence, pas comme option. J'intègre l'IA dans mes projets pour enrichir l'expérience utilisateur, sans jamais perdre de vue l'interface et l'humain derrière.",
+    "summary": "Développeuse Fullstack JavaScript avec 9 ans d'expérience, dont 5 en full remote dans des équipes agiles. J'ai conçu des applications utilisées par des milliers d'utilisateurs, en portant l'accessibilité WCAG comme exigence, pas comme option. J'intègre l'IA dans mes projets pour enrichir l'expérience utilisateur, sans jamais perdre de vue l'interface et l'humain derrière.",
     "ctaContact": "Me contacter",
     "ctaProjects": "Voir mes projets",
     "statsYears": "Ans d'expérience",
@@ -67,7 +67,7 @@
     },
     "ktm": {
       "role": "Développeuse Web Full Stack",
-      "sector": "EdTech",
+      "sector": "EdTech / e-Learning",
       "duration": "2 ans",
       "desc1": "Développement et évolution d'une bibliothèque de composants Angular pour la création de modules e-learning (structure JSON + composants réutilisables)",
       "desc2": "Conception et livraison de plus de 15 modules de formation pour de grands comptes (Bouygues TP, TotalEnergies, PSA, Agreenium...)",
@@ -76,11 +76,11 @@
     },
     "hippocad": {
       "role": "Développeuse App Mobile Front-End",
-      "sector": "Santé",
+      "sector": "Éditeur SaaS B2B (secteur médico-social)",
       "duration": "3 ans",
       "desc1": "Création from scratch d'une application web mobile-first (ExtJS) de liaison soignants/famille — remplaçant le carnet papier de suivi patient",
       "desc2": "Développement de l'ensemble des fonctionnalités front-end : authentification, fiches patient, messagerie de liaison, interface responsive multi-profils (soignants, aides à domicile, famille)",
-      "desc3": "Maintenance et évolution d'une application Android/Java existante",
+      "desc3": "Maintenance et évolution d'Asapro Mobile, application Android/Java",
       "desc4": "Seule développeuse front-end, en binôme avec le développeur back-end"
     }
   },
@@ -96,7 +96,6 @@
       "back": "Back-End",
       "divers": "Outils & Méthodes"
     },
-    "responsive": "Responsive Design",
     "a11y": "Accessibilité"
   },
   "education": {
@@ -145,8 +144,8 @@
       "longDesc": "Projet IoT en cours de développement. La station sera connectée au portfolio pour afficher les données météo en direct."
     },
     "brainboost": {
-      "desc": "Application de flashcards avec répétition espacée (algorithme SM-2), génération de cartes par IA via scan de leçons, modes d'entraînement variés et notifications push.",
-      "longDesc": "Algorithme SM-2 implémenté from scratch, 5 modes d'entraînement (flashcards, QCM, interro écrite, match, drag-drop). Génération de cartes par IA depuis des photos de notes manuscrites, notifications push VAPID, thèmes saisonniers. 233 tests (89.6% coverage) + 20 E2E avec validation WCAG AA."
+      "desc": "Application de révision répétition espacée (algorithme SM-2), génération de flashcards par IA via scan de leçons, modes d'entraînement variés et notifications push.",
+      "longDesc": "Algorithme SM-2 implémenté from scratch, 3 modes d'entraînement (flashcards, QCM, interro écrite). Génération de cartes par IA depuis des photos leçons, notifications push VAPID, thèmes saisonniers. 233 tests (89.6% coverage) + 20 E2E avec validation WCAG AA."
     }
   },
   "arch": {
@@ -265,7 +264,7 @@
     "formAriaLabel": "Formulaire de contact",
     "title": "Travaillons",
     "titleAccent": "ensemble",
-    "desc": "Une opportunité, un projet, une question ? Je lis tous mes messages et réponds sous 48h.",
+    "desc": "Une opportunité, un projet, une question ? Contactez-moi.",
     "location": "France · Full Remote",
     "form": {
       "name": "Nom complet",
@@ -300,8 +299,7 @@
     }
   },
   "footer": {
-    "madeWith": "Fait avec",
-    "stack": "en React · TypeScript"
+    "madeWithStack": "Fait en React · TypeScript"
   },
   "languages": {
     "title": "Langues",
