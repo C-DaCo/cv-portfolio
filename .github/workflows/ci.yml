@@ -47,7 +47,7 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn workspace @cv-portfolio/web build
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium firefox
 
       - name: Test accessibilité & visuels
         run: yarn workspace @cv-portfolio/web test:e2e
