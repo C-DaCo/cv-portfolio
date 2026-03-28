@@ -39,9 +39,15 @@
   border-radius: 50%;
   filter: blur(70px);
   transition: background var(--transition-slow);
+  will-change: transform;
+
+  @include m.respond-below("md") {
+    filter: blur(40px);
+  }
 
   @include m.reduced-motion {
     animation: none !important;
+    will-change: auto;
   }
 }
 

@@ -9,7 +9,6 @@
     <meta name="description" content="Portfolio de Carole Rotton, développeuse Front-End spécialisée React, TypeScript et Node.js. Disponible en full remote." />
     <meta name="author" content="Carole Rotton" />
     <meta name="robots" content="index, follow" />
-    <!-- TODO: remplacer par l'URL définitive une fois le domaine connu -->
     <link rel="canonical" href="https://caroleroton.dev" />
 
     <!-- ── Open Graph ──────────────────────────────────── -->
@@ -18,7 +17,6 @@
     <meta property="og:title"       content="Carole Rotton — Développeuse Front-End React &amp; TypeScript" />
     <meta property="og:description" content="Portfolio de Carole Rotton, développeuse Front-End spécialisée React, TypeScript et Node.js. Disponible en full remote." />
     <meta property="og:locale"      content="fr_FR" />
-    <!-- TODO: remplacer l'URL par le domaine définitif -->
     <meta property="og:image" content="https://caroleroton.dev/og-image.jpg" />
 
     <!-- ── Twitter Card ────────────────────────────────── -->
@@ -54,7 +52,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#FF4B6E" />
     <!-- ── Preload LCP image ───────────────────────── -->
-    <link rel="preload" as="image" href="/photo-320.webp" fetchpriority="high" media="(max-width: 768px)" />
+    <link rel="preload" as="image" href="/photo-320.webp" fetchpriority="high" media="(max-width: 768px) and (-webkit-max-device-pixel-ratio: 2), (max-width: 768px) and (max-resolution: 2dppx)" />
+    <link rel="preload" as="image" href="/photo-480.webp" fetchpriority="high" media="(max-width: 768px) and (-webkit-min-device-pixel-ratio: 2.5), (max-width: 768px) and (min-resolution: 2.5dppx)" />
     <link rel="preload" as="image" href="/photo.webp" fetchpriority="high" media="(min-width: 769px)" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,5 +1,6 @@
 const photo = "/photo.webp";
 const photo320 = "/photo-320.webp";
+const photo480 = "/photo-480.webp";
 import maskott from "./experiences/maskott.webp";
 import ktmAdvance from "./experiences/ktm-advance.webp";
 import hippocad from "./experiences/hippocad.webp";
@@ -10,6 +11,7 @@ import logoOcr from "./education/logo_ocr.png";
 export const assets = {
   photo,
   photo320,
+  photo480,
   experiences: { maskott, ktmAdvance, hippocad },
   education: { logoDawan, logoIfocop, logoOcr },
 };

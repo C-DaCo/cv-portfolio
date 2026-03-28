@@ -161,7 +161,7 @@ export function Hero() {
             )}
             <img
               src={assets.photo}
-              srcSet={`${assets.photo320} 320w, ${assets.photo} 400w`}
+              srcSet={`${assets.photo320} 320w, ${assets.photo480} 480w, ${assets.photo} 800w`}
               sizes="(max-width: 768px) 160px, 300px"
               alt={`Portrait de ${personalInfo.firstName} ${personalInfo.lastName}, ${personalInfo.title}`}
               className={styles.photo}
