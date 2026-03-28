@@ -1,0 +1,3718 @@
+{
+  "config": {
+    "configFile": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/playwright.config.ts",
+    "rootDir": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e",
+    "forbidOnly": true,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/C-DaCo/cv-portfolio/commit/1adffba642abfe8ad5deeeff90503e9d7937504c",
+        "commitHash": "1adffba642abfe8ad5deeeff90503e9d7937504c",
+        "buildHref": "https://github.com/C-DaCo/cv-portfolio/actions/runs/23687035676"
+      },
+      "gitCommit": {
+        "shortHash": "1adffba",
+        "hash": "1adffba642abfe8ad5deeeff90503e9d7937504c",
+        "subject": "fix(ci): autostash unstaged changes before rebase pull",
+        "body": "fix(ci): autostash unstaged changes before rebase pull\n\nPlaywright generates report files during e2e tests that cause\n`git pull --rebase` to fail with \"unstaged changes\". Using\n`--autostash` stashes them automatically before the rebase.\n\nAlso fix drawer scroll lock (overflow on html instead of position:fixed)\nand ignore Brainboost.png replaced by WebP.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\n",
+        "author": {
+          "name": "Carole Rotton",
+          "email": "caroledacosta.rotton@gmail.com",
+          "time": 1774707316000
+        },
+        "committer": {
+          "name": "Carole Rotton",
+          "email": "caroledacosta.rotton@gmail.com",
+          "time": 1774707328000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/C-DaCo/cv-portfolio/commit/1adffba642abfe8ad5deeeff90503e9d7937504c",
+            "commitHash": "1adffba642abfe8ad5deeeff90503e9d7937504c",
+            "buildHref": "https://github.com/C-DaCo/cv-portfolio/actions/runs/23687035676"
+          },
+          "gitCommit": {
+            "shortHash": "1adffba",
+            "hash": "1adffba642abfe8ad5deeeff90503e9d7937504c",
+            "subject": "fix(ci): autostash unstaged changes before rebase pull",
+            "body": "fix(ci): autostash unstaged changes before rebase pull\n\nPlaywright generates report files during e2e tests that cause\n`git pull --rebase` to fail with \"unstaged changes\". Using\n`--autostash` stashes them automatically before the rebase.\n\nAlso fix drawer scroll lock (overflow on html instead of position:fixed)\nand ignore Brainboost.png replaced by WebP.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\n",
+            "author": {
+              "name": "Carole Rotton",
+              "email": "caroledacosta.rotton@gmail.com",
+              "time": 1774707316000
+            },
+            "committer": {
+              "name": "Carole Rotton",
+              "email": "caroledacosta.rotton@gmail.com",
+              "time": 1774707328000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/C-DaCo/cv-portfolio/commit/1adffba642abfe8ad5deeeff90503e9d7937504c",
+            "commitHash": "1adffba642abfe8ad5deeeff90503e9d7937504c",
+            "buildHref": "https://github.com/C-DaCo/cv-portfolio/actions/runs/23687035676"
+          },
+          "gitCommit": {
+            "shortHash": "1adffba",
+            "hash": "1adffba642abfe8ad5deeeff90503e9d7937504c",
+            "subject": "fix(ci): autostash unstaged changes before rebase pull",
+            "body": "fix(ci): autostash unstaged changes before rebase pull\n\nPlaywright generates report files during e2e tests that cause\n`git pull --rebase` to fail with \"unstaged changes\". Using\n`--autostash` stashes them automatically before the rebase.\n\nAlso fix drawer scroll lock (overflow on html instead of position:fixed)\nand ignore Brainboost.png replaced by WebP.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\n",
+            "author": {
+              "name": "Carole Rotton",
+              "email": "caroledacosta.rotton@gmail.com",
+              "time": 1774707316000
+            },
+            "committer": {
+              "name": "Carole Rotton",
+              "email": "caroledacosta.rotton@gmail.com",
+              "time": 1774707328000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "./public/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.2",
+    "workers": 1,
+    "webServer": {
+      "command": "yarn dev",
+      "url": "http://localhost:5173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "a11y.spec.ts",
+      "file": "a11y.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Accessibility — WCAG AA",
+          "file": "a11y.spec.ts",
+          "line": 18,
+          "column": 6,
+          "specs": [
+            {
+              "title": "homepage has no axe violations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2161,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:18:57.750Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-e61ffee0ccdc197727be",
+              "file": "a11y.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "contact section has no axe violations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1325,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:00.916Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-de572240950acc2e3ee4",
+              "file": "a11y.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "playground section has no axe violations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1406,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:02.262Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-ed142decad7e0d5381e4",
+              "file": "a11y.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "project drawer has no axe violations when open",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2575,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:03.684Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-9becca7dfd5d4d2f6fee",
+              "file": "a11y.spec.ts",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "a11y menu panel has no axe violations when open",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2521,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:06.273Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-11c9e1f652ee71bafa7b",
+              "file": "a11y.spec.ts",
+              "line": 73,
+              "column": 3
+            },
+            {
+              "title": "homepage has no axe violations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3568,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:44.840Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-8acdb9327dfb5d815106",
+              "file": "a11y.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "contact section has no axe violations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1557,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:48.829Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-2dccf782ba29c667d23f",
+              "file": "a11y.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "playground section has no axe violations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1466,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:50.410Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-a09a942bf6acaf0e1ac7",
+              "file": "a11y.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "project drawer has no axe violations when open",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2870,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:51.891Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-25ec34f579fdf177bd8d",
+              "file": "a11y.spec.ts",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "a11y menu panel has no axe violations when open",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2747,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:54.777Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "aa3ad05f8c0e05077efb-dffdef80a07ff9dec109",
+              "file": "a11y.spec.ts",
+              "line": 73,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "a11ymenu.spec.ts",
+      "file": "a11ymenu.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Accessibility menu (A11yMenu)",
+          "file": "a11ymenu.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "trigger button is visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 563,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:08.822Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-736df36c79f30cf186f5",
+              "file": "a11ymenu.spec.ts",
+              "line": 8,
+              "column": 3
+            },
+            {
+              "title": "clicking trigger opens the menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 707,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:09.402Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-45fb5d4af040e39e58ee",
+              "file": "a11ymenu.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "dyslexic font toggle is a switch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 920,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:10.137Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-fe51be721ce759432c55",
+              "file": "a11ymenu.spec.ts",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "high contrast toggle is a switch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1071,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:11.075Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-fb7810e4e8d93bab9a4c",
+              "file": "a11ymenu.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "font size buttons are present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 651,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:12.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-8cdcc924724dced384af",
+              "file": "a11ymenu.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "Escape closes the menu and returns focus to trigger",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 664,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:12.838Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-96d40a27d5925f92a3f4",
+              "file": "a11ymenu.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "close button inside panel closes the menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 703,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:13.528Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-dffd093eccc1d3e39588",
+              "file": "a11ymenu.spec.ts",
+              "line": 64,
+              "column": 3
+            },
+            {
+              "title": "clicking outside the menu closes it",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 604,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:14.247Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-723caf2af51a0e051a1f",
+              "file": "a11ymenu.spec.ts",
+              "line": 72,
+              "column": 3
+            },
+            {
+              "title": "reset button appears after modifying a setting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 907,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:14.865Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-e0dbb3f258b974362aa5",
+              "file": "a11ymenu.spec.ts",
+              "line": 81,
+              "column": 3
+            },
+            {
+              "title": "trigger button is visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 870,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:57.554Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-063520f6ad5fa87ed251",
+              "file": "a11ymenu.spec.ts",
+              "line": 8,
+              "column": 3
+            },
+            {
+              "title": "clicking trigger opens the menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 922,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:58.441Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-cb38066c683218c8943e",
+              "file": "a11ymenu.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "dyslexic font toggle is a switch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1392,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:59.392Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-3d5eeb87fab99afac929",
+              "file": "a11ymenu.spec.ts",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "high contrast toggle is a switch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1345,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:00.801Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-0b930cd98247d1d8536a",
+              "file": "a11ymenu.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "font size buttons are present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1010,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:02.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-0febb0262cd038ef7baf",
+              "file": "a11ymenu.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "Escape closes the menu and returns focus to trigger",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 891,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:03.194Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-3d98470f9e524648f4dd",
+              "file": "a11ymenu.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "close button inside panel closes the menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1179,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:04.106Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-6b984ea99624ca0ca8fc",
+              "file": "a11ymenu.spec.ts",
+              "line": 64,
+              "column": 3
+            },
+            {
+              "title": "clicking outside the menu closes it",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 918,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:05.311Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-730bc9a89609f07a242f",
+              "file": "a11ymenu.spec.ts",
+              "line": 72,
+              "column": 3
+            },
+            {
+              "title": "reset button appears after modifying a setting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1321,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:06.245Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a63329b35d972a02d054-4ac7d58c5f9ab7b84f23",
+              "file": "a11ymenu.spec.ts",
+              "line": 81,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "agent.spec.ts",
+      "file": "agent.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "AI Assistant (AgentCard)",
+          "file": "agent.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "agent card is visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1003,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:15.806Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-1857f9cfff6ca8ee8927",
+              "file": "agent.spec.ts",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "input field is present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 942,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:16.829Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-03a1163811696fbe51f9",
+              "file": "agent.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "send button is disabled when input is empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 958,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:17.786Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-dd6fc6af8c2db085a27f",
+              "file": "agent.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "chat mode — mocked response appears in conversation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1408,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:18.757Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-1a774f084ca6b958948d",
+              "file": "agent.spec.ts",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "Enter key submits the message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1101,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:20.179Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-673bcfe4e083eb989803",
+              "file": "agent.spec.ts",
+              "line": 46,
+              "column": 3
+            },
+            {
+              "title": "error message displayed on API failure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1417,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:21.297Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-e8e61292b1b0feb92c18",
+              "file": "agent.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "technical details panel toggles",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1080,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:22.729Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-0641e715864909ce39ec",
+              "file": "agent.spec.ts",
+              "line": 83,
+              "column": 3
+            },
+            {
+              "title": "agent card is visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1165,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:07.590Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-e57b73590454e3145b79",
+              "file": "agent.spec.ts",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "input field is present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1125,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:08.783Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-bfe128fc0bb66ba619dd",
+              "file": "agent.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "send button is disabled when input is empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1104,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:09.926Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-7166d03858e28adce270",
+              "file": "agent.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "chat mode — mocked response appears in conversation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1369,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:11.049Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-9c7477782f1e42a339b6",
+              "file": "agent.spec.ts",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "Enter key submits the message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1182,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:12.436Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-ab2a70087432a17200db",
+              "file": "agent.spec.ts",
+              "line": 46,
+              "column": 3
+            },
+            {
+              "title": "error message displayed on API failure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1220,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:13.637Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-fee75776158a978aeb83",
+              "file": "agent.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "technical details panel toggles",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1318,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:14.878Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "00574607846d83245288-a958a715c8608286ba8f",
+              "file": "agent.spec.ts",
+              "line": 83,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "contact.spec.ts",
+      "file": "contact.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Contact form",
+          "file": "contact.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "shows validation errors on empty submit",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 746,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:23.835Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-efcdb93824e05e6643bd",
+              "file": "contact.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "shows email error for invalid email format",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 702,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:24.598Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-143d96cdd2e9e3eb512a",
+              "file": "contact.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "shows char counter after message field touched",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 652,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:25.321Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-df8de4a487508c41f38d",
+              "file": "contact.spec.ts",
+              "line": 27,
+              "column": 3
+            },
+            {
+              "title": "successful submission shows success message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1013,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:25.990Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-72d2965f28541d8a74ff",
+              "file": "contact.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "'Envoyer un autre message' button resets the form",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 872,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:27.020Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-92961ccfc98c98928690",
+              "file": "contact.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "shows error message on API failure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 919,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:27.907Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-f330d3062d4b08c28bca",
+              "file": "contact.spec.ts",
+              "line": 74,
+              "column": 3
+            },
+            {
+              "title": "shows validation errors on empty submit",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1286,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:16.227Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-f8ca516e7ef254f40222",
+              "file": "contact.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "shows email error for invalid email format",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 940,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:17.530Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-3ef20683a2ada12f6297",
+              "file": "contact.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "shows char counter after message field touched",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 958,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:18.490Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-680d80a92595f3669af8",
+              "file": "contact.spec.ts",
+              "line": 27,
+              "column": 3
+            },
+            {
+              "title": "successful submission shows success message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1270,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:19.466Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-2621a4ea49f491379539",
+              "file": "contact.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "'Envoyer un autre message' button resets the form",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1601,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:20.756Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-cc39d946b78a2d3606fd",
+              "file": "contact.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "shows error message on API failure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1144,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:22.374Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c37ec27874a4649dbe8b-9007d9a24dedf3b8cbd9",
+              "file": "contact.spec.ts",
+              "line": 74,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "drawer.spec.ts",
+      "file": "drawer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Project Drawer",
+          "file": "drawer.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "opens when clicking a project card title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1037,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:28.850Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-5296aac389b96534de49",
+              "file": "drawer.spec.ts",
+              "line": 11,
+              "column": 3
+            },
+            {
+              "title": "drawer has correct aria attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1033,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:29.906Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-564dec1abd74b4e8633c",
+              "file": "drawer.spec.ts",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "displays project tags",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1078,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:30.954Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-8db42086e12750e63002",
+              "file": "drawer.spec.ts",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "tabs are rendered and switchable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1506,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:32.050Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-247ad84f7c88a4e22c49",
+              "file": "drawer.spec.ts",
+              "line": 33,
+              "column": 3
+            },
+            {
+              "title": "closes on Escape key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1062,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:33.573Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-d38af22d1333695a8c1e",
+              "file": "drawer.spec.ts",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "closes on close button click",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1500,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:34.651Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-ac5e69528a7d04b1bfd3",
+              "file": "drawer.spec.ts",
+              "line": 55,
+              "column": 3
+            },
+            {
+              "title": "closes on overlay click",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1137,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:36.165Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-ba07c5a41faa51cc86f1",
+              "file": "drawer.spec.ts",
+              "line": 64,
+              "column": 3
+            },
+            {
+              "title": "opens when clicking a project card title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1269,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:23.542Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-3eb2c8168b13a127f513",
+              "file": "drawer.spec.ts",
+              "line": 11,
+              "column": 3
+            },
+            {
+              "title": "drawer has correct aria attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1376,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:24.837Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-d1869df940bb1eb4984e",
+              "file": "drawer.spec.ts",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "displays project tags",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1864,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:26.232Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-cdb28d9e938a6916f775",
+              "file": "drawer.spec.ts",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "tabs are rendered and switchable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1766,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:28.117Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-38a8e2962e60345b1918",
+              "file": "drawer.spec.ts",
+              "line": 33,
+              "column": 3
+            },
+            {
+              "title": "closes on Escape key",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1675,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:29.901Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-3101af3c847537439fbc",
+              "file": "drawer.spec.ts",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "closes on close button click",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1906,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:31.594Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-05cbd6fd532d438914f4",
+              "file": "drawer.spec.ts",
+              "line": 55,
+              "column": 3
+            },
+            {
+              "title": "closes on overlay click",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1292,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:33.519Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f12fa9e699ee6057606-64766c0336af377e46fd",
+              "file": "drawer.spec.ts",
+              "line": 64,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "navigation.spec.ts",
+      "file": "navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Navigation",
+          "file": "navigation.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "skip link is present and points to #main",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 444,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:37.322Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-663b03fa683eaddb4fb8",
+              "file": "navigation.spec.ts",
+              "line": 8,
+              "column": 3
+            },
+            {
+              "title": "skip link becomes visible on focus",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 477,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:37.784Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-3e60f4efd45d77467022",
+              "file": "navigation.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "nav contains all section links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 546,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:38.277Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-780b3e3b7a9abb37b417",
+              "file": "navigation.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "clicking a nav link scrolls to the section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1575,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:38.842Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-e6b798d633b08a5ad651",
+              "file": "navigation.spec.ts",
+              "line": 27,
+              "column": 3
+            },
+            {
+              "title": "theme toggle button is present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 434,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:40.434Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-b33f5dc64ecb2780fdff",
+              "file": "navigation.spec.ts",
+              "line": 33,
+              "column": 3
+            },
+            {
+              "title": "language toggle button is present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 445,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:40.886Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-873408928ffc75c4d5fd",
+              "file": "navigation.spec.ts",
+              "line": 39,
+              "column": 3
+            },
+            {
+              "title": "main landmark exists",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 442,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:41.346Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-c933289837a1c93525b4",
+              "file": "navigation.spec.ts",
+              "line": 44,
+              "column": 3
+            },
+            {
+              "title": "skip link is present and points to #main",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 900,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:34.840Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-daa4fd815c19dbcc2dd4",
+              "file": "navigation.spec.ts",
+              "line": 8,
+              "column": 3
+            },
+            {
+              "title": "skip link becomes visible on focus",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 937,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:35.756Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-dd29cb8d48e9f9e10238",
+              "file": "navigation.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "nav contains all section links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1126,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:36.710Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-c257fd49f1415c95b5d8",
+              "file": "navigation.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "clicking a nav link scrolls to the section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1258,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:37.859Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-0343cf43ed6eafcd8e9f",
+              "file": "navigation.spec.ts",
+              "line": 27,
+              "column": 3
+            },
+            {
+              "title": "theme toggle button is present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 738,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:39.133Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-f64a78b2a364375deab9",
+              "file": "navigation.spec.ts",
+              "line": 33,
+              "column": 3
+            },
+            {
+              "title": "language toggle button is present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 880,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:39.896Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-815197bec31b46f22648",
+              "file": "navigation.spec.ts",
+              "line": 39,
+              "column": 3
+            },
+            {
+              "title": "main landmark exists",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 897,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:40.797Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-8e3fd1fb6b2d9160ba9b",
+              "file": "navigation.spec.ts",
+              "line": 44,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "theme.spec.ts",
+      "file": "theme.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Dark / light mode toggle",
+          "file": "theme.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "theme toggle button is accessible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 464,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:41.809Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8168eb6e17e693d86faf-6f49f3810e9de2087016",
+              "file": "theme.spec.ts",
+              "line": 8,
+              "column": 3
+            },
+            {
+              "title": "clicking theme toggle changes the button label",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 623,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:42.288Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8168eb6e17e693d86faf-9c59f4831a981cffe13e",
+              "file": "theme.spec.ts",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "clicking theme toggle updates data-theme on <html>",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 689,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:42.931Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8168eb6e17e693d86faf-4f159be91f9bf1b05035",
+              "file": "theme.spec.ts",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "theme toggle button is accessible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1050,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:41.724Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8168eb6e17e693d86faf-edec3ac4da950ce5e761",
+              "file": "theme.spec.ts",
+              "line": 8,
+              "column": 3
+            },
+            {
+              "title": "clicking theme toggle changes the button label",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 920,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:42.799Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8168eb6e17e693d86faf-3756cdd683ecd3fb8337",
+              "file": "theme.spec.ts",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "clicking theme toggle updates data-theme on <html>",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 885,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:43.745Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8168eb6e17e693d86faf-882caaa771d6c9e3729d",
+              "file": "theme.spec.ts",
+              "line": 26,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "visual.spec.ts",
+      "file": "visual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Visual regression",
+          "file": "visual.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Hero section — light mode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Visual snapshots skipped in CI (platform-specific).",
+                      "location": {
+                        "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:43.636Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Visual snapshots skipped in CI (platform-specific).",
+                          "location": {
+                            "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                            "line": 6,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8324bb52c49185e48ff4-92d037f77b8bd39d9aaf",
+              "file": "visual.spec.ts",
+              "line": 7,
+              "column": 3
+            },
+            {
+              "title": "Hero section — dark mode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Visual snapshots skipped in CI (platform-specific).",
+                      "location": {
+                        "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:43.636Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Visual snapshots skipped in CI (platform-specific).",
+                          "location": {
+                            "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                            "line": 6,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8324bb52c49185e48ff4-d9e4843de5096ccc8b1d",
+              "file": "visual.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "CV Drawer — open state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Visual snapshots skipped in CI (platform-specific).",
+                      "location": {
+                        "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:43.636Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Visual snapshots skipped in CI (platform-specific).",
+                          "location": {
+                            "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                            "line": 6,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8324bb52c49185e48ff4-e750ed38e60438a79d0a",
+              "file": "visual.spec.ts",
+              "line": 30,
+              "column": 3
+            },
+            {
+              "title": "Nav bar — light vs dark snapshot",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Visual snapshots skipped in CI (platform-specific).",
+                      "location": {
+                        "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:19:43.636Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Visual snapshots skipped in CI (platform-specific).",
+                          "location": {
+                            "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                            "line": 6,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8324bb52c49185e48ff4-4e6129c318d7c02a7f52",
+              "file": "visual.spec.ts",
+              "line": 40,
+              "column": 3
+            },
+            {
+              "title": "Hero section — light mode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Visual snapshots skipped in CI (platform-specific).",
+                      "location": {
+                        "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:44.653Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Visual snapshots skipped in CI (platform-specific).",
+                          "location": {
+                            "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                            "line": 6,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8324bb52c49185e48ff4-30274299e87385990b77",
+              "file": "visual.spec.ts",
+              "line": 7,
+              "column": 3
+            },
+            {
+              "title": "Hero section — dark mode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Visual snapshots skipped in CI (platform-specific).",
+                      "location": {
+                        "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:44.653Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Visual snapshots skipped in CI (platform-specific).",
+                          "location": {
+                            "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                            "line": 6,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8324bb52c49185e48ff4-38eb9136f5b5c9d79887",
+              "file": "visual.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "CV Drawer — open state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Visual snapshots skipped in CI (platform-specific).",
+                      "location": {
+                        "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:44.653Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Visual snapshots skipped in CI (platform-specific).",
+                          "location": {
+                            "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                            "line": 6,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8324bb52c49185e48ff4-8e7441fbce38767316cc",
+              "file": "visual.spec.ts",
+              "line": 30,
+              "column": 3
+            },
+            {
+              "title": "Nav bar — light vs dark snapshot",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Visual snapshots skipped in CI (platform-specific).",
+                      "location": {
+                        "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-28T14:20:44.654Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Visual snapshots skipped in CI (platform-specific).",
+                          "location": {
+                            "file": "/home/runner/work/cv-portfolio/cv-portfolio/apps/web/e2e/visual.spec.ts",
+                            "line": 6,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8324bb52c49185e48ff4-421c77bf2f5e647d086c",
+              "file": "visual.spec.ts",
+              "line": 40,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-03-28T14:18:54.556Z",
+    "duration": 110953.84300000001,
+    "expected": 88,
+    "skipped": 8,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
