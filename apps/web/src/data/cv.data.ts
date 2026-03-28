@@ -7,7 +7,7 @@ export const cvData: CVData = {
     title: "Développeuse Front-End",
     subtitle: "Full Remote",
     tagline: "React · TypeScript · Node.js · EdTech",
-    email: "caroledacosta.rotton@gmail.com",
+    email: "contact@carolerotton.dev",
     phone: "06 87 72 75 49",
     location: "France",
     remote: true,
