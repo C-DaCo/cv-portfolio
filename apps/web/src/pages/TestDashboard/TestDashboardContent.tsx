@@ -191,9 +191,21 @@ type TestColumn = "rendu" | "a11y" | "other";
 const SCOPE_LABELS: Record<string, string> = {
   ui:      "Composants UI",
   section: "Sections",
+  layout:  "Layout",
   hook:    "Hooks",
   page:    "Pages",
+  other:   "Autre",
 };
+
+function getScopeFromPath(path: string): string {
+  const p = path.replace(/\\/g, "/");
+  if (p.includes("/components/ui/"))       return "ui";
+  if (p.includes("/components/sections/")) return "section";
+  if (p.includes("/components/layout/"))   return "layout";
+  if (p.includes("/hooks/"))               return "hook";
+  if (p.includes("/pages/"))               return "page";
+  return "other";
+}
 
 interface ParsedDescribe {
   scope: string;
@@ -546,10 +558,7 @@ export function TestDashboardContent() {
   );
 
   const coverageFiles = coverage
-    ? Object.entries(coverage)
-        .filter(([key]) => key !== "total")
-        .map(([key, val]) => ({ name: getFileName(key), ...val }))
-        .sort((a, b) => a.lines.pct - b.lines.pct)
+    ? Object.keys(coverage).filter(k => k !== "total")
     : [];
 
   const { rendu, a11y, other, renduTotal, renduPassed, a11yTotal, a11yPassed } =
@@ -680,73 +689,66 @@ export function TestDashboardContent() {
       {/* ── Audit Lighthouse ── */}
       {lh && <LighthouseSection data={lh} />}
 
-      {/* ── Couverture globale ── */}
-      {coverage && (
-      <section className={styles.section} aria-labelledby="coverage-title-inline">
-        <h2 id="coverage-title-inline" className={styles.sectionTitle}>Couverture de code</h2>
-        <div className={styles.coverageGrid}>
-          {(["lines", "statements", "functions", "branches"] as const).map((metric) => (
-            <div key={metric} className={styles.coverageCard}>
-              <div className={styles.coverageHeader}>
-                <span className={styles.coverageMetric}>{metric}</span>
-                <span className={`${styles.coveragePct} ${styles[getCoverageColor(coverage.total[metric].pct)]}`}>
-                  {coverage.total[metric].pct.toFixed(1)}%
-                </span>
-              </div>
-              <div className={styles.progressBar}
-                role="progressbar"
-                aria-valuenow={coverage.total[metric].pct}
-                aria-valuemin={0}
-                aria-valuemax={100}
-                aria-label={`Couverture ${metric} : ${coverage.total[metric].pct.toFixed(1)}%`}
-              >
-                <div
-                  className={`${styles.progressFill} ${styles[getCoverageColor(coverage.total[metric].pct)]}`}
-                  style={{ width: `${coverage.total[metric].pct}%` }}
-                />
-              </div>
-              <span className={styles.coverageDetail}>
-                {coverage.total[metric].covered} / {coverage.total[metric].total}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-      )}
 
-      {/* ── Couverture par fichier ── */}
-      {coverage && coverageFiles.length > 0 && (
-      <section className={styles.section} aria-labelledby="files-title-inline">
-        <h2 id="files-title-inline" className={styles.sectionTitle}>
-          Couverture par fichier
-          <span className={styles.sectionCount}>{coverageFiles.length} fichiers</span>
-        </h2>
-        <div className={styles.filesTableWrapper}>
-          <div className={styles.filesTable}>
-            <div className={styles.filesHeader}>
-              <span>Fichier</span>
-              <span>Lignes</span>
-              <span>Fonctions</span>
-              <span>Branches</span>
+      {/* ── Couverture par scope ── */}
+      {coverage && coverageFiles.length > 0 && (() => {
+        const scopeOrder = ["section", "ui", "layout", "hook", "page", "other"];
+        const byScope: Record<string, { lines: number; linesCovered: number; fns: number; fnsCovered: number }> = {};
+        Object.entries(coverage)
+          .filter(([key]) => key !== "total")
+          .forEach(([key, val]) => {
+            const scope = getScopeFromPath(key);
+            if (!byScope[scope]) byScope[scope] = { lines: 0, linesCovered: 0, fns: 0, fnsCovered: 0 };
+            byScope[scope].lines        += val.lines.total;
+            byScope[scope].linesCovered += val.lines.covered;
+            byScope[scope].fns          += val.functions.total;
+            byScope[scope].fnsCovered   += val.functions.covered;
+          });
+
+        const scopes = scopeOrder.filter(s => byScope[s]);
+
+        return (
+          <section className={styles.section} aria-labelledby="coverage-scope-title">
+            <h2 id="coverage-scope-title" className={styles.sectionTitle}>
+              Couverture par scope
+              <span className={styles.sectionCount}>{coverageFiles.length} fichiers</span>
+            </h2>
+            <div className={styles.coverageGrid}>
+              {scopes.map((scope) => {
+                const d = byScope[scope];
+                const linesPct = d.lines > 0 ? (d.linesCovered / d.lines) * 100 : 0;
+                const fnsPct   = d.fns   > 0 ? (d.fnsCovered   / d.fns)   * 100 : 0;
+                return (
+                  <div key={scope} className={styles.coverageCard}>
+                    <div className={styles.coverageHeader}>
+                      <span className={styles.coverageMetric}>{SCOPE_LABELS[scope]}</span>
+                      <span className={`${styles.coveragePct} ${styles[getCoverageColor(linesPct)]}`}>
+                        {linesPct.toFixed(0)}%
+                      </span>
+                    </div>
+                    <div
+                      className={styles.progressBar}
+                      role="progressbar"
+                      aria-valuenow={Math.round(linesPct)}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      aria-label={`${SCOPE_LABELS[scope]} : ${linesPct.toFixed(0)}% lignes`}
+                    >
+                      <div
+                        className={`${styles.progressFill} ${styles[getCoverageColor(linesPct)]}`}
+                        style={{ width: `${linesPct}%` }}
+                      />
+                    </div>
+                    <span className={styles.coverageDetail}>
+                      {d.linesCovered}/{d.lines} lignes · {d.fnsCovered}/{d.fns} fonctions
+                    </span>
+                  </div>
+                );
+              })}
             </div>
-            {coverageFiles.map((file) => (
-              <div key={file.name} className={styles.fileRow}>
-                <span className={styles.fileName}>{file.name}</span>
-                <span className={`${styles.filePct} ${styles[getCoverageColor(file.lines.pct)]}`}>
-                  {file.lines.pct.toFixed(0)}%
-                </span>
-                <span className={`${styles.filePct} ${styles[getCoverageColor(file.functions.pct)]}`}>
-                  {file.functions.pct.toFixed(0)}%
-                </span>
-                <span className={`${styles.filePct} ${styles[getCoverageColor(file.branches.pct)]}`}>
-                  {file.branches.pct.toFixed(0)}%
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      )}
+          </section>
+        );
+      })()}
 
       <p className={styles.footer}>
         Vitest {tests.numTotalTests} tests

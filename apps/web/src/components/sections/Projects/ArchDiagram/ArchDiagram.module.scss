@@ -21,7 +21,7 @@
     border-color: var(--clr-coral-text);
   }
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 3px;
   }
 }
@@ -151,7 +151,7 @@
     border-color: var(--clr-coral-text);
   }
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 3px;
   }
 }
@@ -186,7 +186,7 @@
     color: var(--clr-text);
   }
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: -2px;
   }
 }
@@ -395,7 +395,7 @@
     background: var(--clr-bg-100);
   }
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 2px;
   }
 }

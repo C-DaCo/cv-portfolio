@@ -130,7 +130,7 @@
 
     // Le focus visible s'affiche sur la card entière
     &::after {
-      outline: 2px solid var(--clr-coral);
+      outline: 2px solid var(--clr-sand);
       outline-offset: -2px;
     }
   }
@@ -217,7 +217,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 3px;
   }
 
@@ -274,7 +274,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 3px;
   }
 }
@@ -327,7 +327,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 3px;
   }
 }
@@ -447,7 +447,7 @@
 
     // Focus visible sur la card entière
     &::after {
-      outline: 2px solid var(--clr-coral);
+      outline: 2px solid var(--clr-sand);
       outline-offset: -2px;
       border-radius: 24px;
     }
@@ -543,7 +543,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 3px;
   }
 }

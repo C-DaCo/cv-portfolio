@@ -25,6 +25,7 @@
 
   a {
     color: var(--clr-text-muted);
+    border-radius: 1rem;
     transition: color 0.2s ease;
     &:hover { color: var(--clr-coral-text); }
   }

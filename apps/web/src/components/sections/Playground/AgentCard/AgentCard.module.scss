@@ -115,7 +115,7 @@
   &:hover { color: var(--clr-text); }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -312,7 +312,7 @@
   &:hover { color: var(--clr-coral-text); }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 3px;
     border-radius: 3px;
   }

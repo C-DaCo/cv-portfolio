@@ -181,27 +181,18 @@ describe(desc(TestScope.PAGE, "TestDashboardContent", TestType.RENDU), () => {
         });
     });
 
-    it("affiche la section couverture de code", async () => {
+    it("affiche la section couverture par scope", async () => {
         render(<TestDashboardContent />);
         await waitFor(() => {
-            expect(screen.getByText("Couverture de code")).toBeInTheDocument();
+            expect(screen.getByText("Couverture par scope")).toBeInTheDocument();
         });
     });
 
-    it("affiche la section couverture par fichier", async () => {
+    it("affiche les scopes de couverture", async () => {
         render(<TestDashboardContent />);
         await waitFor(() => {
-            expect(screen.getByText("Couverture par fichier")).toBeInTheDocument();
-        });
-    });
-
-    it("affiche les métriques de couverture", async () => {
-        render(<TestDashboardContent />);
-        await waitFor(() => {
-            expect(screen.getByText("lines")).toBeInTheDocument();
-            expect(screen.getByText("functions")).toBeInTheDocument();
-            expect(screen.getByText("statements")).toBeInTheDocument();
-            expect(screen.getByText("branches")).toBeInTheDocument();
+            expect(screen.getAllByText("Composants UI").length).toBeGreaterThan(0);
+            expect(screen.getAllByText("Hooks").length).toBeGreaterThan(0);
         });
     });
 });

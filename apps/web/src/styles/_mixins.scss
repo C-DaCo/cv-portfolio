@@ -47,11 +47,10 @@ $breakpoints: (
 }
 
 // Focus visible accessible
-@mixin focus-ring($color: var(--clr-primary)) {
+@mixin focus-ring($color: var(--clr-sand)) {
   &:focus-visible {
     outline: 2px solid $color;
     outline-offset: 3px;
-    border-radius: var(--radius-sm);
   }
 }
 

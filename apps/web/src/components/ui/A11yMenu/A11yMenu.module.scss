@@ -44,7 +44,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 3px;
   }
 
@@ -132,7 +132,7 @@
   transition: all 0.2s ease;
 
   &:hover { background: rgba(232, 113, 90, 0.08); }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--clr-sand); outline-offset: 2px; }
 }
 
 .closeBtn {
@@ -148,7 +148,7 @@
   transition: all 0.2s ease;
 
   &:hover { background: var(--clr-bg-200); color: var(--clr-text); }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--clr-sand); outline-offset: 2px; }
 }
 
 // ── Options ───────────────────────────────────
@@ -178,7 +178,7 @@
   &:hover { background: var(--clr-bg-100); }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 2px;
   }
 }
@@ -266,7 +266,7 @@
   transition: all 0.2s ease;
 
   &:hover { border-color: var(--clr-coral-text); color: var(--clr-coral-text); }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--clr-sand); outline-offset: 2px; }
 }
 
 .fontSizeBtnActive {
@@ -323,7 +323,7 @@
   transition: all 0.2s ease;
 
   &:hover { color: var(--clr-coral-text); border-color: var(--clr-coral-text); }
-  &:focus-visible { outline: 2px solid var(--clr-coral); outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--clr-sand); outline-offset: 2px; }
 }
 
 .voiceBtnMain {
@@ -378,7 +378,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--clr-coral);
+    outline: 2px solid var(--clr-sand);
     outline-offset: 2px;
   }
 }
