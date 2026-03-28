@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useFocusTrap } from "@hooks/useFocusTrap";
 import { createPortal } from "react-dom";
 import { X, Film, Image, TestTube, Layers } from "lucide-react";
 import { ArchDiagramContent } from "../ArchDiagram/ArchDiagram";
@@ -114,6 +115,8 @@ export function Drawer({ project, onClose }: DrawerProps) {
     const closeRef = useRef<HTMLButtonElement>(null);
     const { t } = useTranslation();
 
+    useFocusTrap(drawerRef, !!project);
+
     // Animate in
     useEffect(() => {
         if (project) {
@@ -124,7 +127,7 @@ export function Drawer({ project, onClose }: DrawerProps) {
         }
     }, [project]);
 
-    // Focus trap + Escape
+    // Focus initial + Escape
     useEffect(() => {
         if (!project) return;
 
@@ -222,7 +225,7 @@ export function Drawer({ project, onClose }: DrawerProps) {
                 </div>
 
                 {/* ── Contenu onglet ── */}
-                <div className={styles.tabPanel} role="tabpanel" tabIndex={0}>
+                <div className={styles.tabPanel} role="tabpanel" tabIndex={-1}>
                     {renderTabContent()}
                 </div>
             </div>
