@@ -66,10 +66,6 @@ describe(desc(TestScope.SECTION, "Experiences", TestType.RENDU), () => {
     expect(screen.getByText("experiences.hippocad.desc1")).toBeInTheDocument();
   });
 
-  it("affiche le badge remote pour les postes remote", () => {
-    render(<Experiences />);
-    expect(screen.getAllByText("experiences.remote").length).toBeGreaterThanOrEqual(2);
-  });
 });
 
 describe(desc(TestScope.SECTION, "Experiences", TestType.A11Y), () => {

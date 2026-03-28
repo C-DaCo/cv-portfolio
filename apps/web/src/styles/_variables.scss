@@ -27,6 +27,7 @@
   /* Couleurs accessibles pour le texte (WCAG AA sur fond sombre) */
   --clr-coral-text:   #FF4B6E;
   --clr-sage-text:    #00C2A8;
+  --clr-sand-text:    #FFB703;
 }
 
 // ── LIGHT MODE ───────────────────────────
@@ -54,6 +55,7 @@
   /* Couleurs accessibles pour le texte (WCAG AA sur fond clair ≥ 4.5:1) */
   --clr-coral-text:   #991f3e;
   --clr-sage-text:    #1F6B30;
+  --clr-sand-text:    #7A5200;
 }
 
 // ── Tokens fixes (indépendants du thème) ─────

@@ -24,9 +24,14 @@ cd apps/web && yarn vitest run src/components/sections/Hero/Hero.test.tsx
 # API
 cd apps/api && yarn test
 
-# E2E Playwright (nécessite le dev server actif)
+# E2E Playwright (nécessite le dev server actif) — specs dans apps/web/e2e/
 cd apps/web && yarn test:e2e
 cd apps/web && yarn test:e2e --project=chromium  # Un seul navigateur
+```
+
+### Lint
+```bash
+cd apps/web && yarn lint        # ESLint sur src/ (ts, tsx)
 ```
 
 ### Build

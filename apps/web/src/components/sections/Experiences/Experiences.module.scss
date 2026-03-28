@@ -155,17 +155,6 @@
   border-radius: 9999px;
 }
 
-.remoteBadge {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  color: var(--clr-sage-text);
-  background: rgba(123, 158, 135, 0.1);
-  border: 1px solid rgba(123, 158, 135, 0.25);
-  padding: 0.2rem 0.65rem;
-  border-radius: 9999px;
-}
-
 .role {
   font-family: var(--font-serif);
   font-size: clamp(1.1rem, 2.5vw, 1.7rem);

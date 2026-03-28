@@ -21,7 +21,7 @@ export function Footer() {
         </a>
       </div>
       <span className={styles.made}>
-        {t("footer.madeWith")} <span aria-hidden="true">♡</span> {t("footer.stack")}
+        {t("footer.madeWithStack")}
       </span>
 
     </footer>

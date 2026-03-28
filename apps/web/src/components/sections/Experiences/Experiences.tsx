@@ -54,8 +54,7 @@ function ExperienceCard({ experience, index, isLast }: ExperienceCardProps) {
         <header className={styles.cardHeader}>
           <div className={styles.cardMeta}>
             <span className={styles.sector}>{t(experience.sector)}</span>
-            {experience.remote && <span className={styles.remoteBadge} aria-label="Full remote">{t("experiences.remote")}</span>}
-          </div>
+         </div>
           <h3 className={styles.role}>{t(experience.role)}</h3>
           <div className={styles.companyRow}>
             <a href={experience.companyUrl} target="_blank" rel="noopener noreferrer">
