@@ -20,7 +20,7 @@ const contactLimiter = rateLimit({
 
 const agentLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 20,
+  max: 10,
   message: { success: false, message: "Trop de requêtes, réessayez dans 15 minutes." },
 });
 
