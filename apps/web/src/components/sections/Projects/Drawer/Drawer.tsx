@@ -137,27 +137,18 @@ export function Drawer({ project, onClose }: DrawerProps) {
         return () => document.removeEventListener("keydown", handleKey);
     }, [project, onClose]);
 
-    // Scroll lock (iOS-safe)
+    // Scroll lock — overflow hidden sur <html> uniquement, pas de saut de position
     useEffect(() => {
-        const restoreScroll = () => {
-            const top = document.body.style.top;
-            document.body.style.overflow = "";
-            document.body.style.position = "";
-            document.body.style.top = "";
-            document.body.style.width = "";
-            if (top) try { window.scrollTo(0, -parseInt(top)); } catch { /* jsdom */ }
+        const restore = () => {
+            try { document.documentElement.style.overflow = ""; } catch { /* jsdom */ }
         };
 
         if (project) {
-            const scrollY = window.scrollY;
-            document.body.style.overflow = "hidden";
-            document.body.style.position = "fixed";
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.width = "100%";
+            try { document.documentElement.style.overflow = "hidden"; } catch { /* jsdom */ }
         } else {
-            restoreScroll();
+            restore();
         }
-        return restoreScroll;
+        return restore;
     }, [project]);
 
     if (!project) return null;
