@@ -10,6 +10,8 @@ jobs:
   lint-and-test:
     name: Lint & Tests
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
@@ -45,6 +47,8 @@ jobs:
   accessibility:
     name: Accessibilité (axe-core)
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     needs: lint-and-test
 
     steps:
@@ -81,6 +85,9 @@ jobs:
   lighthouse:
     name: Lighthouse CI
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     needs: lint-and-test
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
 
