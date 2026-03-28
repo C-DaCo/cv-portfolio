@@ -3,9 +3,8 @@ import type { Project } from "@/types/projects.types";
 import tacktileo from "@assets/projects/Tactileo-mockup.webp";
 import tactiloVideo from "@assets/projects/Video_Tactileo_Module.mp4";
 import weather from "@assets/projects/Weather-API.webp";
-import mockupBrainboost from "@assets/projects/MockupBrainboost.webp";
+import brainboost from "@assets/projects/Brainboost.webp";
 import brainboostDesktop from "@assets/projects/BrainBoost-desktop.webp";
-import brainboostTablet from "@assets/projects/BrainBoost-tablet.webp";
 import brainboostMobile from "@assets/projects/BrainBoost-mobile.webp";
 import { Theme } from "@hooks/useTheme";
 
@@ -75,9 +74,9 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
       { label: "Jest · Playwright", variant: "sage" },
       { label: "WCAG", variant: "sand" },
     ],
-    image: mockupBrainboost,
+    image: brainboost,
     imageWidth: 3333, imageHeight: 2500,
-    screenshots: [brainboostDesktop, brainboostTablet, brainboostMobile],
+    screenshots: [brainboostDesktop, brainboostMobile],
     year: "2026",
     link: "https://brainboost.carolerotton.dev",
     linkLabel: "BrainBoost",

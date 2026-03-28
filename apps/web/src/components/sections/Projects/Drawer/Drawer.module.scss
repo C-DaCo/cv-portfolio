@@ -319,6 +319,7 @@
 }
 
 .tabContent {
+    height: 100%;
     padding: 1.5rem 2rem;
     display: flex;
     flex-direction: column;
@@ -349,6 +350,7 @@
     overflow: hidden;
     border: 1px solid var(--clr-border);
     background: var(--clr-bg);
+    padding: 1rem;
 }
 
 .screenshotImg {
