@@ -40,13 +40,6 @@ describe(desc(TestScope.SECTION, "Hero", TestType.RENDU), () => {
     expect(screen.getByRole("link", { name: /hero.ctaContact/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /hero.ctaProjects/i })).toBeInTheDocument();
   });
-
-  it("affiche les stats en chiffres", () => {
-    render(<Hero />);
-    expect(screen.getByText("hero.statsYears")).toBeInTheDocument();
-    expect(screen.getByText("hero.statsCompanies")).toBeInTheDocument();
-    expect(screen.getByText("hero.statsProjects")).toBeInTheDocument();
-  });
 });
 
 describe(desc(TestScope.SECTION, "Hero", TestType.A11Y), () => {

@@ -186,39 +186,6 @@ export function Hero() {
         </div>
 
       </div>
-
-      {/* ── Stats ── */}
-      {/* <footer
-        className={`${styles.statsBar} ${!prefersReduced ? styles.animFadeUp : ""}`}
-        style={{ animationDelay: "1s" }}
-        aria-label={t("hero.statsAriaLabel")}
-      >
-        <div className={styles.stats}>
-          {stats.map(({ id, num, label }, i) => (
-            <div key={id} className={styles.statGroup}>
-              {i > 0 && <div className={styles.statSep} aria-hidden="true" />}
-              <div className={styles.stat}>
-                <span className={styles.statNum} aria-label={num}>
-                  {num.includes("+") ? "+" : ""}<em>{num.replace("+", "")}</em>
-                </span>
-                <span className={styles.statLabel}>{label}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className={styles.scrollHint} aria-hidden="true">
-          <span className={styles.scrollText}>{t("hero.scroll")}</span>
-          <div className={styles.scrollArrow}>
-            <svg width="14" height="20" viewBox="0 0 14 20" fill="none" className={styles.scrollSvg}>
-              <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M1 7L7 13L13 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
-              <path d="M1 13L7 19L13 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.2" />
-            </svg>
-          </div>
-        </div>
-      </footer> */}
-
     </section>
   );
 }
