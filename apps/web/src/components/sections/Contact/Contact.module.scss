@@ -279,6 +279,9 @@
   font-size: 0.85rem;
   cursor: pointer;
   transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 
   &:hover { background: rgba(123, 158, 135, 0.1); }
   &:focus-visible { outline: 2px solid var(--clr-sage); outline-offset: 3px; }
@@ -321,34 +324,38 @@
   to { transform: rotate(360deg); }
 }
 
-.successMsg {
+.successState {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  border-radius: 12px;
-  background: rgba(123, 158, 135, 0.12);
-  border: 1px solid rgba(123, 158, 135, 0.3);
-  color: var(--clr-sage-text);
-  font-size: 0.9rem;
-
-  p {
-    color: var(--clr-text-muted);
-    font-size: 0.85rem;
-    margin-top: 0.2rem;
-  }
-}
-
-.successIcon {
-  width: 32px;
-  height: 32px;
-  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: rgba(123, 158, 135, 0.2);
-  font-size: 1rem;
-  flex-shrink: 0;
+  text-align: center;
+  gap: 1rem;
+  padding: 3rem 2rem;
+  min-height: 320px;
+}
+
+.successStar {
+  font-size: 2rem;
+  color: var(--clr-coral-text);
+  line-height: 1;
+}
+
+.successTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--clr-text);
+  line-height: 1.2;
+}
+
+.successDesc {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 280px;
 }
 
 .errorMsg {

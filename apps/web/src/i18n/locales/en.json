@@ -142,7 +142,8 @@
       "desc": "Connected weather station on Raspberry Pi — real-time temperature, humidity and pressure readings.",
       "longDesc": "IoT project currently in development. The station will be connected to the portfolio to display live weather data."
     },
-    "brainboost": {
+    "brainzup": {
+      "title": "BrainZup — Flashcards & spaced repetition",
       "desc": "Flashcard app with spaced repetition (SM-2 algorithm), AI-powered card generation from handwritten notes, multiple study modes and push notifications.",
       "longDesc": "SM-2 algorithm implemented from scratch, 5 study modes (flashcards, MCQ, written test, match, drag-drop). AI-powered card generation from handwritten notes, VAPID push notifications, seasonal themes. 233 tests (89.6% coverage) + 20 Playwright E2E with WCAG AA validation."
     }
@@ -285,8 +286,8 @@
       },
       "submit": "Send message",
       "submitting": "Sending...",
-      "successTitle": "Message sent!",
-      "successDesc": "Thank you, I'll get back to you shortly.",
+      "successTitle": "Thank you!",
+      "successDesc": "Your message has been sent. I'll get back to you as soon as possible.",
       "errorMsg": "An error occurred. Please try again or contact me directly by email.",
       "newMessage": "Send another message"
     },

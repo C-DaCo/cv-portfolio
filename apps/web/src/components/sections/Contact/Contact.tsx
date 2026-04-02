@@ -171,23 +171,21 @@ export function Contact() {
       <div className={styles.right}>
         <div className={styles.formCard}>
 
-          {status === "success" && (
-            <div className={styles.successMsg} role="alert" aria-live="polite">
-              <span className={styles.successIcon} aria-hidden="true">✓</span>
-              <div>
-                <strong>{t("contact.form.successTitle")}</strong>
-                <p>{t("contact.form.successDesc")}</p>
-              </div>
+          {status === "success" ? (
+            <div className={styles.successState} role="alert" aria-live="polite">
+              <span className={styles.successStar} aria-hidden="true">✦</span>
+              <p className={styles.successTitle}>{t("contact.form.successTitle")}</p>
+              <p className={styles.successDesc}>{t("contact.form.successDesc")}</p>
               <button
                 type="button"
                 className={styles.newMessageBtn}
                 onClick={() => setStatus("idle")}
               >
-                {t("contact.form.newMessage")}
+                <span aria-hidden="true">←</span> {t("contact.form.newMessage")}
               </button>
             </div>
-          )}
-
+          ) : (
+          <>
           {status === "error" && (
             <div className={styles.errorMsg} role="alert" aria-live="polite">
               {t("contact.form.errorMsg")}
@@ -297,6 +295,8 @@ export function Contact() {
               )}
             </Button>
           </form>
+          </>
+          )}
         </div>
       </div>
     </section>

@@ -3,11 +3,11 @@ import { useFocusTrap } from "@hooks/useFocusTrap";
 import { createPortal } from "react-dom";
 import { X, Film, Image, TestTube, Layers } from "lucide-react";
 import { ArchDiagramContent } from "../ArchDiagram/ArchDiagram";
-import { BrainBoostArchiContent } from "../ArchDiagram/BrainBoostArchiContent";
+import { BrainZupArchiContent } from "../ArchDiagram/BrainZupArchiContent";
 import type { Project, ProjectTab } from "@/types/projects.types";
 import styles from "./Drawer.module.scss";
 import { TestDashboardContent } from "@pages/TestDashboard/TestDashboardContent";
-import { BrainBoostTestsStatic } from "@pages/TestDashboard/BrainBoostTestsStatic";
+import { BrainZupTestsStatic } from "@pages/TestDashboard/BrainZupTestsStatic";
 import { useTranslation } from "react-i18next";
 
 // ── Icônes par onglet ─────────────────────────
@@ -82,8 +82,8 @@ function ScreenshotsTab({ project }: { project: Project }) {
 function TestsTab({ project }: { project: Project }) {
     return (
         <div className={styles.tabContent}>
-            {project.id === "brainboost"
-                ? <BrainBoostTestsStatic />
+            {project.id === "brainzup"
+                ? <BrainZupTestsStatic />
                 : <TestDashboardContent />
             }
         </div>
@@ -93,8 +93,8 @@ function TestsTab({ project }: { project: Project }) {
 function ArchiTab({ project }: { project: Project }) {
     return (
         <div className={styles.tabContent}>
-            {project.id === "brainboost"
-                ? <BrainBoostArchiContent />
+            {project.id === "brainzup"
+                ? <BrainZupArchiContent />
                 : <ArchDiagramContent />
             }
         </div>

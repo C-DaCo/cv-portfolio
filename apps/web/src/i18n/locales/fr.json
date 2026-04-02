@@ -143,8 +143,9 @@
       "desc": "Station météo connectée sur Raspberry Pi — relevés de température, humidité et pression en temps réel.",
       "longDesc": "Projet IoT en cours de développement. La station sera connectée au portfolio pour afficher les données météo en direct."
     },
-    "brainboost": {
-      "desc": "Application de révision répétition espacée (algorithme SM-2), génération de flashcards par IA via scan de leçons, modes d'entraînement variés et notifications push.",
+    "brainzup": {
+      "title": "BrainZup — Flashcards & révision espacée",
+      "desc": "Application de révision espacée (algorithme SM-2), génération de flashcards par IA via scan de leçons, modes d'entraînement variés et notifications push.",
       "longDesc": "Algorithme SM-2 implémenté from scratch, 3 modes d'entraînement (flashcards, QCM, interro écrite). Génération de cartes par IA depuis des photos leçons, notifications push VAPID, thèmes saisonniers. 233 tests (89.6% coverage) + 20 E2E avec validation WCAG AA."
     }
   },
@@ -286,10 +287,10 @@
       },
       "submit": "Envoyer le message",
       "submitting": "Envoi en cours...",
-      "successTitle": "Message envoyé !",
-      "successDesc": "Merci, je vous réponds dans les meilleurs délais.",
+      "successTitle": "Merci !",
+      "successDesc": "Votre message est bien parti. Je vous réponds dans les meilleurs délais.",
       "errorMsg": "Une erreur est survenue. Réessayez ou contactez-moi directement par email.",
-      "newMessage": "Envoyer un autre message"
+      "newMessage": "Nouveau message"
     },
     "validation": {
       "nameMin": "Le nom doit contenir au moins 2 caractères.",

@@ -41,12 +41,12 @@ function getCoverageColor(pct: number) {
   return "low";
 }
 
-export function BrainBoostTestsStatic() {
+export function BrainZupTestsStatic() {
   return (
     <div className={styles.content}>
 
       {/* ── Stats globales ── */}
-      <section className={styles.statsGrid} aria-label="Résumé des tests BrainBoost">
+      <section className={styles.statsGrid} aria-label="Résumé des tests BrainZup">
         <div className={styles.statCard}>
           <CheckCircle size={20} strokeWidth={1.5} className={styles.iconPass} />
           <span className={styles.statNum}>282</span>

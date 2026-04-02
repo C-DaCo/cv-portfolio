@@ -79,7 +79,7 @@ COMPÉTENCES TECHNIQUES
 
 PROJETS NOTABLES
 
-1. BrainBoost (2025) — Application web de révision par répétition espacée
+1. BrainZup (2025) — Application web de révision par répétition espacée
    - Algorithme SM-2 implémenté from scratch, testé de façon unitaire, pur et réutilisable
    - Génération de flashcards par IA (Claude API) depuis des photos de leçons manuscrites
    - 3 modes d'entraînement : flashcards, QCM, interro écrite + modes match et drag-drop

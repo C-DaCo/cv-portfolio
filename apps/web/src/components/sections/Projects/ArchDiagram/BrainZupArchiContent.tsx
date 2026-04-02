@@ -63,7 +63,7 @@ const flux = [
 
 // ── Composant ─────────────────────────────────
 
-export function BrainBoostArchiContent() {
+export function BrainZupArchiContent() {
   const [activeTab, setActiveTab] = useState<"layers" | "flux">("layers");
 
   return (
