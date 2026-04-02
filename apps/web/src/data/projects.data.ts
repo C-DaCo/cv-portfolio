@@ -3,7 +3,7 @@ import type { Project } from "@/types/projects.types";
 import tacktileo from "@assets/projects/Tactileo-mockup.webp";
 import tactiloVideo from "@assets/projects/Video_Tactileo_Module.mp4";
 import weather from "@assets/projects/Weather-API.webp";
-import brainzup from "@assets/projects/Brainzup.webp";
+import brainzup from "@assets/projects/BrainZup.webp";
 import brainzupDesktop from "@assets/projects/BrainZup-desktop.webp";
 import brainzupMobile from "@assets/projects/BrainZup-mobile.webp";
 import { Theme } from "@hooks/useTheme";
