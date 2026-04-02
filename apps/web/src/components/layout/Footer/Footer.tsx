@@ -12,7 +12,7 @@ export function Footer() {
   useEffect(() => {
     if (sessionStorage.getItem("cv-visited")) return;
     sessionStorage.setItem("cv-visited", "1");
-    fetch("/api/visits", { method: "POST" })
+    fetch(`${import.meta.env.VITE_API_URL}/api/visits`, { method: "POST" })
       .then(r => r.json())
       .then(d => { if (d.success) setVisitCount(d.count); })
       .catch(() => {});
@@ -24,7 +24,7 @@ export function Footer() {
     if (visitCount !== null) {
       setShowCount(v => !v);
     } else {
-      fetch("/api/visits")
+      fetch(`${import.meta.env.VITE_API_URL}/api/visits`)
         .then(r => r.json())
         .then(d => { if (d.success) { setVisitCount(d.count); setShowCount(true); } })
         .catch(() => {});
