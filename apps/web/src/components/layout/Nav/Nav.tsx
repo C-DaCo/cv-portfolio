@@ -84,9 +84,9 @@ export function Nav() {
       )}
 
       <nav ref={navRef} className={styles.nav} aria-label="Navigation principale">
-        <span className={styles.navLogo}>
+        <a href="#hero" className={styles.navLogo} aria-label="Retour en haut de page">
           <strong>Carole</strong> Rotton
-        </span>
+        </a>
 
         {/* Bouton hamburger — mobile uniquement */}
         <button

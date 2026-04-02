@@ -61,6 +61,27 @@ body {
   outline-offset: 3px;
 }
 
+// ─── Scrollbar ───
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-coral);
+  border-radius: 99px;
+  opacity: 0.5;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-coral) var(--clr-bg);
+}
+
 // ─── Éléments de base ───
 
 img,

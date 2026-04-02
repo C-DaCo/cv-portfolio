@@ -5,6 +5,7 @@ import styles from "./App.module.scss";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { A11yMenu } from "@components/ui/A11yMenu/A11yMenu";
+import { BackToTop } from "@components/ui/BackToTop/BackToTop";
 import { SectionSkeleton } from "@components/ui/Skeleton/Skeleton";
 import { useDocumentTitle } from "@hooks/useDocumentTitle";
 import { Nav } from "@components/layout/Nav/Nav";
@@ -44,6 +45,7 @@ export default function App() {
 
       <Footer />
       <A11yMenu />
+      <BackToTop />
     </div>
   );
 }

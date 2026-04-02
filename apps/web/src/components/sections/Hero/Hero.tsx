@@ -172,12 +172,23 @@ export function Hero() {
               style={{ opacity: photoLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
             />
           </div>
+          
+        <div className={styles.scrollHint} aria-hidden="true">
+          <span className={styles.scrollText}>{t("hero.scroll")}</span>
+          <div className={styles.scrollArrow}>
+            {[1, 2, 3].map(i => (
+              <svg key={i} width="14" height="8" viewBox="0 0 14 8" fill="none" className={styles[`scrollChev${i}` as keyof typeof styles]}>
+                <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            ))}
+          </div>
+        </div>
         </div>
 
       </div>
 
       {/* ── Stats ── */}
-      <footer
+      {/* <footer
         className={`${styles.statsBar} ${!prefersReduced ? styles.animFadeUp : ""}`}
         style={{ animationDelay: "1s" }}
         aria-label={t("hero.statsAriaLabel")}
@@ -206,7 +217,7 @@ export function Hero() {
             </svg>
           </div>
         </div>
-      </footer>
+      </footer> */}
 
     </section>
   );
