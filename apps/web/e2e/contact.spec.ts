@@ -48,10 +48,10 @@ test.describe("Contact form", () => {
     await form.getByLabel(/message/i).fill("Bonjour, je suis intéressé par votre profil pour un poste frontend.");
     await form.getByRole("button", { name: /envoyer le message/i }).click();
 
-    await expect(page.getByText(/message envoyé/i)).toBeVisible();
+    await expect(page.getByText(/merci/i)).toBeVisible();
   });
 
-  test("'Envoyer un autre message' button resets the form", async ({ page }) => {
+  test("'Nouveau message' button resets the form", async ({ page }) => {
     await page.route("**/api/contact", (route) =>
       route.fulfill({
         status: 200,
@@ -67,7 +67,7 @@ test.describe("Contact form", () => {
     await form.getByLabel(/message/i).fill("Bonjour, je suis intéressé par votre profil pour un poste frontend.");
     await form.getByRole("button", { name: /envoyer le message/i }).click();
 
-    await page.getByRole("button", { name: /envoyer un autre message/i }).click();
+    await page.getByRole("button", { name: /nouveau message/i }).click();
     await expect(page.getByRole("form", { name: /formulaire de contact/i })).toBeVisible();
   });
 
