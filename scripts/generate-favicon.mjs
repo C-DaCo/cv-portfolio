@@ -1,7 +1,7 @@
 /**
- * Génère les icônes avec les proportions exactes du Hero :
- * C = .firstname (PJS 300 uppercase small)
- * R = .lastname  (Cormorant Garamond 300 italic large)
+ * Génère les icônes app depuis le design du favicon.svg :
+ * C = Arial gris, R = Cormorant Garamond italic coral
+ * Fond crème #fff4f1, points accent teal + violet
  */
 
 import { chromium } from "../node_modules/playwright/index.mjs";
@@ -12,20 +12,31 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLIC    = resolve(__dirname, "../apps/web/public");
 
-const BG      = "#f9f4ec";
-const C_COLOR = "#4A3A5E";  // --clr-text-muted light
-const R_COLOR = "#991f3e";  // --clr-coral-text light
+const BG      = "#fff4f1";
+const C_COLOR = "#7e7e7e";
+const R_COLOR = "#FF4B6E";
+const DOT1    = "#00C2A8";  // teal accent (top-right)
+const DOT2    = "#B97FFF";  // violet accent (bottom-left)
 
 function makeHtml(size, dx = 0, dy = 0) {
-  const rad = Math.round(size * 0.16);
-  const rFs = Math.round(size * 1.049);
-  const cFs = Math.round(size * 0.557);
+  const rad  = Math.round(size * 0.16);   // border-radius arrondi
+  const rFs  = Math.round(size * 0.732);  // R : font-size (41/56 du SVG)
+  const cFs  = Math.round(size * 0.536);  // C : font-size (30/56 du SVG)
 
-  // Positions de base + offset de centrage calculé en 2e passe
+  const dot1R = Math.round(size * 0.054); // rayon point teal  (~3px à 56)
+  const dot2R = Math.round(size * 0.036); // rayon point violet (~2px à 56)
+
+  // Positions de base (auto-centrées en passe 2)
   const cLeft = Math.round(size * 0.04)  + dx;
-  const cTop  = Math.round(size * 0.30)  + dy;
+  const cTop  = Math.round(size * 0.10)  + dy;
   const rLeft = Math.round(size * 0.28)  + dx;
-  const rTop  = Math.round(size * 0.02)  + dy;
+  const rTop  = Math.round(size * 0.00)  + dy;
+
+  // Dots fixés aux coins de l'icône (indépendants du centrage)
+  const dot1Left = Math.round(size * 0.82);
+  const dot1Top  = Math.round(size * 0.14);
+  const dot2Left = Math.round(size * 0.16);
+  const dot2Top  = Math.round(size * 0.82);
 
   return `<!DOCTYPE html>
 <html>
@@ -33,7 +44,7 @@ function makeHtml(size, dx = 0, dy = 0) {
 <meta charset="utf-8"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Plus+Jakarta+Sans:wght@300&display=block" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=block" rel="stylesheet"/>
 <style>
   * { margin: 0; padding: 0; }
   html, body { width: ${size}px; height: ${size}px; background: transparent; }
@@ -48,11 +59,9 @@ function makeHtml(size, dx = 0, dy = 0) {
     position: absolute;
     left: ${cLeft}px;
     top: ${cTop}px;
-    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: ${cFs}px;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-weight: 400;
     color: ${C_COLOR};
     line-height: 1;
   }
@@ -67,12 +76,28 @@ function makeHtml(size, dx = 0, dy = 0) {
     color: ${R_COLOR};
     line-height: 1;
   }
+  .dot {
+    position: absolute;
+    border-radius: 50%;
+  }
+  .dot1 {
+    width: ${dot1R * 2}px; height: ${dot1R * 2}px;
+    left: ${dot1Left - dot1R}px; top: ${dot1Top - dot1R}px;
+    background: ${DOT1};
+  }
+  .dot2 {
+    width: ${dot2R * 2}px; height: ${dot2R * 2}px;
+    left: ${dot2Left - dot2R}px; top: ${dot2Top - dot2R}px;
+    background: ${DOT2};
+  }
 </style>
 </head>
 <body>
   <div class="icon">
     <span class="c">C</span>
     <span class="r">R</span>
+    <div class="dot dot1"></div>
+    <div class="dot dot2"></div>
   </div>
 </body>
 </html>`;
@@ -102,11 +127,10 @@ async function capture(size, outPath) {
   const png = await page.locator(".icon").screenshot({ type: "png" });
   writeFileSync(outPath, png);
   await browser.close();
-  console.log(`OK  ${outPath.split("\\").pop()} (${size}px) — offset (${dx}, ${dy})`);
+  console.log(`OK  ${outPath.split(/[\\/]/).pop()} (${size}px) — offset (${dx}, ${dy})`);
 }
 
-await capture(64,  resolve(PUBLIC, "favicon-64.png"));
 await capture(180, resolve(PUBLIC, "apple-touch-icon.png"));
 await capture(192, resolve(PUBLIC, "icon-192.png"));
 await capture(512, resolve(PUBLIC, "icon-512.png"));
-console.log("\nOuvre apps/web/public/favicon-64.png et icon-512.png pour vérifier.");
+console.log("\nVérifier apps/web/public/apple-touch-icon.png et icon-512.png.");

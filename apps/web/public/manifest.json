@@ -4,7 +4,7 @@
   "description": "Portfolio de Carole Rotton, développeuse Front-End React & TypeScript",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f9f4ec",
+  "background_color": "#fff4f1",
   "theme_color": "#FF4B6E",
   "lang": "fr",
   "icons": [

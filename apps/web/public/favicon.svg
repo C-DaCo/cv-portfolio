@@ -1,0 +1,20 @@
+<svg width="32" height="32" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- fond crème léger pour lisibilité -->
+  <circle cx="28" cy="28" r="27" fill="#fff4f1"/>
+  <circle cx="28" cy="28" r="27" stroke="rgba(44,26,32,0.12)" stroke-width="1"/>
+  <!-- C -->
+  <text x="6" y="38"
+    font-family="arial, sans-serif"
+    font-size="30"
+    fill="rgb(126, 126, 126)">C</text>
+  <!-- R -->
+  <text x="24" y="41"
+    font-family="Cormorant Garamond, serif"
+    font-style="italic"
+    font-size="41"
+    font-weight="300"
+    fill="#FF4B6E">R</text>
+  <!-- point accent -->
+  <circle cx="49" cy="11" r="3" fill="#00C2A8"/>
+  <circle cx="12" cy="50" r="2" fill="#B97FFF"/>
+</svg>
