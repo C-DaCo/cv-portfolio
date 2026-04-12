@@ -29,6 +29,7 @@ export interface Project {
   link?: string;
   linkLabel?: string;
   github?: string;
+  widget?: string;
   year: string;
   tabs: ProjectTab[];
   wip?: boolean;

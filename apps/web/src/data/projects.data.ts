@@ -2,7 +2,6 @@ import type { TFunction } from "i18next";
 import type { Project } from "@/types/projects.types";
 import tacktileo from "@assets/projects/Tactileo-mockup.webp";
 import tactiloVideo from "@assets/projects/Video_Tactileo_Module.mp4";
-import weather from "@assets/projects/Weather-API.webp";
 import brainzup from "@assets/projects/BrainZup.webp";
 import brainzupDesktop from "@assets/projects/BrainZup-desktop.webp";
 import brainzupMobile from "@assets/projects/BrainZup-mobile.webp";
@@ -88,22 +87,23 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
   },
   {
     id: "weather-station",
-    wip: true,
     company: "Projet personnel · IoT",
     title: "Station météo Raspberry Pi",
     desc: t("projects.weather.desc"),
     longDesc: t("projects.weather.longDesc"),
     tags: [
       { label: "Raspberry Pi", variant: "coral" },
-      { label: "Python", variant: "coral" },
-      { label: "IoT", variant: "sage" },
-      { label: "API REST", variant: "mauve" },
+      { label: "ESP32", variant: "coral" },
+      { label: "MQTT", variant: "sage" },
+      { label: "Node.js", variant: "mauve" },
+      { label: "WebSocket", variant: "mauve" },
+      { label: "IoT", variant: "sand" },
     ],
-    image: weather,
-    imageWidth: 599, imageHeight: 401,
+    widget: "https://meteo.lejardindecarole.dev/widget",
     year: "2026",
     tabs: [
       { id: "screenshots", label: t("projects.drawer.screenshots") },
+      { id: "archi", label: t("projects.drawer.archi") },
     ],
   },
 ];
