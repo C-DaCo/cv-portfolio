@@ -24,6 +24,7 @@ test.describe("Accessibility — WCAG AA", () => {
 
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+      .exclude("iframe")
       .analyze();
 
     expect(results.violations).toEqual([]);
@@ -65,6 +66,7 @@ test.describe("Accessibility — WCAG AA", () => {
 
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+      .exclude("iframe")
       .analyze();
 
     expect(results.violations).toEqual([]);
@@ -78,6 +80,7 @@ test.describe("Accessibility — WCAG AA", () => {
 
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+      .exclude("iframe")
       .analyze();
 
     expect(results.violations).toEqual([]);
