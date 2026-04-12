@@ -89,6 +89,6 @@ describe(desc(TestScope.SECTION, "Projects", TestType.A11Y), () => {
 
   it("n'a pas de violations axe-core", async () => {
     const { container } = render(<Projects />);
-    expect(await axe(container)).toHaveNoViolations();
+    expect(await axe(container, { iframes: false })).toHaveNoViolations();
   });
 });

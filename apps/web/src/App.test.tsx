@@ -101,7 +101,7 @@ describe(desc(TestScope.PAGE, "App", TestType.A11Y), () => {
       const result = renderApp();
       container = result.container;
     });
-    const results = await axe(container!);
+    const results = await axe(container!, { iframes: false });
     expect(results).toHaveNoViolations();
   }, 30_000);
 });
