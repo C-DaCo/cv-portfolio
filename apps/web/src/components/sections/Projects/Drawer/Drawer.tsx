@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { X, Film, Image, TestTube, Layers } from "lucide-react";
 import { ArchDiagramContent } from "../ArchDiagram/ArchDiagram";
 import { BrainZupArchiContent } from "../ArchDiagram/BrainZupArchiContent";
+import { MeteoStationArchiContent } from "../ArchDiagram/MeteoStationArchiContent";
 import type { Project, ProjectTab } from "@/types/projects.types";
 import styles from "./Drawer.module.scss";
 import { TestDashboardContent } from "@pages/TestDashboard/TestDashboardContent";
@@ -95,7 +96,9 @@ function ArchiTab({ project }: { project: Project }) {
         <div className={styles.tabContent}>
             {project.id === "brainzup"
                 ? <BrainZupArchiContent />
-                : <ArchDiagramContent />
+                : project.id === "weather-station"
+                    ? <MeteoStationArchiContent />
+                    : <ArchDiagramContent />
             }
         </div>
     );
