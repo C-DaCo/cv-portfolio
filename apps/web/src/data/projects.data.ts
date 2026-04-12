@@ -100,6 +100,7 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
       { label: "IoT", variant: "sand" },
     ],
     widget: "https://meteo.lejardindecarole.dev/widget",
+    github: "https://github.com/C-DaCo/weather-station",
     year: "2026",
     tabs: [
       { id: "screenshots", label: t("projects.drawer.screenshots") },
