@@ -25,10 +25,14 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
     >
       {/* ── Média ── */}
       <div className={styles.media}>
-        {project.wip && (
-          <span className={styles.wipBadge} aria-label="Projet en cours">En cours</span>
-        )}
-        {project.image && (
+        {project.widget ? (
+          <iframe
+            src={project.widget}
+            className={styles.widgetFrame}
+            title={`Widget météo en direct — ${project.title}`}
+            loading="lazy"
+          />
+        ) : project.image ? (
           <img
             src={project.image}
             alt={`Capture de ${project.title}`}
@@ -37,8 +41,7 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
             width={project.imageWidth}
             height={project.imageHeight}
           />
-        )}
-        {!project.image && (
+        ) : (
           <div className={styles.portfolioMedia} aria-hidden="true">
             <div className={styles.archDiagram}>
               {["Front", "API", "Tests", "i18n", "a11y"].map((label) => (
