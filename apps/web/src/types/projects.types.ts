@@ -30,6 +30,7 @@ export interface Project {
   linkLabel?: string;
   github?: string;
   widget?: string;
+  widgetHealth?: string;
   year: string;
   tabs: ProjectTab[];
   wip?: boolean;

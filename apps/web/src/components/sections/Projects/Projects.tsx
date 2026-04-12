@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useIntersectionObserver } from "@hooks/useIntersectionObserver";
 import { useTheme } from "@hooks/useTheme";
+import { useWidgetStatus } from "@hooks/useWidgetStatus";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import styles from "./Projects.module.scss";
 import { Drawer } from "./Drawer/Drawer";
@@ -17,6 +18,7 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
   onOpen: (project: Project) => void;
 }) {
   const { t } = useTranslation();
+  const widgetStatus = useWidgetStatus(project.widgetHealth);
 
   return (
     <article
@@ -26,12 +28,30 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
       {/* ── Média ── */}
       <div className={styles.media}>
         {project.widget ? (
-          <iframe
-            src={project.widget}
-            className={styles.widgetFrame}
-            title={`Widget météo en direct — ${project.title}`}
-            loading="lazy"
-          />
+          widgetStatus === "online" ? (
+            <iframe
+              src={project.widget}
+              className={styles.widgetFrame}
+              title={`Widget météo en direct — ${project.title}`}
+              loading="lazy"
+            />
+          ) : (
+            <div className={styles.widgetOffline}>
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt="Aperçu du widget météo"
+                  className={styles.widgetFallback}
+                  loading="lazy"
+                />
+              )}
+              {widgetStatus === "offline" && (
+                <span className={styles.offlineBadge} aria-label="Station hors ligne">
+                  Hors ligne
+                </span>
+              )}
+            </div>
+          )
         ) : project.image ? (
           <img
             src={project.image}

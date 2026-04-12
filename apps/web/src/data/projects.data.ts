@@ -1,5 +1,6 @@
 import type { TFunction } from "i18next";
 import type { Project } from "@/types/projects.types";
+import widgetOffline from "@assets/projects/widget-offline.png";
 import tacktileo from "@assets/projects/Tactileo-mockup.webp";
 import tactiloVideo from "@assets/projects/Video_Tactileo_Module.mp4";
 import brainzup from "@assets/projects/BrainZup.webp";
@@ -100,6 +101,8 @@ export const getProjects = (theme: Theme, t: TFunction): Project[] => [
       { label: "IoT", variant: "sand" },
     ],
     widget: "https://meteo.lejardindecarole.dev/widget",
+    widgetHealth: "https://meteo.lejardindecarole.dev/api/health",
+    image: widgetOffline,
     github: "https://github.com/C-DaCo/weather-station",
     year: "2026",
     tabs: [

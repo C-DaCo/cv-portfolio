@@ -170,6 +170,37 @@
   pointer-events: none;
 }
 
+.widgetOffline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.widgetFallback {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: brightness(0.6);
+}
+
+.offlineBadge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--clr-text-muted);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
 .poster {
   width: 100%;
   height: 100%;
