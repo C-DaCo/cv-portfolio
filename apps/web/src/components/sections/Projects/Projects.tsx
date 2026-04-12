@@ -28,7 +28,7 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
       {/* ── Média ── */}
       <div className={styles.media}>
         {project.widget ? (
-          widgetStatus === "online" ? (
+          widgetStatus !== "offline" ? (
             <iframe
               src={project.widget}
               className={styles.widgetFrame}
@@ -45,11 +45,9 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
                   loading="lazy"
                 />
               )}
-              {widgetStatus === "offline" && (
-                <span className={styles.offlineBadge} aria-label="Station hors ligne">
-                  Hors ligne
-                </span>
-              )}
+              <span className={styles.offlineBadge} aria-label="Station hors ligne">
+                Hors ligne
+              </span>
             </div>
           )
         ) : project.image ? (
