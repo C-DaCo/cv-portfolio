@@ -139,8 +139,8 @@
       "longDesc": "Portfolio built like a real product: dark/light mode, accessibility menu, fr/en i18n, real-time test dashboard, WebP optimization. Monorepo architecture with independent front-end and API."
     },
     "weather": {
-      "desc": "Connected weather station on Raspberry Pi — real-time temperature, humidity and pressure readings.",
-      "longDesc": "IoT project currently in development. The station will be connected to the portfolio to display live weather data."
+      "desc": "Connected weather station on Raspberry Pi — real-time temperature and humidity readings.",
+      "longDesc": "Full IoT stack: ESP32 + DHT22 → MQTT → Raspberry Pi → WebSocket. Live widget embedded in the portfolio. Node.js server, 30-day SQLite persistence, Chart.js history, public access via Cloudflare Tunnel. 24 Jest tests."
     },
     "brainzup": {
       "title": "BrainZup — Flashcards & spaced repetition",

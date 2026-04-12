@@ -140,8 +140,8 @@
       "longDesc": "Portfolio conçu comme un vrai produit : dark/light mode, menu d'accessibilité, i18n fr/en, dashboard de tests en temps réel, optimisation WebP. Architecture monorepo avec front et API indépendants."
     },
     "weather": {
-      "desc": "Station météo connectée sur Raspberry Pi — relevés de température, humidité et pression en temps réel.",
-      "longDesc": "Projet IoT en cours de développement. La station sera connectée au portfolio pour afficher les données météo en direct."
+      "desc": "Station météo connectée sur Raspberry Pi — relevés de température et humidité en temps réel.",
+      "longDesc": "Architecture IoT complète : ESP32 + DHT22 → MQTT → Raspberry Pi → WebSocket. Widget embarqué live sur le portfolio. Serveur Node.js, persistance SQLite 30 jours, historique Chart.js, accès public via Cloudflare Tunnel. 24 tests Jest."
     },
     "brainzup": {
       "title": "BrainZup — Flashcards & révision espacée",
