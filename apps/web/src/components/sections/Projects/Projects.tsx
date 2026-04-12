@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useIntersectionObserver } from "@hooks/useIntersectionObserver";
 import { useTheme } from "@hooks/useTheme";
 import { useWidgetStatus } from "@hooks/useWidgetStatus";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, ArrowRight, Unplug } from "lucide-react";
 import styles from "./Projects.module.scss";
 import { Drawer } from "./Drawer/Drawer";
 import { getProjects } from "@data/projects.data";
@@ -37,17 +37,8 @@ function ProjectCard({ project, index, isVisible, onOpen }: {
             />
           ) : (
             <div className={styles.widgetOffline}>
-              {project.image && (
-                <img
-                  src={project.image}
-                  alt="Aperçu du widget météo"
-                  className={styles.widgetFallback}
-                  loading="lazy"
-                />
-              )}
-              <span className={styles.offlineBadge} aria-label="Station hors ligne">
-                Hors ligne
-              </span>
+              <Unplug size={72} strokeWidth={1} className={styles.unplugIcon} aria-hidden="true" />
+              <span className={styles.offlineBadge}>Hors ligne</span>
             </div>
           )
         ) : project.image ? (
