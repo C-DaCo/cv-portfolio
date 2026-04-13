@@ -86,7 +86,7 @@ Le CV complet est injecté en system prompt dans `apps/api/src/routes/cv.ts`.
 ANTHROPIC_API_KEY=
 RESEND_API_KEY=
 CONTACT_EMAIL=          # destinataire des emails de contact
-FROM_EMAIL=             # expéditeur vérifié dans Resend (ex: hello@caroleroton.dev)
+FROM_EMAIL=             # expéditeur vérifié dans Resend (ex: hello@carolerotton.dev)
 FRONTEND_URL=           # origine autorisée par CORS (défaut: http://localhost:5173)
 PORT=3001               # optionnel
 ```

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://caroleroton.dev/sitemap.xml
+Sitemap: https://carolerotton.dev/sitemap.xml
