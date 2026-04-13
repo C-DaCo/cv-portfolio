@@ -125,6 +125,20 @@ Types : `rendu`, `interactions`, `a11y`.
 @/types      → src/types
 ```
 
+### Projets — conventions d'extension
+
+**Ajouter un projet** : modifier `src/data/projects.data.ts` + `src/i18n/locales/{fr,en}.json`. Le type `Project` (`src/types/projects.types.ts`) supporte :
+- `widget` + `widgetHealth` : iframe embarquée avec détection online/offline via `useWidgetStatus` (hook dans `src/hooks/useWidgetStatus.ts` — fetch avec timeout 3s)
+- `tabs` : `screenshots | video | archi | tests` — le Drawer switche selon `project.id` pour les onglets `archi` et `tests`
+
+**Ajouter un onglet Architecture** dans le Drawer : créer un composant `XxxArchiContent.tsx` dans `src/components/sections/Projects/ArchDiagram/` (copier la structure de `BrainZupArchiContent.tsx`), puis ajouter un cas dans `ArchiTab` dans `Drawer.tsx`.
+
+### Tests — axe-core et iframes
+
+Les iframes tierces (ex: widget météo) doivent être exclues des audits axe-core :
+- **Vitest** : `axe(container, { iframes: false })`
+- **Playwright E2E** : `.exclude('iframe')` sur le builder `AxeBuilder`
+
 ### Fichiers générés (ne pas éditer manuellement)
 
 | Fichier | Généré par |
